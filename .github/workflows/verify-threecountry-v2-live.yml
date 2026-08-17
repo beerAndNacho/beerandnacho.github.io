@@ -1,0 +1,111 @@
+name: verify Threecountry SRPG v2 live
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/verify-threecountry-v2-live.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Verify live HTML and local assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          base='https://beerandnacho.github.io/threecountry-v2'
+          for path in '/' '/styles.css' '/app.js' '/engine.js' '/content.js' '/audio.js'; do
+            echo "Checking ${base}${path}"
+            curl --retry 35 --retry-delay 3 --retry-all-errors -fsSL "${base}${path}?verify=${GITHUB_RUN_ID}" -o /dev/null
+          done
+          curl --retry 35 --retry-delay 3 --retry-all-errors -fsSL "${base}/?verify=${GITHUB_RUN_ID}" -o /tmp/threecountry-v2-index.html
+          grep -q '<div id="app"' /tmp/threecountry-v2-index.html
+          grep -q './app.js' /tmp/threecountry-v2-index.html
+          ! grep -q 'cdn.jsdelivr.net' /tmp/threecountry-v2-index.html
+
+      - name: Install mobile browser runtime
+        shell: bash
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --no-audit --no-fund playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Play through story, roster, deployment, and first tactical move
+        shell: bash
+        run: |
+          cat > verify-threecountry-v2.mjs <<'EOF'
+          import { chromium } from 'playwright';
+
+          const browser = await chromium.launch({ headless: true });
+          const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+          const errors = [];
+          page.on('pageerror', (error) => errors.push(`pageerror: ${error.message}`));
+          page.on('requestfailed', (request) => errors.push(`requestfailed: ${request.url()} ${request.failure()?.errorText || ''}`));
+
+          const url = `https://beerandnacho.github.io/threecountry-v2/?verify=${Date.now()}`;
+          await page.goto(url, { waitUntil: 'networkidle', timeout: 120_000 });
+          await page.evaluate(() => localStorage.clear());
+          await page.reload({ waitUntil: 'networkidle', timeout: 120_000 });
+
+          await page.locator('[data-action="new-game"]').waitFor({ state: 'visible', timeout: 30_000 });
+          await page.locator('[data-action="new-game"]').click();
+
+          for (let i = 0; i < 10 && await page.locator('[data-action="story-next"]').count(); i += 1) {
+            await page.locator('[data-action="story-next"]').click();
+            await page.waitForTimeout(80);
+          }
+          await page.locator('.roster-screen').waitFor({ state: 'visible', timeout: 15_000 });
+          if (await page.locator('.roster-card').count() !== 6) throw new Error('Expected six selectable Cao officers.');
+          if (await page.locator('.roster-card.selected').count() !== 4) throw new Error('Expected four default selected officers.');
+          await page.locator('[data-action="confirm-roster"]').click();
+
+          for (let i = 0; i < 6 && await page.locator('[data-action="story-next"]').count(); i += 1) {
+            await page.locator('[data-action="story-next"]').click();
+            await page.waitForTimeout(80);
+          }
+          await page.locator('.deployment-screen').waitFor({ state: 'visible', timeout: 15_000 });
+          if (await page.locator('.preview-unit.player').count() !== 4) throw new Error('Expected four deployed player officers.');
+          if (await page.locator('.preview-unit.enemy').count() !== 4) throw new Error('Expected four named enemy preview units.');
+          await page.locator('[data-action="start-battle"]').click();
+
+          for (let i = 0; i < 6 && await page.locator('[data-action="battle-dialogue-next"]').count(); i += 1) {
+            await page.locator('[data-action="battle-dialogue-next"]').click();
+            await page.waitForTimeout(80);
+          }
+          await page.locator('.battle-grid').waitFor({ state: 'visible', timeout: 20_000 });
+          if (await page.locator('.battle-unit.player').count() !== 4) throw new Error('Expected four player units on the tactical grid.');
+          if (await page.locator('.battle-unit.enemy').count() !== 6) throw new Error('Expected six enemy units on the tactical grid.');
+          if (await page.locator('.battle-cell').count() !== 96) throw new Error('Expected a 12x8 tactical grid.');
+
+          await page.locator('.battle-unit.player').first().click();
+          await page.locator('.battle-cell.reachable').first().waitFor({ state: 'visible', timeout: 10_000 });
+          const before = await page.locator('.battle-unit.player.selected').getAttribute('style');
+          await page.locator('.battle-cell.reachable').first().click();
+          await page.waitForTimeout(350);
+          const selectedCount = await page.locator('.battle-unit.player.selected').count();
+          if (selectedCount !== 1) throw new Error('Selected officer was lost after movement.');
+          const after = await page.locator('.battle-unit.player.selected').getAttribute('style');
+          if (before === after) throw new Error('The selected officer did not move to a new grid cell.');
+          await page.locator('.command-grid').waitFor({ state: 'visible', timeout: 10_000 });
+
+          await page.locator('[data-action="end-turn"]').click();
+          await page.waitForFunction(() => document.querySelector('.turn-indicator small')?.textContent?.includes('PLAYER PHASE'), undefined, { timeout: 30_000 });
+          const turnText = await page.locator('.turn-indicator b').innerText();
+          if (!turnText.includes('2')) throw new Error(`Enemy AI turn did not complete: ${turnText}`);
+
+          if (errors.length) throw new Error(errors.join('\n'));
+          console.log('Live SRPG passed: story, six-officer roster, deployment, 12x8 movement, commands, and enemy AI turn.');
+          await page.screenshot({ path: '/tmp/threecountry-v2-live.png', fullPage: true });
+          await browser.close();
+          EOF
+          node verify-threecountry-v2.mjs
