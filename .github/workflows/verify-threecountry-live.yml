@@ -1,0 +1,71 @@
+name: verify Threecountry live page
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/verify-threecountry-live.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Verify live HTML and local assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          base='https://beerandnacho.github.io/threecountry'
+          for path in '/' '/styles.css' '/assets/main.js' '/assets/content.js' '/assets/engine.js' '/assets/battle.js' '/assets/rng.js' '/assets/storage.js'; do
+            echo "Checking ${base}${path}"
+            curl --retry 20 --retry-delay 3 --retry-all-errors -fsSL "${base}${path}?verify=${GITHUB_RUN_ID}" -o "/tmp/$(echo "$path" | tr '/' '_' | sed 's/^_$/index.html/')"
+          done
+          curl --retry 20 --retry-delay 3 --retry-all-errors -fsSL "${base}/?verify=${GITHUB_RUN_ID}" -o /tmp/index.html
+          grep -q '<div id="app"' /tmp/index.html
+          grep -q './assets/main.js' /tmp/index.html
+          grep -q './styles.css' /tmp/index.html
+          ! grep -q 'cdn.jsdelivr.net/gh/beerAndNacho/Threecountry' /tmp/index.html
+
+      - name: Install browser test runtime
+        shell: bash
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --no-audit --no-fund playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Open the deployed game in Chromium
+        shell: bash
+        run: |
+          cat > /tmp/verify.mjs <<'EOF'
+          import { chromium } from 'playwright';
+
+          const browser = await chromium.launch({ headless: true });
+          const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+          const errors = [];
+          page.on('pageerror', (error) => errors.push(`pageerror: ${error.message}`));
+          page.on('requestfailed', (request) => errors.push(`requestfailed: ${request.url()} ${request.failure()?.errorText || ''}`));
+
+          const response = await page.goto(`https://beerandnacho.github.io/threecountry/?verify=${Date.now()}`, {
+            waitUntil: 'networkidle',
+            timeout: 120_000,
+          });
+          if (!response?.ok()) throw new Error(`Page response was ${response?.status()}`);
+          await page.locator('#app').waitFor({ state: 'visible', timeout: 30_000 });
+          await page.waitForFunction(() => (document.querySelector('#app')?.textContent || '').trim().length > 40);
+          const text = await page.locator('#app').innerText();
+          if (!text.includes('천하일지')) throw new Error(`Expected title was not rendered. Text: ${text.slice(0, 200)}`);
+          if (!text.includes('새 연대기')) throw new Error(`Start button was not rendered. Text: ${text.slice(0, 200)}`);
+          if (errors.length) throw new Error(errors.join('\n'));
+          console.log(text.slice(0, 500));
+          await page.screenshot({ path: '/tmp/threecountry-live.png', fullPage: true });
+          await browser.close();
+          EOF
+          node /tmp/verify.mjs
