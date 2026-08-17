@@ -1,0 +1,81 @@
+name: sync Threecountry assets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sync-threecountry.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-threecountry-assets
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout Pages repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout tested Threecountry build
+        uses: actions/checkout@v4
+        with:
+          repository: beerAndNacho/Threecountry
+          ref: c4cf75fb39bb02922e0e412445cb3ac67a72264d
+          path: _threecountry_source
+
+      - name: Copy game assets into the Pages repository
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p threecountry/assets
+          cp _threecountry_source/dist/assets/*.js threecountry/assets/
+          cp _threecountry_source/dist/styles.css threecountry/styles.css
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path('threecountry/index.html')
+          html = path.read_text(encoding='utf-8')
+          html = html.replace(
+              'https://cdn.jsdelivr.net/gh/beerAndNacho/Threecountry@c4cf75fb39bb02922e0e412445cb3ac67a72264d/dist/styles.css',
+              './styles.css?v=20260817-1',
+          )
+          html = html.replace(
+              'https://cdn.jsdelivr.net/gh/beerAndNacho/Threecountry@c4cf75fb39bb02922e0e412445cb3ac67a72264d/dist/assets/main.js',
+              './assets/main.js?v=20260817-1',
+          )
+          path.write_text(html, encoding='utf-8')
+          PY
+          rm -rf _threecountry_source
+
+      - name: Verify every imported local module exists
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s threecountry/index.html
+          test -s threecountry/styles.css
+          for file in main content engine battle rng storage; do
+            test -s "threecountry/assets/${file}.js"
+          done
+          ! grep -q 'cdn.jsdelivr.net/gh/beerAndNacho/Threecountry' threecountry/index.html
+
+      - name: Commit self-hosted deployment
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add threecountry
+          if git diff --cached --quiet; then
+            echo 'No deployment changes.'
+            exit 0
+          fi
+          git commit -m 'fix: serve Threecountry assets locally'
+          git push
