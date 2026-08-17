@@ -1,0 +1,92 @@
+name: verify Gogame live page
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/verify-go-live.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Verify deployed HTML and local assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          base='https://beerandnacho.github.io/go'
+          for path in '/' '/src/styles.css' '/src/status.css' '/src/app.js' '/src/ai.js' '/src/go-engine.js' '/src/omok-ai.js' '/src/omok-engine.js'; do
+            echo "Checking ${base}${path}"
+            curl --retry 30 --retry-delay 3 --retry-all-errors -fsSL "${base}${path}?verify=${GITHUB_RUN_ID}" -o /dev/null
+          done
+          curl --retry 30 --retry-delay 3 --retry-all-errors -fsSL "${base}/?verify=${GITHUB_RUN_ID}" -o /tmp/go-index.html
+          grep -q './src/app.js' /tmp/go-index.html
+          grep -q './src/styles.css' /tmp/go-index.html
+          grep -q './src/status.css' /tmp/go-index.html
+          ! grep -q 'cdn.jsdelivr.net/gh/beerAndNacho/Gogame' /tmp/go-index.html
+
+      - name: Install Chromium runtime
+        shell: bash
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --no-audit --no-fund playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Play a smoke turn in the deployed game
+        shell: bash
+        run: |
+          cat > verify-go.mjs <<'EOF'
+          import { chromium } from 'playwright';
+
+          const browser = await chromium.launch({ headless: true });
+          const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+          const errors = [];
+          page.on('pageerror', (error) => errors.push(`pageerror: ${error.message}`));
+          page.on('requestfailed', (request) => errors.push(`requestfailed: ${request.url()} ${request.failure()?.errorText || ''}`));
+
+          let loaded = false;
+          for (let attempt = 1; attempt <= 12; attempt += 1) {
+            try {
+              const response = await page.goto(`https://beerandnacho.github.io/go/?verify=${Date.now()}-${attempt}`, {
+                waitUntil: 'networkidle',
+                timeout: 60_000,
+              });
+              if (!response?.ok()) throw new Error(`HTTP ${response?.status()}`);
+              await page.locator('#board').waitFor({ state: 'visible', timeout: 15_000 });
+              await page.waitForFunction(() => {
+                const canvas = document.querySelector('#board');
+                return canvas instanceof HTMLCanvasElement && canvas.width > 100 && canvas.height > 100;
+              }, undefined, { timeout: 15_000 });
+              loaded = true;
+              break;
+            } catch (error) {
+              console.log(`Attempt ${attempt} failed: ${error.message}`);
+              await page.waitForTimeout(5000);
+            }
+          }
+          if (!loaded) throw new Error('The live board never became playable.');
+
+          const title = await page.locator('.brand b').innerText();
+          if (!title.includes('GOGAME')) throw new Error(`Unexpected title: ${title}`);
+          await page.locator('#gameSwitch [data-game="omok"]').click();
+          await page.waitForFunction(() => document.querySelector('#gameSubtitle')?.textContent?.includes('오목'));
+          if (!(await page.locator('#omokRuleField').isVisible())) throw new Error('Omok settings did not appear.');
+          await page.locator('#newGameButton').click();
+          await page.locator('#gameSwitch [data-game="go"]').click();
+          await page.waitForFunction(() => document.querySelector('#gameSubtitle')?.textContent?.includes('바둑'));
+
+          if (errors.length) throw new Error(errors.join('\n'));
+          console.log('Live Gogame rendered, canvas initialized, and Go/Omok switching worked.');
+          await page.screenshot({ path: '/tmp/gogame-live.png', fullPage: true });
+          await browser.close();
+          EOF
+          node verify-go.mjs
