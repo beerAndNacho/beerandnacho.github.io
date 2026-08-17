@@ -17,56 +17,55 @@ concurrency:
 jobs:
   sync:
     runs-on: ubuntu-latest
-    timeout-minutes: 8
+    timeout-minutes: 12
     steps:
       - name: Checkout Pages repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Checkout tested Threecountry build
+      - name: Checkout tested cinematic Threecountry source
         uses: actions/checkout@v4
         with:
           repository: beerAndNacho/Threecountry
-          ref: c4cf75fb39bb02922e0e412445cb3ac67a72264d
+          ref: 14499f07e3b22e59979f61ac9c5912138c28ad2b
           path: _threecountry_source
 
-      - name: Copy game assets into the Pages repository
+      - name: Build game
+        working-directory: _threecountry_source
         shell: bash
         run: |
           set -euo pipefail
-          mkdir -p threecountry/assets
-          cp _threecountry_source/dist/assets/*.js threecountry/assets/
-          cp _threecountry_source/dist/styles.css threecountry/styles.css
-          python3 - <<'PY'
-          from pathlib import Path
+          npm ci
+          npm run build
+          node --test tests/*.test.mjs
 
-          path = Path('threecountry/index.html')
-          html = path.read_text(encoding='utf-8')
-          html = html.replace(
-              'https://cdn.jsdelivr.net/gh/beerAndNacho/Threecountry@c4cf75fb39bb02922e0e412445cb3ac67a72264d/dist/styles.css',
-              './styles.css?v=20260817-1',
-          )
-          html = html.replace(
-              'https://cdn.jsdelivr.net/gh/beerAndNacho/Threecountry@c4cf75fb39bb02922e0e412445cb3ac67a72264d/dist/assets/main.js',
-              './assets/main.js?v=20260817-1',
-          )
-          path.write_text(html, encoding='utf-8')
-          PY
+      - name: Replace public game with tested build
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf threecountry
+          mkdir -p threecountry
+          cp -R _threecountry_source/dist/. threecountry/
           rm -rf _threecountry_source
 
-      - name: Verify every imported local module exists
+      - name: Verify cinematic deployment graph
         shell: bash
         run: |
           set -euo pipefail
           test -s threecountry/index.html
           test -s threecountry/styles.css
-          for file in main content engine battle rng storage; do
+          test -s threecountry/presentation-core.css
+          test -s threecountry/presentation-scenes.css
+          for file in main presentation content engine battle rng storage; do
             test -s "threecountry/assets/${file}.js"
           done
+          grep -q './assets/presentation.js' threecountry/index.html
+          grep -q './presentation-core.css' threecountry/index.html
+          grep -q './presentation-scenes.css' threecountry/index.html
           ! grep -q 'cdn.jsdelivr.net/gh/beerAndNacho/Threecountry' threecountry/index.html
 
-      - name: Commit self-hosted deployment
+      - name: Commit deployment
         shell: bash
         run: |
           set -euo pipefail
@@ -77,5 +76,5 @@ jobs:
             echo 'No deployment changes.'
             exit 0
           fi
-          git commit -m 'fix: serve Threecountry assets locally'
+          git commit -m 'feat: publish cinematic Threecountry game'
           git push
