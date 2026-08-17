@@ -73,7 +73,7 @@ jobs:
           await page.locator('.map-view').waitFor({ state: 'visible', timeout: 20_000 });
           await page.locator('.season-mission').waitFor({ state: 'visible' });
           if (await page.locator('.marching-army').count() < 2) throw new Error('Map armies were not rendered.');
-          await page.locator('[data-action="select-city"][data-city="chenliu"]').click();
+          await page.locator('.city-node[data-action="select-city"][data-city="chenliu"]').click();
           await page.locator('.floating-war-command').waitFor({ state: 'visible', timeout: 10_000 });
           await page.locator('.floating-war-command').click();
           await page.locator('.battle-setup').waitFor({ state: 'visible', timeout: 10_000 });
