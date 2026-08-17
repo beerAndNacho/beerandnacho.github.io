@@ -44,7 +44,7 @@ jobs:
       - name: Open the deployed game in Chromium
         shell: bash
         run: |
-          cat > /tmp/verify.mjs <<'EOF'
+          cat > verify-threecountry.mjs <<'EOF'
           import { chromium } from 'playwright';
 
           const browser = await chromium.launch({ headless: true });
@@ -68,4 +68,4 @@ jobs:
           await page.screenshot({ path: '/tmp/threecountry-live.png', fullPage: true });
           await browser.close();
           EOF
-          node /tmp/verify.mjs
+          node verify-threecountry.mjs
