@@ -1,0 +1,81 @@
+name: sync Gogame assets
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sync-go.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-gogame-assets
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - name: Checkout Pages repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout tested Gogame source
+        uses: actions/checkout@v4
+        with:
+          repository: beerAndNacho/Gogame
+          ref: eaf5f2194df199c75132bb2b02fa7d257aa6e580
+          path: _gogame_source
+
+      - name: Copy game assets into Pages
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf go/src
+          mkdir -p go/src
+          cp _gogame_source/src/*.js go/src/
+          cp _gogame_source/src/*.css go/src/
+          python3 - <<'PY'
+          from pathlib import Path
+
+          path = Path('go/index.html')
+          html = path.read_text(encoding='utf-8')
+          base = 'https://cdn.jsdelivr.net/gh/beerAndNacho/Gogame@eaf5f2194df199c75132bb2b02fa7d257aa6e580/src/'
+          html = html.replace(base + 'styles.css', './src/styles.css?v=20260817-2')
+          html = html.replace(base + 'status.css', './src/status.css?v=20260817-2')
+          html = html.replace(base + 'app.js', './src/app.js?v=20260817-2')
+          path.write_text(html, encoding='utf-8')
+          PY
+          rm -rf _gogame_source
+
+      - name: Verify local module graph
+        shell: bash
+        run: |
+          set -euo pipefail
+          for file in app ai go-engine omok-ai omok-engine; do
+            test -s "go/src/${file}.js"
+          done
+          test -s go/src/styles.css
+          test -s go/src/status.css
+          grep -q './src/app.js' go/index.html
+          grep -q './src/styles.css' go/index.html
+          grep -q './src/status.css' go/index.html
+          ! grep -q 'cdn.jsdelivr.net/gh/beerAndNacho/Gogame' go/index.html
+
+      - name: Commit self-hosted deployment
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add go
+          if git diff --cached --quiet; then
+            echo 'No deployment changes.'
+            exit 0
+          fi
+          git commit -m 'fix: serve Gogame assets locally'
+          git push
