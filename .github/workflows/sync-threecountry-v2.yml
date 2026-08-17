@@ -1,0 +1,81 @@
+name: sync Threecountry SRPG v2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sync-threecountry-v2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-threecountry-srpg-v2
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout Pages repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout tested SRPG source
+        uses: actions/checkout@v4
+        with:
+          repository: beerAndNacho/Threecountry
+          ref: f7bb5c550ef5433dcfc9c365800d44882c26c58f
+          path: _threecountry_srpg
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: _threecountry_srpg/package-lock.json
+
+      - name: Verify and build source
+        working-directory: _threecountry_srpg
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm ci
+          npm run build
+
+      - name: Replace public SRPG build
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf threecountry-v2
+          mkdir -p threecountry-v2
+          cp -R _threecountry_srpg/srpg/dist/. threecountry-v2/
+          rm -rf _threecountry_srpg
+
+      - name: Verify deployment graph
+        shell: bash
+        run: |
+          set -euo pipefail
+          for file in index.html styles.css app.js engine.js content.js audio.js; do
+            test -s "threecountry-v2/${file}"
+          done
+          grep -q 'data-action="new-game"' threecountry-v2/app.js
+          grep -q 'battle-grid' threecountry-v2/styles.css
+          grep -q './app.js' threecountry-v2/index.html
+          ! grep -q 'cdn.jsdelivr.net' threecountry-v2/index.html
+
+      - name: Commit public build
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add threecountry-v2
+          if git diff --cached --quiet; then
+            echo 'No deployment changes.'
+            exit 0
+          fi
+          git commit -m 'feat: publish grid-based Threecountry SRPG'
+          git push
