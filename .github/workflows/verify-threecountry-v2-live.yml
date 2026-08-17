@@ -8,13 +8,18 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: read
+  contents: write
 
 jobs:
   verify:
     runs-on: ubuntu-latest
     timeout-minutes: 14
     steps:
+      - name: Checkout Pages repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
       - uses: actions/setup-node@v4
         with:
           node-version: 22
@@ -34,6 +39,7 @@ jobs:
           ! grep -q 'cdn.jsdelivr.net' /tmp/threecountry-v2-index.html
 
       - name: Install mobile browser runtime
+        working-directory: /tmp
         shell: bash
         run: |
           npm init -y >/dev/null 2>&1
@@ -41,6 +47,7 @@ jobs:
           npx playwright install --with-deps chromium
 
       - name: Play through story, roster, deployment, and first tactical move
+        working-directory: /tmp
         shell: bash
         run: |
           cat > verify-threecountry-v2.mjs <<'EOF'
@@ -109,3 +116,14 @@ jobs:
           await browser.close();
           EOF
           node verify-threecountry-v2.mjs
+
+      - name: Record verified public build
+        shell: bash
+        run: |
+          set -euo pipefail
+          printf 'verified_run=%s\nverified_at=%s\n' "$GITHUB_RUN_ID" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > threecountry-v2/verified.txt
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add threecountry-v2/verified.txt
+          git commit -m 'test: verify live Threecountry SRPG v2'
+          git push
