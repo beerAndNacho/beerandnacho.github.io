@@ -1,0 +1,97 @@
+name: diagnose Threecountry pixel geometry v2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/diagnose-threecountry-pixel-live-v2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Expose run id
+        run: |
+          printf 'run_id=%s\nstatus=running\n' "$GITHUB_RUN_ID" > threecountry-v2/pixel-diagnostic-v2-running.txt
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add threecountry-v2/pixel-diagnostic-v2-running.txt
+          git commit -m "test: start pixel geometry diagnostic v2 ${GITHUB_RUN_ID}"
+          git push
+      - name: Install Chromium
+        working-directory: /tmp
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --no-audit --no-fund playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Capture geometry
+        id: diag
+        continue-on-error: true
+        working-directory: /tmp
+        shell: bash
+        run: |
+          mkdir -p /tmp/pixel-geometry-v2
+          cat > diag.mjs <<'EOF'
+          import { chromium } from 'playwright';
+          import { writeFile } from 'node:fs/promises';
+          const browser=await chromium.launch({headless:true});
+          const page=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:2});
+          try{
+            await page.goto(`https://beerandnacho.github.io/threecountry-v2/?diag=${Date.now()}`,{waitUntil:'networkidle',timeout:120000});
+            await page.evaluate(()=>localStorage.clear());
+            await page.reload({waitUntil:'networkidle',timeout:120000});
+            await page.waitForFunction(()=>window.__pixelArtV2?.heroCount===12);
+            await page.locator('[data-action="new-game"]').click();
+            for(let i=0;i<18;i++){if(await page.locator('.roster-screen').isVisible().catch(()=>false))break;if(await page.locator('[data-action="story-next"]').count())await page.locator('[data-action="story-next"]').click();await page.waitForTimeout(100);}
+            await page.locator('[data-action="confirm-roster"]').click();
+            for(let i=0;i<18;i++){if(await page.locator('.deployment-screen').isVisible().catch(()=>false))break;if(await page.locator('[data-action="story-next"]').count())await page.locator('[data-action="story-next"]').click();await page.waitForTimeout(100);}
+            await page.locator('[data-action="start-battle"]').click();
+            for(let i=0;i<12;i++){const next=page.locator('[data-action="battle-dialogue-next"]');if(!(await next.count()))break;await next.click();await page.waitForTimeout(100);}
+            await page.waitForFunction(()=>document.querySelectorAll('.battle-unit canvas.pixel-sprite-v2').length===10);
+            await page.waitForTimeout(900);
+            const diagnostics=await page.evaluate(()=>{
+              const box=(r)=>({x:r.x,y:r.y,width:r.width,height:r.height,top:r.top,left:r.left,right:r.right,bottom:r.bottom});
+              const grid=document.querySelector('.battle-grid'),layer=document.querySelector('.unit-layer'),gr=grid?.getBoundingClientRect();
+              return {viewport:{width:innerWidth,height:innerHeight,scrollY,documentHeight:document.documentElement.scrollHeight},grid:grid?{rect:box(gr),css:{width:getComputedStyle(grid).width,height:getComputedStyle(grid).height,cell:getComputedStyle(grid).getPropertyValue('--cell'),position:getComputedStyle(grid).position,zIndex:getComputedStyle(grid).zIndex}}:null,layer:layer?{rect:box(layer.getBoundingClientRect()),css:{position:getComputedStyle(layer).position,zIndex:getComputedStyle(layer).zIndex,opacity:getComputedStyle(layer).opacity,visibility:getComputedStyle(layer).visibility}}:null,units:[...document.querySelectorAll('.battle-unit')].map(unit=>{const canvas=unit.querySelector('canvas.pixel-sprite-v2'),ur=unit.getBoundingClientRect(),cr=canvas?.getBoundingClientRect(),us=getComputedStyle(unit),cs=canvas?getComputedStyle(canvas):null;return{id:unit.dataset.unit,hero:unit.dataset.pixelHero,inline:unit.getAttribute('style'),unitRect:box(ur),canvasRect:cr?box(cr):null,unitCss:{left:us.left,top:us.top,zIndex:us.zIndex,opacity:us.opacity,visibility:us.visibility,display:us.display,transform:us.transform,animation:us.animationName},canvasCss:cs?{width:cs.width,height:cs.height,opacity:cs.opacity,visibility:cs.visibility,display:cs.display,scale:cs.scale,translate:cs.translate,transform:cs.transform}:null,intersectsGrid:gr?!(ur.right<gr.left||ur.left>gr.right||ur.bottom<gr.top||ur.top>gr.bottom):false};})};
+            });
+            console.log(JSON.stringify(diagnostics,null,2));
+            await writeFile('/tmp/pixel-geometry-v2/geometry.json',JSON.stringify(diagnostics,null,2));
+            await page.screenshot({path:'/tmp/pixel-geometry-v2/battle.png',fullPage:true});
+          }finally{await browser.close();}
+          EOF
+          set +e
+          node diag.mjs 2>&1 | tee /tmp/pixel-geometry-v2/diagnostic.log
+          code=${PIPESTATUS[0]}
+          echo "status=$code" >> "$GITHUB_OUTPUT"
+          exit "$code"
+      - name: Upload evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: threecountry-pixel-geometry-v2
+          path: /tmp/pixel-geometry-v2/*
+          if-no-files-found: error
+          retention-days: 7
+      - name: Record result
+        if: always()
+        env:
+          OUTCOME: ${{ steps.diag.outcome }}
+        run: |
+          rm -f threecountry-v2/pixel-diagnostic-v2-running.txt
+          printf 'run_id=%s\nstatus=%s\n' "$GITHUB_RUN_ID" "$OUTCOME" > threecountry-v2/pixel-diagnostic-v2-result.txt
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A threecountry-v2
+          git commit -m 'test: record pixel geometry diagnostic v2'
+          git push
