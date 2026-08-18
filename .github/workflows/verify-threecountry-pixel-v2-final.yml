@@ -1,0 +1,283 @@
+name: final verify Threecountry pixel v2
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/verify-threecountry-pixel-v2-final.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: final-verify-threecountry-pixel-v2
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Expose final run
+        shell: bash
+        run: |
+          set -euo pipefail
+          printf 'run_id=%s\nstatus=running\nstarted_at=%s\n' "$GITHUB_RUN_ID" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > threecountry-v2/pixel-v2-final-running.txt
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add threecountry-v2/pixel-v2-final-running.txt
+          git commit -m "test: start final pixel verification ${GITHUB_RUN_ID}"
+          git push
+
+      - name: Verify fixed public files
+        shell: bash
+        run: |
+          set -euo pipefail
+          base='https://beerandnacho.github.io/threecountry-v2'
+          for path in '/' '/character-art-v1.css' '/pixel-geometry-fix.css' '/character-art-v1.js'; do
+            curl --retry 40 --retry-delay 3 --retry-all-errors -fsSL "${base}${path}?run=${GITHUB_RUN_ID}" -o "/tmp/$(basename "$path" | sed 's/^$/index.html/')"
+          done
+          curl --retry 40 --retry-delay 3 --retry-all-errors -fsSL "${base}/?run=${GITHUB_RUN_ID}" -o /tmp/index.html
+          grep -q 'character-art-v1.js?v=20260818-10' /tmp/index.html
+          grep -q 'pixel-geometry-fix.css?v=20260818-10' /tmp/index.html
+          grep -q 'heroCount:ORDER.length' /tmp/character-art-v1.js
+          grep -q "'soldier-archer'" /tmp/character-art-v1.js
+          grep -q 'translate:none!important' /tmp/pixel-geometry-fix.css
+          grep -q 'animation:none!important' /tmp/pixel-geometry-fix.css
+
+      - name: Install Chromium
+        working-directory: /tmp
+        shell: bash
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --no-audit --no-fund playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Inspect every character and play one action
+        id: browser
+        continue-on-error: true
+        working-directory: /tmp
+        shell: bash
+        run: |
+          mkdir -p /tmp/threecountry-pixel-final
+          cat > verify-final.mjs <<'EOF'
+          import { chromium } from 'playwright';
+          import { writeFile } from 'node:fs/promises';
+
+          const EXPECTED = [
+            'cao', 'xiahou', 'dian', 'xun', 'guo', 'xu',
+            'liu', 'guan', 'zhang', 'zhao', 'soldier-spear', 'soldier-archer',
+          ];
+          const browser = await chromium.launch({ headless: true });
+          const page = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
+          const errors = [];
+          page.on('pageerror', (error) => errors.push(`pageerror: ${error.message}`));
+          page.on('requestfailed', (request) => errors.push(`requestfailed: ${request.url()} ${request.failure()?.errorText || ''}`));
+
+          const analyze = async (selector, minimum, label) => {
+            const values = await page.locator(selector).evaluateAll((canvases) => canvases.map((canvas) => {
+              const ctx = canvas instanceof HTMLCanvasElement ? canvas.getContext('2d') : null;
+              const data = ctx?.getImageData(0, 0, canvas.width, canvas.height).data || [];
+              let painted = 0;
+              let hash = 2166136261;
+              for (let i = 0; i < data.length; i += 4) {
+                if (data[i + 3] > 8) painted += 1;
+                hash ^= data[i] + data[i + 1] * 3 + data[i + 2] * 7 + data[i + 3] * 11;
+                hash = Math.imul(hash, 16777619);
+              }
+              return { id: canvas.dataset.pixelHero || '', painted, hash: hash >>> 0, width: canvas.width, height: canvas.height };
+            }));
+            if (values.length < minimum) throw new Error(`${label}: expected ${minimum}, received ${values.length}`);
+            const bad = values.find((value) => value.painted < 70 || !value.width || !value.height);
+            if (bad) throw new Error(`${label}: blank canvas ${JSON.stringify(bad)}`);
+            return values;
+          };
+
+          const advanceStory = async (destination, limit = 20) => {
+            for (let i = 0; i < limit; i += 1) {
+              if (await page.locator(destination).isVisible().catch(() => false)) return;
+              const button = page.locator('[data-action="story-next"]');
+              if (!(await button.count())) break;
+              await button.click({ force: true });
+              await page.waitForTimeout(110);
+            }
+            await page.locator(destination).waitFor({ state: 'visible', timeout: 20_000 });
+          };
+
+          const closeBattleDialogue = async () => {
+            for (let i = 0; i < 14; i += 1) {
+              const button = page.locator('[data-action="battle-dialogue-next"]');
+              if (!(await button.count())) break;
+              await button.click({ force: true });
+              await page.waitForTimeout(110);
+            }
+          };
+
+          try {
+            const response = await page.goto(`https://beerandnacho.github.io/threecountry-v2/?finalPixel=${Date.now()}`, { waitUntil: 'networkidle', timeout: 120_000 });
+            if (!response?.ok()) throw new Error(`HTTP ${response?.status()}`);
+            await page.evaluate(() => localStorage.clear());
+            await page.reload({ waitUntil: 'networkidle', timeout: 120_000 });
+            await page.waitForFunction(() => window.__pixelArtV2?.ready === true && window.__pixelArtV2?.heroCount === 12, undefined, { timeout: 30_000 });
+
+            await page.locator('[data-action="new-game"]').waitFor({ state: 'visible', timeout: 30_000 });
+            const title = await analyze('.title-cast canvas.pixel-portrait-v2', 2, 'title');
+            await page.screenshot({ path: '/tmp/threecountry-pixel-final/01-title.png' });
+            await page.locator('[data-action="new-game"]').click({ force: true });
+
+            await advanceStory('.roster-screen');
+            const roster = await analyze('.roster-card canvas.pixel-portrait-v2', 6, 'roster');
+            if (new Set(roster.map((item) => item.hash)).size !== 6) throw new Error('The six playable portraits are not visually distinct.');
+            await page.screenshot({ path: '/tmp/threecountry-pixel-final/02-roster.png', fullPage: true });
+
+            await page.locator('[data-pixel-detail]').first().click({ force: true });
+            await page.locator('.pixel-sheet-modal.show').waitFor({ state: 'visible', timeout: 10_000 });
+            await analyze('.pixel-sheet-modal canvas.pixel-sheet-portrait-art', 1, 'detail portrait');
+            const states = await analyze('.pixel-sheet-modal canvas.pixel-state-art', 4, 'detail states');
+            if (new Set(states.map((item) => item.hash)).size < 3) throw new Error('The four action states are not differentiated.');
+            await page.screenshot({ path: '/tmp/threecountry-pixel-final/03-detail.png' });
+            await page.locator('[data-pixel-sheet-close]').last().click({ force: true });
+
+            await page.locator('[data-action="confirm-roster"]').click({ force: true });
+            await advanceStory('.deployment-screen');
+            const deployment = await analyze('.preview-unit canvas.pixel-sprite-v2', 8, 'deployment');
+            await page.screenshot({ path: '/tmp/threecountry-pixel-final/04-deployment.png' });
+            await page.locator('[data-action="start-battle"]').click({ force: true });
+            await closeBattleDialogue();
+            await page.locator('.battle-grid').waitFor({ state: 'visible', timeout: 20_000 });
+            const battle = await analyze('.battle-unit canvas.pixel-sprite-v2', 10, 'battle');
+
+            const allIds = [...new Set([...roster, ...battle].map((item) => item.id))].sort();
+            const missing = EXPECTED.filter((id) => !allIds.includes(id));
+            if (missing.length) throw new Error(`Missing rendered character IDs: ${missing.join(', ')}`);
+            if (await page.locator('.battle-cell').count() !== 96) throw new Error('The battlefield is not 12x8.');
+
+            const geometry = await page.evaluate(() => {
+              const gridRect = document.querySelector('.battle-grid')?.getBoundingClientRect();
+              const grid = gridRect ? { left: gridRect.left, top: gridRect.top, right: gridRect.right, bottom: gridRect.bottom } : null;
+              const units = [...document.querySelectorAll('.battle-unit')].map((unit) => {
+                const rect = unit.getBoundingClientRect();
+                const canvas = unit.querySelector('canvas.pixel-sprite-v2')?.getBoundingClientRect();
+                return {
+                  id: unit.dataset.unit,
+                  hero: unit.dataset.pixelHero,
+                  rect: { left: rect.left, top: rect.top, right: rect.right, bottom: rect.bottom, width: rect.width, height: rect.height },
+                  canvas: canvas ? { width: canvas.width, height: canvas.height } : null,
+                  transform: getComputedStyle(unit).transform,
+                  translate: getComputedStyle(unit).translate,
+                  animation: getComputedStyle(unit).animationName,
+                };
+              });
+              return { grid, units };
+            });
+            if (!geometry.grid) throw new Error('Missing grid geometry.');
+            for (const unit of geometry.units) {
+              if (Object.values(unit.rect).some((value) => !Number.isFinite(value) || Math.abs(value) > 100000)) throw new Error(`Runaway geometry: ${JSON.stringify(unit)}`);
+              if (unit.rect.right < geometry.grid.left || unit.rect.left > geometry.grid.right || unit.rect.bottom < geometry.grid.top || unit.rect.top > geometry.grid.bottom) throw new Error(`Off-grid unit: ${JSON.stringify(unit)}`);
+              if (!unit.canvas || unit.canvas.width < 18 || unit.canvas.height < 18) throw new Error(`Missing/undersized unit art: ${JSON.stringify(unit)}`);
+            }
+            await page.screenshot({ path: '/tmp/threecountry-pixel-final/05-battle.png' });
+
+            const actor = page.locator('.battle-unit.player:not(.acted)').first();
+            const actorId = await actor.getAttribute('data-unit');
+            await actor.click({ force: true });
+            const actorElement = page.locator(`.battle-unit[data-unit="${actorId}"]`);
+            const x = (await actorElement.evaluate((element) => element.style.getPropertyValue('--x').trim()));
+            const y = (await actorElement.evaluate((element) => element.style.getPropertyValue('--y').trim()));
+            const candidates = page.locator('.battle-cell.reachable');
+            let target = null;
+            for (let i = 0; i < await candidates.count(); i += 1) {
+              const candidate = candidates.nth(i);
+              if ((await candidate.getAttribute('data-x')) !== x || (await candidate.getAttribute('data-y')) !== y) { target = candidate; break; }
+            }
+            if (!target) throw new Error('No distinct reachable cell was found.');
+            const targetX = await target.getAttribute('data-x');
+            const targetY = await target.getAttribute('data-y');
+            const moveFx = page.waitForSelector('.pixel-action-sprite-v2.move', { state: 'attached', timeout: 5_000 });
+            await target.click({ force: true });
+            await moveFx;
+            await page.waitForFunction(({ actorId, targetX, targetY }) => {
+              const element = document.querySelector(`.battle-unit[data-unit="${actorId}"]`);
+              return element?.style.getPropertyValue('--x').trim() === targetX && element?.style.getPropertyValue('--y').trim() === targetY;
+            }, { actorId, targetX, targetY }, { timeout: 10_000 });
+            await page.screenshot({ path: '/tmp/threecountry-pixel-final/06-moved.png' });
+
+            const moved = page.locator(`.battle-unit[data-unit="${actorId}"]`);
+            await moved.click({ force: true });
+            const attack = page.locator('[data-action="command-attack"]');
+            if (await attack.count()) {
+              await attack.click({ force: true });
+              const effect = page.waitForSelector('.pixel-hit-fx-v2.attack', { state: 'attached', timeout: 5_000 });
+              await page.locator('.battle-unit.enemy').first().dispatchEvent('pointerdown', { pointerType: 'mouse', bubbles: true });
+              await effect;
+              await page.screenshot({ path: '/tmp/threecountry-pixel-final/07-attack.png' });
+            }
+
+            if (errors.length) throw new Error(errors.join('\n'));
+            const result = {
+              status: 'success', version: await page.evaluate(() => window.__pixelArtV2.version),
+              renderedCharacters: allIds, titlePortraits: title.length, rosterPortraits: roster.length,
+              deploymentSprites: deployment.length, battleSprites: battle.length,
+              visibleGridUnits: geometry.units.length, movement: 'success', attackEffect: 'success', screenshots: 7,
+            };
+            await writeFile('/tmp/threecountry-pixel-final/result.json', JSON.stringify(result, null, 2));
+            await writeFile('/tmp/threecountry-pixel-final/geometry.json', JSON.stringify(geometry, null, 2));
+            console.log(JSON.stringify(result, null, 2));
+          } catch (error) {
+            console.error(error);
+            await page.screenshot({ path: '/tmp/threecountry-pixel-final/99-failure.png' }).catch(() => {});
+            throw error;
+          } finally {
+            await browser.close();
+          }
+          EOF
+          set +e
+          node verify-final.mjs 2>&1 | tee /tmp/threecountry-pixel-final/browser.log
+          code=${PIPESTATUS[0]}
+          echo "status=$code" >> "$GITHUB_OUTPUT"
+          exit "$code"
+
+      - name: Upload final visual evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: threecountry-pixel-v2-final-evidence
+          path: /tmp/threecountry-pixel-final/*
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Record final result
+        if: always()
+        shell: bash
+        env:
+          OUTCOME: ${{ steps.browser.outcome }}
+        run: |
+          set -euo pipefail
+          rm -f threecountry-v2/pixel-v2-final-running.txt
+          if [ "$OUTCOME" = 'success' ]; then
+            printf 'version=0.6.1\nstatus=success\nrun_id=%s\nverified_at=%s\npixel_hero_count=12\nall_units_visible=true\nmovement=true\nattack_effect=true\n' "$GITHUB_RUN_ID" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > threecountry-v2/pixel-v2-final-verified.txt
+            rm -f threecountry-v2/pixel-v2-final-failure.txt
+            message='test: record final successful pixel verification'
+          else
+            printf 'version=0.6.1\nstatus=failure\nrun_id=%s\nfailed_at=%s\n' "$GITHUB_RUN_ID" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > threecountry-v2/pixel-v2-final-failure.txt
+            message='test: record final failed pixel verification'
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A threecountry-v2
+          if ! git diff --cached --quiet; then
+            git commit -m "$message"
+            git push
+          fi
+
+      - name: Fail on verification error
+        if: steps.browser.outcome != 'success'
+        run: exit 1
