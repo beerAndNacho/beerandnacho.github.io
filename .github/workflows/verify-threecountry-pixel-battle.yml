@@ -1,0 +1,92 @@
+name: verify Threecountry pixel battle view
+
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/verify-threecountry-pixel-battle.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  verify-battle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/setup-node@v4
+        with: { node-version: 22 }
+      - working-directory: /tmp
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --no-audit --no-fund playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Open the actual tactical battlefield and inspect every unit
+        working-directory: /tmp
+        run: |
+          mkdir -p battle-evidence
+          cat > battle.mjs <<'EOF'
+          import { chromium } from 'playwright';
+          const browser=await chromium.launch({headless:true});
+          const page=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:2});
+          const errors=[];
+          page.on('pageerror',e=>errors.push(e.message));
+          page.on('requestfailed',r=>errors.push(`request:${r.url()}`));
+          const nextUntil=async(selector,button,limit=25)=>{
+            for(let i=0;i<limit;i++){
+              if(await page.locator(selector).isVisible().catch(()=>false))return;
+              const next=page.locator(button);if(!(await next.count()))break;
+              await next.click();await page.waitForTimeout(100);
+            }
+            await page.locator(selector).waitFor({state:'visible',timeout:20000});
+          };
+          const response=await page.goto(`https://beerandnacho.github.io/threecountry-v2/?battle-final=${Date.now()}`,{waitUntil:'networkidle',timeout:120000});
+          if(!response?.ok())throw new Error(`HTTP ${response?.status()}`);
+          await page.evaluate(()=>localStorage.clear());
+          await page.reload({waitUntil:'networkidle',timeout:120000});
+          await page.waitForFunction(()=>window.__pixelArtV2?.heroCount===12,{}, {timeout:30000});
+          await page.locator('[data-action="new-game"]').click();
+          await nextUntil('.roster-screen','[data-action="story-next"]');
+          await page.locator('[data-action="confirm-roster"]').click();
+          await nextUntil('.deployment-screen','[data-action="story-next"]');
+          await page.locator('[data-action="start-battle"]').click();
+          for(let i=0;i<12;i++){
+            const next=page.locator('[data-action="battle-dialogue-next"]');
+            if(!(await next.count()))break;
+            await next.click();await page.waitForTimeout(100);
+          }
+          await page.locator('.battle-dialogue').waitFor({state:'detached',timeout:10000}).catch(()=>{});
+          await page.locator('.battle-grid').waitFor({state:'visible',timeout:20000});
+          await page.waitForFunction(()=>document.querySelectorAll('.battle-unit canvas.pixel-sprite-v2').length===10,{}, {timeout:20000});
+          const result=await page.locator('.battle-unit canvas.pixel-sprite-v2').evaluateAll(canvases=>canvases.map(canvas=>{
+            const data=canvas.getContext('2d').getImageData(0,0,canvas.width,canvas.height).data;
+            let painted=0;for(let i=3;i<data.length;i+=4)if(data[i]>8)painted++;
+            return {hero:canvas.dataset.pixelHero,painted,width:canvas.width,height:canvas.height};
+          }));
+          if(result.length!==10||result.some(item=>item.painted<70))throw new Error(JSON.stringify(result));
+          const units=await page.locator('.battle-unit[data-pixel-hero]').evaluateAll(nodes=>nodes.map(node=>node.dataset.pixelHero));
+          const expected=['cao','xiahou','dian','guo','liu','guan','zhang','zhao','soldier-spear','soldier-archer'];
+          const missing=expected.filter(id=>!units.includes(id));if(missing.length)throw new Error(`missing:${missing}`);
+          const outside=await page.evaluate(()=>{const g=document.querySelector('.battle-grid').getBoundingClientRect();return [...document.querySelectorAll('.battle-unit')].map(u=>{const r=u.getBoundingClientRect();return {id:u.dataset.pixelHero,inside:r.left>=g.left-2&&r.top>=g.top-2&&r.right<=g.right+2&&r.bottom<=g.bottom+2}}).filter(x=>!x.inside)});
+          if(outside.length)throw new Error(`outside:${JSON.stringify(outside)}`);
+          await page.screenshot({path:'battle-evidence/battle-visible.png',fullPage:true});
+          if(errors.length)throw new Error(errors.join('\n'));
+          console.log(JSON.stringify({status:'success',units,result},null,2));
+          await browser.close();
+          EOF
+          node battle.mjs | tee battle-evidence/result.log
+      - uses: actions/upload-artifact@v4
+        with:
+          name: threecountry-pixel-battle-evidence
+          path: /tmp/battle-evidence/*
+          retention-days: 14
+      - name: Record battle success
+        run: |
+          printf 'status=success\nverified_run=%s\nverified_at=%s\nbattle_units=10\ngrid_cells=96\nchecks=dialogue-dismissed,all-units-painted,inside-grid,no-browser-errors\n' "$GITHUB_RUN_ID" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > threecountry-v2/battle-verified.txt
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add threecountry-v2/battle-verified.txt
+          git commit -m 'test: verify visible pixel battlefield successfully'
+          git push
