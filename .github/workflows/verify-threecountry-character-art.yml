@@ -1,0 +1,95 @@
+name: verify Threecountry premium character art
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'threecountry-v2/index.html'
+      - 'threecountry-v2/character-art-v1.css'
+      - 'threecountry-v2/character-art-v1.js'
+      - '.github/workflows/verify-threecountry-character-art.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Verify live files and source art packs
+        shell: bash
+        run: |
+          set -euo pipefail
+          live='https://beerandnacho.github.io/threecountry-v2'
+          for path in / /character-art-v1.css /character-art-v1.js /app.js /gameplay-v4.js; do
+            curl --retry 30 --retry-delay 3 --retry-all-errors -fsSL "${live}${path}?verify=${GITHUB_RUN_ID}" -o /dev/null
+          done
+          raw='https://raw.githubusercontent.com/beerAndNacho/Threecountry/character-art-staging/assets/character-art-v1'
+          curl --retry 10 --retry-delay 2 --retry-all-errors -fsSL "${raw}/portraits-v1-sm.b64.part00" -o /dev/null
+          for index in 00 01 02 03 04; do
+            curl --retry 10 --retry-delay 2 --retry-all-errors -fsSL "${raw}/sprites-v1-sm.b64.part${index}" -o /dev/null
+          done
+
+      - name: Install Chromium
+        shell: bash
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --no-audit --no-fund playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Exercise roster, character sheet and battle sprites
+        shell: bash
+        run: |
+          cat > verify-art.mjs <<'EOF'
+          import { chromium } from 'playwright';
+          const browser = await chromium.launch({ headless: true });
+          const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+          const errors = [];
+          const failed = [];
+          page.on('pageerror', error => errors.push(error.message));
+          page.on('requestfailed', request => failed.push(`${request.url()} ${request.failure()?.errorText || ''}`));
+
+          const response = await page.goto(`https://beerandnacho.github.io/threecountry-v2/?art=${Date.now()}`, { waitUntil: 'networkidle', timeout: 120000 });
+          if (!response?.ok()) throw new Error(`HTTP ${response?.status()}`);
+          await page.waitForFunction(() => document.documentElement.classList.contains('premium-character-art-ready'), null, { timeout: 60000 });
+          await page.locator('[data-action="new-game"]').click();
+          for (let i = 0; i < 12; i += 1) {
+            const next = page.locator('[data-action="story-next"]');
+            if (await next.count() && await next.isVisible()) { await next.click(); await page.waitForTimeout(100); } else break;
+          }
+          await page.locator('.roster-screen').waitFor({ state: 'visible', timeout: 30000 });
+          if (await page.locator('.roster-card[data-premium-art="1"]').count() !== 5) throw new Error('Expected five premium roster cards');
+          if (await page.locator('.roster-card .hero-art-v1').count() < 5) throw new Error('Premium portraits did not replace SVG art');
+          const background = await page.locator('.roster-card[data-hero="cao"] .hero-art-v1').evaluate(element => getComputedStyle(element).backgroundImage);
+          if (!background || background === 'none') throw new Error('Cao Cao portrait atlas is not visible');
+          await page.locator('[data-art-detail="cao"]').click();
+          await page.locator('.character-sheet-modal.show').waitFor({ state: 'visible', timeout: 10000 });
+          if (await page.locator('.character-state-art').count() !== 4) throw new Error('Character state previews are incomplete');
+          await page.screenshot({ path: 'premium-roster.png', fullPage: true });
+          await page.locator('[data-sheet-close]').last().click();
+          await page.locator('[data-action="confirm-roster"]').click();
+          await page.locator('[data-action="start-battle"]').click();
+          await page.locator('.battle-screen').waitFor({ state: 'visible', timeout: 30000 });
+          if (await page.locator('.battle-unit[data-premium-unit="1"]').count() < 3) throw new Error('Premium battle units are missing');
+          await page.screenshot({ path: 'premium-battle.png', fullPage: true });
+          if (errors.length) throw new Error(`Page errors: ${errors.join(' | ')}`);
+          if (failed.length) throw new Error(`Request failures: ${failed.join(' | ')}`);
+          console.log('Premium portraits, four-state character sheet, and battle sprites rendered successfully.');
+          await browser.close();
+          EOF
+          node verify-art.mjs
+
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: threecountry-premium-character-art
+          path: |
+            premium-roster.png
+            premium-battle.png
+          if-no-files-found: ignore
