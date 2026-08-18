@@ -24,11 +24,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Checkout tested SRPG v0.4 source
+      - name: Checkout tested SRPG v0.5 source
         uses: actions/checkout@v4
         with:
           repository: beerAndNacho/Threecountry
-          ref: dc4d1ac7828dc97896b2aab4cd9267af2ff57b41
+          ref: 8326c91a3edbb252c995a981599bbf98f8756961
           path: _threecountry_srpg
 
       - uses: actions/setup-node@v4
@@ -58,12 +58,17 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for file in index.html styles.css gameplay-v4.css app.js gameplay-v4.js engine.js content.js audio.js; do
+          for file in index.html styles.css gameplay-v4.css character-art-v1.css app.js gameplay-v4.js character-art-v1.js engine.js content.js audio.js; do
             test -s "threecountry-v2/${file}"
           done
-          grep -q 'gameplay-v4.js' threecountry-v2/index.html
+          test -s threecountry-v2/assets/character-art-v1/portraits-v1-sm.b64.part00
+          for suffix in 00 01 02 03 04; do
+            test -s "threecountry-v2/assets/character-art-v1/sprites-v1-sm.b64.part${suffix}"
+          done
+          grep -q 'character-art-v1.js' threecountry-v2/index.html
+          grep -q 'character-art-v1.css' threecountry-v2/index.html
+          grep -q 'premium-character-art-ready' threecountry-v2/character-art-v1.js
           grep -q 'battle-unit\[data-v4="compact"\]' threecountry-v2/gameplay-v4.css
-          grep -q 'village-smoke' threecountry-v2/gameplay-v4.js
           ! grep -q 'cdn.jsdelivr.net' threecountry-v2/index.html
 
       - name: Commit public build
@@ -77,5 +82,5 @@ jobs:
             echo 'No deployment changes.'
             exit 0
           fi
-          git commit -m 'feat: publish SRPG v0.4 animated battlefield'
+          git commit -m 'feat: publish SRPG v0.5 premium character art'
           git push
