@@ -1,0 +1,61 @@
+name: sync Threecountry v2 character art
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sync-threecountry-v2-character-art.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-threecountry-v2-character-art
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout Pages repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout verified game build
+        uses: actions/checkout@v4
+        with:
+          repository: beerAndNacho/Threecountry
+          ref: main
+          path: _threecountry_source
+
+      - name: Verify and copy deployment
+        shell: bash
+        run: |
+          set -euo pipefail
+          test -s _threecountry_source/dist/index.html
+          test -s _threecountry_source/dist/character-art-v1.js
+          test -s _threecountry_source/dist/character-art-v1.css
+          for hero in cao xiahou dian xun guo; do
+            test -s "_threecountry_source/dist/assets/character-sheets/${hero}.png"
+          done
+          rm -rf threecountry-v2
+          mkdir -p threecountry-v2
+          cp -R _threecountry_source/dist/. threecountry-v2/
+          rm -rf _threecountry_source
+
+      - name: Commit public game
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add threecountry-v2
+          if git diff --cached --quiet; then
+            echo 'Public build already current.'
+            exit 0
+          fi
+          git commit -m 'feat: deploy premium character visuals to Threecountry v2'
+          git push
