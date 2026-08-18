@@ -1,1 +1,78 @@
-<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="robots" content="index,follow"><meta name="theme-color" content="#f3f1e8"><title>Personalized Labs</title></head><body><script src="https://cdn.jsdelivr.net/gh/beerAndNacho/Multi@01b48255f063b827c26c6633d4e468b37f19a4ce/apps/personalized-labs/labs-a.js"></script><script src="https://cdn.jsdelivr.net/gh/beerAndNacho/Multi@01b48255f063b827c26c6633d4e468b37f19a4ce/apps/personalized-labs/labs-b.js"></script><script src="https://cdn.jsdelivr.net/gh/beerAndNacho/Multi@01b48255f063b827c26c6633d4e468b37f19a4ce/apps/personalized-labs/layout-base.js"></script><script src="https://cdn.jsdelivr.net/gh/beerAndNacho/Multi@01b48255f063b827c26c6633d4e468b37f19a4ce/apps/personalized-labs/layout-bodies-a.js"></script><script src="https://cdn.jsdelivr.net/gh/beerAndNacho/Multi@01b48255f063b827c26c6633d4e468b37f19a4ce/apps/personalized-labs/layout-bodies-b.js"></script><script src="https://cdn.jsdelivr.net/gh/beerAndNacho/Multi@01b48255f063b827c26c6633d4e468b37f19a4ce/apps/personalized-labs/layout-css-a.js"></script><script src="https://cdn.jsdelivr.net/gh/beerAndNacho/Multi@01b48255f063b827c26c6633d4e468b37f19a4ce/apps/personalized-labs/layout-css-b.js"></script><script src="https://cdn.jsdelivr.net/gh/beerAndNacho/Multi@01b48255f063b827c26c6633d4e468b37f19a4ce/apps/personalized-labs/core.js"></script></body></html>
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#eeeae0">
+<meta name="robots" content="index,follow">
+<title>오늘결정 | 생활 결정 도구 26개</title>
+<meta name="description" content="오늘 일정, 돈, 관계, 집과 생활, 커리어 고민에 맞는 개인화 도구를 골라드립니다.">
+<meta property="og:title" content="오늘결정">
+<meta property="og:description" content="생각은 줄이고, 오늘 할 일을 하나 정하세요.">
+<meta property="og:type" content="website">
+<style>
+:root{--paper:#eeeae0;--ink:#181713;--muted:#6c685f;--line:#bcb6aa;--accent:#e24f2b;--panel:#f7f3ea}
+*{box-sizing:border-box}html{background:var(--paper);color:var(--ink);scroll-behavior:smooth}body{margin:0;min-height:100dvh;background:var(--paper);font-family:Pretendard,"Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;color:var(--ink);-webkit-font-smoothing:antialiased}button,input{font:inherit;color:inherit}button,a{cursor:pointer}a{text-decoration:none}.wrap{width:min(1240px,calc(100% - 40px));margin:auto}.top{height:72px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between}.brand{font-weight:950;letter-spacing:-.055em;font-size:20px}.brand:before{content:"";display:inline-block;width:9px;height:9px;background:var(--accent);margin-right:10px}.topnav{display:flex;gap:22px;color:var(--muted);font-size:12px;font-weight:800}.hero{display:grid;grid-template-columns:1.05fr .95fr;min-height:430px;border-bottom:1px solid var(--line)}.hero-copy{padding:66px 54px 56px 0;border-right:1px solid var(--line)}.hero h1{margin:0;max-width:9ch;font-size:clamp(58px,8vw,104px);line-height:.9;letter-spacing:-.09em}.hero h1 span{color:var(--accent)}.hero p{margin:28px 0 0;max-width:37ch;color:var(--muted);font-size:16px;line-height:1.65;word-break:keep-all}.finder{padding:52px 0 52px 54px;display:flex;flex-direction:column;justify-content:space-between}.finder h2{margin:0;font-size:21px;letter-spacing:-.04em}.finder-grid{margin-top:28px;display:grid;gap:18px}.field{border-top:1px solid var(--ink);padding-top:12px}.field label{display:block;color:var(--muted);font-size:11px;font-weight:850;margin-bottom:9px}.choices{display:flex;flex-wrap:wrap;gap:6px}.chip{border:1px solid var(--line);background:transparent;padding:8px 10px;font-weight:750;font-size:13px}.chip.on{background:var(--ink);border-color:var(--ink);color:var(--paper)}.finder-result{margin-top:28px;padding-top:16px;border-top:3px solid var(--ink)}.finder-result small{color:var(--accent);font-weight:900}.finder-result a{display:flex;justify-content:space-between;gap:12px;padding:13px 0;border-bottom:1px solid var(--line);font-weight:850}.finder-result a span:last-child{color:var(--muted)}.tools{padding:56px 0 80px}.tools-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:30px}.tools-head h2{margin:0;font-size:clamp(36px,5vw,64px);letter-spacing:-.07em}.search{width:min(360px,100%);border:0;border-bottom:1px solid var(--ink);background:transparent;padding:12px 0;outline:0;font-weight:750}.tabs{display:flex;gap:8px;overflow:auto;padding-bottom:18px}.tab{white-space:nowrap;border:1px solid var(--line);background:transparent;padding:9px 12px;font-size:12px;font-weight:800}.tab.on{background:var(--accent);border-color:var(--accent);color:white}.directory{border-top:3px solid var(--ink)}.tool{display:grid;grid-template-columns:72px minmax(200px,.75fr) minmax(250px,1.25fr) 120px;gap:24px;align-items:center;padding:21px 0;border-bottom:1px solid var(--line);transition:padding .14s ease}.tool:hover{padding-left:10px}.num{font-size:12px;color:var(--accent);font-weight:950}.tool h3{margin:0;font-size:20px;letter-spacing:-.04em}.tool p{margin:0;color:var(--muted);font-size:13px;line-height:1.55}.tool .go{text-align:right;font-size:12px;font-weight:900}.empty{padding:60px 0;color:var(--muted)}.foot{border-top:1px solid var(--line);padding:26px 0 50px;display:flex;justify-content:space-between;gap:20px;color:var(--muted);font-size:11px}.recent{display:none;padding:32px 0;border-top:1px solid var(--line)}.recent.on{display:block}.recent h2{font-size:22px}.recent-list{display:flex;flex-wrap:wrap;gap:8px}.recent-list a{border:1px solid var(--line);padding:8px 10px;font-size:12px;font-weight:800}
+@media(max-width:840px){.wrap{width:min(100% - 24px,1240px)}.topnav{display:none}.hero{grid-template-columns:1fr}.hero-copy{padding:46px 0 40px;border-right:0;border-bottom:1px solid var(--line)}.hero h1{font-size:64px}.finder{padding:36px 0}.tools-head{align-items:stretch;flex-direction:column}.search{width:100%}.tool{grid-template-columns:48px 1fr 64px;gap:10px}.tool p{grid-column:2/4}.tool .go{grid-column:3;grid-row:1}.foot{flex-direction:column}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="top"><a class="brand" href="./">오늘결정</a><nav class="topnav"><a href="#finder">도구 추천</a><a href="#all">전체 도구</a><a href="#recent">최근 사용</a></nav></header>
+<section class="hero">
+  <div class="hero-copy"><h1>오늘의 고민,<br><span>하나만</span> 정하자.</h1><p>정답을 길게 설명하지 않습니다. 현재 상황을 고르면 지금 실행할 수 있는 도구 세 개만 보여줍니다.</p></div>
+  <div class="finder" id="finder"><div><h2>지금 어떤 결정이 필요한가요?</h2><div class="finder-grid" id="finderControls"></div></div><div class="finder-result"><small>지금 맞는 도구</small><div id="finderResult"></div></div></div>
+</section>
+<section class="recent" id="recent"><h2>최근 사용</h2><div class="recent-list" id="recentList"></div></section>
+<section class="tools" id="all">
+  <div class="tools-head"><h2>생활 도구<br>26개</h2><input class="search" id="search" type="search" placeholder="제목이나 상황으로 찾기" aria-label="도구 검색"></div>
+  <div class="tabs" id="tabs"></div>
+  <div class="directory" id="directory"></div>
+</section>
+<footer class="foot"><span>선택값과 최근 사용 기록은 브라우저에만 저장됩니다.</span><span>GA4 · Microsoft Clarity 연결 준비</span></footer>
+</div>
+<script>
+const GA_ID="",CLARITY_ID="";
+if(GA_ID){const s=document.createElement("script");s.async=1;s.src="https://www.googletagmanager.com/gtag/js?id="+GA_ID;document.head.appendChild(s);window.dataLayer=window.dataLayer||[];window.gtag=function(){dataLayer.push(arguments)};gtag("js",new Date());gtag("config",GA_ID)}
+if(CLARITY_ID){(function(c,l,a,r,i,t,y){c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y)})(window,document,"clarity","script",CLARITY_ID)}
+function track(n,p={}){window.gtag&&gtag("event",n,p);if(window.clarity){clarity("event",n);Object.entries(p).forEach(([k,v])=>clarity("set",k,String(v)))}}
+const TOOLS=[
+[1,"우리 둘 데이트 코스","date-course","오늘","지역·관계·예산으로 데이트 흐름 만들기","/date-course/"],
+[2,"퇴근하고 뭐 하지?","after-work","오늘","체력과 시간에 맞는 퇴근 후 계획","/after-work/"],
+[3,"오늘 러닝 뭐하지?","running-today","오늘","체력과 목표에 맞는 러닝 플랜","/labs/running-today/"],
+[4,"선물 뭐 사지?","gift-picker","관계","관계·예산·상황에 맞는 선물 범주","/labs/gift-picker/"],
+[5,"오늘 뭐 입지?","what-to-wear","오늘","날씨와 일정에 맞는 옷 조합","/labs/what-to-wear/"],
+[6,"이번 주말 혼자 뭐하지?","solo-weekend","오늘","혼자 보내는 반나절 계획","/labs/solo-weekend/"],
+[7,"내 취미 뭐가 맞을까?","hobby-fit","나","시간·비용·사람 성향에 맞는 취미","/labs/hobby-fit/"],
+[8,"냉장고에 있는 걸로 뭐 먹지?","fridge-menu","집","재료와 귀찮음 정도로 메뉴 정하기","/labs/fridge-menu/"],
+[9,"방 정리 어디부터 하지?","room-reset","집","시간 안에 눈에 띄는 변화 만들기","/labs/room-reset/"],
+[10,"오늘 공부 뭐 하지?","study-now","커리어","남은 집중력에 맞는 공부 순서","/labs/study-now/"],
+[11,"이번 주말 어디 가지?","weekend-trip","오늘","시간·거리·예산으로 목적지 좁히기","/labs/weekend-trip/"],
+[12,"이 옷, 버릴까?","closet-decision","집","보관·판매·기부·처분 판단","/labs/closet-decision/"],
+[13,"오늘 집에서 뭐 해먹지?","cook-at-home","집","조리 의욕과 시간으로 한 끼 정하기","/labs/cook-at-home/"],
+[14,"내 소비 어디서 새고 있지?","spending-leak","돈","줄이기 쉬운 반복 지출 찾기","/labs/spending-leak/"],
+[15,"오늘 나한테 필요한 휴식은?","rest-type","나","피로 원인에 맞는 휴식 선택","/labs/rest-type/"],
+[16,"내게 맞는 사이드 프로젝트","side-project-fit","커리어","강점과 영업 성향으로 수익 방식 찾기","/labs/side-project-fit/"],
+[17,"오늘 아이랑 뭐 하지?","kids-today","가족","아이 나이와 부모 체력에 맞는 놀이","/labs/kids-today/"],
+[18,"반려동물과 오늘 뭐 하지?","pet-today","가족","나이·활동량·환경에 맞는 활동","/labs/pet-today/"],
+[19,"내 방에 무슨 인테리어가 맞지?","room-style","집","크기·채광·물건량으로 방향 정하기","/labs/room-style/"],
+[20,"지금 연락할까 말까?","contact-or-not","관계","관계와 연락 간격으로 타이밍 판단","/labs/contact-or-not/"],
+[21,"회식 메뉴 뭐 먹지?","team-dinner","관계","인원과 분위기에 맞는 회식 메뉴","/labs/team-dinner/"],
+[22,"오늘 머리 어떻게 하지?","hair-today","오늘","길이·일정·준비시간으로 스타일 정하기","/labs/hair-today/"],
+[23,"이직할까 말까?","change-job","커리어","성장·스트레스·준비 상태 점검","/labs/change-job/"],
+[24,"이번 달 뭐 하나 끊을까?","cut-one-expense","돈","체감이 적은 지출 하나 줄이기","/labs/cut-one-expense/"],
+[25,"내 취향에 맞는 동네 찾기","neighborhood-fit","집","출퇴근과 생활 취향으로 동네 성향 찾기","/labs/neighborhood-fit/"],
+[26,"오늘 이거 사도 될까?","buy-or-wait","돈","사용 빈도와 대체 가능성으로 구매 판단","/labs/buy-or-wait/"]
+].map(x=>({num:x[0],title:x[1],slug:x[2],cat:x[3],desc:x[4],url:x[5]}));
+const CATS=["전체","오늘","돈","관계","집","가족","커리어","나"],finderDefs=[["need","지금 고민",["오늘","돈","관계","집","커리어","나"]],["time","쓸 수 있는 시간",["5분","15분","30분+"]],["energy","결정할 힘",["거의 없음","보통","차분히 볼 수 있음"]]];
+let finder={need:"오늘",time:"5분",energy:"거의 없음"},cat="전체",query="";
+const esc=s=>String(s).replace(/[&<>"']/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[m]));
+function markUse(t){let r=[];try{r=JSON.parse(localStorage.getItem("today-decision:recent")||"[]")}catch(e){}r=[t.slug,...r.filter(x=>x!==t.slug)].slice(0,6);localStorage.setItem("today-decision:recent",JSON.stringify(r));track("hub_lab_click",{lab_slug:t.slug,category:t.cat})}
+function score(t){let s=t.cat===finder.need?8:0;if(finder.need==="나"&&["rest-type","hobby-fit"].includes(t.slug))s+=6;if(finder.need==="오늘"&&[1,2,3,5,6,11,13,15,22].includes(t.num))s+=3;if(finder.time==="5분"&&[4,5,7,12,14,20,23,24,25,26].includes(t.num))s+=2;if(finder.energy==="거의 없음"&&[2,8,9,13,15,24,26].includes(t.num))s+=2;return s}
+function renderFinder(){finderControls.innerHTML=finderDefs.map(([key,label,vals])=>`<div class="field"><label>${label}</label><div class="choices">${vals.map(v=>`<button class="chip ${finder[key]===v?"on":""}" data-key="${key}" data-value="${v}">${v}</button>`).join("")}</div></div>`).join("");finderControls.querySelectorAll(".chip").forEach(b=>b.onclick=()=>{finder[b.dataset.key]=b.dataset.value;track("hub_filter_change",{filter:b.dataset.key,value:b.dataset.value});renderFinder()});const picks=[...TOOLS].sort((a,b)=>score(b)-score(a)||a.num-b.num).slice(0,3);finderResult.innerHTML=picks.map(t=>`<a href="${t.url}" data-slug="${t.slug}"><span>${esc(t.title)}</span><span>→</span></a>`).join("");finderResult.querySelectorAll("a").forEach(a=>a.onclick=()=>markUse(TOOLS.find(t=>t.slug===a.dataset.slug)))}
+function renderTabs(){tabs.innerHTML=CATS.map(x=>`<button class="tab ${cat===x?"on":""}" data-cat="${x}">${x}</button>`).join("");tabs.querySelectorAll(".tab").forEach(b=>b.onclick=()=>{cat=b.dataset.cat;track("hub_category_select",{category:cat});renderTabs();renderDirectory()})}
+function renderDirectory(){const q=query.trim().toLowerCase(),items=TOOLS.filter(t=>(cat==="전체"||t.cat===cat)&&(!q||(t.title+" "+t.desc+" "+t.cat).toLowerCase().includes(q)));directory.innerHTML=items.length?items.map(t=>`<a class="tool" href="${t.url}" data-slug="${t.slug}"><span class="num">LAB-${String(t.num).padStart(2,"0")}</span><h3>${esc(t.title)}</h3><p>${esc(t.desc)}</p><span class="go">열기 →</span></a>`).join(""):`<div class="empty">조건에 맞는 도구가 없습니다.</div>`;directory.querySelectorAll(".tool").forEach(a=>a.onclick=()=>markUse(TOOLS.find(t=>t.slug===a.dataset.slug)))}
+function renderRecent(){let r=[];try{r=JSON.parse(localStorage.getItem("today-decision:recent")||"[]")}catch(e){}const items=r.map(s=>TOOLS.find(t=>t.slug===s)).filter(Boolean);recent.classList.toggle("on",items.length>0);recentList.innerHTML=items.map(t=>`<a href="${t.url}" data-slug="${t.slug}">${esc(t.title)}</a>`).join("");recentList.querySelectorAll("a").forEach(a=>a.onclick=()=>markUse(TOOLS.find(t=>t.slug===a.dataset.slug)))}
+search.oninput=e=>{query=e.target.value;renderDirectory()};const old=new URLSearchParams(location.search).get("lab");if(old){const t=TOOLS.find(x=>x.slug===old);if(t)location.replace(t.url)}renderFinder();renderTabs();renderDirectory();renderRecent();
+</script>
+</body></html>
