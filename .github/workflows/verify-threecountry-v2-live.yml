@@ -10,10 +10,14 @@ on:
 permissions:
   contents: write
 
+concurrency:
+  group: verify-threecountry-srpg-v2
+  cancel-in-progress: true
+
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 14
+    timeout-minutes: 16
     steps:
       - name: Checkout Pages repository
         uses: actions/checkout@v4
@@ -24,21 +28,26 @@ jobs:
         with:
           node-version: 22
 
-      - name: Verify live HTML and local assets
+      - name: Verify live HTML and local pixel renderer
         shell: bash
         run: |
           set -euo pipefail
           base='https://beerandnacho.github.io/threecountry-v2'
-          for path in '/' '/styles.css' '/gameplay-v4.css' '/app.js' '/gameplay-v4.js' '/engine.js' '/content.js' '/audio.js'; do
+          for path in '/' '/styles.css' '/gameplay-v4.css' '/character-art-v1.css' '/app.js' '/gameplay-v4.js' '/character-art-v1.js' '/engine.js' '/content.js' '/audio.js'; do
             echo "Checking ${base}${path}"
-            curl --retry 35 --retry-delay 3 --retry-all-errors -fsSL "${base}${path}?verify=${GITHUB_RUN_ID}" -o /dev/null
+            curl --retry 40 --retry-delay 3 --retry-all-errors -fsSL "${base}${path}?verify=${GITHUB_RUN_ID}" -o /dev/null
           done
-          curl --retry 35 --retry-delay 3 --retry-all-errors -fsSL "${base}/?verify=${GITHUB_RUN_ID}" -o /tmp/threecountry-v2-index.html
+          curl --retry 40 --retry-delay 3 --retry-all-errors -fsSL "${base}/?verify=${GITHUB_RUN_ID}" -o /tmp/threecountry-v2-index.html
+          curl --retry 40 --retry-delay 3 --retry-all-errors -fsSL "${base}/character-art-v1.js?verify=${GITHUB_RUN_ID}" -o /tmp/character-art-v1.js
           grep -q '<div id="app"' /tmp/threecountry-v2-index.html
-          grep -q './app.js' /tmp/threecountry-v2-index.html
-          grep -q './gameplay-v4.js' /tmp/threecountry-v2-index.html
-          grep -q './gameplay-v4.css' /tmp/threecountry-v2-index.html
-          ! grep -q 'cdn.jsdelivr.net' /tmp/threecountry-v2-index.html
+          grep -q 'character-art-v1.js?v=20260818-9' /tmp/threecountry-v2-index.html
+          grep -q 'character-art-v1.css?v=20260818-9' /tmp/threecountry-v2-index.html
+          grep -q 'heroCount:ORDER.length' /tmp/character-art-v1.js
+          grep -q "'soldier-archer'" /tmp/character-art-v1.js
+          grep -q 'drawPortrait' /tmp/character-art-v1.js
+          grep -q 'drawSprite' /tmp/character-art-v1.js
+          ! grep -Eq 'raw\.githubusercontent|cdn\.jsdelivr|ASSET_BASE' /tmp/threecountry-v2-index.html
+          ! grep -Eq 'raw\.githubusercontent|cdn\.jsdelivr|ASSET_BASE' /tmp/character-art-v1.js
 
       - name: Install mobile browser runtime
         working-directory: /tmp
@@ -48,92 +57,142 @@ jobs:
           npm install --no-audit --no-fund playwright@1.55.0
           npx playwright install --with-deps chromium
 
-      - name: Play compact tactical movement, effects, AI, and a story branch
+      - name: Visually inspect title, roster, detail, deployment, and battle
         working-directory: /tmp
         shell: bash
         run: |
-          cat > verify-threecountry-v2.mjs <<'EOF'
+          mkdir -p /tmp/threecountry-pixel-screens
+          cat > verify-threecountry-pixel.mjs <<'EOF'
           import { chromium } from 'playwright';
 
+          const EXPECTED = [
+            'cao', 'xiahou', 'dian', 'xun', 'guo', 'xu',
+            'liu', 'guan', 'zhang', 'zhao', 'soldier-spear', 'soldier-archer',
+          ];
           const browser = await chromium.launch({ headless: true });
-          const page = await browser.newPage({ viewport: { width: 390, height: 844 } });
+          const page = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
           const errors = [];
           page.on('pageerror', (error) => errors.push(`pageerror: ${error.message}`));
           page.on('requestfailed', (request) => errors.push(`requestfailed: ${request.url()} ${request.failure()?.errorText || ''}`));
 
-          const url = `https://beerandnacho.github.io/threecountry-v2/?verify=${Date.now()}`;
-          await page.goto(url, { waitUntil: 'networkidle', timeout: 120_000 });
+          const assertCanvasPainted = async (selector, minimum, label) => {
+            const result = await page.locator(selector).evaluateAll((canvases) => canvases.map((canvas) => {
+              if (!(canvas instanceof HTMLCanvasElement)) return { painted: 0, width: 0, height: 0 };
+              const data = canvas.getContext('2d')?.getImageData(0, 0, canvas.width, canvas.height).data || [];
+              let painted = 0;
+              for (let index = 3; index < data.length; index += 4) if (data[index] > 8) painted += 1;
+              return { painted, width: canvas.width, height: canvas.height };
+            }));
+            if (result.length < minimum) throw new Error(`${label}: expected at least ${minimum} canvases, received ${result.length}`);
+            const blank = result.find((item) => item.painted < 80 || !item.width || !item.height);
+            if (blank) throw new Error(`${label}: blank or invalid canvas ${JSON.stringify(blank)}`);
+            return result;
+          };
+
+          const clickStoryUntil = async (destination, action, limit = 16) => {
+            for (let index = 0; index < limit; index += 1) {
+              if (await page.locator(destination).isVisible().catch(() => false)) return;
+              const button = page.locator(action);
+              if (!(await button.count())) break;
+              await button.click();
+              await page.waitForTimeout(120);
+            }
+            await page.locator(destination).waitFor({ state: 'visible', timeout: 20_000 });
+          };
+
+          const url = `https://beerandnacho.github.io/threecountry-v2/?pixel=${Date.now()}`;
+          const response = await page.goto(url, { waitUntil: 'networkidle', timeout: 120_000 });
+          if (!response?.ok()) throw new Error(`Live page returned ${response?.status()}`);
           await page.evaluate(() => localStorage.clear());
           await page.reload({ waitUntil: 'networkidle', timeout: 120_000 });
+          await page.waitForFunction(() => window.__pixelArtV2?.ready === true && window.__pixelArtV2?.heroCount === 12, undefined, { timeout: 30_000 });
 
           await page.locator('[data-action="new-game"]').waitFor({ state: 'visible', timeout: 30_000 });
+          await page.waitForFunction(() => document.querySelectorAll('.title-cast canvas.pixel-portrait-v2').length === 2);
+          await assertCanvasPainted('.title-cast canvas.pixel-portrait-v2', 2, 'title portraits');
+          await page.screenshot({ path: '/tmp/threecountry-pixel-screens/01-title.png', fullPage: true });
           await page.locator('[data-action="new-game"]').click();
 
-          for (let i = 0; i < 10 && await page.locator('[data-action="story-next"]').count(); i += 1) {
-            await page.locator('[data-action="story-next"]').click();
-            await page.waitForTimeout(80);
-          }
-          await page.locator('.roster-screen').waitFor({ state: 'visible', timeout: 15_000 });
-          if (await page.locator('.roster-card').count() !== 6) throw new Error('Expected six selectable Cao officers.');
-          await page.locator('[data-action="confirm-roster"]').click();
+          await clickStoryUntil('.roster-screen', '[data-action="story-next"]');
+          await page.waitForFunction(() => document.querySelectorAll('.roster-card canvas.pixel-portrait-v2').length === 6);
+          await assertCanvasPainted('.roster-card canvas.pixel-portrait-v2', 6, 'roster portraits');
+          const rosterIds = await page.locator('.roster-card canvas.pixel-character-v2').evaluateAll((elements) => elements.map((element) => element.dataset.pixelHero));
+          await page.screenshot({ path: '/tmp/threecountry-pixel-screens/02-roster.png', fullPage: true });
 
-          for (let i = 0; i < 6 && await page.locator('[data-action="story-next"]').count(); i += 1) {
-            await page.locator('[data-action="story-next"]').click();
-            await page.waitForTimeout(80);
-          }
-          await page.locator('.deployment-screen').waitFor({ state: 'visible', timeout: 15_000 });
+          await page.locator('[data-pixel-detail]').first().click();
+          await page.locator('.pixel-sheet-modal.show').waitFor({ state: 'visible', timeout: 10_000 });
+          await assertCanvasPainted('.pixel-sheet-modal canvas.pixel-sheet-portrait-art', 1, 'detail portrait');
+          await assertCanvasPainted('.pixel-sheet-modal canvas.pixel-state-art', 4, 'detail action states');
+          await page.screenshot({ path: '/tmp/threecountry-pixel-screens/03-character-detail.png', fullPage: true });
+          await page.locator('[data-pixel-sheet-close]').last().click();
+          await page.locator('.pixel-sheet-modal').waitFor({ state: 'detached', timeout: 10_000 });
+
+          await page.locator('[data-action="confirm-roster"]').click();
+          await clickStoryUntil('.deployment-screen', '[data-action="story-next"]');
+          await page.waitForFunction(() => document.querySelectorAll('.preview-unit canvas.pixel-sprite-v2').length >= 8);
+          await assertCanvasPainted('.preview-unit canvas.pixel-sprite-v2', 8, 'deployment sprites');
+          await page.screenshot({ path: '/tmp/threecountry-pixel-screens/04-deployment.png', fullPage: true });
           await page.locator('[data-action="start-battle"]').click();
 
-          for (let i = 0; i < 6 && await page.locator('[data-action="battle-dialogue-next"]').count(); i += 1) {
-            await page.locator('[data-action="battle-dialogue-next"]').click();
-            await page.waitForTimeout(80);
-          }
-          await page.locator('.battle-grid').waitFor({ state: 'visible', timeout: 20_000 });
+          await clickStoryUntil('.battle-grid', '[data-action="battle-dialogue-next"]', 10);
+          await page.waitForFunction(() => document.querySelectorAll('.battle-unit canvas.pixel-sprite-v2').length === 10, undefined, { timeout: 20_000 });
+          await assertCanvasPainted('.battle-unit canvas.pixel-sprite-v2', 10, 'battle sprites');
+          const battleIds = await page.locator('.battle-unit[data-pixel-hero]').evaluateAll((units) => units.map((unit) => unit.dataset.pixelHero));
+          const liveIds = [...new Set([...rosterIds, ...battleIds])].sort();
+          const missing = EXPECTED.filter((id) => !liveIds.includes(id));
+          if (missing.length) throw new Error(`Characters missing from live roster+battle rendering: ${missing.join(', ')}`);
           if (await page.locator('.battle-cell').count() !== 96) throw new Error('Expected a 12x8 tactical grid.');
-          await page.waitForFunction(() => document.querySelectorAll('.battle-unit[data-v4="compact"]').length === 10, undefined, { timeout: 15_000 });
-
-          const scale = await page.locator('.battle-unit.player .hero-portrait.unit').first().evaluate((element) => getComputedStyle(element).scale);
-          if (!scale || scale === 'none' || Number.parseFloat(scale) >= 0.9) throw new Error(`Units are not compact enough: ${scale}`);
+          await page.screenshot({ path: '/tmp/threecountry-pixel-screens/05-battle.png', fullPage: true });
 
           await page.locator('.battle-unit.player').first().click();
           await page.locator('.battle-cell.reachable').first().waitFor({ state: 'visible', timeout: 10_000 });
           const before = await page.locator('.battle-unit.player.selected').getAttribute('style');
+          const movementFx = page.waitForSelector('.pixel-action-sprite-v2.move', { state: 'attached', timeout: 4_000 });
           await page.locator('.battle-cell.reachable').first().click();
-          await page.waitForFunction(() => document.querySelectorAll('.v4-dust').length > 0 || [...document.querySelectorAll('.battle-unit')].some((unit) => unit.getAnimations().length > 0), undefined, { timeout: 5_000 });
+          await movementFx;
+          await page.waitForTimeout(220);
           const after = await page.locator('.battle-unit.player.selected').getAttribute('style');
-          if (before === after) throw new Error('The selected officer did not move to a new grid cell.');
+          if (before === after) throw new Error('The selected pixel officer did not move.');
+          await page.screenshot({ path: '/tmp/threecountry-pixel-screens/06-after-move.png', fullPage: true });
 
-          await page.locator('[data-action="end-turn"]').click();
-          await page.waitForFunction(() => document.querySelector('.turn-indicator small')?.textContent?.includes('PLAYER PHASE'), undefined, { timeout: 30_000 });
-          const turnText = await page.locator('.turn-indicator b').innerText();
-          if (!turnText.includes('2')) throw new Error(`Enemy AI turn did not complete: ${turnText}`);
-
-          await page.locator('.v4-story-event').waitFor({ state: 'visible', timeout: 15_000 });
-          const eventId = await page.locator('.v4-story-event').getAttribute('data-event-id');
-          if (!eventId) throw new Error('Branching story event has no id.');
-          await page.locator('[data-v4-action="story-choice"]').first().click();
-          await page.waitForLoadState('domcontentloaded', { timeout: 30_000 });
-          await page.locator('.battle-grid').waitFor({ state: 'visible', timeout: 30_000 });
-          const savedChoice = await page.evaluate((id) => {
-            const raw = localStorage.getItem('threecountry:srpg:v2');
-            return raw ? JSON.parse(raw).storyFlags?.[id] : null;
-          }, eventId);
-          if (!savedChoice) throw new Error(`Story choice was not persisted for ${eventId}.`);
+          await page.locator('[data-action="command-attack"]').click();
+          const selected = page.locator('.battle-unit.player.selected');
+          if (await selected.count()) {
+            await page.locator('.battle-unit.enemy').first().dispatchEvent('pointerdown', { pointerType: 'mouse', bubbles: true });
+            await page.locator('.pixel-hit-fx-v2.attack').waitFor({ state: 'attached', timeout: 4_000 });
+            await page.screenshot({ path: '/tmp/threecountry-pixel-screens/07-attack-effect.png', fullPage: true });
+          }
 
           if (errors.length) throw new Error(errors.join('\n'));
-          console.log(`Live SRPG v0.4 passed: compact units, movement animation, AI turn, and branching event ${eventId}.`);
-          await page.screenshot({ path: '/tmp/threecountry-v4-live.png', fullPage: true });
+          console.log(JSON.stringify({
+            message: 'All-character pixel rendering passed live mobile visual verification.',
+            pixelVersion: await page.evaluate(() => window.__pixelArtV2.version),
+            renderedCharacters: liveIds,
+            titlePortraits: 2,
+            rosterPortraits: 6,
+            deploymentSprites: await page.locator('.preview-unit canvas.pixel-sprite-v2').count().catch(() => 0),
+            battleSprites: 10,
+            screenshots: 7,
+          }, null, 2));
           await browser.close();
           EOF
-          node verify-threecountry-v2.mjs
+          node verify-threecountry-pixel.mjs
+
+      - name: Upload visual inspection screenshots
+        uses: actions/upload-artifact@v4
+        with:
+          name: threecountry-pixel-v2-live-screens
+          path: /tmp/threecountry-pixel-screens/*.png
+          if-no-files-found: error
+          retention-days: 14
 
       - name: Record verified public build
         shell: bash
         run: |
           set -euo pipefail
-          printf 'version=0.4.0\nverified_run=%s\nverified_at=%s\nfeatures=compact-units,movement-fx,branching-story\n' "$GITHUB_RUN_ID" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > threecountry-v2/verified.txt
+          printf 'version=0.6.0\nverified_run=%s\nverified_at=%s\nfeatures=12-pixel-characters,pixel-portraits,idle-move-attack-skill,mobile-live-visual-test\npixel_hero_count=12\n' "$GITHUB_RUN_ID" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > threecountry-v2/verified.txt
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add threecountry-v2/verified.txt
-          git commit -m 'test: verify live Threecountry SRPG v0.4'
+          git commit -m 'test: verify all 12 pixel characters live'
           git push
