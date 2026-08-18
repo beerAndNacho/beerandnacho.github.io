@@ -1,0 +1,142 @@
+name: diagnose Threecountry pixel geometry
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/diagnose-threecountry-pixel-live.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: diagnose-threecountry-pixel
+  cancel-in-progress: true
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 14
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Expose diagnostic run
+        shell: bash
+        run: |
+          printf 'run_id=%s\nstatus=running\n' "$GITHUB_RUN_ID" > threecountry-v2/pixel-diagnostic-running.txt
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add threecountry-v2/pixel-diagnostic-running.txt
+          git commit -m "test: start pixel geometry diagnostic ${GITHUB_RUN_ID}"
+          git push
+
+      - name: Install Chromium
+        working-directory: /tmp
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --no-audit --no-fund playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Capture battle geometry
+        id: diag
+        continue-on-error: true
+        working-directory: /tmp
+        shell: bash
+        run: |
+          mkdir -p /tmp/pixel-diagnostic
+          cat > diagnose.mjs <<'EOF'
+          import { chromium } from 'playwright';
+          import { writeFile } from 'node:fs/promises';
+
+          const browser = await chromium.launch({ headless: true });
+          const page = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
+          const errors = [];
+          page.on('pageerror', (error) => errors.push(error.message));
+          page.on('requestfailed', (request) => errors.push(`${request.url()} ${request.failure()?.errorText || ''}`));
+          try {
+            await page.goto(`https://beerandnacho.github.io/threecountry-v2/?diag=${Date.now()}`, { waitUntil: 'networkidle', timeout: 120000 });
+            await page.evaluate(() => localStorage.clear());
+            await page.reload({ waitUntil: 'networkidle', timeout: 120000 });
+            await page.waitForFunction(() => window.__pixelArtV2?.heroCount === 12);
+            await page.locator('[data-action="new-game"]').click();
+            for (let i=0;i<18;i+=1) {
+              if (await page.locator('.roster-screen').isVisible().catch(()=>false)) break;
+              if (await page.locator('[data-action="story-next"]').count()) await page.locator('[data-action="story-next"]').click();
+              await page.waitForTimeout(100);
+            }
+            await page.locator('.roster-screen').waitFor({state:'visible'});
+            await page.locator('[data-action="confirm-roster"]').click();
+            for (let i=0;i<18;i+=1) {
+              if (await page.locator('.deployment-screen').isVisible().catch(()=>false)) break;
+              if (await page.locator('[data-action="story-next"]').count()) await page.locator('[data-action="story-next"]').click();
+              await page.waitForTimeout(100);
+            }
+            await page.locator('[data-action="start-battle"]').click();
+            for (let i=0;i<12;i+=1) {
+              if (!(await page.locator('[data-action="battle-dialogue-next"]').count())) break;
+              await page.locator('[data-action="battle-dialogue-next"]').click();
+              await page.waitForTimeout(100);
+            }
+            await page.waitForFunction(() => document.querySelectorAll('.battle-unit canvas.pixel-sprite-v2').length === 10);
+            await page.waitForTimeout(700);
+            const diagnostics = await page.evaluate(() => {
+              const compact = (rect) => ({ x:rect.x,y:rect.y,width:rect.width,height:rect.height,top:rect.top,left:rect.left,right:rect.right,bottom:rect.bottom });
+              const grid = document.querySelector('.battle-grid');
+              const layer = document.querySelector('.unit-layer');
+              return {
+                viewport:{width:innerWidth,height:innerHeight,scrollX,scrollY,documentHeight:document.documentElement.scrollHeight},
+                pixel:window.__pixelArtV2,
+                grid:grid ? {rect:compact(grid.getBoundingClientRect()),style:{width:getComputedStyle(grid).width,height:getComputedStyle(grid).height,position:getComputedStyle(grid).position,zIndex:getComputedStyle(grid).zIndex,cell:getComputedStyle(grid).getPropertyValue('--cell')}} : null,
+                layer:layer ? {rect:compact(layer.getBoundingClientRect()),style:{position:getComputedStyle(layer).position,zIndex:getComputedStyle(layer).zIndex,display:getComputedStyle(layer).display,visibility:getComputedStyle(layer).visibility,opacity:getComputedStyle(layer).opacity}} : null,
+                units:[...document.querySelectorAll('.battle-unit')].map((unit) => {
+                  const canvas=unit.querySelector('canvas.pixel-sprite-v2');
+                  const ur=unit.getBoundingClientRect();
+                  const cr=canvas?.getBoundingClientRect();
+                  const us=getComputedStyle(unit),cs=canvas?getComputedStyle(canvas):null;
+                  return {id:unit.dataset.unit,hero:unit.dataset.pixelHero,team:unit.classList.contains('player')?'player':'enemy',inline:unit.getAttribute('style'),unitRect:compact(ur),canvasRect:cr?compact(cr):null,unitStyle:{display:us.display,visibility:us.visibility,opacity:us.opacity,zIndex:us.zIndex,left:us.left,top:us.top,transform:us.transform,animation:us.animationName},canvasStyle:cs?{display:cs.display,visibility:cs.visibility,opacity:cs.opacity,width:cs.width,height:cs.height,scale:cs.scale,translate:cs.translate,transform:cs.transform,position:cs.position}:null,intersectsGrid:grid?!(ur.right<grid.getBoundingClientRect().left||ur.left>grid.getBoundingClientRect().right||ur.bottom<grid.getBoundingClientRect().top||ur.top>grid.getBoundingClientRect().bottom):false};
+                }),
+                errors,
+              };
+            });
+            await writeFile('/tmp/pixel-diagnostic/geometry.json', JSON.stringify(diagnostics,null,2));
+            await page.screenshot({path:'/tmp/pixel-diagnostic/battle.png',fullPage:true});
+            console.log(JSON.stringify(diagnostics,null,2));
+          } finally {
+            await browser.close();
+          }
+          EOF
+          set +e
+          node diagnose.mjs 2>&1 | tee /tmp/pixel-diagnostic/diagnostic.log
+          code=${PIPESTATUS[0]}
+          echo "status=$code" >> "$GITHUB_OUTPUT"
+          exit "$code"
+
+      - name: Upload diagnostic evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: threecountry-pixel-geometry
+          path: /tmp/pixel-diagnostic/*
+          if-no-files-found: error
+          retention-days: 7
+
+      - name: Record diagnostic result
+        if: always()
+        shell: bash
+        env:
+          OUTCOME: ${{ steps.diag.outcome }}
+        run: |
+          rm -f threecountry-v2/pixel-diagnostic-running.txt
+          printf 'run_id=%s\nstatus=%s\nfinished_at=%s\n' "$GITHUB_RUN_ID" "$OUTCOME" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > threecountry-v2/pixel-diagnostic-result.txt
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A threecountry-v2
+          git commit -m 'test: record pixel geometry diagnostic'
+          git push
