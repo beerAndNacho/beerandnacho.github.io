@@ -24,11 +24,11 @@ jobs:
         with:
           fetch-depth: 0
 
-      - name: Checkout tested SRPG v0.5 source
+      - name: Checkout tested all-character pixel SRPG source
         uses: actions/checkout@v4
         with:
           repository: beerAndNacho/Threecountry
-          ref: 8326c91a3edbb252c995a981599bbf98f8756961
+          ref: aaf0a1d72b97fbe5705f90d9dba1dd0dc65c0a75
           path: _threecountry_srpg
 
       - uses: actions/setup-node@v4
@@ -61,15 +61,16 @@ jobs:
           for file in index.html styles.css gameplay-v4.css character-art-v1.css app.js gameplay-v4.js character-art-v1.js engine.js content.js audio.js; do
             test -s "threecountry-v2/${file}"
           done
-          test -s threecountry-v2/assets/character-art-v1/portraits-v1-sm.b64.part00
-          for suffix in 00 01 02 03 04; do
-            test -s "threecountry-v2/assets/character-art-v1/sprites-v1-sm.b64.part${suffix}"
-          done
-          grep -q 'character-art-v1.js' threecountry-v2/index.html
-          grep -q 'character-art-v1.css' threecountry-v2/index.html
-          grep -q 'premium-character-art-ready' threecountry-v2/character-art-v1.js
+          grep -q 'character-art-v1.js?v=20260818-9' threecountry-v2/index.html
+          grep -q 'character-art-v1.css?v=20260818-9' threecountry-v2/index.html
+          grep -q 'pixel-character-art-ready' threecountry-v2/character-art-v1.js
+          grep -q 'heroCount:ORDER.length' threecountry-v2/character-art-v1.js
+          grep -q 'drawPortrait' threecountry-v2/character-art-v1.js
+          grep -q 'drawSprite' threecountry-v2/character-art-v1.js
+          grep -q "'soldier-archer'" threecountry-v2/character-art-v1.js
           grep -q 'battle-unit\[data-v4="compact"\]' threecountry-v2/gameplay-v4.css
-          ! grep -q 'cdn.jsdelivr.net' threecountry-v2/index.html
+          ! grep -Eq 'raw\.githubusercontent|cdn\.jsdelivr' threecountry-v2/index.html
+          ! grep -Eq 'raw\.githubusercontent|cdn\.jsdelivr|ASSET_BASE' threecountry-v2/character-art-v1.js
 
       - name: Commit public build
         shell: bash
@@ -82,5 +83,5 @@ jobs:
             echo 'No deployment changes.'
             exit 0
           fi
-          git commit -m 'feat: publish SRPG v0.5 premium character art'
+          git commit -m 'feat: publish SRPG v0.6 all-character pixel art'
           git push
