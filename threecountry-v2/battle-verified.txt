@@ -1,0 +1,6 @@
+status=success
+verified_run=32138877512
+verified_at=2026-08-18T12:50:27Z
+battle_units=10
+grid_cells=96
+checks=dialogue-dismissed,all-units-painted,inside-grid,no-browser-errors
