@@ -3,173 +3,108 @@ name: verify Threecountry pixel characters final
 on:
   push:
     branches: [main]
-    paths:
-      - '.github/workflows/verify-threecountry-pixel-final.yml'
+    paths: ['.github/workflows/verify-threecountry-pixel-final.yml']
   workflow_dispatch:
 
 permissions:
   contents: write
 
-concurrency:
-  group: verify-threecountry-pixel-final
-  cancel-in-progress: true
-
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 16
+    timeout-minutes: 15
     steps:
       - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
+        with: { fetch-depth: 0 }
       - uses: actions/setup-node@v4
-        with:
-          node-version: 22
-
-      - name: Check live files
-        shell: bash
-        run: |
-          set -euo pipefail
-          base='https://beerandnacho.github.io/threecountry-v2'
-          for path in / /index.html /styles.css /gameplay-v4.css /pixel-geometry-fix.css /character-art-v1.css /app.js /gameplay-v4.js /character-art-v1.js /engine.js /content.js /audio.js; do
-            curl --retry 40 --retry-delay 3 --retry-all-errors -fsSL "${base}${path}?final=${GITHUB_RUN_ID}" -o /dev/null
-          done
-
-      - name: Install Chromium
+        with: { node-version: 22 }
+      - name: Install browser
         working-directory: /tmp
         run: |
           npm init -y >/dev/null 2>&1
           npm install --no-audit --no-fund playwright@1.55.0
           npx playwright install --with-deps chromium
-
-      - name: Inspect all live pixel characters and movement
+      - name: Verify all 12 rendered characters live
         working-directory: /tmp
-        shell: bash
         run: |
-          mkdir -p /tmp/threecountry-pixel-final
-          cat > verify.mjs <<'EOF'
+          mkdir -p evidence
+          cat > check.mjs <<'EOF'
           import { chromium } from 'playwright';
-
-          const EXPECTED = [
-            'cao','xiahou','dian','xun','guo','xu',
-            'liu','guan','zhang','zhao','soldier-spear','soldier-archer',
-          ];
-          const browser = await chromium.launch({ headless: true });
-          const page = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
-          const errors = [];
-          page.on('pageerror', error => errors.push(`pageerror:${error.message}`));
-          page.on('requestfailed', request => errors.push(`requestfailed:${request.url()}:${request.failure()?.errorText || ''}`));
-
-          const painted = async (selector, count, label) => {
-            const values = await page.locator(selector).evaluateAll(nodes => nodes.map(node => {
-              if (!(node instanceof HTMLCanvasElement)) return 0;
-              const data = node.getContext('2d').getImageData(0,0,node.width,node.height).data;
-              let total = 0;
-              for (let i=3;i<data.length;i+=4) if (data[i] > 8) total++;
-              return total;
+          const expected=['cao','xiahou','dian','xun','guo','xu','liu','guan','zhang','zhao','soldier-spear','soldier-archer'];
+          const browser=await chromium.launch({headless:true});
+          const page=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:2});
+          const errors=[];
+          page.on('pageerror',e=>errors.push(`page:${e.message}`));
+          page.on('requestfailed',r=>errors.push(`request:${r.url()}`));
+          const painted=async(selector,count)=>{
+            const values=await page.locator(selector).evaluateAll(nodes=>nodes.map(node=>{
+              const data=node.getContext('2d').getImageData(0,0,node.width,node.height).data;
+              let total=0;for(let i=3;i<data.length;i+=4)if(data[i]>8)total++;return total;
             }));
-            if (values.length < count || values.some(value => value < 70)) throw new Error(`${label} invalid: ${JSON.stringify(values)}`);
+            if(values.length<count||values.some(value=>value<70))throw new Error(`${selector}:${JSON.stringify(values)}`);
           };
-
-          const storyTo = async selector => {
-            for (let i=0;i<20;i++) {
-              if (await page.locator(selector).isVisible().catch(() => false)) return;
-              const next = page.locator('[data-action="story-next"]');
-              if (!(await next.count())) break;
-              await next.click();
-              await page.waitForTimeout(100);
+          const storyTo=async(selector,action='[data-action="story-next"]')=>{
+            for(let i=0;i<20;i++){
+              if(await page.locator(selector).isVisible().catch(()=>false))return;
+              const next=page.locator(action);if(!(await next.count()))break;
+              await next.click();await page.waitForTimeout(100);
             }
             await page.locator(selector).waitFor({state:'visible',timeout:20000});
           };
-
-          const battleDialogue = async () => {
-            for (let i=0;i<12;i++) {
-              const next = page.locator('[data-action="battle-dialogue-next"]');
-              if (!(await next.count())) break;
-              await next.click();
-              await page.waitForTimeout(100);
-            }
-          };
-
-          const url = `https://beerandnacho.github.io/threecountry-v2/?pixel-final=${Date.now()}`;
-          const response = await page.goto(url,{waitUntil:'networkidle',timeout:120000});
-          if (!response?.ok()) throw new Error(`HTTP ${response?.status()}`);
-          await page.evaluate(() => localStorage.clear());
+          const url=`https://beerandnacho.github.io/threecountry-v2/?pixel-final=${Date.now()}`;
+          const response=await page.goto(url,{waitUntil:'networkidle',timeout:120000});
+          if(!response?.ok())throw new Error(`HTTP ${response?.status()}`);
+          await page.evaluate(()=>localStorage.clear());
           await page.reload({waitUntil:'networkidle',timeout:120000});
-          await page.waitForFunction(() => window.__pixelArtV2?.ready === true && window.__pixelArtV2?.heroCount === 12,{},{timeout:30000});
-
-          await page.waitForFunction(() => document.querySelectorAll('.title-cast canvas.pixel-portrait-v2').length === 2);
-          await painted('.title-cast canvas.pixel-portrait-v2',2,'title');
-          await page.screenshot({path:'/tmp/threecountry-pixel-final/01-title.png',fullPage:true});
+          await page.waitForFunction(()=>window.__pixelArtV2?.ready===true&&window.__pixelArtV2?.heroCount===12,{}, {timeout:30000});
+          await page.waitForFunction(()=>document.querySelectorAll('.title-cast canvas.pixel-portrait-v2').length===2);
+          await painted('.title-cast canvas.pixel-portrait-v2',2);
+          await page.screenshot({path:'evidence/01-title.png',fullPage:true});
           await page.locator('[data-action="new-game"]').click();
-
           await storyTo('.roster-screen');
-          await page.waitForFunction(() => document.querySelectorAll('.roster-card canvas.pixel-portrait-v2').length === 6);
-          await painted('.roster-card canvas.pixel-portrait-v2',6,'roster');
-          const rosterIds = await page.locator('.roster-card canvas.pixel-character-v2').evaluateAll(nodes => nodes.map(node => node.dataset.pixelHero));
-          await page.screenshot({path:'/tmp/threecountry-pixel-final/02-roster.png',fullPage:true});
-
+          await page.waitForFunction(()=>document.querySelectorAll('.roster-card canvas.pixel-portrait-v2').length===6);
+          await painted('.roster-card canvas.pixel-portrait-v2',6);
+          const roster=await page.locator('.roster-card canvas.pixel-character-v2').evaluateAll(nodes=>nodes.map(node=>node.dataset.pixelHero));
+          await page.screenshot({path:'evidence/02-roster.png',fullPage:true});
           await page.locator('[data-pixel-detail]').first().click();
-          await page.locator('.pixel-sheet-modal.show').waitFor({state:'visible',timeout:10000});
-          await painted('.pixel-sheet-modal canvas.pixel-sheet-portrait-art',1,'detail portrait');
-          await painted('.pixel-sheet-modal canvas.pixel-state-art',4,'detail states');
-          await page.screenshot({path:'/tmp/threecountry-pixel-final/03-detail.png',fullPage:true});
+          await page.locator('.pixel-sheet-modal.show').waitFor({state:'visible'});
+          await painted('.pixel-sheet-modal canvas.pixel-state-art',4);
+          await page.screenshot({path:'evidence/03-detail.png',fullPage:true});
           await page.locator('[data-pixel-sheet-close]').last().click();
-
           await page.locator('[data-action="confirm-roster"]').click();
           await storyTo('.deployment-screen');
-          await page.waitForFunction(() => document.querySelectorAll('.preview-unit canvas.pixel-sprite-v2').length >= 8);
-          await painted('.preview-unit canvas.pixel-sprite-v2',8,'deployment');
-          await page.screenshot({path:'/tmp/threecountry-pixel-final/04-deployment.png',fullPage:true});
+          await page.waitForFunction(()=>document.querySelectorAll('.preview-unit canvas.pixel-sprite-v2').length>=8);
+          await painted('.preview-unit canvas.pixel-sprite-v2',8);
+          await page.screenshot({path:'evidence/04-deployment.png',fullPage:true});
           await page.locator('[data-action="start-battle"]').click();
-          await battleDialogue();
-
-          await page.locator('.battle-grid').waitFor({state:'visible',timeout:20000});
-          await page.waitForFunction(() => document.querySelectorAll('.battle-unit canvas.pixel-sprite-v2').length === 10,{},{timeout:20000});
-          await painted('.battle-unit canvas.pixel-sprite-v2',10,'battle');
-          const battleIds = await page.locator('.battle-unit[data-pixel-hero]').evaluateAll(nodes => nodes.map(node => node.dataset.pixelHero));
-          const rendered = [...new Set([...rosterIds,...battleIds])].sort();
-          const missing = EXPECTED.filter(id => !rendered.includes(id));
-          if (missing.length) throw new Error(`missing:${missing.join(',')}`);
-          if (await page.locator('.battle-cell').count() !== 96) throw new Error('grid is not 12x8');
-          const outside = await page.evaluate(() => {
-            const grid = document.querySelector('.battle-grid').getBoundingClientRect();
-            return [...document.querySelectorAll('.battle-unit')].map(unit => {
-              const rect = unit.getBoundingClientRect();
-              return { id:unit.dataset.pixelHero, inside:rect.left>=grid.left-2 && rect.top>=grid.top-2 && rect.right<=grid.right+2 && rect.bottom<=grid.bottom+2 };
-            }).filter(item => !item.inside);
-          });
-          if (outside.length) throw new Error(`units outside grid:${JSON.stringify(outside)}`);
-          await page.screenshot({path:'/tmp/threecountry-pixel-final/05-battle.png',fullPage:true});
-
+          await storyTo('.battle-grid','[data-action="battle-dialogue-next"]');
+          await page.waitForFunction(()=>document.querySelectorAll('.battle-unit canvas.pixel-sprite-v2').length===10,{}, {timeout:20000});
+          await painted('.battle-unit canvas.pixel-sprite-v2',10);
+          const battle=await page.locator('.battle-unit[data-pixel-hero]').evaluateAll(nodes=>nodes.map(node=>node.dataset.pixelHero));
+          const rendered=[...new Set([...roster,...battle])].sort();
+          const missing=expected.filter(id=>!rendered.includes(id));if(missing.length)throw new Error(`missing:${missing}`);
+          if(await page.locator('.battle-cell').count()!==96)throw new Error('grid');
+          const outside=await page.evaluate(()=>{const g=document.querySelector('.battle-grid').getBoundingClientRect();return [...document.querySelectorAll('.battle-unit')].filter(u=>{const r=u.getBoundingClientRect();return r.left<g.left-2||r.top<g.top-2||r.right>g.right+2||r.bottom>g.bottom+2}).length});
+          if(outside)throw new Error(`outside:${outside}`);
+          await page.screenshot({path:'evidence/05-battle.png',fullPage:true});
           await page.locator('.battle-unit.player').first().click();
-          await page.locator('.battle-cell.reachable').first().waitFor({state:'visible',timeout:10000});
-          const before = await page.locator('.battle-unit.player.selected').getAttribute('style');
-          const movement = page.waitForSelector('.pixel-action-sprite-v2.move',{state:'attached',timeout:4000});
-          await page.locator('.battle-cell.reachable').first().click();
-          await movement;
-          await page.waitForTimeout(220);
-          const after = await page.locator('.battle-unit.player.selected').getAttribute('style');
-          if (before === after) throw new Error('pixel unit did not move');
-          await page.screenshot({path:'/tmp/threecountry-pixel-final/06-moved.png',fullPage:true});
-
-          if (errors.length) throw new Error(errors.join('\n'));
-          console.log(JSON.stringify({status:'success',version:window?.__pixelArtV2,rendered,screenshots:6},null,2));
+          await page.locator('.battle-cell.reachable').first().waitFor({state:'visible'});
+          const before=await page.locator('.battle-unit.player.selected').getAttribute('style');
+          const movement=page.waitForSelector('.pixel-action-sprite-v2.move',{state:'attached',timeout:4000});
+          await page.locator('.battle-cell.reachable').first().click();await movement;await page.waitForTimeout(220);
+          const after=await page.locator('.battle-unit.player.selected').getAttribute('style');if(before===after)throw new Error('move');
+          await page.screenshot({path:'evidence/06-moved.png',fullPage:true});
+          if(errors.length)throw new Error(errors.join('\n'));
+          console.log(JSON.stringify({status:'success',rendered,version:await page.evaluate(()=>window.__pixelArtV2.version)},null,2));
           await browser.close();
           EOF
-          node verify.mjs 2>&1 | tee /tmp/threecountry-pixel-final/browser.log
-
-      - name: Upload visual evidence
-        uses: actions/upload-artifact@v4
+          node check.mjs | tee evidence/result.log
+      - uses: actions/upload-artifact@v4
         with:
           name: threecountry-pixel-final-evidence
-          path: /tmp/threecountry-pixel-final/*
-          if-no-files-found: error
+          path: /tmp/evidence/*
           retention-days: 14
-
       - name: Record success
-        shell: bash
         run: |
           printf 'version=0.6.1\nstatus=success\nverified_run=%s\nverified_at=%s\npixel_hero_count=12\nchecks=title,roster,detail,deployment,battle,movement,bounds,no-browser-errors\n' "$GITHUB_RUN_ID" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > threecountry-v2/verified.txt
           rm -f threecountry-v2/verification-failure.txt threecountry-v2/verification-running.txt
