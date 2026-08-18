@@ -1,4 +1,0 @@
-version=0.6.0
-status=failure
-failed_run=32133171689
-failed_at=2026-08-18T11:45:02Z
