@@ -1,0 +1,110 @@
+name: final verify Threecountry pixel v2 reusable
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/verify-threecountry-pixel-v2-final3.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: final-verify-threecountry-pixel-v2-reusable
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Publish run id
+        shell: bash
+        run: |
+          set -euo pipefail
+          printf 'run_id=%s\nstatus=running\nstarted_at=%s\n' "$GITHUB_RUN_ID" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > threecountry-v2/pixel-v2-final3-running.txt
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add threecountry-v2/pixel-v2-final3-running.txt
+          git commit -m "test: start reusable final pixel verification ${GITHUB_RUN_ID}"
+          git push
+
+      - name: Confirm public version
+        shell: bash
+        run: |
+          set -euo pipefail
+          base='https://beerandnacho.github.io/threecountry-v2'
+          curl --retry 40 --retry-delay 3 --retry-all-errors -fsSL "${base}/?run=${GITHUB_RUN_ID}" -o /tmp/index.html
+          curl --retry 40 --retry-delay 3 --retry-all-errors -fsSL "${base}/pixel-geometry-fix.css?run=${GITHUB_RUN_ID}" -o /tmp/geometry.css
+          curl --retry 40 --retry-delay 3 --retry-all-errors -fsSL "${base}/character-art-v1.js?run=${GITHUB_RUN_ID}" -o /tmp/pixel.js
+          grep -q 'character-art-v1.js?v=20260818-10' /tmp/index.html
+          grep -q 'pixel-geometry-fix.css?v=20260818-10' /tmp/index.html
+          grep -q 'heroCount:ORDER.length' /tmp/pixel.js
+          grep -q "'soldier-archer'" /tmp/pixel.js
+          grep -q 'translate:none!important' /tmp/geometry.css
+          grep -q 'animation:none!important' /tmp/geometry.css
+
+      - name: Install Chromium
+        working-directory: /tmp
+        shell: bash
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --no-audit --no-fund playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Run final live browser inspection
+        id: browser
+        continue-on-error: true
+        working-directory: /tmp
+        shell: bash
+        run: |
+          set +e
+          node "$GITHUB_WORKSPACE/.github/scripts/verify-threecountry-pixel-final.mjs" 2>&1 | tee /tmp/threecountry-pixel-final2/browser.log
+          code=${PIPESTATUS[0]}
+          echo "status=$code" >> "$GITHUB_OUTPUT"
+          exit "$code"
+
+      - name: Upload inspected screenshots and data
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: threecountry-pixel-v2-final3-evidence
+          path: /tmp/threecountry-pixel-final2/*
+          if-no-files-found: error
+          retention-days: 14
+
+      - name: Record final verification
+        if: always()
+        shell: bash
+        env:
+          OUTCOME: ${{ steps.browser.outcome }}
+        run: |
+          set -euo pipefail
+          rm -f threecountry-v2/pixel-v2-final3-running.txt
+          if [ "$OUTCOME" = 'success' ]; then
+            printf 'version=0.6.1\nstatus=success\nrun_id=%s\nverified_at=%s\npixel_hero_count=12\nall_units_visible=true\nmovement=true\nattack_effect=true\n' "$GITHUB_RUN_ID" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > threecountry-v2/pixel-v2-final3-verified.txt
+            rm -f threecountry-v2/pixel-v2-final3-failure.txt
+            message='test: record final3 successful pixel verification'
+          else
+            printf 'version=0.6.1\nstatus=failure\nrun_id=%s\nfailed_at=%s\n' "$GITHUB_RUN_ID" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > threecountry-v2/pixel-v2-final3-failure.txt
+            message='test: record final3 failed pixel verification'
+          fi
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add -A threecountry-v2
+          if ! git diff --cached --quiet; then
+            git commit -m "$message"
+            git push
+          fi
+
+      - name: Fail when inspection failed
+        if: steps.browser.outcome != 'success'
+        run: exit 1
