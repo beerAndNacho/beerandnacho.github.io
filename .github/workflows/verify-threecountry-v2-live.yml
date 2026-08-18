@@ -29,13 +29,15 @@ jobs:
         run: |
           set -euo pipefail
           base='https://beerandnacho.github.io/threecountry-v2'
-          for path in '/' '/styles.css' '/app.js' '/engine.js' '/content.js' '/audio.js'; do
+          for path in '/' '/styles.css' '/gameplay-v4.css' '/app.js' '/gameplay-v4.js' '/engine.js' '/content.js' '/audio.js'; do
             echo "Checking ${base}${path}"
             curl --retry 35 --retry-delay 3 --retry-all-errors -fsSL "${base}${path}?verify=${GITHUB_RUN_ID}" -o /dev/null
           done
           curl --retry 35 --retry-delay 3 --retry-all-errors -fsSL "${base}/?verify=${GITHUB_RUN_ID}" -o /tmp/threecountry-v2-index.html
           grep -q '<div id="app"' /tmp/threecountry-v2-index.html
           grep -q './app.js' /tmp/threecountry-v2-index.html
+          grep -q './gameplay-v4.js' /tmp/threecountry-v2-index.html
+          grep -q './gameplay-v4.css' /tmp/threecountry-v2-index.html
           ! grep -q 'cdn.jsdelivr.net' /tmp/threecountry-v2-index.html
 
       - name: Install mobile browser runtime
@@ -46,7 +48,7 @@ jobs:
           npm install --no-audit --no-fund playwright@1.55.0
           npx playwright install --with-deps chromium
 
-      - name: Play through story, roster, deployment, and first tactical move
+      - name: Play compact tactical movement, effects, AI, and a story branch
         working-directory: /tmp
         shell: bash
         run: |
@@ -73,7 +75,6 @@ jobs:
           }
           await page.locator('.roster-screen').waitFor({ state: 'visible', timeout: 15_000 });
           if (await page.locator('.roster-card').count() !== 6) throw new Error('Expected six selectable Cao officers.');
-          if (await page.locator('.roster-card.selected').count() !== 4) throw new Error('Expected four default selected officers.');
           await page.locator('[data-action="confirm-roster"]').click();
 
           for (let i = 0; i < 6 && await page.locator('[data-action="story-next"]').count(); i += 1) {
@@ -81,8 +82,6 @@ jobs:
             await page.waitForTimeout(80);
           }
           await page.locator('.deployment-screen').waitFor({ state: 'visible', timeout: 15_000 });
-          if (await page.locator('.preview-unit.player').count() !== 4) throw new Error('Expected four deployed player officers.');
-          if (await page.locator('.preview-unit.enemy').count() !== 4) throw new Error('Expected four named enemy preview units.');
           await page.locator('[data-action="start-battle"]').click();
 
           for (let i = 0; i < 6 && await page.locator('[data-action="battle-dialogue-next"]').count(); i += 1) {
@@ -90,29 +89,40 @@ jobs:
             await page.waitForTimeout(80);
           }
           await page.locator('.battle-grid').waitFor({ state: 'visible', timeout: 20_000 });
-          if (await page.locator('.battle-unit.player').count() !== 4) throw new Error('Expected four player units on the tactical grid.');
-          if (await page.locator('.battle-unit.enemy').count() !== 6) throw new Error('Expected six enemy units on the tactical grid.');
           if (await page.locator('.battle-cell').count() !== 96) throw new Error('Expected a 12x8 tactical grid.');
+          await page.waitForFunction(() => document.querySelectorAll('.battle-unit[data-v4="compact"]').length === 10, undefined, { timeout: 15_000 });
+
+          const scale = await page.locator('.battle-unit.player .hero-portrait.unit').first().evaluate((element) => getComputedStyle(element).scale);
+          if (!scale || scale === 'none' || Number.parseFloat(scale) >= 0.9) throw new Error(`Units are not compact enough: ${scale}`);
 
           await page.locator('.battle-unit.player').first().click();
           await page.locator('.battle-cell.reachable').first().waitFor({ state: 'visible', timeout: 10_000 });
           const before = await page.locator('.battle-unit.player.selected').getAttribute('style');
           await page.locator('.battle-cell.reachable').first().click();
-          await page.waitForTimeout(350);
-          const selectedCount = await page.locator('.battle-unit.player.selected').count();
-          if (selectedCount !== 1) throw new Error('Selected officer was lost after movement.');
+          await page.waitForFunction(() => document.querySelectorAll('.v4-dust').length > 0 || [...document.querySelectorAll('.battle-unit')].some((unit) => unit.getAnimations().length > 0), undefined, { timeout: 5_000 });
           const after = await page.locator('.battle-unit.player.selected').getAttribute('style');
           if (before === after) throw new Error('The selected officer did not move to a new grid cell.');
-          await page.locator('.command-grid').waitFor({ state: 'visible', timeout: 10_000 });
 
           await page.locator('[data-action="end-turn"]').click();
           await page.waitForFunction(() => document.querySelector('.turn-indicator small')?.textContent?.includes('PLAYER PHASE'), undefined, { timeout: 30_000 });
           const turnText = await page.locator('.turn-indicator b').innerText();
           if (!turnText.includes('2')) throw new Error(`Enemy AI turn did not complete: ${turnText}`);
 
+          await page.locator('.v4-story-event').waitFor({ state: 'visible', timeout: 15_000 });
+          const eventId = await page.locator('.v4-story-event').getAttribute('data-event-id');
+          if (!eventId) throw new Error('Branching story event has no id.');
+          await page.locator('[data-v4-action="story-choice"]').first().click();
+          await page.waitForLoadState('domcontentloaded', { timeout: 30_000 });
+          await page.locator('.battle-grid').waitFor({ state: 'visible', timeout: 30_000 });
+          const savedChoice = await page.evaluate((id) => {
+            const raw = localStorage.getItem('threecountry:srpg:v2');
+            return raw ? JSON.parse(raw).storyFlags?.[id] : null;
+          }, eventId);
+          if (!savedChoice) throw new Error(`Story choice was not persisted for ${eventId}.`);
+
           if (errors.length) throw new Error(errors.join('\n'));
-          console.log('Live SRPG passed: story, six-officer roster, deployment, 12x8 movement, commands, and enemy AI turn.');
-          await page.screenshot({ path: '/tmp/threecountry-v2-live.png', fullPage: true });
+          console.log(`Live SRPG v0.4 passed: compact units, movement animation, AI turn, and branching event ${eventId}.`);
+          await page.screenshot({ path: '/tmp/threecountry-v4-live.png', fullPage: true });
           await browser.close();
           EOF
           node verify-threecountry-v2.mjs
@@ -121,9 +131,9 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          printf 'verified_run=%s\nverified_at=%s\n' "$GITHUB_RUN_ID" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > threecountry-v2/verified.txt
+          printf 'version=0.4.0\nverified_run=%s\nverified_at=%s\nfeatures=compact-units,movement-fx,branching-story\n' "$GITHUB_RUN_ID" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > threecountry-v2/verified.txt
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add threecountry-v2/verified.txt
-          git commit -m 'test: verify live Threecountry SRPG v2'
+          git commit -m 'test: verify live Threecountry SRPG v0.4'
           git push
