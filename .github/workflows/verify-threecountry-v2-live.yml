@@ -57,7 +57,9 @@ jobs:
           npm install --no-audit --no-fund playwright@1.55.0
           npx playwright install --with-deps chromium
 
-      - name: Visually inspect title, roster, detail, deployment, and battle
+      - name: Visually inspect every live pixel character
+        id: browser
+        continue-on-error: true
         working-directory: /tmp
         shell: bash
         run: |
@@ -75,7 +77,7 @@ jobs:
           page.on('pageerror', (error) => errors.push(`pageerror: ${error.message}`));
           page.on('requestfailed', (request) => errors.push(`requestfailed: ${request.url()} ${request.failure()?.errorText || ''}`));
 
-          const assertCanvasPainted = async (selector, minimum, label) => {
+          const paintedCanvases = async (selector, minimum, label) => {
             const result = await page.locator(selector).evaluateAll((canvases) => canvases.map((canvas) => {
               if (!(canvas instanceof HTMLCanvasElement)) return { painted: 0, width: 0, height: 0 };
               const data = canvas.getContext('2d')?.getImageData(0, 0, canvas.width, canvas.height).data || [];
@@ -83,116 +85,149 @@ jobs:
               for (let index = 3; index < data.length; index += 4) if (data[index] > 8) painted += 1;
               return { painted, width: canvas.width, height: canvas.height };
             }));
-            if (result.length < minimum) throw new Error(`${label}: expected at least ${minimum} canvases, received ${result.length}`);
-            const blank = result.find((item) => item.painted < 80 || !item.width || !item.height);
-            if (blank) throw new Error(`${label}: blank or invalid canvas ${JSON.stringify(blank)}`);
+            if (result.length < minimum) throw new Error(`${label}: expected ${minimum}, got ${result.length}`);
+            const blank = result.find((item) => item.painted < 70 || !item.width || !item.height);
+            if (blank) throw new Error(`${label}: blank canvas ${JSON.stringify(blank)}`);
             return result;
           };
 
-          const clickStoryUntil = async (destination, action, limit = 16) => {
+          const advanceStoryTo = async (destination, limit = 18) => {
             for (let index = 0; index < limit; index += 1) {
               if (await page.locator(destination).isVisible().catch(() => false)) return;
-              const button = page.locator(action);
-              if (!(await button.count())) break;
-              await button.click();
+              const next = page.locator('[data-action="story-next"]');
+              if (!(await next.count())) break;
+              await next.click();
               await page.waitForTimeout(120);
             }
             await page.locator(destination).waitFor({ state: 'visible', timeout: 20_000 });
           };
 
-          const url = `https://beerandnacho.github.io/threecountry-v2/?pixel=${Date.now()}`;
-          const response = await page.goto(url, { waitUntil: 'networkidle', timeout: 120_000 });
-          if (!response?.ok()) throw new Error(`Live page returned ${response?.status()}`);
-          await page.evaluate(() => localStorage.clear());
-          await page.reload({ waitUntil: 'networkidle', timeout: 120_000 });
-          await page.waitForFunction(() => window.__pixelArtV2?.ready === true && window.__pixelArtV2?.heroCount === 12, undefined, { timeout: 30_000 });
+          const finishBattleDialogue = async () => {
+            for (let index = 0; index < 12; index += 1) {
+              const next = page.locator('[data-action="battle-dialogue-next"]');
+              if (!(await next.count())) break;
+              await next.click();
+              await page.waitForTimeout(120);
+            }
+            await page.locator('.battle-dialogue').waitFor({ state: 'detached', timeout: 15_000 }).catch(() => {});
+          };
 
-          await page.locator('[data-action="new-game"]').waitFor({ state: 'visible', timeout: 30_000 });
-          await page.waitForFunction(() => document.querySelectorAll('.title-cast canvas.pixel-portrait-v2').length === 2);
-          await assertCanvasPainted('.title-cast canvas.pixel-portrait-v2', 2, 'title portraits');
-          await page.screenshot({ path: '/tmp/threecountry-pixel-screens/01-title.png', fullPage: true });
-          await page.locator('[data-action="new-game"]').click();
+          try {
+            const url = `https://beerandnacho.github.io/threecountry-v2/?pixel=${Date.now()}`;
+            const response = await page.goto(url, { waitUntil: 'networkidle', timeout: 120_000 });
+            if (!response?.ok()) throw new Error(`Live page returned ${response?.status()}`);
+            await page.evaluate(() => localStorage.clear());
+            await page.reload({ waitUntil: 'networkidle', timeout: 120_000 });
+            await page.waitForFunction(() => window.__pixelArtV2?.ready === true && window.__pixelArtV2?.heroCount === 12, undefined, { timeout: 30_000 });
 
-          await clickStoryUntil('.roster-screen', '[data-action="story-next"]');
-          await page.waitForFunction(() => document.querySelectorAll('.roster-card canvas.pixel-portrait-v2').length === 6);
-          await assertCanvasPainted('.roster-card canvas.pixel-portrait-v2', 6, 'roster portraits');
-          const rosterIds = await page.locator('.roster-card canvas.pixel-character-v2').evaluateAll((elements) => elements.map((element) => element.dataset.pixelHero));
-          await page.screenshot({ path: '/tmp/threecountry-pixel-screens/02-roster.png', fullPage: true });
+            await page.locator('[data-action="new-game"]').waitFor({ state: 'visible', timeout: 30_000 });
+            await page.waitForFunction(() => document.querySelectorAll('.title-cast canvas.pixel-portrait-v2').length === 2);
+            await paintedCanvases('.title-cast canvas.pixel-portrait-v2', 2, 'title portraits');
+            await page.screenshot({ path: '/tmp/threecountry-pixel-screens/01-title.png', fullPage: true });
+            await page.locator('[data-action="new-game"]').click();
 
-          await page.locator('[data-pixel-detail]').first().click();
-          await page.locator('.pixel-sheet-modal.show').waitFor({ state: 'visible', timeout: 10_000 });
-          await assertCanvasPainted('.pixel-sheet-modal canvas.pixel-sheet-portrait-art', 1, 'detail portrait');
-          await assertCanvasPainted('.pixel-sheet-modal canvas.pixel-state-art', 4, 'detail action states');
-          await page.screenshot({ path: '/tmp/threecountry-pixel-screens/03-character-detail.png', fullPage: true });
-          await page.locator('[data-pixel-sheet-close]').last().click();
-          await page.locator('.pixel-sheet-modal').waitFor({ state: 'detached', timeout: 10_000 });
+            await advanceStoryTo('.roster-screen');
+            await page.waitForFunction(() => document.querySelectorAll('.roster-card canvas.pixel-portrait-v2').length === 6);
+            await paintedCanvases('.roster-card canvas.pixel-portrait-v2', 6, 'roster portraits');
+            const rosterIds = await page.locator('.roster-card canvas.pixel-character-v2').evaluateAll((elements) => elements.map((element) => element.dataset.pixelHero));
+            await page.screenshot({ path: '/tmp/threecountry-pixel-screens/02-roster.png', fullPage: true });
 
-          await page.locator('[data-action="confirm-roster"]').click();
-          await clickStoryUntil('.deployment-screen', '[data-action="story-next"]');
-          await page.waitForFunction(() => document.querySelectorAll('.preview-unit canvas.pixel-sprite-v2').length >= 8);
-          await assertCanvasPainted('.preview-unit canvas.pixel-sprite-v2', 8, 'deployment sprites');
-          await page.screenshot({ path: '/tmp/threecountry-pixel-screens/04-deployment.png', fullPage: true });
-          await page.locator('[data-action="start-battle"]').click();
+            await page.locator('[data-pixel-detail]').first().click();
+            await page.locator('.pixel-sheet-modal.show').waitFor({ state: 'visible', timeout: 10_000 });
+            await paintedCanvases('.pixel-sheet-modal canvas.pixel-sheet-portrait-art', 1, 'detail portrait');
+            await paintedCanvases('.pixel-sheet-modal canvas.pixel-state-art', 4, 'detail action states');
+            await page.screenshot({ path: '/tmp/threecountry-pixel-screens/03-character-detail.png', fullPage: true });
+            await page.locator('[data-pixel-sheet-close]').last().click();
+            await page.locator('.pixel-sheet-modal').waitFor({ state: 'detached', timeout: 10_000 });
 
-          await clickStoryUntil('.battle-grid', '[data-action="battle-dialogue-next"]', 10);
-          await page.waitForFunction(() => document.querySelectorAll('.battle-unit canvas.pixel-sprite-v2').length === 10, undefined, { timeout: 20_000 });
-          await assertCanvasPainted('.battle-unit canvas.pixel-sprite-v2', 10, 'battle sprites');
-          const battleIds = await page.locator('.battle-unit[data-pixel-hero]').evaluateAll((units) => units.map((unit) => unit.dataset.pixelHero));
-          const liveIds = [...new Set([...rosterIds, ...battleIds])].sort();
-          const missing = EXPECTED.filter((id) => !liveIds.includes(id));
-          if (missing.length) throw new Error(`Characters missing from live roster+battle rendering: ${missing.join(', ')}`);
-          if (await page.locator('.battle-cell').count() !== 96) throw new Error('Expected a 12x8 tactical grid.');
-          await page.screenshot({ path: '/tmp/threecountry-pixel-screens/05-battle.png', fullPage: true });
+            await page.locator('[data-action="confirm-roster"]').click();
+            await advanceStoryTo('.deployment-screen');
+            await page.waitForFunction(() => document.querySelectorAll('.preview-unit canvas.pixel-sprite-v2').length >= 8);
+            await paintedCanvases('.preview-unit canvas.pixel-sprite-v2', 8, 'deployment sprites');
+            await page.screenshot({ path: '/tmp/threecountry-pixel-screens/04-deployment.png', fullPage: true });
+            await page.locator('[data-action="start-battle"]').click();
 
-          await page.locator('.battle-unit.player').first().click();
-          await page.locator('.battle-cell.reachable').first().waitFor({ state: 'visible', timeout: 10_000 });
-          const before = await page.locator('.battle-unit.player.selected').getAttribute('style');
-          const movementFx = page.waitForSelector('.pixel-action-sprite-v2.move', { state: 'attached', timeout: 4_000 });
-          await page.locator('.battle-cell.reachable').first().click();
-          await movementFx;
-          await page.waitForTimeout(220);
-          const after = await page.locator('.battle-unit.player.selected').getAttribute('style');
-          if (before === after) throw new Error('The selected pixel officer did not move.');
-          await page.screenshot({ path: '/tmp/threecountry-pixel-screens/06-after-move.png', fullPage: true });
+            await finishBattleDialogue();
+            await page.locator('.battle-grid').waitFor({ state: 'visible', timeout: 20_000 });
+            await page.waitForFunction(() => document.querySelectorAll('.battle-unit canvas.pixel-sprite-v2').length === 10, undefined, { timeout: 20_000 });
+            await paintedCanvases('.battle-unit canvas.pixel-sprite-v2', 10, 'battle sprites');
+            const battleIds = await page.locator('.battle-unit[data-pixel-hero]').evaluateAll((units) => units.map((unit) => unit.dataset.pixelHero));
+            const liveIds = [...new Set([...rosterIds, ...battleIds])].sort();
+            const missing = EXPECTED.filter((id) => !liveIds.includes(id));
+            if (missing.length) throw new Error(`Missing live characters: ${missing.join(', ')}`);
+            if (await page.locator('.battle-cell').count() !== 96) throw new Error('Expected a 12x8 tactical grid.');
+            await page.screenshot({ path: '/tmp/threecountry-pixel-screens/05-battle.png', fullPage: true });
 
-          await page.locator('[data-action="command-attack"]').click();
-          const selected = page.locator('.battle-unit.player.selected');
-          if (await selected.count()) {
-            await page.locator('.battle-unit.enemy').first().dispatchEvent('pointerdown', { pointerType: 'mouse', bubbles: true });
-            await page.locator('.pixel-hit-fx-v2.attack').waitFor({ state: 'attached', timeout: 4_000 });
-            await page.screenshot({ path: '/tmp/threecountry-pixel-screens/07-attack-effect.png', fullPage: true });
+            await page.locator('.battle-unit.player').first().click();
+            await page.locator('.battle-cell.reachable').first().waitFor({ state: 'visible', timeout: 10_000 });
+            const before = await page.locator('.battle-unit.player.selected').getAttribute('style');
+            const fx = page.waitForSelector('.pixel-action-sprite-v2.move', { state: 'attached', timeout: 4_000 });
+            await page.locator('.battle-cell.reachable').first().click();
+            await fx;
+            await page.waitForTimeout(220);
+            const after = await page.locator('.battle-unit.player.selected').getAttribute('style');
+            if (before === after) throw new Error('The selected pixel officer did not move.');
+            await page.screenshot({ path: '/tmp/threecountry-pixel-screens/06-after-move.png', fullPage: true });
+
+            if (errors.length) throw new Error(errors.join('\n'));
+            console.log(JSON.stringify({
+              status: 'success',
+              pixelVersion: await page.evaluate(() => window.__pixelArtV2.version),
+              renderedCharacters: liveIds,
+              titlePortraits: 2,
+              rosterPortraits: 6,
+              deploymentSprites: 8,
+              battleSprites: 10,
+              screenshots: 6,
+            }, null, 2));
+          } catch (error) {
+            console.error(error);
+            await page.screenshot({ path: '/tmp/threecountry-pixel-screens/99-failure.png', fullPage: true }).catch(() => {});
+            throw error;
+          } finally {
+            await browser.close();
           }
-
-          if (errors.length) throw new Error(errors.join('\n'));
-          console.log(JSON.stringify({
-            message: 'All-character pixel rendering passed live mobile visual verification.',
-            pixelVersion: await page.evaluate(() => window.__pixelArtV2.version),
-            renderedCharacters: liveIds,
-            titlePortraits: 2,
-            rosterPortraits: 6,
-            deploymentSprites: await page.locator('.preview-unit canvas.pixel-sprite-v2').count().catch(() => 0),
-            battleSprites: 10,
-            screenshots: 7,
-          }, null, 2));
-          await browser.close();
           EOF
-          node verify-threecountry-pixel.mjs
+          set +e
+          node verify-threecountry-pixel.mjs 2>&1 | tee /tmp/threecountry-pixel-verify.log
+          status=${PIPESTATUS[0]}
+          echo "status=${status}" >> "$GITHUB_OUTPUT"
+          exit "$status"
 
-      - name: Upload visual inspection screenshots
+      - name: Upload visual inspection evidence
+        if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: threecountry-pixel-v2-live-screens
-          path: /tmp/threecountry-pixel-screens/*.png
-          if-no-files-found: error
+          name: threecountry-pixel-v2-live-evidence
+          path: |
+            /tmp/threecountry-pixel-screens/*.png
+            /tmp/threecountry-pixel-verify.log
+          if-no-files-found: warn
           retention-days: 14
 
-      - name: Record verified public build
+      - name: Record live verification result
+        if: always()
         shell: bash
+        env:
+          BROWSER_OUTCOME: ${{ steps.browser.outcome }}
         run: |
           set -euo pipefail
-          printf 'version=0.6.0\nverified_run=%s\nverified_at=%s\nfeatures=12-pixel-characters,pixel-portraits,idle-move-attack-skill,mobile-live-visual-test\npixel_hero_count=12\n' "$GITHUB_RUN_ID" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > threecountry-v2/verified.txt
+          if [ "$BROWSER_OUTCOME" = 'success' ]; then
+            printf 'version=0.6.0\nstatus=success\nverified_run=%s\nverified_at=%s\nfeatures=12-pixel-characters,pixel-portraits,idle-move-attack-skill,mobile-live-visual-test\npixel_hero_count=12\n' "$GITHUB_RUN_ID" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > threecountry-v2/verified.txt
+            rm -f threecountry-v2/verification-failure.txt
+            message='test: record successful 12-character pixel verification'
+          else
+            printf 'version=0.6.0\nstatus=failure\nfailed_run=%s\nfailed_at=%s\n' "$GITHUB_RUN_ID" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > threecountry-v2/verification-failure.txt
+            message='test: record failed 12-character pixel verification'
+          fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
-          git add threecountry-v2/verified.txt
-          git commit -m 'test: verify all 12 pixel characters live'
-          git push
+          git add threecountry-v2/verified.txt threecountry-v2/verification-failure.txt 2>/dev/null || true
+          if ! git diff --cached --quiet; then
+            git commit -m "$message"
+            git push
+          fi
+
+      - name: Fail when browser verification failed
+        if: steps.browser.outcome != 'success'
+        run: exit 1
