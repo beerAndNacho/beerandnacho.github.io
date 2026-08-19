@@ -1,0 +1,76 @@
+name: Deploy Play100 into user Pages site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/deploy-play100.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-play100-user-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Pages repository
+        uses: actions/checkout@v6
+        with:
+          path: site
+
+      - name: Checkout Play100 source
+        uses: actions/checkout@v6
+        with:
+          repository: beerAndNacho/Play100
+          ref: main
+          path: source
+          persist-credentials: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v6
+        with:
+          node-version: 22
+
+      - name: Install Play100 dependencies
+        working-directory: source
+        run: npm install --no-audit --no-fund
+
+      - name: Validate Play100
+        working-directory: source
+        run: npm run check
+
+      - name: Build Play100
+        working-directory: source
+        run: npm run build
+
+      - name: Verify build output
+        run: |
+          test -s source/dist/index.html
+          test -s source/dist/games/001-arrow-harbor/index.html
+          grep -q '/Play100/assets/' source/dist/index.html
+          grep -q '/Play100/games/001-arrow-harbor/assets/' source/dist/games/001-arrow-harbor/index.html
+
+      - name: Publish under /Play100
+        run: |
+          rm -rf site/Play100
+          mkdir -p site/Play100
+          cp -R source/dist/. site/Play100/
+          touch site/Play100/.nojekyll
+
+      - name: Commit deployment
+        working-directory: site
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Play100
+          if git diff --cached --quiet; then
+            echo 'No deployment changes.'
+            exit 0
+          fi
+          git commit -m 'deploy: publish Play100 portal and GAME-001'
+          git push
