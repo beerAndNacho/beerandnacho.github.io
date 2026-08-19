@@ -1,0 +1,177 @@
+name: verify Threecountry commercial v0.7 live
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/verify-threecountry-commercial-v07.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: verify-threecountry-commercial-v07
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Verify public module graph
+        shell: bash
+        run: |
+          set -euo pipefail
+          base='https://beerandnacho.github.io/threecountry-v2'
+          for path in / /commercial-v1.css /commercial-data.js /forecast-action.js /commercial-v1.js /character-art-v1.js /app.js /engine.js; do
+            curl --retry 40 --retry-delay 3 --retry-all-errors -fsSL "${base}${path}?commercial=${GITHUB_RUN_ID}" -o /dev/null
+          done
+
+      - name: Install Chromium
+        working-directory: /tmp
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --no-audit --no-fund playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Test progression armory stat sync and combat forecast
+        working-directory: /tmp
+        shell: bash
+        run: |
+          mkdir -p /tmp/commercial-v07-evidence
+          cat > commercial.mjs <<'EOF'
+          import { chromium } from 'playwright';
+
+          const browser = await chromium.launch({ headless: true });
+          const page = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 2 });
+          const errors = [];
+          page.on('pageerror', error => errors.push(`pageerror:${error.message}`));
+          page.on('requestfailed', request => errors.push(`request:${request.url()}:${request.failure()?.errorText || ''}`));
+
+          const nextStoryUntil = async (selector) => {
+            for (let index = 0; index < 24; index += 1) {
+              if (await page.locator(selector).isVisible().catch(() => false)) return;
+              const next = page.locator('[data-action="story-next"]');
+              if (!(await next.count())) break;
+              await next.click();
+              await page.waitForTimeout(100);
+            }
+            await page.locator(selector).waitFor({ state: 'visible', timeout: 20000 });
+          };
+
+          const dismissBattleDialogue = async () => {
+            for (let index = 0; index < 15; index += 1) {
+              const next = page.locator('[data-action="battle-dialogue-next"]');
+              if (!(await next.count())) break;
+              await next.click();
+              await page.waitForTimeout(100);
+            }
+          };
+
+          const base = `https://beerandnacho.github.io/threecountry-v2/?commercial-v07=${Date.now()}`;
+          const response = await page.goto(base, { waitUntil: 'networkidle', timeout: 120000 });
+          if (!response?.ok()) throw new Error(`HTTP ${response?.status()}`);
+          await page.evaluate(() => {
+            localStorage.clear();
+            localStorage.setItem('threecountry:commercial:v1', JSON.stringify({
+              version: 1,
+              progression: { cao: { level: 3, xp: 18 } },
+              mastery: 5,
+              inventory: ['imperial-sabre', 'black-iron-armor', 'phoenix-talisman'],
+              loadouts: { cao: { weapon: 'imperial-sabre', armor: 'black-iron-armor', accessory: 'phoenix-talisman' } },
+            }));
+          });
+          await page.reload({ waitUntil: 'networkidle', timeout: 120000 });
+          await page.waitForFunction(() => window.__pixelArtV2?.heroCount === 12 && window.__commercialV07?.ready === true, {}, { timeout: 30000 });
+          if (await page.locator('.title-cast canvas.pixel-portrait-v2').count() !== 2) throw new Error('pixel title cast missing');
+          await page.screenshot({ path: '/tmp/commercial-v07-evidence/01-title.png', fullPage: true });
+          await page.locator('[data-action="new-game"]').click();
+          await nextStoryUntil('.roster-screen');
+          await page.waitForFunction(() => document.querySelectorAll('.roster-card .commercial-level-badge').length === 6);
+          const caoLevel = await page.locator('.roster-card[data-hero="cao"] .commercial-level-badge').innerText();
+          if (!caoLevel.includes('Lv.3')) throw new Error(`growth was not loaded: ${caoLevel}`);
+          await page.screenshot({ path: '/tmp/commercial-v07-evidence/02-roster-growth.png', fullPage: true });
+
+          await page.locator('.roster-card[data-hero="cao"] [data-commercial-select="cao"]').click();
+          await page.locator('.commercial-armory-modal.show').waitFor({ state: 'visible', timeout: 10000 });
+          const armoryText = await page.locator('.commercial-armory-modal').innerText();
+          for (const expected of ['장수 성장', '의천검', '현철 중갑', '봉황 부절', 'Lv.3']) {
+            if (!armoryText.includes(expected)) throw new Error(`armory missing ${expected}`);
+          }
+          await page.screenshot({ path: '/tmp/commercial-v07-evidence/03-armory.png', fullPage: true });
+          await page.locator('.commercial-armory-modal [data-commercial-close]').last().click();
+          await page.locator('.commercial-armory-modal').waitFor({ state: 'detached', timeout: 10000 });
+
+          await page.locator('[data-action="confirm-roster"]').click();
+          await nextStoryUntil('.deployment-screen');
+          await page.locator('[data-action="start-battle"]').click();
+          await dismissBattleDialogue();
+          await page.locator('.battle-grid').waitFor({ state: 'visible', timeout: 20000 });
+          const snapshotAttack = await page.evaluate(() => {
+            const save = JSON.parse(localStorage.getItem('threecountry:srpg:v2'));
+            return save.battle.units.find(unit => unit.heroId === 'cao').attack;
+          });
+          if (snapshotAttack < 28) throw new Error(`equipment was not reflected in battle attack: ${snapshotAttack}`);
+
+          await page.evaluate(() => {
+            const save = JSON.parse(localStorage.getItem('threecountry:srpg:v2'));
+            const cao = save.battle.units.find(unit => unit.heroId === 'cao');
+            const soldier = save.battle.units.find(unit => unit.heroId === 'soldier-spear');
+            cao.x = 4; cao.y = 2; cao.acted = false;
+            soldier.x = 5; soldier.y = 2;
+            save.battle.phase = 'player';
+            save.battle.result = null;
+            localStorage.setItem('threecountry:srpg:v2', JSON.stringify(save));
+          });
+          await page.reload({ waitUntil: 'networkidle', timeout: 120000 });
+          await page.locator('[data-action="continue-game"]').click();
+          await page.locator('.battle-grid').waitFor({ state: 'visible', timeout: 20000 });
+          await page.locator('.battle-unit.player[data-unit="player-cao"]').click();
+          await page.locator('[data-action="command-attack"]').click();
+          const enemy = page.locator('.battle-unit.enemy[data-unit="enemy-soldier-spear"]');
+          await enemy.dispatchEvent('pointerdown');
+          await page.locator('.commercial-forecast-modal.show').waitFor({ state: 'visible', timeout: 10000 });
+          const forecastText = await page.locator('.commercial-forecast-modal').innerText();
+          for (const expected of ['전투 예측', '예상 피해', '치명타', '예상 반격', '명령 실행']) {
+            if (!forecastText.includes(expected)) throw new Error(`forecast missing ${expected}`);
+          }
+          await page.screenshot({ path: '/tmp/commercial-v07-evidence/04-forecast.png', fullPage: true });
+          await page.locator('[data-commercial-forecast-confirm]').click();
+          await page.waitForTimeout(700);
+          const targetHp = await page.evaluate(() => {
+            const save = JSON.parse(localStorage.getItem('threecountry:srpg:v2'));
+            const target = save.battle.units.find(unit => unit.heroId === 'soldier-spear');
+            return { hp: target.hp, maxHp: target.maxHp };
+          });
+          if (!(targetHp.hp < targetHp.maxHp)) throw new Error(`confirmed attack did not execute: ${JSON.stringify(targetHp)}`);
+          await page.screenshot({ path: '/tmp/commercial-v07-evidence/05-after-attack.png', fullPage: true });
+
+          if (errors.length) throw new Error(errors.join('\n'));
+          console.log(JSON.stringify({ status: 'success', version: '0.7.0', snapshotAttack, targetHp, screenshots: 5 }, null, 2));
+          await browser.close();
+          EOF
+          node commercial.mjs 2>&1 | tee /tmp/commercial-v07-evidence/result.log
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: threecountry-commercial-v07-evidence
+          path: /tmp/commercial-v07-evidence/*
+          retention-days: 14
+
+      - name: Record successful live verification
+        shell: bash
+        run: |
+          printf 'version=0.7.0\nstatus=success\nverified_run=%s\nverified_at=%s\nchecks=pixel-art,level-load,armory,equipment-battle-sync,forecast,confirmed-attack,no-browser-errors\n' "$GITHUB_RUN_ID" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > threecountry-v2/commercial-verified.txt
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add threecountry-v2/commercial-verified.txt
+          git commit -m 'test: verify commercial SRPG v0.7 live successfully'
+          git push
