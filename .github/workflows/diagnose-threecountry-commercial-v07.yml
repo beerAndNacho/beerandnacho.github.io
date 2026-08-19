@@ -1,0 +1,105 @@
+name: diagnose Threecountry commercial v0.7
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/diagnose-threecountry-commercial-v07.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 16
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install Chromium
+        working-directory: /tmp
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --no-audit --no-fund playwright@1.55.0
+          npx playwright install --with-deps chromium
+      - name: Run browser diagnostic without losing the report
+        working-directory: /tmp
+        shell: bash
+        run: |
+          cat > diagnose.mjs <<'EOF'
+          import { chromium } from 'playwright';
+          const browser=await chromium.launch({headless:true});
+          const page=await browser.newPage({viewport:{width:390,height:844},deviceScaleFactor:2});
+          const errors=[];
+          page.on('pageerror',e=>errors.push(`pageerror:${e.message}`));
+          page.on('requestfailed',r=>errors.push(`request:${r.url()}:${r.failure()?.errorText||''}`));
+          const nextUntil=async(selector,button='[data-action="story-next"]')=>{
+            for(let i=0;i<25;i++){
+              if(await page.locator(selector).isVisible().catch(()=>false))return;
+              const next=page.locator(button);if(!(await next.count()))break;
+              await next.click();await page.waitForTimeout(100);
+            }
+            await page.locator(selector).waitFor({state:'visible',timeout:20000});
+          };
+          const response=await page.goto(`https://beerandnacho.github.io/threecountry-v2/?diagnose=${Date.now()}`,{waitUntil:'networkidle',timeout:120000});
+          if(!response?.ok())throw new Error(`HTTP:${response?.status()}`);
+          await page.evaluate(()=>{localStorage.clear();localStorage.setItem('threecountry:commercial:v1',JSON.stringify({version:1,progression:{cao:{level:3,xp:18}},mastery:5,inventory:['imperial-sabre','black-iron-armor','phoenix-talisman'],loadouts:{cao:{weapon:'imperial-sabre',armor:'black-iron-armor',accessory:'phoenix-talisman'}}}));});
+          await page.reload({waitUntil:'networkidle',timeout:120000});
+          await page.waitForFunction(()=>window.__pixelArtV2?.heroCount===12&&window.__commercialV07?.ready===true,{}, {timeout:30000});
+          console.log('BOOT_OK',await page.evaluate(()=>({pixel:window.__pixelArtV2,commercial:window.__commercialV07})));
+          await page.locator('[data-action="new-game"]').click();
+          await nextUntil('.roster-screen');
+          console.log('ROSTER_LEVEL',await page.locator('.roster-card[data-hero="cao"] .commercial-level-badge').innerText());
+          await page.locator('.roster-card[data-hero="cao"] [data-commercial-select="cao"]').click();
+          await page.locator('.commercial-armory-modal.show').waitFor({state:'visible',timeout:10000});
+          console.log('ARMORY_OK',(await page.locator('.commercial-armory-modal').innerText()).slice(0,700));
+          await page.locator('.commercial-armory-modal [data-commercial-close]').last().click();
+          await page.locator('[data-action="confirm-roster"]').click();
+          await nextUntil('.deployment-screen');
+          await page.locator('[data-action="start-battle"]').click();
+          for(let i=0;i<15;i++){const next=page.locator('[data-action="battle-dialogue-next"]');if(!(await next.count()))break;await next.click();await page.waitForTimeout(100);}
+          await page.locator('.battle-grid').waitFor({state:'visible',timeout:20000});
+          const attack=await page.evaluate(()=>{const s=JSON.parse(localStorage.getItem('threecountry:srpg:v2'));return s.battle.units.find(u=>u.heroId==='cao').attack;});
+          console.log('BATTLE_ATTACK',attack);
+          await page.evaluate(()=>{const s=JSON.parse(localStorage.getItem('threecountry:srpg:v2'));const c=s.battle.units.find(u=>u.heroId==='cao');const e=s.battle.units.find(u=>u.heroId==='soldier-spear');c.x=4;c.y=2;c.acted=false;e.x=5;e.y=2;s.battle.phase='player';s.battle.result=null;localStorage.setItem('threecountry:srpg:v2',JSON.stringify(s));});
+          await page.reload({waitUntil:'networkidle',timeout:120000});
+          await page.locator('[data-action="continue-game"]').click();
+          await page.locator('.battle-grid').waitFor({state:'visible',timeout:20000});
+          await page.locator('.battle-unit.player[data-unit="player-cao"]').click();
+          await page.locator('[data-action="command-attack"]').click();
+          await page.locator('.battle-unit.enemy[data-unit="enemy-soldier-spear"]').dispatchEvent('pointerdown');
+          await page.locator('.commercial-forecast-modal.show').waitFor({state:'visible',timeout:10000});
+          console.log('FORECAST_OK',(await page.locator('.commercial-forecast-modal').innerText()).slice(0,500));
+          if(errors.length)throw new Error(errors.join('\n'));
+          await browser.close();
+          EOF
+          set +e
+          node diagnose.mjs > /tmp/commercial-diagnostic.log 2>&1
+          code=$?
+          set -e
+          echo "$code" > /tmp/commercial-diagnostic-code
+          cat /tmp/commercial-diagnostic.log
+      - name: Commit diagnostic result
+        if: always()
+        shell: bash
+        run: |
+          code=$(cat /tmp/commercial-diagnostic-code 2>/dev/null || echo 99)
+          {
+            echo "version=0.7.0"
+            if [ "$code" = "0" ]; then echo "status=success"; else echo "status=failure"; fi
+            echo "exit_code=$code"
+            echo "run=$GITHUB_RUN_ID"
+            echo "verified_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo "---log---"
+            tail -n 80 /tmp/commercial-diagnostic.log 2>/dev/null || true
+          } > threecountry-v2/commercial-diagnostic.txt
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add threecountry-v2/commercial-diagnostic.txt
+          git commit -m 'test: record commercial v0.7 browser diagnostic'
+          git push
