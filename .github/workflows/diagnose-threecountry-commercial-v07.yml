@@ -1,4 +1,4 @@
-name: diagnose Threecountry commercial v0.7
+name: diagnose Threecountry commercial v0.7.1
 
 on:
   push:
@@ -50,8 +50,8 @@ jobs:
           if(!response?.ok())throw new Error(`HTTP:${response?.status()}`);
           await page.evaluate(()=>{localStorage.clear();localStorage.setItem('threecountry:commercial:v1',JSON.stringify({version:1,progression:{cao:{level:3,xp:18}},mastery:5,inventory:['imperial-sabre','black-iron-armor','phoenix-talisman'],loadouts:{cao:{weapon:'imperial-sabre',armor:'black-iron-armor',accessory:'phoenix-talisman'}}}));});
           await page.reload({waitUntil:'networkidle',timeout:120000});
-          await page.waitForFunction(()=>window.__pixelArtV2?.heroCount===12&&window.__commercialV07?.ready===true,{}, {timeout:30000});
-          console.log('BOOT_OK',await page.evaluate(()=>({pixel:window.__pixelArtV2,commercial:window.__commercialV07})));
+          await page.waitForFunction(()=>window.__pixelArtV2?.heroCount===12&&window.__commercialV07?.ready===true&&window.__mobileCommandV1?.ready===true,{}, {timeout:30000});
+          console.log('BOOT_OK',await page.evaluate(()=>({pixel:window.__pixelArtV2,commercial:window.__commercialV07,mobile:window.__mobileCommandV1})));
           await page.locator('[data-action="new-game"]').click();
           await nextUntil('.roster-screen');
           console.log('ROSTER_LEVEL',await page.locator('.roster-card[data-hero="cao"] .commercial-level-badge').innerText());
@@ -68,15 +68,16 @@ jobs:
           console.log('BATTLE_ATTACK',attack);
           await page.evaluate(()=>{const s=JSON.parse(localStorage.getItem('threecountry:srpg:v2'));const c=s.battle.units.find(u=>u.heroId==='cao');const e=s.battle.units.find(u=>u.heroId==='soldier-spear');c.x=4;c.y=2;c.acted=false;e.x=5;e.y=2;s.battle.phase='player';s.battle.result=null;localStorage.setItem('threecountry:srpg:v2',JSON.stringify(s));});
           await page.reload({waitUntil:'networkidle',timeout:120000});
-          if(!(await page.locator('.battle-grid').isVisible().catch(()=>false))){
-            const continueButton=page.locator('[data-action="continue-game"]');
-            if(await continueButton.count())await continueButton.click();
-          }
+          if(!(await page.locator('.battle-grid').isVisible().catch(()=>false))){const button=page.locator('[data-action="continue-game"]');if(await button.count())await button.click();}
           await page.locator('.battle-grid').waitFor({state:'visible',timeout:20000});
           const actor=page.locator('.battle-unit.player[data-unit^="player-cao-"]');
           const enemy=page.locator('.battle-unit.enemy[data-unit^="enemy-soldier-spear-"]');
           await actor.click();
-          await page.locator('[data-action="command-attack"]').click();
+          await page.waitForFunction(()=>{const panel=document.querySelector('.unit-command-panel');return panel?.dataset.mobileCommand==='ready'&&panel?.dataset.mobileCollapsed==='false'&&getComputedStyle(panel).transform==='none';},{},{timeout:10000});
+          const command=page.locator('[data-action="command-attack"]');
+          const commandBox=await command.boundingBox();
+          if(!commandBox||commandBox.y<0||commandBox.y+commandBox.height>844)throw new Error(`mobile command outside viewport:${JSON.stringify(commandBox)}`);
+          await command.click();
           await enemy.waitFor({state:'visible',timeout:10000});
           await enemy.dispatchEvent('pointerdown');
           await page.locator('.commercial-forecast-modal.show').waitFor({state:'visible',timeout:10000});
@@ -101,7 +102,7 @@ jobs:
         run: |
           code=$(cat /tmp/commercial-diagnostic-code 2>/dev/null || echo 99)
           {
-            echo "version=0.7.0"
+            echo "version=0.7.1"
             if [ "$code" = "0" ]; then echo "status=success"; else echo "status=failure"; fi
             echo "exit_code=$code"
             echo "run=$GITHUB_RUN_ID"
@@ -112,5 +113,5 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add threecountry-v2/commercial-diagnostic.txt
-          git commit -m 'test: record commercial v0.7 browser diagnostic'
+          git commit -m 'test: record commercial v0.7.1 browser diagnostic'
           git push
