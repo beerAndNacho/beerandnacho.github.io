@@ -31,6 +31,16 @@ jobs:
           path: source
           persist-credentials: false
 
+      - name: Reconstruct GAME-003 to GAME-005 source overlay
+        working-directory: source
+        run: |
+          cat scripts/overlay-chunks/part-* | base64 -d > /tmp/play100-games-003-005-overlay.zip
+          echo '8d2eb34c467080918b3a0df336786aed030ddc8e7db0cd24db669a9210c248e5  /tmp/play100-games-003-005-overlay.zip' | sha256sum -c -
+          mkdir -p /tmp/play100-overlay
+          unzip -q -o /tmp/play100-games-003-005-overlay.zip -d /tmp/play100-overlay
+          rsync -a /tmp/play100-overlay/ ./
+          rm -f APPLY.md
+
       - name: Setup Node
         uses: actions/setup-node@v6
         with:
@@ -53,9 +63,15 @@ jobs:
           test -s source/dist/index.html
           test -s source/dist/games/001-arrow-harbor/index.html
           test -s source/dist/games/002-harbor-lost-found/index.html
+          test -s source/dist/games/003-lightkeeper/index.html
+          test -s source/dist/games/004-one-stroke-courier/index.html
+          test -s source/dist/games/005-color-customs/index.html
           grep -q '/Play100/assets/' source/dist/index.html
           grep -q '/Play100/games/001-arrow-harbor/assets/' source/dist/games/001-arrow-harbor/index.html
           grep -q '/Play100/games/002-harbor-lost-found/assets/' source/dist/games/002-harbor-lost-found/index.html
+          grep -q '/Play100/games/003-lightkeeper/assets/' source/dist/games/003-lightkeeper/index.html
+          grep -q '/Play100/games/004-one-stroke-courier/assets/' source/dist/games/004-one-stroke-courier/index.html
+          grep -q '/Play100/games/005-color-customs/assets/' source/dist/games/005-color-customs/index.html
 
       - name: Publish under /Play100
         run: |
@@ -74,5 +90,5 @@ jobs:
             echo 'No deployment changes.'
             exit 0
           fi
-          git commit -m 'deploy: publish PLAY100 GAME-002 hidden-object build'
+          git commit -m 'deploy: publish PLAY100 GAME-003 through GAME-005'
           git push
