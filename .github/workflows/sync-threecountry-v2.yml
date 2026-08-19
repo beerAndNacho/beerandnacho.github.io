@@ -28,7 +28,7 @@ jobs:
         uses: actions/checkout@v4
         with:
           repository: beerAndNacho/Threecountry
-          ref: 6edcd6713df2ed66cd106bab544b4c1dbce584cc
+          ref: 2cc7da2d481ccb1894f25016e1537affc8210c4f
           path: _threecountry_srpg
 
       - uses: actions/setup-node@v4
