@@ -52,8 +52,10 @@ jobs:
         run: |
           test -s source/dist/index.html
           test -s source/dist/games/001-arrow-harbor/index.html
+          test -s source/dist/games/002-harbor-lost-found/index.html
           grep -q '/Play100/assets/' source/dist/index.html
           grep -q '/Play100/games/001-arrow-harbor/assets/' source/dist/games/001-arrow-harbor/index.html
+          grep -q '/Play100/games/002-harbor-lost-found/assets/' source/dist/games/002-harbor-lost-found/index.html
 
       - name: Publish under /Play100
         run: |
@@ -72,5 +74,5 @@ jobs:
             echo 'No deployment changes.'
             exit 0
           fi
-          git commit -m 'deploy: publish latest Play100 build'
+          git commit -m 'deploy: publish PLAY100 GAME-002 hidden-object build'
           git push
