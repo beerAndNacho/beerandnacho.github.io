@@ -17,18 +17,18 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 14
     steps:
       - name: Checkout Pages repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
-      - name: Checkout tested all-character pixel SRPG source
+      - name: Checkout tested commercial SRPG source
         uses: actions/checkout@v4
         with:
           repository: beerAndNacho/Threecountry
-          ref: 9b648bc6b8d804bd3f1dbf0f7e7f9bd5525ac29d
+          ref: 8816010d4ad25a60d64c9d5c5f0e055435c360cf
           path: _threecountry_srpg
 
       - uses: actions/setup-node@v4
@@ -58,22 +58,22 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          for file in index.html styles.css gameplay-v4.css character-art-v1.css pixel-geometry-fix.css app.js gameplay-v4.js character-art-v1.js engine.js content.js audio.js; do
+          for file in index.html styles.css gameplay-v4.css character-art-v1.css pixel-geometry-fix.css commercial-v1.css app.js gameplay-v4.js character-art-v1.js commercial-data.js forecast-action.js commercial-v1.js engine.js content.js audio.js; do
             test -s "threecountry-v2/${file}"
           done
-          grep -q 'character-art-v1.js?v=20260818-10' threecountry-v2/index.html
-          grep -q 'character-art-v1.css?v=20260818-10' threecountry-v2/index.html
-          grep -q 'pixel-geometry-fix.css?v=20260818-10' threecountry-v2/index.html
+          grep -q 'character-art-v1.js?v=20260819-1' threecountry-v2/index.html
+          grep -q 'character-art-v1.css?v=20260819-1' threecountry-v2/index.html
+          grep -q 'pixel-geometry-fix.css?v=20260819-1' threecountry-v2/index.html
+          grep -q 'commercial-v1.js?v=20260819-1' threecountry-v2/index.html
+          grep -q 'commercial-v1.css?v=20260819-1' threecountry-v2/index.html
+          grep -q '__commercialV07' threecountry-v2/commercial-v1.js
+          grep -q 'syncCommercialHeroStats' threecountry-v2/forecast-action.js
+          grep -q 'imperial-sabre' threecountry-v2/commercial-data.js
           grep -q 'pixel-character-art-ready' threecountry-v2/character-art-v1.js
           grep -q 'heroCount:ORDER.length' threecountry-v2/character-art-v1.js
-          grep -q 'drawPortrait' threecountry-v2/character-art-v1.js
-          grep -q 'drawSprite' threecountry-v2/character-art-v1.js
           grep -q "'soldier-archer'" threecountry-v2/character-art-v1.js
           grep -q 'battle-unit\[data-pixel-unit\]' threecountry-v2/pixel-geometry-fix.css
-          grep -q 'translate:none!important' threecountry-v2/pixel-geometry-fix.css
-          grep -q 'animation:none!important' threecountry-v2/pixel-geometry-fix.css
           ! grep -Eq 'raw\.githubusercontent|cdn\.jsdelivr' threecountry-v2/index.html
-          ! grep -Eq 'raw\.githubusercontent|cdn\.jsdelivr|ASSET_BASE' threecountry-v2/character-art-v1.js
 
       - name: Commit public build
         shell: bash
@@ -86,5 +86,5 @@ jobs:
             echo 'No deployment changes.'
             exit 0
           fi
-          git commit -m 'fix: publish SRPG v0.6.1 visible pixel units'
+          git commit -m 'feat: publish SRPG v0.7 growth equipment and forecast'
           git push
