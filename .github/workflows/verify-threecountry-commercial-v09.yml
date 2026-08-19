@@ -1,0 +1,151 @@
+name: verify Threecountry cinematic combat alpha v0.9
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/verify-threecountry-commercial-v09.yml'
+      - 'threecountry-commercial/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-threecountry-commercial-v09
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Wait for Pages and verify cinematic assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          base='https://beerandnacho.github.io/threecountry-commercial'
+          for attempt in $(seq 1 48); do
+            if curl -fsSL "${base}/verified.txt?run=${GITHUB_RUN_ID}-${attempt}" | grep -q 'v0.9.0'; then
+              break
+            fi
+            if [ "$attempt" -eq 48 ]; then
+              echo 'Published v0.9.0 alpha did not become available in time.'
+              exit 1
+            fi
+            sleep 5
+          done
+          for path in '/' '/styles.css' '/gameplay-v4.css' '/commercial-v1.css' '/mobile-command-v1.css' '/character-art-v2.css' '/story-director-v2.css' '/commercial-combat-v3.css' '/campaign-story-v3.css' '/app.js' '/gameplay-v4.js' '/commercial-v1.js' '/mobile-command-v1.js' '/character-art-v2.js' '/story-director-v2.js' '/commercial-combat-v3.js' '/campaign-story-v3.js'; do
+            echo "Checking ${base}${path}"
+            curl --retry 10 --retry-delay 2 --retry-all-errors -fsSL "${base}${path}?verify=${GITHUB_RUN_ID}" -o /dev/null
+          done
+          curl -fsSL "${base}/?verify=${GITHUB_RUN_ID}" -o /tmp/threecountry-commercial-v09.html
+          grep -q 'Cinematic Combat Alpha v0.9' /tmp/threecountry-commercial-v09.html
+          grep -q 'commercial-combat-v3.js' /tmp/threecountry-commercial-v09.html
+          grep -q 'campaign-story-v3.js' /tmp/threecountry-commercial-v09.html
+          ! grep -q 'character-art-v1' /tmp/threecountry-commercial-v09.html
+          ! grep -q 'pixel-geometry-fix' /tmp/threecountry-commercial-v09.html
+
+      - name: Install Chromium runtime
+        shell: bash
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --no-audit --no-fund playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Verify mobile art, motion runtime and story directors
+        shell: bash
+        run: |
+          cat > verify-commercial-v09.mjs <<'EOF'
+          import { chromium } from 'playwright';
+
+          const browser = await chromium.launch({ headless: true });
+          const page = await browser.newPage({
+            viewport: { width: 390, height: 844 },
+            deviceScaleFactor: 1,
+            isMobile: true,
+            hasTouch: true,
+          });
+          const errors = [];
+          page.on('pageerror', (error) => errors.push(`pageerror: ${error.message}`));
+          page.on('requestfailed', (request) => errors.push(`requestfailed: ${request.url()} ${request.failure()?.errorText || ''}`));
+          await page.addInitScript(() => {
+            localStorage.removeItem('threecountry:campaign-story:v3');
+            sessionStorage.clear();
+          });
+
+          const response = await page.goto(`https://beerandnacho.github.io/threecountry-commercial/?verify=${Date.now()}`, {
+            waitUntil: 'networkidle',
+            timeout: 120_000,
+          });
+          if (!response?.ok()) throw new Error(`Page response was ${response?.status()}`);
+          await page.locator('#app').waitFor({ state: 'visible', timeout: 30_000 });
+          await page.waitForFunction(() => window.__commercialCharacterArtV2?.ready === true, undefined, { timeout: 30_000 });
+          await page.waitForFunction(() => window.__storyDirectorV2?.ready === true, undefined, { timeout: 30_000 });
+          await page.waitForFunction(() => window.__commercialCombatV3?.ready === true, undefined, { timeout: 30_000 });
+          await page.waitForFunction(() => window.__campaignStoryV3?.ready === true, undefined, { timeout: 30_000 });
+          await page.waitForTimeout(1800);
+
+          const runtime = await page.evaluate(() => ({
+            art: window.__commercialCharacterArtV2,
+            storyV2: window.__storyDirectorV2,
+            combat: window.__commercialCombatV3,
+            storyV3: window.__campaignStoryV3,
+          }));
+          if (runtime.art.renderer !== 'vector-svg') throw new Error(`Unexpected renderer: ${runtime.art.renderer}`);
+          if (runtime.art.heroCount !== 12) throw new Error(`Expected 12 character profiles; got ${runtime.art.heroCount}`);
+          if (runtime.combat.animationFrames < 8) throw new Error(`Expected at least 8 movement frames; got ${runtime.combat.animationFrames}`);
+          if (runtime.combat.effects.length < 12) throw new Error(`Expected at least 12 combat effects; got ${runtime.combat.effects.length}`);
+          if (runtime.storyV2.sceneCount !== 8 || runtime.storyV3.sceneCount !== 8) throw new Error(`Expected 16 total story scenes; got ${runtime.storyV2.sceneCount + runtime.storyV3.sceneCount}`);
+          if (runtime.combat.metrics.fps && runtime.combat.metrics.fps < 20) throw new Error(`Runtime FPS was too low: ${runtime.combat.metrics.fps}`);
+
+          const portraits = page.locator('svg[data-commercial-art-v2="1"]');
+          await portraits.first().waitFor({ state: 'visible', timeout: 30_000 });
+          const portraitCount = await portraits.count();
+          if (portraitCount < 2) throw new Error(`Expected visible vector portraits; got ${portraitCount}`);
+          const fingerprints = await portraits.evaluateAll((nodes) => [...new Set(nodes.map((node) => node.dataset.silhouette).filter(Boolean))]);
+          if (fingerprints.length < 2) throw new Error(`Character silhouettes are not differentiated: ${fingerprints.join(', ')}`);
+          const oldPixelAssets = await page.evaluate(() => [...document.scripts, ...document.styleSheets].some((entry) => String(entry.src || entry.href || '').includes('character-art-v1') || String(entry.src || entry.href || '').includes('pixel-geometry-fix')));
+          if (oldPixelAssets) throw new Error('Retired pixel renderer is still loaded.');
+
+          await page.screenshot({ path: 'commercial-v09-title.png', fullPage: true });
+          const start = page.locator('[data-action="start-game"], [data-action="new-game"], button').filter({ hasText: /새 연대기|게임 시작|시작/ }).first();
+          if (await start.count()) {
+            await start.click();
+            await page.waitForTimeout(1000);
+            await page.screenshot({ path: 'commercial-v09-after-start.png', fullPage: true });
+          }
+          const storyCard = page.locator('[data-sd2-card],[data-cstory3-card]').first();
+          if (await storyCard.count()) {
+            await storyCard.scrollIntoViewIfNeeded();
+            await page.screenshot({ path: 'commercial-v09-story-card.png', fullPage: true });
+          }
+          const battleUnits = page.locator('.battle-unit');
+          if (await battleUnits.count()) {
+            const sizes = await battleUnits.evaluateAll((nodes) => nodes.slice(0,6).map((node) => {
+              const svg = node.querySelector('svg.commercial-unit-v2');
+              const unit = node.getBoundingClientRect();
+              const art = svg?.getBoundingClientRect();
+              return art && unit ? art.width / unit.width : 0;
+            }));
+            if (sizes.some((ratio) => ratio > .82)) throw new Error(`Battle unit art is still too large: ${sizes.join(', ')}`);
+            await page.screenshot({ path: 'commercial-v09-battle.png', fullPage: true });
+          }
+
+          if (errors.length) throw new Error(errors.join('\n'));
+          console.log(JSON.stringify({ runtime, portraitCount, fingerprints }, null, 2));
+          await browser.close();
+          EOF
+          node verify-commercial-v09.mjs
+
+      - name: Upload visual review captures
+        uses: actions/upload-artifact@v4
+        with:
+          name: threecountry-cinematic-combat-v09-captures
+          path: commercial-v09-*.png
+          if-no-files-found: error
+          retention-days: 14
