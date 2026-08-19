@@ -1,0 +1,62 @@
+name: diagnose Threecountry source v0.7.1
+
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/diagnose-threecountry-source-v071.yml']
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@v4
+        with: { fetch-depth: 0 }
+      - uses: actions/checkout@v4
+        with:
+          repository: beerAndNacho/Threecountry
+          ref: 2cc7da2d481ccb1894f25016e1537affc8210c4f
+          path: _source
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: _source/package-lock.json
+      - name: Run build and capture complete result
+        shell: bash
+        run: |
+          set +e
+          cd _source
+          npm ci > /tmp/source-v071.log 2>&1
+          install_code=$?
+          if [ "$install_code" = "0" ]; then npm run build >> /tmp/source-v071.log 2>&1; build_code=$?; else build_code=99; fi
+          cd ..
+          printf '%s\n' "$install_code" > /tmp/install-code
+          printf '%s\n' "$build_code" > /tmp/build-code
+          set -e
+          cat /tmp/source-v071.log
+      - name: Commit source report
+        if: always()
+        shell: bash
+        run: |
+          install_code=$(cat /tmp/install-code 2>/dev/null || echo 99)
+          build_code=$(cat /tmp/build-code 2>/dev/null || echo 99)
+          {
+            echo 'version=0.7.1'
+            if [ "$install_code" = "0" ] && [ "$build_code" = "0" ]; then echo 'status=success'; else echo 'status=failure'; fi
+            echo "install_exit=$install_code"
+            echo "build_exit=$build_code"
+            echo "run=$GITHUB_RUN_ID"
+            echo "verified_at=$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+            echo '---log---'
+            tail -n 120 /tmp/source-v071.log 2>/dev/null || true
+          } > threecountry-v2/source-v071-report.txt
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add threecountry-v2/source-v071-report.txt
+          git commit -m 'test: record SRPG v0.7.1 source build report'
+          git push
