@@ -68,13 +68,24 @@ jobs:
           console.log('BATTLE_ATTACK',attack);
           await page.evaluate(()=>{const s=JSON.parse(localStorage.getItem('threecountry:srpg:v2'));const c=s.battle.units.find(u=>u.heroId==='cao');const e=s.battle.units.find(u=>u.heroId==='soldier-spear');c.x=4;c.y=2;c.acted=false;e.x=5;e.y=2;s.battle.phase='player';s.battle.result=null;localStorage.setItem('threecountry:srpg:v2',JSON.stringify(s));});
           await page.reload({waitUntil:'networkidle',timeout:120000});
-          await page.locator('[data-action="continue-game"]').click();
+          if(!(await page.locator('.battle-grid').isVisible().catch(()=>false))){
+            const continueButton=page.locator('[data-action="continue-game"]');
+            if(await continueButton.count())await continueButton.click();
+          }
           await page.locator('.battle-grid').waitFor({state:'visible',timeout:20000});
-          await page.locator('.battle-unit.player[data-unit="player-cao"]').click();
+          const actor=page.locator('.battle-unit.player[data-unit^="player-cao-"]');
+          const enemy=page.locator('.battle-unit.enemy[data-unit^="enemy-soldier-spear-"]');
+          await actor.click();
           await page.locator('[data-action="command-attack"]').click();
-          await page.locator('.battle-unit.enemy[data-unit="enemy-soldier-spear"]').dispatchEvent('pointerdown');
+          await enemy.waitFor({state:'visible',timeout:10000});
+          await enemy.dispatchEvent('pointerdown');
           await page.locator('.commercial-forecast-modal.show').waitFor({state:'visible',timeout:10000});
           console.log('FORECAST_OK',(await page.locator('.commercial-forecast-modal').innerText()).slice(0,500));
+          await page.locator('[data-commercial-forecast-confirm]').click();
+          await page.waitForTimeout(700);
+          const targetHp=await page.evaluate(()=>{const s=JSON.parse(localStorage.getItem('threecountry:srpg:v2'));const e=s.battle.units.find(u=>u.heroId==='soldier-spear');return {hp:e.hp,maxHp:e.maxHp};});
+          if(!(targetHp.hp<targetHp.maxHp))throw new Error(`confirmed attack did not execute:${JSON.stringify(targetHp)}`);
+          console.log('ATTACK_CONFIRMED',targetHp);
           if(errors.length)throw new Error(errors.join('\n'));
           await browser.close();
           EOF
