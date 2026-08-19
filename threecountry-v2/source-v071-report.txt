@@ -1,0 +1,127 @@
+version=0.7.1
+status=success
+install_exit=0
+build_exit=0
+run=32206020739
+verified_at=2026-08-19T01:44:49Z
+---log---
+  type: 'test'
+  ...
+# Subtest: movement cannot enter river or occupied cells
+ok 10 - movement cannot enter river or occupied cells
+  ---
+  duration_ms: 1.235446
+  type: 'test'
+  ...
+# Subtest: player can move and then attack within range
+ok 11 - player can move and then attack within range
+  ---
+  duration_ms: 3.648372
+  type: 'test'
+  ...
+# Subtest: same seed and same attack produce the same damage
+ok 12 - same seed and same attack produce the same damage
+  ---
+  duration_ms: 0.625061
+  type: 'test'
+  ...
+# Subtest: Guo Jia skill deals damage and roots the target
+ok 13 - Guo Jia skill deals damage and roots the target
+  ---
+  duration_ms: 0.82369
+  type: 'test'
+  ...
+# Subtest: Xiahou Dun skill grants shield and taunt
+ok 14 - Xiahou Dun skill grants shield and taunt
+  ---
+  duration_ms: 0.340833
+  type: 'test'
+  ...
+# Subtest: enemy AI attacks immediately when a player is in range
+ok 15 - enemy AI attacks immediately when a player is in range
+  ---
+  duration_ms: 0.803282
+  type: 'test'
+  ...
+# Subtest: defeating Liu Bei ends battle with victory
+ok 16 - defeating Liu Bei ends battle with victory
+  ---
+  duration_ms: 0.424018
+  type: 'test'
+  ...
+# Subtest: occupying the command camp wins even if Liu Bei survives
+ok 17 - occupying the command camp wins even if Liu Bei survives
+  ---
+  duration_ms: 0.749473
+  type: 'test'
+  ...
+# Subtest: strategy and facilities change opening stats
+ok 18 - strategy and facilities change opening stats
+  ---
+  duration_ms: 0.695412
+  type: 'test'
+  ...
+# Subtest: v0.4 presentation files are loaded and copied to dist
+ok 19 - v0.4 presentation files are loaded and copied to dist
+  ---
+  duration_ms: 1.373081
+  type: 'test'
+  ...
+# Subtest: battlefield uses compact units and real movement animation
+ok 20 - battlefield uses compact units and real movement animation
+  ---
+  duration_ms: 0.261516
+  type: 'test'
+  ...
+# Subtest: combat effects cover ranged, melee, magic, damage, heal, and retreat
+ok 21 - combat effects cover ranged, melee, magic, damage, heal, and retreat
+  ---
+  duration_ms: 0.324553
+  type: 'test'
+  ...
+# Subtest: branching events change battle or campaign state
+ok 22 - branching events change battle or campaign state
+  ---
+  duration_ms: 0.266766
+  type: 'test'
+  ...
+# Subtest: mobile command module exposes selected unit commands without hover
+ok 23 - mobile command module exposes selected unit commands without hover
+  ---
+  duration_ms: 5.38165
+  type: 'test'
+  ...
+# Subtest: commercial HTML loads mobile command assets with the current cache version
+ok 24 - commercial HTML loads mobile command assets with the current cache version
+  ---
+  duration_ms: 1.470833
+  type: 'test'
+  ...
+# Subtest: all current battlefield characters have pixel-art definitions
+ok 25 - all current battlefield characters have pixel-art definitions
+  ---
+  duration_ms: 7.413164
+  type: 'test'
+  ...
+# Subtest: HTML cache version and commercial pixel integration are consistent
+ok 26 - HTML cache version and commercial pixel integration are consistent
+  ---
+  duration_ms: 1.993144
+  type: 'test'
+  ...
+# Subtest: pixel battle units cannot inherit runaway transform animations
+ok 27 - pixel battle units cannot inherit runaway transform animations
+  ---
+  duration_ms: 1.786519
+  type: 'test'
+  ...
+1..27
+# tests 27
+# suites 0
+# pass 27
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 159.041139
+SRPG v0.7.1 commercial growth, forecast and mobile command build created in dist
