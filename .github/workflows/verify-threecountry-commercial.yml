@@ -1,0 +1,124 @@
+name: verify Threecountry commercial alpha
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/verify-threecountry-commercial.yml'
+      - 'threecountry-commercial/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-threecountry-commercial-alpha
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Wait for GitHub Pages and verify assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          base='https://beerandnacho.github.io/threecountry-commercial'
+          for attempt in $(seq 1 40); do
+            if curl -fsSL "${base}/verified.txt?run=${GITHUB_RUN_ID}-${attempt}" | grep -q 'v0.8.1'; then
+              break
+            fi
+            if [ "$attempt" -eq 40 ]; then
+              echo 'Published alpha did not become available in time.'
+              exit 1
+            fi
+            sleep 5
+          done
+          for path in '/' '/styles.css' '/gameplay-v4.css' '/commercial-v1.css' '/mobile-command-v1.css' '/character-art-v2.css' '/story-director-v2.css' '/app.js' '/gameplay-v4.js' '/commercial-v1.js' '/mobile-command-v1.js' '/character-art-v2.js' '/story-director-v2.js'; do
+            echo "Checking ${base}${path}"
+            curl --retry 8 --retry-delay 2 --retry-all-errors -fsSL "${base}${path}?verify=${GITHUB_RUN_ID}" -o /dev/null
+          done
+          curl -fsSL "${base}/?verify=${GITHUB_RUN_ID}" -o /tmp/threecountry-commercial.html
+          grep -q 'Commercial Art Alpha' /tmp/threecountry-commercial.html
+          grep -q 'character-art-v2.js' /tmp/threecountry-commercial.html
+          grep -q 'story-director-v2.js' /tmp/threecountry-commercial.html
+          ! grep -q 'character-art-v1' /tmp/threecountry-commercial.html
+          ! grep -q 'pixel-geometry-fix' /tmp/threecountry-commercial.html
+
+      - name: Install browser runtime
+        shell: bash
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --no-audit --no-fund playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Verify mobile render, characters, motion and story
+        shell: bash
+        run: |
+          cat > verify-commercial.mjs <<'EOF'
+          import { chromium } from 'playwright';
+
+          const browser = await chromium.launch({ headless: true });
+          const page = await browser.newPage({
+            viewport: { width: 390, height: 844 },
+            deviceScaleFactor: 1,
+            isMobile: true,
+            hasTouch: true,
+          });
+          const errors = [];
+          page.on('pageerror', (error) => errors.push(`pageerror: ${error.message}`));
+          page.on('requestfailed', (request) => errors.push(`requestfailed: ${request.url()} ${request.failure()?.errorText || ''}`));
+
+          const response = await page.goto(`https://beerandnacho.github.io/threecountry-commercial/?verify=${Date.now()}`, {
+            waitUntil: 'networkidle',
+            timeout: 120_000,
+          });
+          if (!response?.ok()) throw new Error(`Page response was ${response?.status()}`);
+          await page.locator('#app').waitFor({ state: 'visible', timeout: 30_000 });
+          await page.waitForFunction(() => window.__commercialCharacterArtV2?.ready === true, undefined, { timeout: 30_000 });
+          await page.waitForFunction(() => window.__storyDirectorV2?.ready === true, undefined, { timeout: 30_000 });
+
+          const art = await page.evaluate(() => window.__commercialCharacterArtV2);
+          const story = await page.evaluate(() => window.__storyDirectorV2);
+          if (art.renderer !== 'vector-svg') throw new Error(`Unexpected renderer: ${art.renderer}`);
+          if (art.heroCount !== 12) throw new Error(`Expected 12 character profiles; got ${art.heroCount}`);
+          if (art.states.length !== 8) throw new Error(`Expected 8 animation states; got ${art.states.length}`);
+          if (story.sceneCount !== 8) throw new Error(`Expected 8 story scenes; got ${story.sceneCount}`);
+
+          const portraits = page.locator('svg[data-commercial-art-v2="1"]');
+          await portraits.first().waitFor({ state: 'visible', timeout: 30_000 });
+          const portraitCount = await portraits.count();
+          if (portraitCount < 2) throw new Error(`Expected rendered character art; got ${portraitCount}`);
+          const fingerprints = await portraits.evaluateAll((nodes) => [...new Set(nodes.map((node) => node.dataset.silhouette).filter(Boolean))]);
+          if (fingerprints.length < 2) throw new Error(`Character silhouettes are not differentiated: ${fingerprints.join(', ')}`);
+
+          const oldPixelAssets = await page.evaluate(() => [...document.scripts, ...document.styleSheets].some((entry) => String(entry.src || entry.href || '').includes('character-art-v1')));
+          if (oldPixelAssets) throw new Error('Retired pixel renderer is still loaded.');
+
+          await page.screenshot({ path: 'commercial-mobile-title.png', fullPage: true });
+
+          const start = page.locator('[data-action="start-game"], [data-action="new-game"], button').filter({ hasText: /새 연대기|게임 시작|시작/ }).first();
+          if (await start.count()) {
+            await start.click();
+            await page.waitForTimeout(900);
+            await page.screenshot({ path: 'commercial-mobile-after-start.png', fullPage: true });
+          }
+
+          if (errors.length) throw new Error(errors.join('\n'));
+          console.log(JSON.stringify({ art, story, portraitCount, fingerprints }, null, 2));
+          await browser.close();
+          EOF
+          node verify-commercial.mjs
+
+      - name: Upload visual review captures
+        uses: actions/upload-artifact@v4
+        with:
+          name: threecountry-commercial-alpha-v081-captures
+          path: commercial-mobile-*.png
+          if-no-files-found: error
+          retention-days: 14
