@@ -1,0 +1,127 @@
+version=0.7.1
+status=failure
+install_exit=0
+build_exit=1
+run=32205703936
+verified_at=2026-08-19T01:39:27Z
+---log---
+      '    event.stopPropagation();\n' +
+      '    togglePanel();\n' +
+      '    return;\n' +
+      '  }\n' +
+      "  const command = target.closest('.command-grid [data-action]');\n" +
+      "  if (command && ['command-move', 'command-attack', 'command-skill'].includes(command.dataset.action || '')) {\n" +
+      "    const panel = document.querySelector('.unit-command-panel');\n" +
+      '    window.setTimeout(() => {\n' +
+      "      if (panel) panel.dataset.mobileCollapsed = 'true';\n" +
+      '      schedule();\n' +
+      '    }, 120);\n' +
+      '  }\n' +
+      '}, true);\n' +
+      '\n' +
+      'new MutationObserver(schedule).observe(document.documentElement, { childList: true, subtree: true });\n' +
+      'window.__mobileCommandV1 = { ready: true, version: RELEASE };\n' +
+      'schedule();\n'
+    
+  code: 'ERR_ASSERTION'
+  name: 'AssertionError'
+  expected:
+  actual: |-
+    const RELEASE = '0.7.1';
+    let scheduled = false;
+    let lastHero = '';
+    
+    function syncPanel() {
+      scheduled = false;
+      const panel = document.querySelector('.unit-command-panel');
+      if (!panel) return;
+      const profile = panel.querySelector('.unit-profile');
+      panel.dataset.mobileCommand = profile ? 'ready' : 'empty';
+      if (!panel.querySelector('.mobile-command-handle')) {
+        panel.insertAdjacentHTML('afterbegin', `<button class="mobile-command-handle" data-mobile-command-toggle type="button"><span>⚔</span><b>장수 명령</b><small>이동 · 공격 · 기술</small><i>⌄</i></button>`);
+      }
+      const hero = profile?.querySelector('.profile-head h2')?.textContent?.trim() || '';
+      if (hero && hero !== lastHero) {
+        panel.dataset.mobileCollapsed = 'false';
+        lastHero = hero;
+      }
+      const handle = panel.querySelector('.mobile-command-handle');
+      handle?.setAttribute('aria-expanded', panel.dataset.mobileCollapsed !== 'true' ? 'true' : 'false');
+      handle?.querySelector('i')?.replaceChildren(document.createTextNode(panel.dataset.mobileCollapsed === 'true' ? '⌃' : '⌄'));
+    }
+    
+    function schedule() {
+      if (scheduled) return;
+      scheduled = true;
+      requestAnimationFrame(syncPanel);
+    }
+    
+    function togglePanel() {
+      const panel = document.querySelector('.unit-command-panel');
+      if (!panel || panel.dataset.mobileCommand !== 'ready') return;
+      panel.dataset.mobileCollapsed = panel.dataset.mobileCollapsed === 'true' ? 'false' : 'true';
+      schedule();
+    }
+    
+    document.addEventListener('click', (event) => {
+      const target = event.target instanceof Element ? event.target : null;
+      if (!target) return;
+      if (target.closest('[data-mobile-command-toggle]')) {
+        event.preventDefault();
+        event.stopPropagation();
+        togglePanel();
+        return;
+      }
+      const command = target.closest('.command-grid [data-action]');
+      if (command && ['command-move', 'command-attack', 'command-skill'].includes(command.dataset.action || '')) {
+        const panel = document.querySelector('.unit-command-panel');
+        window.setTimeout(() => {
+          if (panel) panel.dataset.mobileCollapsed = 'true';
+          schedule();
+        }, 120);
+      }
+    }, true);
+    
+    new MutationObserver(schedule).observe(document.documentElement, { childList: true, subtree: true });
+    window.__mobileCommandV1 = { ready: true, version: RELEASE };
+    schedule();
+    
+  operator: 'match'
+  stack: |-
+    TestContext.<anonymous> (file:///home/runner/work/beerandnacho.github.io/beerandnacho.github.io/_source/tests/mobile-command-v1.test.mjs:9:10)
+    async Test.run (node:internal/test_runner/test:1054:7)
+    async startSubtestAfterBootstrap (node:internal/test_runner/harness:296:3)
+  ...
+# Subtest: commercial HTML loads mobile command assets with the current cache version
+ok 24 - commercial HTML loads mobile command assets with the current cache version
+  ---
+  duration_ms: 2.220217
+  type: 'test'
+  ...
+# Subtest: all current battlefield characters have pixel-art definitions
+ok 25 - all current battlefield characters have pixel-art definitions
+  ---
+  duration_ms: 6.169759
+  type: 'test'
+  ...
+# Subtest: HTML cache version and commercial pixel integration are consistent
+ok 26 - HTML cache version and commercial pixel integration are consistent
+  ---
+  duration_ms: 1.610233
+  type: 'test'
+  ...
+# Subtest: pixel battle units cannot inherit runaway transform animations
+ok 27 - pixel battle units cannot inherit runaway transform animations
+  ---
+  duration_ms: 2.328751
+  type: 'test'
+  ...
+1..27
+# tests 27
+# suites 0
+# pass 26
+# fail 1
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 149.679425
