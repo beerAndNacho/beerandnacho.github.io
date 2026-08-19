@@ -1,32 +1,9 @@
 version=0.7.0
 status=failure
 exit_code=1
-run=32204623332
-verified_at=2026-08-19T01:22:22Z
+run=32204836204
+verified_at=2026-08-19T01:26:06Z
 ---log---
-
-HP +20 · 방어 +5 · 속도 -1
-
-해제
-장신구
-鳳
-봉황 부절
-
-공격 +2 · 책략 +4
-
-해제
-보유 장비
-12종
-刀
-일반 · 무기
-청동 환도
-
-균형 잡힌 초급 무기.
-
-공격 +3
-장착
-槍
-희귀 · 무기
 기병 장창
 
 기병의 돌파력을 높이는 장창.
@@ -77,9 +54,32 @@ node:internal/modules/run_main:123
 
 locator.click: Timeout 30000ms exceeded.
 Call log:
-  - waiting for locator('[data-action="continue-game"]')
+  - waiting for locator('[data-action="command-attack"]')
+    - locator resolved to <button class="" type="button" data-action="command-attack">…</button>
+  - attempting click action
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - element is outside of the viewport
+    - retrying click action
+    - waiting 20ms
+    2 × waiting for element to be visible, enabled and stable
+      - element is visible, enabled and stable
+      - scrolling into view if needed
+      - done scrolling
+      - element is outside of the viewport
+    - retrying click action
+      - waiting 100ms
+    56 × waiting for element to be visible, enabled and stable
+       - element is visible, enabled and stable
+       - scrolling into view if needed
+       - done scrolling
+       - element is outside of the viewport
+     - retrying click action
+       - waiting 500ms
 
-    at /tmp/diagnose.mjs:37:53 {
+    at /tmp/diagnose.mjs:45:54 {
   name: 'TimeoutError'
 }
 
