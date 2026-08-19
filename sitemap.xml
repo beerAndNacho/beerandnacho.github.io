@@ -1,30 +1,104 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://beerandnacho.github.io/labs/</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://beerandnacho.github.io/date-course/</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://beerandnacho.github.io/after-work/</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://beerandnacho.github.io/labs/running-today/</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://beerandnacho.github.io/labs/gift-picker/</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://beerandnacho.github.io/labs/what-to-wear/</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://beerandnacho.github.io/labs/solo-weekend/</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://beerandnacho.github.io/labs/hobby-fit/</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://beerandnacho.github.io/labs/fridge-menu/</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://beerandnacho.github.io/labs/room-reset/</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://beerandnacho.github.io/labs/study-now/</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://beerandnacho.github.io/labs/weekend-trip/</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://beerandnacho.github.io/labs/closet-decision/</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://beerandnacho.github.io/labs/cook-at-home/</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://beerandnacho.github.io/labs/spending-leak/</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://beerandnacho.github.io/labs/rest-type/</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://beerandnacho.github.io/labs/side-project-fit/</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://beerandnacho.github.io/labs/kids-today/</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://beerandnacho.github.io/labs/pet-today/</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://beerandnacho.github.io/labs/room-style/</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://beerandnacho.github.io/labs/contact-or-not/</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://beerandnacho.github.io/labs/team-dinner/</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://beerandnacho.github.io/labs/hair-today/</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://beerandnacho.github.io/labs/change-job/</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://beerandnacho.github.io/labs/cut-one-expense/</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://beerandnacho.github.io/labs/neighborhood-fit/</loc><lastmod>2026-08-19</lastmod></url>
-  <url><loc>https://beerandnacho.github.io/labs/buy-or-wait/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/date-course/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/after-work/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/running-today/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/gift-picker/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/what-to-wear/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/solo-weekend/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/hobby-fit/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/fridge-menu/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/room-reset/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/study-now/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/weekend-trip/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/closet-decision/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/cook-at-home/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/spending-leak/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/rest-type/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/side-project-fit/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/kids-today/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/pet-today/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/room-style/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/contact-or-not/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/team-dinner/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/hair-today/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/change-job/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/cut-one-expense/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/neighborhood-fit/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/buy-or-wait/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/subscription-keep/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/home-workout/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/packing-list/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/sell-used-item/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/housewarming-menu/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/meeting-opening/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/interview-prep/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/automation-candidate/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/dev-study-today/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/service-price/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/photo-cleanup/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/morning-routine/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/move-or-stay/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/weekly-meals/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/lunchbox-today/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/blog-topic/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/shorts-topic/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/content-channel/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/sell-my-skill/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/side-income-month/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/priority-now/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/weekly-goal/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/monthly-review/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/tomorrow-morning/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/send-email-now/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/meeting-needed/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/presentation-fix/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/focus-blocks/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/freelance-quote/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/accept-proposal/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/portfolio-pick/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/resume-fix/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/salary-negotiation/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/offer-compare/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/monthly-saving/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/emergency-fund/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/debt-or-save/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/card-cleanup/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/eating-out-budget/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/travel-budget/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/discount-worth/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/buy-used/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/replace-appliance/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/room-lighting/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/plant-placement/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/cleaning-today/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/home-repair-first/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/storage-buy/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/moving-declutter/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/family-trip/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/parents-gift/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/child-study-routine/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/pet-daily-routine/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/houseguest-prep/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/apology-now/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/say-no/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/reply-to-friend/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/conflict-talk/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/anniversary-plan/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/after-date-message/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/post-social/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/photo-backup/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/inbox-cleanup/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/delete-apps/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/screen-time/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/password-audit/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/before-sleep/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/stretch-first/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/walk-route/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/strength-week/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/water-habit/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/language-study/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/next-book/</loc><lastmod>2026-08-19</lastmod></url>
+<url><loc>https://beerandnacho.github.io/labs/thirty-day-experiment/</loc><lastmod>2026-08-19</lastmod></url>
 </urlset>
