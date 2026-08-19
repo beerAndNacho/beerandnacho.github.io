@@ -1,6 +1,0 @@
-version=0.6.1
-status=success
-verified_run=32138498318
-verified_at=2026-08-18T12:46:14Z
-pixel_hero_count=12
-checks=title,roster,detail,deployment,battle,movement,bounds,no-browser-errors

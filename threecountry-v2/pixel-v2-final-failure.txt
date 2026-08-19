@@ -1,4 +1,0 @@
-version=0.6.1
-status=failure
-run_id=32135993188
-failed_at=2026-08-18T12:18:58Z
