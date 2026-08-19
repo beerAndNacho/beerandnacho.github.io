@@ -1,0 +1,82 @@
+name: sync Threecountry cinematic combat alpha v0.9
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sync-threecountry-commercial-v09.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-threecountry-commercial-v09
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - name: Checkout Pages repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout commercial alpha source
+        uses: actions/checkout@v4
+        with:
+          repository: beerAndNacho/Threecountry
+          ref: commercial-alpha
+          path: _threecountry_commercial
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: _threecountry_commercial/package-lock.json
+
+      - name: Build and verify cinematic alpha
+        working-directory: _threecountry_commercial
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm ci
+          npm run build
+          test -s dist/index.html
+          test -s dist/character-art-v2.js
+          test -s dist/story-director-v2.js
+          test -s dist/commercial-combat-v3.js
+          test -s dist/commercial-combat-v3.css
+          test -s dist/campaign-story-v3.js
+          test -s dist/campaign-story-v3.css
+          grep -q 'Cinematic Combat Alpha v0.9' dist/index.html
+          grep -q 'commercial-combat-v3.js' dist/index.html
+          grep -q 'campaign-story-v3.js' dist/index.html
+          ! grep -q 'character-art-v1' dist/index.html
+          ! grep -q 'pixel-geometry-fix' dist/index.html
+
+      - name: Replace isolated public alpha
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf threecountry-commercial
+          mkdir -p threecountry-commercial
+          cp -R _threecountry_commercial/dist/. threecountry-commercial/
+          rm -rf _threecountry_commercial
+          printf '%s\n' 'Threecountry cinematic combat alpha v0.9.0' > threecountry-commercial/verified.txt
+
+      - name: Commit deployment
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add threecountry-commercial
+          if git diff --cached --quiet; then
+            echo 'No deployment changes.'
+            exit 0
+          fi
+          git commit -m 'deploy: publish Threecountry cinematic combat alpha v0.9.0'
+          git push
