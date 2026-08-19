@@ -23,7 +23,7 @@ jobs:
         with:
           path: site
 
-      - name: Checkout Play100 source
+      - name: Checkout latest Play100 main
         uses: actions/checkout@v6
         with:
           repository: beerAndNacho/Play100
@@ -72,5 +72,5 @@ jobs:
             echo 'No deployment changes.'
             exit 0
           fi
-          git commit -m 'deploy: publish Play100 portal and GAME-001'
+          git commit -m 'deploy: publish latest Play100 build'
           git push
