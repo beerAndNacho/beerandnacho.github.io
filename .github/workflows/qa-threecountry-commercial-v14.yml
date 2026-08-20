@@ -50,7 +50,7 @@ jobs:
         shell: bash
         run: |
           mkdir -p threecountry-commercial/qa
-          cat > /tmp/threecountry-v14-qa.mjs <<'NODE'
+          cat > .qa-threecountry-v14.mjs <<'NODE'
           import puppeteer from 'puppeteer-core';
           import fs from 'node:fs';
 
@@ -133,7 +133,8 @@ jobs:
           fs.writeFileSync('threecountry-commercial/qa/qa-v14.json', JSON.stringify(report, null, 2));
           await browser.close();
           NODE
-          node /tmp/threecountry-v14-qa.mjs
+          node .qa-threecountry-v14.mjs
+          rm -f .qa-threecountry-v14.mjs
       - name: Verify live Pages delivery
         shell: bash
         run: |
