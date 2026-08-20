@@ -38,12 +38,16 @@ jobs:
           node-version: 22
 
       - name: Generate portal and GAME-006 through GAME-100
-        run: node source/prototype-v2/build-games.mjs /tmp/play100-v2
+        working-directory: source
+        run: |
+          node prototype-v2/build-games.mjs /tmp/play100-v2
+          cp prototype-v2/engine-v2.js /tmp/play100-v2/v2/engine.js
 
       - name: Validate generated site
         run: |
-          node --check source/prototype-v2/engine.js
+          node --check source/prototype-v2/engine-v2.js
           node --check source/prototype-v2/build-games.mjs
+          node --check /tmp/play100-v2/v2/engine.js
           test -s /tmp/play100-v2/index.html
           test -s /tmp/play100-v2/v2/catalog.js
           test -s /tmp/play100-v2/v2/engine.js
