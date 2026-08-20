@@ -1,4 +1,4 @@
-# source revision: 6a364df662889fedbf7c113a25a70ea303917e84
+# source revision: 8fbc11160e923784f2d99cb78ca3c1604cdbf2df
 name: sync Threecountry character and tactics alpha v1.4
 
 on:
@@ -57,6 +57,7 @@ jobs:
           grep -q 'commercial-character-v4.js' dist/index.html
           grep -q 'tactical-intel-v1.js' dist/index.html
           grep -q '전투 원칙' dist/tactical-intel-v1.js
+          grep -q 'inspector.dataset.signature === signature' dist/tactical-intel-v1.js
           grep -q 'gate-crusher' dist/engine.js
           grep -q 'black-feather' dist/engine.js
           grep -q 'sky-piercer' dist/engine.js
