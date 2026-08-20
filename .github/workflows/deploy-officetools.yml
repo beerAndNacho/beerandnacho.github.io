@@ -1,0 +1,89 @@
+name: Deploy OfficeTools into user Pages site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/deploy-officetools.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-officetools-user-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Pages repository
+        uses: actions/checkout@v4
+        with:
+          path: site
+          fetch-depth: 0
+
+      - name: Checkout OfficeTools repository
+        uses: actions/checkout@v4
+        with:
+          repository: beerAndNacho/Officetools
+          ref: main
+          path: staged
+          persist-credentials: false
+
+      - name: Restore verified OfficeTools source
+        run: |
+          set -euo pipefail
+          test "$(find staged/.restore-v2 -maxdepth 1 -type f -name 'part-*' | wc -l | tr -d ' ')" -eq 10
+          cat staged/.restore-v2/part-* | tr -d '\r\n ' | base64 --decode > /tmp/officetools-source.tar.gz
+          echo '1ee3be63b11d3a44449cd20d014a1c867c57ae7d8cd83e5bfe96cccf7e41b1cc  /tmp/officetools-source.tar.gz' | sha256sum -c -
+          mkdir -p source
+          tar -xzf /tmp/officetools-source.tar.gz -C source
+          test -s source/package.json
+          test -s source/src/catalog.js
+          test -s source/src/engine.js
+          test -s source/src/portal.js
+          test -s source/src/styles.css
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate and build 100 tools
+        working-directory: source
+        run: |
+          npm run check
+          npm run build
+          test -s dist/index.html
+          test -s dist/assets/catalog.js
+          test -s dist/assets/engine.js
+          test -s dist/assets/portal.js
+          test -s dist/assets/styles.css
+          tool_count="$(find dist/tools -mindepth 2 -maxdepth 2 -name index.html | wc -l | tr -d ' ')"
+          test "$tool_count" -eq 100
+          test -s dist/tools/percentage-calculator/index.html
+          test -s dist/tools/meeting-minutes/index.html
+          test -s dist/tools/csv-to-json/index.html
+          test -s dist/tools/uptime-sla/index.html
+
+      - name: Publish under /Officetools
+        run: |
+          rm -rf site/Officetools
+          mkdir -p site/Officetools
+          cp -R source/dist/. site/Officetools/
+          touch site/Officetools/.nojekyll
+
+      - name: Commit deployment
+        working-directory: site
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Officetools
+          if git diff --cached --quiet; then
+            echo 'No deployment changes.'
+            exit 0
+          fi
+          git commit -m 'deploy: publish OfficeTools 100-tool portal'
+          git push
