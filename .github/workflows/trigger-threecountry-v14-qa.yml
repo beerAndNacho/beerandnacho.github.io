@@ -1,0 +1,21 @@
+name: trigger Threecountry v1.4 browser QA
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/trigger-threecountry-v14-qa.yml'
+  workflow_dispatch:
+
+permissions:
+  actions: write
+  contents: read
+
+jobs:
+  trigger:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Dispatch mobile browser QA
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh workflow run qa-threecountry-commercial-v14.yml --repo beerAndNacho/beerAndNacho.github.io --ref main
