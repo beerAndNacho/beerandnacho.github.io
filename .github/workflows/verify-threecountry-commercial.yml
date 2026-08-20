@@ -18,36 +18,37 @@ concurrency:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 18
+    timeout-minutes: 20
     steps:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      - name: Wait for GitHub Pages and verify operation assets
+      - name: Wait for GitHub Pages and verify four battlefield assets
         shell: bash
         run: |
           set -euo pipefail
           base='https://beerandnacho.github.io/threecountry-commercial'
           for attempt in $(seq 1 48); do
-            if curl -fsSL "${base}/verified.txt?run=${GITHUB_RUN_ID}-${attempt}" | grep -q 'v1.0.0'; then
+            if curl -fsSL "${base}/verified.txt?run=${GITHUB_RUN_ID}-${attempt}" | grep -q 'v1.1.0'; then
               break
             fi
             if [ "$attempt" -eq 48 ]; then
-              echo 'Published operation campaign alpha did not become available in time.'
+              echo 'Published four battlefield alpha did not become available in time.'
               exit 1
             fi
             sleep 5
           done
-          for path in '/' '/styles.css' '/gameplay-v4.css' '/commercial-v1.css' '/mobile-command-v1.css' '/character-art-v2.css' '/story-director-v2.css' '/commercial-combat-v3.css' '/campaign-story-v3.css' '/operation-campaign-v1.css' '/app.js' '/gameplay-v4.js' '/commercial-v1.js' '/mobile-command-v1.js' '/character-art-v2.js' '/story-director-v2.js' '/commercial-combat-v3.js' '/campaign-story-v3.js' '/operation-campaign-v1.js'; do
+          for path in '/' '/styles.css' '/gameplay-v4.css' '/commercial-v1.css' '/mobile-command-v1.css' '/character-art-v2.css' '/story-director-v2.css' '/commercial-combat-v3.css' '/campaign-story-v3.css' '/operation-campaign-v1.css' '/operation-maps-v1.css' '/app.js' '/gameplay-v4.js' '/commercial-v1.js' '/mobile-command-v1.js' '/character-art-v2.js' '/story-director-v2.js' '/commercial-combat-v3.js' '/campaign-story-v3.js' '/operation-campaign-v1.js' '/operation-map-data.js' '/operation-maps-v1.js'; do
             echo "Checking ${base}${path}"
             curl --retry 8 --retry-delay 2 --retry-all-errors -fsSL "${base}${path}?verify=${GITHUB_RUN_ID}" -o /dev/null
           done
           curl -fsSL "${base}/?verify=${GITHUB_RUN_ID}" -o /tmp/threecountry-commercial.html
-          grep -q 'Operation Campaign Alpha' /tmp/threecountry-commercial.html
+          grep -q 'Four Battlefields Alpha' /tmp/threecountry-commercial.html
           grep -q 'character-art-v2.js' /tmp/threecountry-commercial.html
           grep -q 'campaign-story-v3.js' /tmp/threecountry-commercial.html
           grep -q 'operation-campaign-v1.js' /tmp/threecountry-commercial.html
+          grep -q 'operation-maps-v1.js' /tmp/threecountry-commercial.html
           ! grep -q 'character-art-v1' /tmp/threecountry-commercial.html
           ! grep -q 'pixel-geometry-fix' /tmp/threecountry-commercial.html
 
@@ -58,7 +59,7 @@ jobs:
           npm install --no-audit --no-fund playwright@1.55.0
           npx playwright install --with-deps chromium
 
-      - name: Verify mobile characters, operation map and deployment transition
+      - name: Verify mobile operation map deployment and battlefield transition
         shell: bash
         run: |
           cat > verify-commercial.mjs <<'EOF'
@@ -82,7 +83,7 @@ jobs:
               chapterCleared: false,
               battle: null,
               records: { victories: 0, defeats: 0, bestTurns: null },
-              settings: { difficulty: 'normal' },
+              settings: { difficulty: 'normal', zoom: 'normal' },
               lastRewards: null,
             }));
             localStorage.removeItem('threecountry:operation-campaign:v1');
@@ -101,41 +102,45 @@ jobs:
           await page.waitForFunction(() => window.__commercialCharacterArtV2?.ready === true, undefined, { timeout: 30_000 });
           await page.waitForFunction(() => window.__storyDirectorV2?.ready === true, undefined, { timeout: 30_000 });
           await page.waitForFunction(() => window.__operationCampaignV1?.ready === true, undefined, { timeout: 30_000 });
+          await page.waitForFunction(() => window.__operationMapsV1?.ready === true, undefined, { timeout: 30_000 });
 
           const art = await page.evaluate(() => window.__commercialCharacterArtV2);
-          const story = await page.evaluate(() => window.__storyDirectorV2);
           const operations = await page.evaluate(() => window.__operationCampaignV1);
-          if (art.renderer !== 'vector-svg') throw new Error(`Unexpected renderer: ${art.renderer}`);
-          if (art.heroCount !== 12) throw new Error(`Expected 12 character profiles; got ${art.heroCount}`);
-          if (art.states.length !== 8) throw new Error(`Expected 8 animation states; got ${art.states.length}`);
-          if (story.sceneCount !== 8) throw new Error(`Expected 8 core story scenes; got ${story.sceneCount}`);
+          const maps = await page.evaluate(() => window.__operationMapsV1);
+          if (art.renderer !== 'vector-svg' || art.heroCount !== 12 || art.states.length !== 8) throw new Error(`Character gate failed: ${JSON.stringify(art)}`);
           if (operations.operations.length !== 4) throw new Error(`Expected 4 operations; got ${operations.operations.length}`);
-          if (operations.operations.filter((operation) => operation.unlocked).length !== 1) throw new Error('Only the first operation should be unlocked in a fresh campaign.');
+          if (maps.mapCount !== 4 || maps.validationErrors.length) throw new Error(`Map gate failed: ${JSON.stringify(maps)}`);
+          if (new Set(maps.layouts.map((map) => map.weather)).size !== 4) throw new Error('Operation weather is not differentiated.');
 
           await page.locator('[data-ocv1-board]').waitFor({ state: 'visible', timeout: 30_000 });
-          const operationCards = await page.locator('[data-ocv1-operation]').count();
-          if (operationCards !== 4) throw new Error(`Expected 4 operation cards; got ${operationCards}`);
-          const lockedCards = await page.locator('[data-ocv1-operation].locked').count();
-          if (lockedCards !== 3) throw new Error(`Expected 3 locked operations; got ${lockedCards}`);
-
-          const portraits = page.locator('svg[data-commercial-art-v2="1"]');
-          await portraits.first().waitFor({ state: 'visible', timeout: 30_000 });
-          const portraitCount = await portraits.count();
-          const fingerprints = await portraits.evaluateAll((nodes) => [...new Set(nodes.map((node) => node.dataset.silhouette).filter(Boolean))]);
-          if (portraitCount < 2 || fingerprints.length < 2) throw new Error('Commercial character silhouettes did not render distinctly.');
-
+          if (await page.locator('[data-ocv1-operation]').count() !== 4) throw new Error('Four operation cards were not rendered.');
+          if (await page.locator('[data-ocv1-operation].locked').count() !== 3) throw new Error('Fresh operation unlock state is invalid.');
           await page.screenshot({ path: 'commercial-mobile-operation-map.png', fullPage: true });
+
           await page.locator('[data-ocv1-difficulty]').selectOption('hard');
           await page.locator('[data-ocv1-start]').click();
           await page.locator('.deployment-screen').waitFor({ state: 'visible', timeout: 30_000 });
-          const savedOperation = await page.evaluate(() => JSON.parse(localStorage.getItem('threecountry:srpg:v2') || 'null')?.operation);
-          if (savedOperation?.id !== 'west-road' || savedOperation?.difficulty !== 'hard') throw new Error(`Operation selection was not persisted: ${JSON.stringify(savedOperation)}`);
+          await page.locator('[data-omap-briefing]').waitFor({ state: 'visible', timeout: 30_000 });
           await page.screenshot({ path: 'commercial-mobile-deployment.png', fullPage: true });
 
+          await page.locator('[data-action="start-battle"]').click();
+          await page.locator('.battle-screen').waitFor({ state: 'visible', timeout: 30_000 });
+          await page.waitForFunction(() => window.__operationMapsV1?.activeMap === 'west-road', undefined, { timeout: 30_000 });
+          await page.locator('.battle-screen[data-operation-map="west-road"]').waitFor({ state: 'visible', timeout: 30_000 });
+          await page.locator('[data-omap-briefing]').waitFor({ state: 'visible', timeout: 30_000 });
+          const state = await page.evaluate(() => JSON.parse(localStorage.getItem('threecountry:srpg:v2') || 'null'));
+          if (state?.battle?.flags?.operationMapVersion !== '1.1.0') throw new Error(`Map version was not persisted: ${state?.battle?.flags?.operationMapVersion}`);
+          if (state?.battle?.operation?.mapName !== '진류 서쪽 난민로') throw new Error(`Wrong map name: ${state?.battle?.operation?.mapName}`);
+          if (state?.battle?.terrain?.length !== 8 || state.battle.terrain.some((row) => row.length !== 12)) throw new Error('Applied battlefield is not 12×8.');
+          await page.screenshot({ path: 'commercial-mobile-battlefield-west-road.png', fullPage: true });
+
+          const portraits = page.locator('svg[data-commercial-art-v2="1"]');
+          const fingerprints = await portraits.evaluateAll((nodes) => [...new Set(nodes.map((node) => node.dataset.silhouette).filter(Boolean))]);
+          if (fingerprints.length < 2) throw new Error('Commercial character silhouettes did not render distinctly.');
           const oldPixelAssets = await page.evaluate(() => [...document.scripts, ...document.styleSheets].some((entry) => String(entry.src || entry.href || '').includes('character-art-v1')));
           if (oldPixelAssets) throw new Error('Retired pixel renderer is still loaded.');
           if (errors.length) throw new Error(errors.join('\n'));
-          console.log(JSON.stringify({ art, story, operations, operationCards, lockedCards, portraitCount, fingerprints, savedOperation }, null, 2));
+          console.log(JSON.stringify({ art, operations, maps, activeMap: state.battle.operation, fingerprints }, null, 2));
           await browser.close();
           EOF
           node verify-commercial.mjs
@@ -143,7 +148,7 @@ jobs:
       - name: Upload visual review captures
         uses: actions/upload-artifact@v4
         with:
-          name: threecountry-operation-campaign-v100-captures
+          name: threecountry-four-battlefields-v110-captures
           path: commercial-mobile-*.png
           if-no-files-found: error
           retention-days: 14
