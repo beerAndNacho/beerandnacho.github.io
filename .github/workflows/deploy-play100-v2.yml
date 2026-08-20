@@ -1,0 +1,79 @@
+name: Deploy PLAY100 100-game shared engine
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/deploy-play100-v2.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-play100-v2
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Pages repository
+        uses: actions/checkout@v4
+        with:
+          path: site
+          fetch-depth: 0
+
+      - name: Checkout Play100 source
+        uses: actions/checkout@v4
+        with:
+          repository: beerAndNacho/Play100
+          ref: main
+          path: source
+          persist-credentials: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Generate portal and GAME-006 through GAME-100
+        run: node source/prototype-v2/build-games.mjs /tmp/play100-v2
+
+      - name: Validate generated site
+        run: |
+          node --check source/prototype-v2/engine.js
+          node --check source/prototype-v2/build-games.mjs
+          test -s /tmp/play100-v2/index.html
+          test -s /tmp/play100-v2/v2/catalog.js
+          test -s /tmp/play100-v2/v2/engine.js
+          test -s /tmp/play100-v2/games/006-tiny-detective-grid/index.html
+          test -s /tmp/play100-v2/games/050-pocket-observatory/index.html
+          test -s /tmp/play100-v2/games/100-the-hundredth-door/index.html
+          test "$(find /tmp/play100-v2/games -mindepth 2 -maxdepth 2 -name index.html | wc -l)" -eq 95
+
+      - name: Publish without replacing custom GAME-001 through GAME-005
+        run: |
+          mkdir -p site/Play100/v2 site/Play100/games
+          cp /tmp/play100-v2/index.html site/Play100/index.html
+          rm -rf site/Play100/v2
+          cp -R /tmp/play100-v2/v2 site/Play100/v2
+          for game in /tmp/play100-v2/games/*; do
+            slug="$(basename "$game")"
+            rm -rf "site/Play100/games/$slug"
+            cp -R "$game" "site/Play100/games/$slug"
+          done
+          touch site/Play100/.nojekyll
+
+      - name: Commit deployment
+        working-directory: site
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Play100
+          if git diff --cached --quiet; then
+            echo 'No deployment changes.'
+            exit 0
+          fi
+          git commit -m 'deploy: publish PLAY100 GAME-006 through GAME-100'
+          git push
