@@ -1,3 +1,4 @@
+# qa revision: stable-clicks-and-live-downloads
 name: qa Threecountry commercial alpha v1.4
 
 on:
@@ -5,6 +6,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/qa-threecountry-commercial-v14.yml'
+      - 'threecountry-commercial/verified.txt'
   workflow_dispatch:
 
 permissions:
@@ -84,19 +86,19 @@ jobs:
             document.body.insertAdjacentHTML('beforeend', '<div class="utility-bar" id="qa-utility"><span>QA</span><span></span></div>');
           });
           await page.waitForSelector('#qa-utility [data-tiv1-codex]', { timeout: 5000 });
-          await page.click('#qa-utility [data-tiv1-codex]');
+          await page.$eval('#qa-utility [data-tiv1-codex]', (element) => element.click());
           await page.waitForSelector('.tiv1-codex-modal.show', { timeout: 5000 });
           const codexCards = await page.$$eval('.tiv1-codex-grid [data-tiv1-profile]', (nodes) => nodes.length);
           if (codexCards < 10) throw new Error(`too few codex cards: ${codexCards}`);
           await page.screenshot({ path: 'threecountry-commercial/qa/codex-mobile.png', fullPage: true });
-          await page.click('.tiv1-codex-modal [data-tiv1-profile="cao"]');
+          await page.$eval('.tiv1-codex-modal [data-tiv1-profile="cao"]', (element) => element.click());
           await page.waitForSelector('.tiv1-dossier[data-dossier="cao"]', { timeout: 5000 });
           const dossierText = await page.$eval('.tiv1-dossier[data-dossier="cao"]', (node) => node.textContent);
           for (const marker of ['조조','패국 초현','현재 장비','관계와 긴장','전투 원칙']) {
             if (!dossierText.includes(marker)) throw new Error(`dossier missing ${marker}`);
           }
           await page.screenshot({ path: 'threecountry-commercial/qa/dossier-mobile.png', fullPage: true });
-          await page.click('.tiv1-modal [data-tiv1-close]');
+          await page.$eval('.tiv1-modal.show [data-tiv1-close]', (element) => element.click());
           await new Promise((resolve) => setTimeout(resolve, 260));
 
           await page.evaluate(() => {
@@ -108,7 +110,7 @@ jobs:
           await page.waitForSelector('#qa-battle .tiv1-unit-inspector[data-hero="cao"]', { timeout: 5000 });
           const threatened = await page.$$eval('#qa-battle .battle-cell[data-threat]', (nodes) => nodes.length);
           if (threatened < 1) throw new Error('threat overlay did not mark any cells');
-          await page.click('#qa-battle [data-tiv1-tool="compact"]');
+          await page.$eval('#qa-battle [data-tiv1-tool="compact"]', (element) => element.click());
           const compact = await page.$eval('#qa-battle', (node) => node.classList.contains('tiv1-compact-units'));
           if (!compact) throw new Error('compact unit toggle failed');
           await page.screenshot({ path: 'threecountry-commercial/qa/battle-tools-mobile.png', fullPage: true });
@@ -142,14 +144,23 @@ jobs:
           BASE='https://beerandnacho.github.io/threecountry-commercial'
           ready=0
           for i in {1..24}; do
-            if curl -fsSL "$BASE/?v=1.4.0-20260820" | grep -q 'Character & Tactics Alpha v1.4.0'; then ready=1; break; fi
+            if curl -fsSL -o /tmp/threecountry-live-index.html "$BASE/?v=1.4.0-20260820" && grep -q 'Character & Tactics Alpha v1.4.0' /tmp/threecountry-live-index.html; then
+              ready=1
+              break
+            fi
             sleep 5
           done
           test "$ready" = 1
-          curl -fsSL "$BASE/commercial-character-v4.js?v=1.4.0" | grep -q 'CHARACTER_ART_VERSION'
-          curl -fsSL "$BASE/tactical-intel-v1.js?v=1.0.0" | grep -q 'TACTICAL_INTEL_VERSION'
-          curl -fsSL "$BASE/engine.js?v=1.4.0" | grep -q 'gate-crusher'
-          curl -fsSL "$BASE/verified.txt?v=1.4.0" | grep -q '71 tests'
+          curl -fsSL -o /tmp/threecountry-character.js "$BASE/commercial-character-v4.js?v=1.4.0"
+          curl -fsSL -o /tmp/threecountry-tactical.js "$BASE/tactical-intel-v1.js?v=1.0.0"
+          curl -fsSL -o /tmp/threecountry-engine.js "$BASE/engine.js?v=1.4.0"
+          curl -fsSL -o /tmp/threecountry-verified.txt "$BASE/verified.txt?v=1.4.0"
+          grep -q 'CHARACTER_ART_VERSION' /tmp/threecountry-character.js
+          grep -q 'TACTICAL_INTEL_VERSION' /tmp/threecountry-tactical.js
+          grep -q '전투 원칙' /tmp/threecountry-tactical.js
+          grep -q 'inspector.dataset.signature === signature' /tmp/threecountry-tactical.js
+          grep -q 'gate-crusher' /tmp/threecountry-engine.js
+          grep -q '71 tests' /tmp/threecountry-verified.txt
           cat > threecountry-commercial/qa/live-v14.json <<EOF
           {
             "version": "1.4.0",
@@ -158,6 +169,8 @@ jobs:
             "index": "pass",
             "characterModule": "pass",
             "tacticalModule": "pass",
+            "officerDoctrine": "pass",
+            "inspectorStability": "pass",
             "bossSkills": "pass",
             "verificationMarker": "pass"
           }
