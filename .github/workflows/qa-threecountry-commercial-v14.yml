@@ -1,0 +1,172 @@
+name: qa Threecountry commercial alpha v1.4
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/qa-threecountry-commercial-v14.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: qa-threecountry-commercial-v14
+  cancel-in-progress: true
+
+jobs:
+  browser-qa:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install browser driver
+        run: npm install --no-save --no-package-lock puppeteer-core@24.16.0
+      - name: Find Chrome
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHROME_BIN="$(command -v google-chrome || command -v chromium || command -v chromium-browser)"
+          test -n "$CHROME_BIN"
+          echo "CHROME_BIN=$CHROME_BIN" >> "$GITHUB_ENV"
+          "$CHROME_BIN" --version
+      - name: Start local Pages server
+        shell: bash
+        run: |
+          python3 -m http.server 4173 --directory . >/tmp/threecountry-http.log 2>&1 &
+          echo $! >/tmp/threecountry-http.pid
+          for i in {1..20}; do
+            curl -fsS http://127.0.0.1:4173/threecountry-commercial/index.html >/dev/null && exit 0
+            sleep 1
+          done
+          cat /tmp/threecountry-http.log
+          exit 1
+      - name: Run mobile Chromium integration QA
+        shell: bash
+        run: |
+          mkdir -p threecountry-commercial/qa
+          cat > /tmp/threecountry-v14-qa.mjs <<'NODE'
+          import puppeteer from 'puppeteer-core';
+          import fs from 'node:fs';
+
+          const browser = await puppeteer.launch({
+            headless: 'new',
+            executablePath: process.env.CHROME_BIN,
+            args: ['--no-sandbox','--disable-dev-shm-usage','--disable-gpu'],
+          });
+          const page = await browser.newPage();
+          await page.setViewport({ width: 390, height: 844, deviceScaleFactor: 1 });
+          const runtimeErrors = [];
+          const failedRequests = [];
+          page.on('pageerror', (error) => runtimeErrors.push(error.message));
+          page.on('console', (message) => { if (message.type() === 'error') runtimeErrors.push(message.text()); });
+          page.on('requestfailed', (request) => failedRequests.push(`${request.url()} :: ${request.failure()?.errorText}`));
+
+          await page.goto('http://127.0.0.1:4173/threecountry-commercial/?qa=1', { waitUntil: 'networkidle0', timeout: 30000 });
+          await page.waitForFunction(() => document.documentElement.classList.contains('commercial-character-v4-ready') && document.documentElement.classList.contains('tactical-intel-v1-ready'), { timeout: 20000 });
+          const runtime = await page.evaluate(() => ({
+            title: document.title,
+            appText: document.querySelector('#app')?.textContent?.slice(0, 500) || '',
+            art: window.__commercialCharacterV4,
+            intel: window.__tacticalIntelV1,
+          }));
+          if (!runtime.title.includes('v1.4.0')) throw new Error(`unexpected title: ${runtime.title}`);
+          if (!runtime.art?.ready || runtime.art.profileCount < 12) throw new Error('character v4 runtime not ready');
+          if (!runtime.intel?.ready || runtime.intel.tools.length < 6) throw new Error('tactical intel runtime not ready');
+          await page.screenshot({ path: 'threecountry-commercial/qa/title-mobile.png', fullPage: true });
+
+          await page.evaluate(() => {
+            document.body.insertAdjacentHTML('beforeend', '<div class="utility-bar" id="qa-utility"><span>QA</span><span></span></div>');
+          });
+          await page.waitForSelector('#qa-utility [data-tiv1-codex]', { timeout: 5000 });
+          await page.click('#qa-utility [data-tiv1-codex]');
+          await page.waitForSelector('.tiv1-codex-modal.show', { timeout: 5000 });
+          const codexCards = await page.$$eval('.tiv1-codex-grid [data-tiv1-profile]', (nodes) => nodes.length);
+          if (codexCards < 10) throw new Error(`too few codex cards: ${codexCards}`);
+          await page.screenshot({ path: 'threecountry-commercial/qa/codex-mobile.png', fullPage: true });
+          await page.click('.tiv1-codex-modal [data-tiv1-profile="cao"]');
+          await page.waitForSelector('.tiv1-dossier[data-dossier="cao"]', { timeout: 5000 });
+          const dossierText = await page.$eval('.tiv1-dossier[data-dossier="cao"]', (node) => node.textContent);
+          for (const marker of ['조조','패국 초현','현재 장비','관계와 긴장','전투 원칙']) {
+            if (!dossierText.includes(marker)) throw new Error(`dossier missing ${marker}`);
+          }
+          await page.screenshot({ path: 'threecountry-commercial/qa/dossier-mobile.png', fullPage: true });
+          await page.click('.tiv1-modal [data-tiv1-close]');
+          await new Promise((resolve) => setTimeout(resolve, 260));
+
+          await page.evaluate(() => {
+            const cells = [];
+            for (let y = 0; y < 3; y += 1) for (let x = 0; x < 4; x += 1) cells.push(`<button class="battle-cell terrain-grass" data-x="${x}" data-y="${y}"><span></span></button>`);
+            document.body.insertAdjacentHTML('beforeend', `<section class="battle-screen" id="qa-battle"><div class="objective-bar">QA 전장</div><div class="battle-board">${cells.join('')}<button class="battle-unit player selected" data-hero="cao" data-x="0" data-y="1" data-hp="100" data-max-hp="100"><span class="unit-label"><span>100 / 100</span></span></button><button class="battle-unit enemy" data-hero="guan" data-x="2" data-y="1" data-hp="120" data-max-hp="120"><span class="unit-label"><span>120 / 120</span></span></button></div><aside class="unit-command-panel"></aside></section>`);
+          });
+          await page.waitForSelector('#qa-battle .tiv1-tactical-toolbar', { timeout: 5000 });
+          await page.waitForSelector('#qa-battle .tiv1-unit-inspector[data-hero="cao"]', { timeout: 5000 });
+          const threatened = await page.$$eval('#qa-battle .battle-cell[data-threat]', (nodes) => nodes.length);
+          if (threatened < 1) throw new Error('threat overlay did not mark any cells');
+          await page.click('#qa-battle [data-tiv1-tool="compact"]');
+          const compact = await page.$eval('#qa-battle', (node) => node.classList.contains('tiv1-compact-units'));
+          if (!compact) throw new Error('compact unit toggle failed');
+          await page.screenshot({ path: 'threecountry-commercial/qa/battle-tools-mobile.png', fullPage: true });
+
+          if (runtimeErrors.length) throw new Error(`runtime errors: ${runtimeErrors.join(' | ')}`);
+          if (failedRequests.length) throw new Error(`failed requests: ${failedRequests.join(' | ')}`);
+          const report = {
+            version: '1.4.0',
+            checkedAt: new Date().toISOString(),
+            viewport: '390x844',
+            title: runtime.title,
+            profiles: runtime.art.profileCount,
+            characterStates: runtime.art.states,
+            tacticalTools: runtime.intel.tools,
+            codexCards,
+            threatenedCells: threatened,
+            compactToggle: compact,
+            runtimeErrors,
+            failedRequests,
+            result: 'pass',
+          };
+          fs.writeFileSync('threecountry-commercial/qa/qa-v14.json', JSON.stringify(report, null, 2));
+          await browser.close();
+          NODE
+          node /tmp/threecountry-v14-qa.mjs
+      - name: Verify live Pages delivery
+        shell: bash
+        run: |
+          set -euo pipefail
+          BASE='https://beerandnacho.github.io/threecountry-commercial'
+          ready=0
+          for i in {1..24}; do
+            if curl -fsSL "$BASE/?v=1.4.0-20260820" | grep -q 'Character & Tactics Alpha v1.4.0'; then ready=1; break; fi
+            sleep 5
+          done
+          test "$ready" = 1
+          curl -fsSL "$BASE/commercial-character-v4.js?v=1.4.0" | grep -q 'CHARACTER_ART_VERSION'
+          curl -fsSL "$BASE/tactical-intel-v1.js?v=1.0.0" | grep -q 'TACTICAL_INTEL_VERSION'
+          curl -fsSL "$BASE/engine.js?v=1.4.0" | grep -q 'gate-crusher'
+          curl -fsSL "$BASE/verified.txt?v=1.4.0" | grep -q '71 tests'
+          cat > threecountry-commercial/qa/live-v14.json <<EOF
+          {
+            "version": "1.4.0",
+            "checkedAt": "$(date -u +%Y-%m-%dT%H:%M:%SZ)",
+            "url": "$BASE/?v=1.4.0-20260820",
+            "index": "pass",
+            "characterModule": "pass",
+            "tacticalModule": "pass",
+            "bossSkills": "pass",
+            "verificationMarker": "pass"
+          }
+          EOF
+      - name: Commit QA evidence
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add threecountry-commercial/qa
+          git commit -m 'qa: verify Threecountry commercial alpha v1.4.0'
+          git push
