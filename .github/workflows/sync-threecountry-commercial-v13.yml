@@ -1,0 +1,82 @@
+name: sync Threecountry tactical input alpha v1.3
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sync-threecountry-commercial-v13.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-threecountry-commercial-v13
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - name: Checkout Pages repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout tested commercial alpha source
+        uses: actions/checkout@v4
+        with:
+          repository: beerAndNacho/Threecountry
+          ref: commercial-alpha
+          path: _threecountry_commercial
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: _threecountry_commercial/package-lock.json
+
+      - name: Build and run deterministic quality gate
+        working-directory: _threecountry_commercial
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm ci
+          npm run build
+          npm run quality
+          test -s dist/index.html
+          test -s dist/input-accessibility-v1.js
+          test -s dist/input-accessibility-v1.css
+          test -s dist/objective-core.js
+          test -s dist/objective-hud-v1.js
+          test -s dist/objective-hud-v1.css
+          grep -q 'Tactical Input Alpha' dist/index.html
+          grep -q 'input-accessibility-v1.js' dist/index.html
+          grep -q 'objective-hud-v1.js' dist/index.html
+          ! grep -q 'character-art-v1' dist/index.html
+          ! grep -q 'pixel-geometry-fix' dist/index.html
+
+      - name: Replace isolated public alpha
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf threecountry-commercial
+          mkdir -p threecountry-commercial
+          cp -R _threecountry_commercial/dist/. threecountry-commercial/
+          printf '%s\n' 'Threecountry tactical input alpha v1.3.0 browser-verified' > threecountry-commercial/verified.txt
+          rm -rf _threecountry_commercial
+
+      - name: Commit deployment
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add threecountry-commercial
+          if git diff --cached --quiet; then
+            echo 'No deployment changes.'
+            exit 0
+          fi
+          git commit -m 'deploy: publish Threecountry tactical input alpha v1.3.0'
+          git push
