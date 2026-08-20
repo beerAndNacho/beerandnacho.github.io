@@ -1,0 +1,158 @@
+name: diagnose Threecountry v1.4 browser QA
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/diagnose-threecountry-v14.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  diagnose:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Install Puppeteer Core
+        run: npm install --no-save --no-package-lock puppeteer-core@24.16.0
+      - name: Resolve Chrome
+        run: |
+          CHROME_BIN="$(command -v google-chrome || command -v chromium || command -v chromium-browser || true)"
+          echo "CHROME_BIN=$CHROME_BIN" >> "$GITHUB_ENV"
+          test -n "$CHROME_BIN"
+          "$CHROME_BIN" --version
+      - name: Serve repository
+        run: |
+          python3 -m http.server 4173 --directory . >/tmp/http.log 2>&1 &
+          for i in {1..20}; do curl -fsS http://127.0.0.1:4173/threecountry-commercial/index.html >/dev/null && exit 0; sleep 1; done
+          cat /tmp/http.log
+          exit 1
+      - name: Browser diagnostics
+        id: browser
+        continue-on-error: true
+        shell: bash
+        run: |
+          mkdir -p threecountry-commercial/qa
+          cat > .diagnose-threecountry-v14.mjs <<'NODE'
+          import puppeteer from 'puppeteer-core';
+          import fs from 'node:fs';
+          const steps = [];
+          const errors = [];
+          const failedRequests = [];
+          const mark = (name, data = {}) => { steps.push({ name, at: new Date().toISOString(), ...data }); console.log('STEP', name, data); };
+          let browser;
+          try {
+            mark('launch', { chrome: process.env.CHROME_BIN });
+            browser = await puppeteer.launch({ headless: 'new', executablePath: process.env.CHROME_BIN, args: ['--no-sandbox','--disable-dev-shm-usage','--disable-gpu'] });
+            const page = await browser.newPage();
+            await page.setViewport({ width: 390, height: 844, deviceScaleFactor: 1 });
+            page.on('pageerror', (error) => errors.push(`pageerror: ${error.message}`));
+            page.on('console', (message) => { if (message.type() === 'error') errors.push(`console: ${message.text()}`); });
+            page.on('requestfailed', (request) => failedRequests.push(`${request.url()} :: ${request.failure()?.errorText}`));
+            mark('goto');
+            await page.goto('http://127.0.0.1:4173/threecountry-commercial/?diagnose=1', { waitUntil: 'networkidle0', timeout: 30000 });
+            mark('loaded', { title: await page.title() });
+            await page.waitForFunction(() => document.documentElement.classList.contains('commercial-character-v4-ready'), { timeout: 15000 });
+            await page.waitForFunction(() => document.documentElement.classList.contains('tactical-intel-v1-ready'), { timeout: 15000 });
+            const runtime = await page.evaluate(() => ({ art: window.__commercialCharacterV4, intel: window.__tacticalIntelV1, text: document.querySelector('#app')?.textContent?.slice(0, 300) || '' }));
+            mark('runtime-ready', runtime);
+            await page.screenshot({ path: 'threecountry-commercial/qa/diagnostic-title.png', fullPage: true });
+
+            await page.evaluate(() => document.body.insertAdjacentHTML('beforeend', '<div class="utility-bar" id="diagnostic-utility"><span>QA</span><span></span></div>'));
+            await page.waitForSelector('#diagnostic-utility [data-tiv1-codex]', { timeout: 5000 });
+            mark('codex-button-ready');
+            await page.$eval('#diagnostic-utility [data-tiv1-codex]', (element) => element.click());
+            await page.waitForSelector('.tiv1-codex-modal.show', { timeout: 5000 });
+            const codexCards = await page.$$eval('.tiv1-codex-grid [data-tiv1-profile]', (nodes) => nodes.length);
+            mark('codex-open', { codexCards });
+            await page.screenshot({ path: 'threecountry-commercial/qa/diagnostic-codex.png', fullPage: true });
+
+            await page.$eval('.tiv1-codex-modal [data-tiv1-profile="cao"]', (element) => element.click());
+            await page.waitForSelector('.tiv1-dossier[data-dossier="cao"]', { timeout: 5000 });
+            const dossierText = await page.$eval('.tiv1-dossier[data-dossier="cao"]', (node) => node.textContent || '');
+            mark('dossier-open', { markers: ['조조','패국 초현','현재 장비','관계와 긴장','전투 원칙'].map((text) => [text, dossierText.includes(text)]) });
+            await page.screenshot({ path: 'threecountry-commercial/qa/diagnostic-dossier.png', fullPage: true });
+            await page.$eval('.tiv1-modal.show [data-tiv1-close]', (element) => element.click());
+            await new Promise((resolve) => setTimeout(resolve, 250));
+
+            await page.evaluate(() => {
+              const cells = [];
+              for (let y = 0; y < 3; y += 1) for (let x = 0; x < 4; x += 1) cells.push(`<button class="battle-cell terrain-grass" data-x="${x}" data-y="${y}"><span></span></button>`);
+              document.body.insertAdjacentHTML('beforeend', `<section class="battle-screen" id="diagnostic-battle"><div class="objective-bar">진단 전장</div><div class="battle-board">${cells.join('')}<button class="battle-unit player selected" data-hero="cao" data-x="0" data-y="1" data-hp="100" data-max-hp="100"><span class="unit-label"><span>100 / 100</span></span></button><button class="battle-unit enemy" data-hero="guan" data-x="2" data-y="1" data-hp="120" data-max-hp="120"><span class="unit-label"><span>120 / 120</span></span></button></div><aside class="unit-command-panel"></aside></section>`);
+            });
+            await page.waitForSelector('#diagnostic-battle .tiv1-tactical-toolbar', { timeout: 5000 });
+            await page.waitForSelector('#diagnostic-battle .tiv1-unit-inspector[data-hero="cao"]', { timeout: 5000 });
+            const threatened = await page.$$eval('#diagnostic-battle .battle-cell[data-threat]', (nodes) => nodes.length);
+            mark('battle-tools-ready', { threatened });
+            await page.$eval('#diagnostic-battle [data-tiv1-tool="compact"]', (element) => element.click());
+            const compact = await page.$eval('#diagnostic-battle', (node) => node.classList.contains('tiv1-compact-units'));
+            mark('compact-toggle', { compact });
+            await page.screenshot({ path: 'threecountry-commercial/qa/diagnostic-battle.png', fullPage: true });
+            if (errors.length || failedRequests.length) throw new Error(`runtime errors=${errors.join(' | ')} requests=${failedRequests.join(' | ')}`);
+            mark('pass');
+            fs.writeFileSync('threecountry-commercial/qa/diagnostic-v14.json', JSON.stringify({ result: 'pass', steps, errors, failedRequests }, null, 2));
+          } catch (error) {
+            console.error(error.stack || error.message);
+            fs.writeFileSync('threecountry-commercial/qa/diagnostic-v14.json', JSON.stringify({ result: 'fail', message: error.message, stack: error.stack, steps, errors, failedRequests }, null, 2));
+            process.exitCode = 1;
+          } finally {
+            if (browser) await browser.close();
+          }
+          NODE
+          set +e
+          node .diagnose-threecountry-v14.mjs > threecountry-commercial/qa/diagnostic-browser.log 2>&1
+          code=$?
+          rm -f .diagnose-threecountry-v14.mjs
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          exit $code
+      - name: Live delivery diagnostics
+        id: live
+        continue-on-error: true
+        shell: bash
+        run: |
+          mkdir -p threecountry-commercial/qa
+          set +e
+          BASE='https://beerandnacho.github.io/threecountry-commercial'
+          {
+            for i in {1..18}; do
+              curl -fsSL -o /tmp/live-index.html "$BASE/?v=1.4.0-20260820" && grep -q 'Character & Tactics Alpha v1.4.0' /tmp/live-index.html && break
+              sleep 5
+            done
+            grep -q 'Character & Tactics Alpha v1.4.0' /tmp/live-index.html
+            curl -fsSL -o /tmp/live-character.js "$BASE/commercial-character-v4.js?v=1.4.0"
+            curl -fsSL -o /tmp/live-tactical.js "$BASE/tactical-intel-v1.js?v=1.0.0"
+            curl -fsSL -o /tmp/live-engine.js "$BASE/engine.js?v=1.4.0"
+            grep -q 'CHARACTER_ART_VERSION' /tmp/live-character.js
+            grep -q 'TACTICAL_INTEL_VERSION' /tmp/live-tactical.js
+            grep -q '전투 원칙' /tmp/live-tactical.js
+            grep -q 'inspector.dataset.signature === signature' /tmp/live-tactical.js
+            grep -q 'gate-crusher' /tmp/live-engine.js
+          } > threecountry-commercial/qa/diagnostic-live.log 2>&1
+          code=$?
+          printf '{"result":"%s","exitCode":%d,"checkedAt":"%s"}\n' "$([ "$code" = 0 ] && echo pass || echo fail)" "$code" "$(date -u +%Y-%m-%dT%H:%M:%SZ)" > threecountry-commercial/qa/diagnostic-live.json
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          exit $code
+      - name: Commit diagnostics
+        if: always()
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add threecountry-commercial/qa
+          git commit -m 'qa: record Threecountry v1.4 diagnostics' || true
+          git push || true
+      - name: Enforce diagnostic result
+        if: always()
+        env:
+          BROWSER: ${{ steps.browser.outcome }}
+          LIVE: ${{ steps.live.outcome }}
+        run: |
+          test "$BROWSER" = success
+          test "$LIVE" = success
