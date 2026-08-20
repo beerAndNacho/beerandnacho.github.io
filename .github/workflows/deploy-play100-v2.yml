@@ -41,12 +41,14 @@ jobs:
         working-directory: source
         run: |
           node prototype-v2/build-games.mjs /tmp/play100-v2
-          cp prototype-v2/engine-v2.js /tmp/play100-v2/v2/engine.js
+          node prototype-v2/enhance-catalog.mjs /tmp/play100-v2/v2/catalog.js
+          cp prototype-v2/engine-v3.js /tmp/play100-v2/v2/engine.js
 
       - name: Validate generated site
         run: |
-          node --check source/prototype-v2/engine-v2.js
+          node --check source/prototype-v2/engine-v3.js
           node --check source/prototype-v2/build-games.mjs
+          node --check source/prototype-v2/enhance-catalog.mjs
           node --check /tmp/play100-v2/v2/engine.js
           test -s /tmp/play100-v2/index.html
           test -s /tmp/play100-v2/v2/catalog.js
@@ -55,6 +57,14 @@ jobs:
           test -s /tmp/play100-v2/games/050-pocket-observatory/index.html
           test -s /tmp/play100-v2/games/100-the-hundredth-door/index.html
           test "$(find /tmp/play100-v2/games -mindepth 2 -maxdepth 2 -name index.html | wc -l)" -eq 95
+          grep -q '"mode":"fold"' /tmp/play100-v2/v2/catalog.js
+          grep -q '"mode":"orbit"' /tmp/play100-v2/v2/catalog.js
+          grep -q '"mode":"typing"' /tmp/play100-v2/v2/catalog.js
+          grep -q '"mode":"meta"' /tmp/play100-v2/v2/catalog.js
+          if grep -q '전용 소재 [0-9]' /tmp/play100-v2/v2/catalog.js; then
+            echo 'Generic material placeholder found.'
+            exit 1
+          fi
 
       - name: Publish without replacing custom GAME-001 through GAME-005
         run: |
@@ -79,5 +89,5 @@ jobs:
             echo 'No deployment changes.'
             exit 0
           fi
-          git commit -m 'deploy: publish PLAY100 GAME-006 through GAME-100'
+          git commit -m 'deploy: publish PLAY100 title-specific mechanics through GAME-100'
           git push
