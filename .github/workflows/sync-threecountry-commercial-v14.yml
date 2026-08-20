@@ -1,3 +1,4 @@
+# source revision: 6a364df662889fedbf7c113a25a70ea303917e84
 name: sync Threecountry character and tactics alpha v1.4
 
 on:
@@ -55,6 +56,7 @@ jobs:
           grep -q 'Character & Tactics Alpha v1.4.0' dist/index.html
           grep -q 'commercial-character-v4.js' dist/index.html
           grep -q 'tactical-intel-v1.js' dist/index.html
+          grep -q '전투 원칙' dist/tactical-intel-v1.js
           grep -q 'gate-crusher' dist/engine.js
           grep -q 'black-feather' dist/engine.js
           grep -q 'sky-piercer' dist/engine.js
@@ -69,7 +71,7 @@ jobs:
           rm -rf threecountry-commercial
           mkdir -p threecountry-commercial
           cp -R _threecountry_commercial/dist/. threecountry-commercial/
-          printf '%s\n' 'Threecountry character and tactics alpha v1.4.0 · 71 tests · 2,000 deterministic simulations' > threecountry-commercial/verified.txt
+          printf '%s\n' 'Threecountry character and tactics alpha v1.4.0 · 71 tests · 2,000 deterministic simulations · mobile browser QA pending' > threecountry-commercial/verified.txt
           rm -rf _threecountry_commercial
 
       - name: Commit deployment
@@ -83,5 +85,5 @@ jobs:
             echo 'No deployment changes.'
             exit 0
           fi
-          git commit -m 'deploy: publish Threecountry character and tactics alpha v1.4.0'
+          git commit -m 'deploy: refresh Threecountry character and tactics alpha v1.4.0'
           git push
