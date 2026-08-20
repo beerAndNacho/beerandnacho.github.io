@@ -874,6 +874,357 @@
     });
   }
 
+  function foldMode() {
+    const size = 16;
+    const target = Array.from({ length: size }, (_, index) => ((index + game.id + stage) % 5 === 0));
+    const state = [...target];
+    const folds = [
+      { name: '왼쪽 접기', cells: [0, 4, 8, 12, 1, 5, 9, 13] },
+      { name: '오른쪽 접기', cells: [2, 6, 10, 14, 3, 7, 11, 15] },
+      { name: '위쪽 접기', cells: [0, 1, 2, 3, 4, 5, 6, 7] },
+      { name: '아래쪽 접기', cells: [8, 9, 10, 11, 12, 13, 14, 15] }
+    ];
+    for (let index = 0; index < 3 + stage; index += 1) {
+      const foldIndex = Math.floor(random() * folds.length);
+      for (const cell of folds[foldIndex].cells) state[cell] = !state[cell];
+    }
+
+    common(
+      '접는 선을 선택해 목표 도장을 겹치세요.',
+      '검은 표식이 목표 지도와 같은 위치가 되면 완성입니다.',
+      `<div style="display:grid;grid-template-columns:1fr 1fr;gap:18px"><div><strong>현재 지도</strong><div id="fold-current" style="display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-top:8px"></div></div><div><strong>목표 도장</strong><div id="fold-target" style="display:grid;grid-template-columns:repeat(4,1fr);gap:5px;margin-top:8px"></div></div></div><div class="button-row" id="fold-actions" style="margin-top:16px"></div><button class="action primary" id="fold-check" style="margin-top:12px">겹침 검사</button>`
+    );
+
+    const drawPattern = (selector, values) => {
+      $(selector, panel).innerHTML = values
+        .map((value) => `<i style="aspect-ratio:1;border:2px solid var(--ink);background:${value ? 'var(--accent)' : '#fffaf0'}"></i>`)
+        .join('');
+    };
+    const draw = () => {
+      drawPattern('#fold-current', state);
+      drawPattern('#fold-target', target);
+    };
+    $('#fold-actions', panel).innerHTML = folds
+      .map((fold, index) => `<button class="action" data-fold="${index}">${fold.name}</button>`)
+      .join('');
+    $$('[data-fold]', panel).forEach((button) => {
+      button.addEventListener('click', () => {
+        for (const cell of folds[Number(button.dataset.fold)].cells) state[cell] = !state[cell];
+        draw();
+      });
+    });
+    $('#fold-check', panel).onclick = () => {
+      if (state.every((value, index) => value === target[index])) {
+        reward(180, '지도의 도장이 정확히 겹쳤습니다.');
+        advance();
+      } else penalize('접힌 표식이 목표와 다릅니다.');
+    };
+    draw();
+  }
+
+  function knotMode() {
+    const labels = ['A', 'A', 'B', 'B', 'C', 'C'];
+    for (let count = 0; count < 5 + stage; count += 1) {
+      const a = Math.floor(random() * labels.length);
+      const b = Math.floor(random() * labels.length);
+      [labels[a], labels[b]] = [labels[b], labels[a]];
+    }
+    let selected = -1;
+    const points = Array.from({ length: 6 }, (_, index) => {
+      const angle = -Math.PI / 2 + (Math.PI * 2 * index) / 6;
+      return { x: 150 + Math.cos(angle) * 112, y: 150 + Math.sin(angle) * 112 };
+    });
+
+    const intersection = (a, b, c, d) => {
+      const cross = (p, q, r) => (q.x - p.x) * (r.y - p.y) - (q.y - p.y) * (r.x - p.x);
+      return cross(a, b, c) * cross(a, b, d) < 0 && cross(c, d, a) * cross(c, d, b) < 0;
+    };
+    const pairs = () => ['A', 'B', 'C'].map((label) => labels.map((value, index) => value === label ? index : -1).filter((index) => index >= 0));
+    const crossingCount = () => {
+      const connected = pairs();
+      let count = 0;
+      for (let i = 0; i < connected.length; i += 1) {
+        for (let j = i + 1; j < connected.length; j += 1) {
+          if (intersection(points[connected[i][0]], points[connected[i][1]], points[connected[j][0]], points[connected[j][1]])) count += 1;
+        }
+      }
+      return count;
+    };
+
+    common(
+      '밧줄 끝 두 개를 바꿔 교차를 없애세요.',
+      '같은 문자끼리 연결된 세 밧줄이 서로 가로지르지 않아야 합니다.',
+      '<div id="knot-board" style="position:relative;width:300px;height:300px;margin:auto;border:3px solid var(--ink);border-radius:50%;background:#fffaf0"><svg id="knot-svg" viewBox="0 0 300 300" style="position:absolute;inset:0;width:100%;height:100%"></svg></div><div class="clue" style="margin-top:12px">현재 교차 · <b id="crossings"></b></div>'
+    );
+
+    const draw = () => {
+      const svg = $('#knot-svg', panel);
+      svg.innerHTML = pairs().map((pair, index) => `<line x1="${points[pair[0]].x}" y1="${points[pair[0]].y}" x2="${points[pair[1]].x}" y2="${points[pair[1]].y}" stroke="${['#ec6d46','#2d7f8d','#9a6bc4'][index]}" stroke-width="10" stroke-linecap="round"/>`).join('');
+      const board = $('#knot-board', panel);
+      $$('.knot-end', board).forEach((button) => button.remove());
+      points.forEach((point, index) => {
+        const button = document.createElement('button');
+        button.className = 'knot-end';
+        button.textContent = labels[index];
+        button.style.cssText = `position:absolute;left:${point.x - 19}px;top:${point.y - 19}px;width:38px;height:38px;border:3px solid var(--ink);border-radius:50%;background:${selected === index ? 'var(--accent)' : '#fff'};font-weight:950`;
+        button.onclick = () => {
+          if (selected < 0) selected = index;
+          else if (selected !== index) {
+            [labels[selected], labels[index]] = [labels[index], labels[selected]];
+            selected = -1;
+          } else selected = -1;
+          draw();
+          if (crossingCount() === 0) {
+            reward(200, '모든 계류 밧줄이 풀렸습니다.');
+            advance();
+          }
+        };
+        board.appendChild(button);
+      });
+      $('#crossings', panel).textContent = String(crossingCount());
+    };
+    draw();
+  }
+
+  function parkingMode() {
+    const cars = [
+      { id: 'R', row: 2, col: 0, length: 2, orientation: 'h', color: 'var(--accent)' },
+      { id: 'A', row: 1, col: 2, length: 2, orientation: 'v', color: '#2d7f8d' },
+      { id: 'B', row: 0, col: 4, length: 3, orientation: 'v', color: '#d7a83e' },
+      { id: 'C', row: 4, col: 1, length: 2, orientation: 'h', color: '#8a69aa' }
+    ];
+    let selected = 'R';
+    const occupied = (ignore) => {
+      const set = new Set();
+      for (const car of cars) if (car.id !== ignore) for (let offset = 0; offset < car.length; offset += 1) set.add(`${car.row + (car.orientation === 'v' ? offset : 0)},${car.col + (car.orientation === 'h' ? offset : 0)}`);
+      return set;
+    };
+
+    common(
+      '빨간 배달 밴을 오른쪽 출구로 보내세요.',
+      '차량을 선택하고 진행 방향으로 한 칸씩 이동합니다.',
+      '<div id="parking-board" style="position:relative;display:grid;grid-template-columns:repeat(6,1fr);aspect-ratio:1;max-width:450px;margin:auto;background:repeating-linear-gradient(0deg,#fffaf0 0 calc(16.66% - 2px),#cfc6b5 calc(16.66% - 2px) 16.66%),repeating-linear-gradient(90deg,transparent 0 calc(16.66% - 2px),#cfc6b5 calc(16.66% - 2px) 16.66%);border:3px solid var(--ink)"></div><div class="button-row" style="margin-top:12px"><button class="action" id="car-back">← / ↑</button><button class="action primary" id="car-forward">→ / ↓</button></div><div class="feedback"></div>'
+    );
+
+    const draw = () => {
+      const board = $('#parking-board', panel);
+      board.innerHTML = '<i style="position:absolute;right:-18px;top:33.33%;width:18px;height:16.66%;background:#6cad62;border:3px solid var(--ink);border-left:0"></i>';
+      for (const car of cars) {
+        const button = document.createElement('button');
+        button.textContent = car.id;
+        button.style.cssText = `position:absolute;left:${(car.col / 6) * 100}%;top:${(car.row / 6) * 100}%;width:${((car.orientation === 'h' ? car.length : 1) / 6) * 100}%;height:${((car.orientation === 'v' ? car.length : 1) / 6) * 100}%;border:${selected === car.id ? 5 : 2}px solid var(--ink);background:${car.color};color:#fff;font-weight:950;transition:.15s`;
+        button.onclick = () => { selected = car.id; draw(); };
+        board.appendChild(button);
+      }
+    };
+
+    const move = (direction) => {
+      const car = cars.find((item) => item.id === selected);
+      const blocks = occupied(car.id);
+      const nextRow = car.row + (car.orientation === 'v' ? direction : 0);
+      const nextCol = car.col + (car.orientation === 'h' ? direction : 0);
+      const cells = Array.from({ length: car.length }, (_, offset) => `${nextRow + (car.orientation === 'v' ? offset : 0)},${nextCol + (car.orientation === 'h' ? offset : 0)}`);
+      const inside = nextRow >= 0 && nextCol >= 0 && nextRow + (car.orientation === 'v' ? car.length : 1) <= 6 && nextCol + (car.orientation === 'h' ? car.length : 1) <= 6;
+      if (!inside || cells.some((cell) => blocks.has(cell))) return penalize('다른 차량이나 경계에 막혔습니다.');
+      car.row = nextRow; car.col = nextCol; draw();
+      if (car.id === 'R' && car.col + car.length === 6) { reward(220, '배달 밴이 출구를 확보했습니다.'); advance(); }
+    };
+    $('#car-back', panel).onclick = () => move(-1);
+    $('#car-forward', panel).onclick = () => move(1);
+    draw();
+  }
+
+  function packingMode() {
+    const pieces = [
+      { name: game.objects[0], width: 2, height: 2 },
+      { name: game.objects[1], width: 1, height: 4 },
+      { name: game.objects[2], width: 2, height: 2 },
+      { name: game.objects[3], width: 1, height: 4 }
+    ];
+    const board = Array(16).fill(-1);
+    let selected = 0;
+    let rotated = false;
+
+    common(
+      '화물 네 개를 빈칸 없이 적재하세요.',
+      '화물을 선택하고 필요하면 회전한 뒤 시작 칸을 누릅니다.',
+      '<div id="packing-pieces" class="button-row"></div><button class="action" id="rotate-piece" style="margin:10px 0">선택 화물 회전</button><div id="packing-board" style="display:grid;grid-template-columns:repeat(4,1fr);gap:4px;max-width:420px;margin:auto"></div><div class="feedback"></div>'
+    );
+
+    const draw = () => {
+      $('#packing-pieces', panel).innerHTML = pieces.map((piece, index) => `<button class="action ${selected === index ? 'primary' : ''}" data-piece="${index}" ${board.includes(index) ? 'disabled' : ''}>${escapeHtml(piece.name)} ${rotated && selected === index ? '↻' : ''}</button>`).join('');
+      $$('[data-piece]', panel).forEach((button) => button.onclick = () => { selected = Number(button.dataset.piece); rotated = false; draw(); });
+      $('#packing-board', panel).innerHTML = board.map((value, index) => `<button class="cell ${value >= 0 ? 'on' : ''}" data-cell="${index}">${value >= 0 ? value + 1 : ''}</button>`).join('');
+      $$('[data-cell]', panel).forEach((cell) => cell.onclick = () => place(Number(cell.dataset.cell)));
+    };
+
+    const place = (start) => {
+      if (board.includes(selected)) return;
+      const piece = pieces[selected];
+      const width = rotated ? piece.height : piece.width;
+      const height = rotated ? piece.width : piece.height;
+      const row = Math.floor(start / 4), col = start % 4;
+      if (col + width > 4 || row + height > 4) return penalize('화물칸 경계를 넘습니다.');
+      const cells = [];
+      for (let y = 0; y < height; y += 1) for (let x = 0; x < width; x += 1) cells.push((row + y) * 4 + col + x);
+      if (cells.some((index) => board[index] >= 0)) return penalize('다른 화물과 겹칩니다.');
+      for (const index of cells) board[index] = selected;
+      reward(45, '화물이 적재됐습니다.');
+      const nextPiece = pieces.findIndex((_, index) => !board.includes(index));
+      if (nextPiece >= 0) selected = nextPiece;
+      draw();
+      if (board.every((value) => value >= 0)) { reward(180, '화물칸을 빈틈없이 채웠습니다.'); advance(); }
+    };
+    $('#rotate-piece', panel).onclick = () => { rotated = !rotated; draw(); };
+    draw();
+  }
+
+  function orbitMode() {
+    const width = 520, height = 310, planet = { x: 260, y: 165, r: 42 };
+    const solutionAngle = -35 + stage * 3;
+    const solutionPower = 7 + stage * 0.3;
+    const simulate = (angleDeg, power, collect = false) => {
+      let x = 42, y = 230, vx = Math.cos(angleDeg * Math.PI / 180) * power, vy = Math.sin(angleDeg * Math.PI / 180) * power;
+      const path = [];
+      for (let step = 0; step < 180; step += 1) {
+        const dx = planet.x - x, dy = planet.y - y, dist = Math.max(28, Math.hypot(dx, dy));
+        const gravity = 38 / (dist * dist);
+        vx += (dx / dist) * gravity * 20;
+        vy += (dy / dist) * gravity * 20;
+        x += vx; y += vy;
+        if (collect) path.push({ x, y });
+        if (x < -20 || x > width + 20 || y < -20 || y > height + 20 || dist < planet.r) break;
+      }
+      return path;
+    };
+    const solutionPath = simulate(solutionAngle, solutionPower, true);
+    const targetPoint = solutionPath[Math.min(solutionPath.length - 1, 105)] || { x: 440, y: 70 };
+
+    common(
+      '발사각과 추진력을 조절해 궤도 정거장에 접안하세요.',
+      '행성의 중력으로 경로가 휘어집니다. 여러 번 시험할 수 있습니다.',
+      `<canvas id="orbit-canvas" width="${width}" height="${height}" style="width:100%;max-width:${width}px;border:3px solid var(--ink);background:#071827"></canvas><label>발사각 <b id="angle-value">${solutionAngle + 12}</b>°<input id="angle" type="range" min="-70" max="10" value="${solutionAngle + 12}" style="width:100%"></label><label>추진력 <b id="power-value">${(solutionPower - 1).toFixed(1)}</b><input id="power" type="range" min="4" max="11" step="0.1" value="${solutionPower - 1}" style="width:100%"></label><button class="action primary" id="launch">배송 캡슐 발사</button><div class="feedback"></div>`
+    );
+    const canvas = $('#orbit-canvas', panel), context = canvas.getContext('2d');
+    const drawBase = () => {
+      context.clearRect(0, 0, width, height);
+      context.fillStyle = '#071827'; context.fillRect(0, 0, width, height);
+      context.fillStyle = '#376f86'; context.beginPath(); context.arc(planet.x, planet.y, planet.r, 0, Math.PI * 2); context.fill();
+      context.strokeStyle = 'rgba(255,255,255,.16)'; context.beginPath(); context.arc(planet.x, planet.y, 105, 0, Math.PI * 2); context.stroke();
+      context.fillStyle = '#ffd95a'; context.fillRect(targetPoint.x - 13, targetPoint.y - 13, 26, 26);
+      context.fillStyle = '#ec6d46'; context.beginPath(); context.arc(42, 230, 8, 0, Math.PI * 2); context.fill();
+    };
+    drawBase();
+    $('#angle', panel).oninput = (event) => $('#angle-value', panel).textContent = event.target.value;
+    $('#power', panel).oninput = (event) => $('#power-value', panel).textContent = event.target.value;
+    $('#launch', panel).onclick = () => {
+      const path = simulate(Number($('#angle', panel).value), Number($('#power', panel).value), true);
+      let index = 0, minDistance = Infinity, frame = 0;
+      const animate = () => {
+        drawBase();
+        context.strokeStyle = '#f1ede1'; context.lineWidth = 2; context.beginPath();
+        path.slice(0, index + 1).forEach((point, i) => i ? context.lineTo(point.x, point.y) : context.moveTo(point.x, point.y)); context.stroke();
+        const point = path[Math.min(index, path.length - 1)];
+        if (point) { context.fillStyle = '#fff'; context.beginPath(); context.arc(point.x, point.y, 6, 0, Math.PI * 2); context.fill(); minDistance = Math.min(minDistance, Math.hypot(point.x - targetPoint.x, point.y - targetPoint.y)); }
+        index += 2;
+        if (index < path.length) frame = requestAnimationFrame(animate);
+        else if (minDistance < 25) { reward(240, '배송 캡슐이 궤도 정거장에 접안했습니다.'); advance(); }
+        else penalize('캡슐이 정거장 궤도를 벗어났습니다.');
+      };
+      frame = requestAnimationFrame(animate);
+      cleanup = () => cancelAnimationFrame(frame);
+    };
+  }
+
+  function gravityMode() {
+    common('중력을 뒤집어 양말 세 묶음을 수집하세요.', '화면을 누르거나 버튼을 사용하면 바닥과 천장이 뒤바뀝니다.', '<div class="arena" id="gravity-arena" style="background:linear-gradient(#d6f0f2 0 50%,#8c7868 50%)"><div class="player" id="gravity-player">▣</div><div id="socks"></div><div id="gravity-obstacles"></div></div><button class="action primary" id="flip" style="width:100%;margin-top:10px">중력 반전</button><div class="feedback"></div>');
+    const arena = $('#gravity-arena', panel), player = $('#gravity-player', panel);
+    let x = 30, y = 230, velocity = 0, gravity = 0.35, collected = 0, frame = 0;
+    const socks = Array.from({ length: 3 }, (_, index) => ({ x: 180 + index * 135, y: index % 2 ? 35 : 235, found: false }));
+    const obstacles = [{ x: 275, y: 125 }];
+    $('#socks', panel).innerHTML = socks.map((_, i) => `<i id="sock${i}" style="position:absolute;width:30px;height:30px;background:#ffd95a;border:2px solid var(--ink);display:grid;place-items:center">S</i>`).join('');
+    $('#gravity-obstacles', panel).innerHTML = obstacles.map((_, i) => `<i id="gobs${i}" style="position:absolute;width:34px;height:90px;background:#263238;border:2px solid var(--ink)"></i>`).join('');
+    const flip = () => { gravity *= -1; velocity = 0; playTone(); };
+    $('#flip', panel).onclick = flip; arena.onclick = flip;
+    const tick = () => {
+      x += 1.7 + stage * .1; velocity += gravity; y += velocity; y = Math.max(0, Math.min(260, y)); if (y === 0 || y === 260) velocity = 0;
+      player.style.left = `${x}px`; player.style.top = `${y}px`;
+      socks.forEach((sock, i) => { const el = $(`#sock${i}`, panel); el.style.left = `${sock.x}px`; el.style.top = `${sock.y}px`; if (!sock.found && Math.hypot(x - sock.x, y - sock.y) < 38) { sock.found = true; el.style.display = 'none'; collected++; reward(80, '양말 묶음을 수집했습니다.'); } });
+      obstacles.forEach((obstacle, i) => { const el = $(`#gobs${i}`, panel); el.style.left = `${obstacle.x}px`; el.style.top = `${obstacle.y}px`; if (Math.abs(x - obstacle.x) < 34 && Math.abs(y - obstacle.y) < 65) { penalize('세탁 레일에 부딪혔습니다.'); obstacle.x += 180; } });
+      if (collected >= 3) advance(250); else if (x > arena.clientWidth - 45) { x = 20; }
+      frame = requestAnimationFrame(tick);
+    };
+    frame = requestAnimationFrame(tick); cleanup = () => cancelAnimationFrame(frame);
+  }
+
+  function steeringMode() {
+    common('종이배를 조타해 부표 세 개를 통과하세요.', '왼쪽·오른쪽으로 물살과 바위를 피합니다.', '<div class="arena" id="river" style="background:linear-gradient(90deg,#8a6c48 0 12%,#4b9fb3 12% 88%,#8a6c48 88%)"><div class="player" id="boat">△</div><div id="river-items"></div></div><div class="touch-controls"><button id="river-left">← 조타</button><button id="river-right">조타 →</button></div><div class="feedback"></div>');
+    const arena = $('#river', panel), boat = $('#boat', panel); let x = 220, frame = 0, passed = 0;
+    const items = Array.from({ length: 7 }, (_, i) => ({ x: 80 + random() * 340, y: -i * 90, buoy: i % 2 === 0 }));
+    $('#river-items', panel).innerHTML = items.map((item, i) => `<i id="river${i}" style="position:absolute;width:${item.buoy ? 28 : 42}px;height:${item.buoy ? 28 : 42}px;border:2px solid var(--ink);background:${item.buoy ? '#ffd95a' : '#263238'};display:grid;place-items:center">${item.buoy ? 'B' : '×'}</i>`).join('');
+    const move = (d) => x = Math.max(55, Math.min(arena.clientWidth - 95, x + d * 34));
+    $('#river-left', panel).onclick = () => move(-1); $('#river-right', panel).onclick = () => move(1);
+    const key = (e) => { if (e.key === 'ArrowLeft') move(-1); if (e.key === 'ArrowRight') move(1); }; addEventListener('keydown', key);
+    const tick = () => { boat.style.left = `${x}px`; boat.style.top = '245px'; items.forEach((item, i) => { item.y += 2.2 + stage * .2; if (item.y > 320) { item.y = -80; item.x = 70 + random() * 360; } const el = $(`#river${i}`, panel); el.style.left = `${item.x}px`; el.style.top = `${item.y}px`; if (Math.abs(item.y - 245) < 35 && Math.abs(item.x - x) < 38) { if (item.buoy) { passed++; reward(90, '항로 부표를 통과했습니다.'); } else penalize('급류 바위에 부딪혔습니다.'); item.y = -90; item.x = 70 + random() * 360; } }); if (passed >= 3) advance(250); frame = requestAnimationFrame(tick); };
+    frame = requestAnimationFrame(tick); cleanup = () => { cancelAnimationFrame(frame); removeEventListener('keydown', key); };
+  }
+
+  function ricochetMode() {
+    const width = 520, height = 300;
+    common('한 번의 네온 광선으로 표적을 맞히세요.', '벽에 닿은 광선은 같은 각도로 반사됩니다.', `<canvas id="ray-canvas" width="${width}" height="${height}" style="width:100%;max-width:${width}px;background:#0b1023;border:3px solid var(--ink)"></canvas><label>발사각 <b id="ray-value">25</b>°<input id="ray-angle" type="range" min="-70" max="70" value="25" style="width:100%"></label><button class="action primary" id="ray-fire">NEON FIRE</button><div class="feedback"></div>`);
+    const canvas = $('#ray-canvas', panel), context = canvas.getContext('2d'), target = { x: 420, y: 55 + stage * 23, r: 16 };
+    const draw = (path = []) => { context.fillStyle = '#0b1023'; context.fillRect(0, 0, width, height); context.fillStyle = '#ffdd55'; context.beginPath(); context.arc(target.x, target.y, target.r, 0, Math.PI * 2); context.fill(); context.strokeStyle = '#ec6dff'; context.lineWidth = 4; if (path.length) { context.beginPath(); path.forEach((p, i) => i ? context.lineTo(p.x, p.y) : context.moveTo(p.x, p.y)); context.stroke(); } };
+    draw(); $('#ray-angle', panel).oninput = e => $('#ray-value', panel).textContent = e.target.value;
+    $('#ray-fire', panel).onclick = () => { let x = 30, y = 250, angle = Number($('#ray-angle', panel).value) * Math.PI / 180, vx = Math.cos(angle) * 5, vy = Math.sin(angle) * 5, path = [{x,y}], hit = false; for (let step=0;step<500;step++){ x+=vx; y+=vy; if(x<=0||x>=width){vx*=-1;x=Math.max(0,Math.min(width,x));} if(y<=0||y>=height){vy*=-1;y=Math.max(0,Math.min(height,y));} path.push({x,y}); if(Math.hypot(x-target.x,y-target.y)<target.r+5){hit=true;break;} } draw(path); hit?(reward(230,'네온 표적이 점등됐습니다.'),advance()):penalize('광선이 표적을 지나쳤습니다.'); };
+  }
+
+  function altitudeMode() {
+    common('열기구 고도를 조절해 승객 세 명을 태우세요.', '상승·하강 버튼으로 승강장 높이에 맞춥니다.', '<div class="arena" id="sky" style="background:linear-gradient(#9bd5eb,#f6d8a8)"><div class="player" id="balloon">◉</div><div id="platforms"></div><div class="hazard" id="cloud">☁</div></div><div class="touch-controls"><button id="down">하강</button><button id="up">상승</button></div><div class="feedback"></div>');
+    const arena=$('#sky',panel),balloon=$('#balloon',panel),cloud=$('#cloud',panel);let y=150,vy=0,frame=0,picked=0;const platforms=Array.from({length:3},(_,i)=>({x:180+i*145,y:50+i%2*150,done:false}));$('#platforms',panel).innerHTML=platforms.map((_,i)=>`<i id="plat${i}" style="position:absolute;width:55px;height:24px;background:#ffd95a;border:2px solid var(--ink)">승객</i>`).join('');const push=d=>vy+=d*1.8;$('#up',panel).onclick=()=>push(-1);$('#down',panel).onclick=()=>push(1);let x=30;const tick=()=>{x+=1.25;vy*=.96;y=Math.max(0,Math.min(255,y+vy));balloon.style.left=`${x}px`;balloon.style.top=`${y}px`;platforms.forEach((p,i)=>{const el=$(`#plat${i}`,panel);el.style.left=`${p.x}px`;el.style.top=`${p.y}px`;if(!p.done&&Math.abs(x-p.x)<38&&Math.abs(y-p.y)<38){p.done=true;el.style.display='none';picked++;reward(90,'승객이 탑승했습니다.');}});const cx=330,cy=120+Math.sin(performance.now()/500)*60;cloud.style.left=`${cx}px`;cloud.style.top=`${cy}px`;if(Math.abs(x-cx)<35&&Math.abs(y-cy)<35){penalize('먹구름에 휩쓸렸습니다.');x-=55;}if(picked>=3)advance(250);else if(x>arena.clientWidth-45)x=20;frame=requestAnimationFrame(tick)};frame=requestAnimationFrame(tick);cleanup=()=>cancelAnimationFrame(frame);
+  }
+
+  function pendulumMode() {
+    common('가로등 갈고리를 옮겨 보석 세 개를 회수하세요.', '진자가 오른쪽을 향할 때 다음 갈고리로 이동합니다.', '<div class="arena" id="pendulum-arena" style="background:linear-gradient(#11162c 0 75%,#4b3a32 75%)"><svg id="pendulum-svg" viewBox="0 0 520 310" style="width:100%;height:100%"></svg></div><button class="action primary" id="release" style="width:100%;margin-top:10px">갈고리 놓기 / 연결</button><div class="feedback"></div>');
+    const svg=$('#pendulum-svg',panel),anchors=[{x:70,y:60},{x:200,y:80},{x:330,y:55},{x:455,y:85}];let current=0,angle=-.8,dir=1,frame=0,collected=0;const tick=()=>{angle+=dir*.025;if(angle>.9||angle<-.9)dir*=-1;const a=anchors[current],px=a.x+Math.sin(angle)*95,py=a.y+Math.cos(angle)*95;svg.innerHTML=anchors.map((p,i)=>`<circle cx="${p.x}" cy="${p.y}" r="9" fill="${i<=current?'#ffd95a':'#fff'}"/><text x="${p.x-5}" y="${p.y-16}" fill="#fff">${i<3?'◆':''}</text>`).join('')+`<line x1="${a.x}" y1="${a.y}" x2="${px}" y2="${py}" stroke="#eee" stroke-width="4"/><circle cx="${px}" cy="${py}" r="14" fill="#ec6d46"/>`;frame=requestAnimationFrame(tick)};$('#release',panel).onclick=()=>{if(angle>.35&&current<anchors.length-1){current++;collected++;reward(110,'다음 갈고리에 연결했습니다.');angle=-.8;if(collected>=3)advance(250)}else penalize('진자 각도가 다음 갈고리에 닿지 않습니다.')};frame=requestAnimationFrame(tick);cleanup=()=>cancelAnimationFrame(frame);
+  }
+
+  function polarityMode() {
+    common('극성을 바꿔 금속 장벽을 통과하세요.', '같은 극은 밀고 다른 극은 끌어당깁니다.', '<div class="arena" id="magnet-arena" style="background:#cad7df"><div class="player" id="magnet-player">+</div><div id="magnets"></div></div><button class="action primary" id="polarity" style="width:100%;margin-top:10px">극성 전환</button><div class="feedback"></div>');
+    const arena=$('#magnet-arena',panel),player=$('#magnet-player',panel);let polarity=1,x=30,y=140,frame=0,passed=0;const magnets=Array.from({length:5},(_,i)=>({x:180+i*115,sign:i%2?1:-1}));$('#magnets',panel).innerHTML=magnets.map((m,i)=>`<i id="mag${i}" style="position:absolute;width:42px;height:110px;background:${m.sign>0?'#d84b4b':'#3c64bb'};border:2px solid var(--ink);display:grid;place-items:center;color:white;font-size:24px">${m.sign>0?'+':'−'}</i>`).join('');$('#polarity',panel).onclick=()=>{polarity*=-1;player.textContent=polarity>0?'+':'−';playTone()};const tick=()=>{x+=1.5;y+=(145-y)*.04;magnets.forEach((m,i)=>{const el=$(`#mag${i}`,panel);const mx=m.x-(performance.now()/8)%720;el.style.left=`${mx}px`;el.style.top='95px';if(Math.abs(mx-x)<55){y+=(m.sign===polarity?-5:5);if(Math.abs(y-145)>125){penalize('자기장에 끌려 경로를 이탈했습니다.');y=145;}}if(mx<-50&&!el.dataset.passed){el.dataset.passed='1';passed++;reward(45,'금속 장벽을 통과했습니다.');}});player.style.left=`${x}px`;player.style.top=`${y}px`;if(x>arena.clientWidth-60)x=25;if(passed>=5)advance(250);frame=requestAnimationFrame(tick)};frame=requestAnimationFrame(tick);cleanup=()=>cancelAnimationFrame(frame);
+  }
+
+  function iceMode() {
+    const size=6,walls=new Set(['1,1','1,2','3,2','4,2','4,4','2,4']),goal={r:0,c:5};let pos={r:5,c:0};
+    common('화물을 방향 패널로 밀어 목적지 창고에 보내세요.', '화물은 벽이나 경계에 닿을 때까지 멈추지 않습니다.', '<div id="ice-board" style="display:grid;grid-template-columns:repeat(6,1fr);gap:4px;max-width:430px;margin:auto"></div><div class="button-row" style="justify-content:center;margin-top:12px"><button class="action" data-move="-1,0">↑</button><button class="action" data-move="0,-1">←</button><button class="action" data-move="0,1">→</button><button class="action" data-move="1,0">↓</button></div><div class="feedback"></div>');
+    const draw=()=>{$('#ice-board',panel).innerHTML=Array.from({length:size*size},(_,i)=>{const r=Math.floor(i/size),c=i%size,key=`${r},${c}`;return `<i style="aspect-ratio:1;border:2px solid var(--ink);display:grid;place-items:center;background:${walls.has(key)?'#263238':r===goal.r&&c===goal.c?'#ffd95a':r===pos.r&&c===pos.c?'var(--accent)':'#e8f4fa'}">${r===pos.r&&c===pos.c?'▣':r===goal.r&&c===goal.c?'H':''}</i>`}).join('')};$$('[data-move]',panel).forEach(b=>b.onclick=()=>{const [dr,dc]=b.dataset.move.split(',').map(Number);let moved=false;while(true){const nr=pos.r+dr,nc=pos.c+dc;if(nr<0||nr>=size||nc<0||nc>=size||walls.has(`${nr},${nc}`))break;pos={r:nr,c:nc};moved=true;}if(!moved)penalize('바로 앞이 막혀 있습니다.');else{reward(30,'빙판을 미끄러졌습니다.');draw();if(pos.r===goal.r&&pos.c===goal.c){reward(200,'화물이 목적지 창고에 도착했습니다.');advance();}}});draw();
+  }
+
+  const hangulWords=['기차','차표','표정','정보','보리','리본','본능','능력','역사','사과','과자','자동차','차례','예술','술잔','잔디'];
+  function hangulMode(){let current=hangulWords[(game.id+stage)%hangulWords.length],round=0;const draw=()=>{const last=current.at(-1),valid=hangulWords.filter(w=>w.startsWith(last)&&w!==current),answer=valid[0]||hangulWords.find(w=>w!==current),opts=[answer,...hangulWords.filter(w=>w!==answer&&w!==current).sort(()=>random()-.5).slice(0,3)].sort(()=>random()-.5);common('끝 음절로 이어지는 단어를 고르세요.',`현재 단어 · ${current} / 끝 음절 · ${last}`,`<div class="choice-grid">${opts.map(w=>`<button class="choice" data-word="${w}"><b>${w}</b><small>${w[0]}로 시작</small></button>`).join('')}</div>`);$$('.choice',panel).forEach(b=>b.onclick=()=>{if(b.dataset.word===answer){current=answer;round++;reward(100,'단어 사슬이 이어졌습니다.');round>=5?advance(250):draw()}else penalize('마지막 음절과 이어지지 않습니다.')})};draw()}
+
+  const missingPuzzles=[['도서관','서'],['자전거','전'],['비행기','행'],['해바라기','바'],['신호등','호'],['우체국','체']];
+  function missingMode(){const [word,letter]=missingPuzzles[(stage+game.id)%missingPuzzles.length],blank=word.replace(letter,'□'),opts=[letter,'가','도','미'].sort(()=>random()-.5);common('사라진 글자를 골라 간판을 복원하세요.',blank,`<div style="font-size:44px;font-weight:950;text-align:center;margin:25px">${blank}</div><div class="choice-grid">${opts.map(o=>`<button class="choice" data-letter="${o}"><b>${o}</b></button>`).join('')}</div>`);$$('.choice',panel).forEach(b=>b.onclick=()=>b.dataset.letter===letter?(reward(160,'간판이 복원됐습니다.'),advance()):penalize('이 글자는 간판 문맥과 맞지 않습니다.'))}
+
+  const emojiPuzzles=[['🌧️☂️','우산'],['🌙🍞','달빛 빵집'],['🚲📦','자전거 배달'],['🐑☁️','구름 양'],['🔦🌊','등대'],['📚🌙','밤의 책방']];
+  function emojiMode(){const [clue,answer]=emojiPuzzles[(stage+game.id)%emojiPuzzles.length],opts=[answer,...emojiPuzzles.map(x=>x[1]).filter(x=>x!==answer).sort(()=>random()-.5).slice(0,3)].sort(()=>random()-.5);common('이모지 조합이 뜻하는 표현을 찾으세요.',clue,`<div style="font-size:58px;text-align:center;margin:20px">${clue}</div><div class="choice-grid">${opts.map(o=>`<button class="choice" data-answer="${escapeHtml(o)}"><b>${escapeHtml(o)}</b></button>`).join('')}</div>`);$$('.choice',panel).forEach(b=>b.onclick=()=>b.dataset.answer===answer?(reward(160,'연상 표현이 맞았습니다.'),advance()):penalize('이모지 관계를 다시 보세요.'))}
+
+  const typingPhrases=['신호를 확인하고 문을 연다','빠르게 입력해 추격자를 피한다','정확한 문장이 탈출 경로를 만든다','마지막 문장을 끝까지 입력한다'];
+  function typingMode(){let index=0;const draw=()=>{const phrase=typingPhrases[(index+stage)%typingPhrases.length];common('문장을 정확히 입력하세요.',phrase,`<div class="meter"><i id="typing-distance" style="width:${Math.max(10,100-index*20)}%"></i></div><input id="typing-input" autocomplete="off" style="width:100%;padding:14px;border:3px solid var(--ink);font-size:18px" placeholder="문장을 입력하고 Enter"><div class="feedback"></div>`);const input=$('#typing-input',panel);input.focus();input.onkeydown=e=>{if(e.key!=='Enter')return;if(input.value.trim()===phrase){index++;reward(100,'추격자와 거리가 벌어졌습니다.');index>=4?advance(250):draw()}else{input.value='';penalize('오타가 있습니다. 다시 입력하세요.')}}};draw()}
+
+  const syllables=[{word:'강',initial:['ㄱ','ㄴ','ㄷ'],vowel:['ㅏ','ㅓ','ㅗ'],final:['ㅇ','ㄴ','ㅁ']},{word:'문',initial:['ㅁ','ㅂ','ㅅ'],vowel:['ㅜ','ㅗ','ㅏ'],final:['ㄴ','ㅇ','ㄹ']},{word:'빛',initial:['ㅂ','ㅈ','ㄷ'],vowel:['ㅣ','ㅏ','ㅓ'],final:['ㅊ','ㅅ','ㄱ']}];
+  function syllableMode(){const puzzle=syllables[(stage+game.id)%syllables.length],selected=[null,null,null];common('초성·중성·종성을 조합해 목표 글자를 만드세요.',`목표 생산품 · ${puzzle.word}`,`<div id="syllable-columns" style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px"></div><button class="action primary" id="syllable-check" style="margin-top:12px">생산 검사</button><div class="feedback"></div>`);const groups=[puzzle.initial,puzzle.vowel,puzzle.final],answers=[groups[0][0],groups[1][0],groups[2][0]];$('#syllable-columns',panel).innerHTML=groups.map((group,g)=>`<div>${group.map(v=>`<button class="action" data-group="${g}" data-value="${v}" style="width:100%;margin-bottom:6px">${v}</button>`).join('')}</div>`).join('');$$('[data-group]',panel).forEach(b=>b.onclick=()=>{selected[+b.dataset.group]=b.dataset.value;$$(`[data-group="${b.dataset.group}"]`,panel).forEach(x=>x.classList.toggle('primary',x===b))});$('#syllable-check',panel).onclick=()=>selected.every((v,i)=>v===answers[i])?(reward(190,'목표 글자가 생산됐습니다.'),advance()):penalize('블록 조합이 목표 글자와 다릅니다.')}
+
+  const sentences=['작은 배가 항구에 도착했다','탐정은 젖은 발자국을 발견했다','구름 양이 밤하늘을 건넜다','배달원은 마지막 소포를 전달했다'];
+  function sentenceMode(){const answer=sentences[(stage+game.id)%sentences.length].split(' '),pool=[...answer].sort(()=>random()-.5),built=[];common('문장 부품을 올바른 순서로 조립하세요.',answer.join(' '),'<div class="clue" id="sentence-built">아직 조립 전</div><div class="button-row" id="sentence-pool" style="margin-top:12px"></div><div class="button-row" style="margin-top:12px"><button class="action" id="sentence-reset">초기화</button><button class="action primary" id="sentence-check">수리 검사</button></div><div class="feedback"></div>');const draw=()=>{$('#sentence-built',panel).textContent=built.join(' ')||'아직 조립 전';$('#sentence-pool',panel).innerHTML=pool.map((word,i)=>`<button class="action" data-token="${i}">${word}</button>`).join('');$$('[data-token]',panel).forEach(b=>b.onclick=()=>{built.push(pool.splice(+b.dataset.token,1)[0]);draw()})};$('#sentence-reset',panel).onclick=()=>{pool.push(...built.splice(0));pool.sort(()=>random()-.5);draw()};$('#sentence-check',panel).onclick=()=>built.join(' ')===answer.join(' ')?(reward(190,'문장이 자연스럽게 복원됐습니다.'),advance()):penalize('문장 순서를 다시 확인하세요.');draw()}
+
+  const sprintSets=[{name:'과일',words:['사과','배','포도','수박','딸기','복숭아']},{name:'동물',words:['고양이','강아지','토끼','사자','호랑이','곰']},{name:'교통',words:['기차','버스','택시','자전거','비행기','배']}];
+  function sprintMode(){const set=sprintSets[(stage+game.id)%sprintSets.length],used=new Set();common('범주에 맞는 단어를 다섯 개 입력하세요.',`범주 · ${set.name}`,`<input id="sprint-input" style="width:100%;padding:14px;border:3px solid var(--ink)" placeholder="단어 입력 후 Enter"><div class="clue">기록 <b id="sprint-count">0</b> / 5</div><div id="sprint-used" class="verbs"></div><div class="feedback"></div>`);const input=$('#sprint-input',panel);input.focus();input.onkeydown=e=>{if(e.key!=='Enter')return;const word=input.value.trim();input.value='';if(!set.words.includes(word))return penalize('이 범주에 포함되지 않는 단어입니다.');if(used.has(word))return penalize('이미 입력한 단어입니다.');used.add(word);$('#sprint-count',panel).textContent=used.size;$('#sprint-used',panel).innerHTML=[...used].map(w=>`<span>${w}</span>`).join('');reward(60,'유효한 단어입니다.');if(used.size>=5)advance(250)}}
+
+  const debugCases=[{code:['const total = 0;','for (const n of items) {','  total += n;','}'],bug:0,patch:'let total = 0;'},{code:['const user = null;','console.log(user.name);','return true;',''],bug:1,patch:'console.log(user?.name);'},{code:['for (let i = 0; i <= list.length; i++) {','  use(list[i]);','}',''],bug:0,patch:'i < list.length'}];
+  function debugMode(){const item=debugCases[(stage+game.id)%debugCases.length];common('문을 막은 오류 줄을 찾아 패치하세요.',`수정 힌트 · ${item.patch}`,`<div id="code-lines" style="font-family:monospace;background:#101820;color:#dce9e2;padding:16px"></div><div class="feedback"></div>`);$('#code-lines',panel).innerHTML=item.code.map((line,i)=>`<button data-line="${i}" style="display:block;width:100%;text-align:left;background:transparent;color:inherit;border:0;padding:9px"><span style="color:#7da2ad">${i+1}</span> ${escapeHtml(line||' ')}</button>`).join('');$$('[data-line]',panel).forEach(b=>b.onclick=()=>+b.dataset.line===item.bug?(reward(210,'오류 벌레를 제거해 문이 열렸습니다.'),advance()):penalize('이 줄은 오류의 원인이 아닙니다.'))}
+
+  function metaMode(){let completed=0,medals=0;for(let id=1;id<100;id++){const entry=window.PLAY100_CATALOG.find(g=>g.id===id);if(!entry)continue;try{const save=JSON.parse(localStorage.getItem(`play100:${entry.slug}`)||'{}');if(save.completed)completed++;if(save.medal)medals++;}catch{}}const symbols=['◈','▲','✦','⬢','◎'],sequence=Array.from({length:4},()=>symbols[Math.floor(random()*symbols.length)]),input=[];common('99개의 기록과 문양을 사용해 백 번째 문을 여세요.',`완료 게임 ${completed} · 보유 메달 ${medals}. 문양 순서를 기억하세요.`,`<div style="font-size:48px;text-align:center;letter-spacing:16px;margin:24px" id="meta-sequence">${sequence.join('')}</div><div class="button-row" id="meta-buttons" style="justify-content:center"></div><div class="clue">입력 · <b id="meta-input">—</b></div><div class="feedback"></div>`);setTimeout(()=>{const el=$('#meta-sequence',panel);if(el)el.textContent='◼ ◼ ◼ ◼'},2400+Math.min(completed,20)*80);$('#meta-buttons',panel).innerHTML=symbols.map(s=>`<button class="action" data-symbol="${s}" style="font-size:24px">${s}</button>`).join('');$$('[data-symbol]',panel).forEach(b=>b.onclick=()=>{input.push(b.dataset.symbol);$('#meta-input',panel).textContent=input.join(' ');const i=input.length-1;if(input[i]!==sequence[i]){input.length=0;$('#meta-input',panel).textContent='—';return penalize('문양 순서가 달라 문이 잠겼습니다.');}if(input.length===sequence.length){reward(500+medals*5,'백 번째 문이 열렸습니다.');advance(250)}})}
+
   const modes = {
     deduction: deductionMode,
     network: networkMode,
@@ -887,7 +1238,28 @@
     cards: cardsMode,
     duel: duelMode,
     story: storyMode,
-    memory: memoryMode
+    memory: memoryMode,
+    fold: foldMode,
+    knot: knotMode,
+    parking: parkingMode,
+    packing: packingMode,
+    orbit: orbitMode,
+    gravity: gravityMode,
+    steering: steeringMode,
+    ricochet: ricochetMode,
+    altitude: altitudeMode,
+    pendulum: pendulumMode,
+    polarity: polarityMode,
+    ice: iceMode,
+    hangul: hangulMode,
+    missing: missingMode,
+    emoji: emojiMode,
+    typing: typingMode,
+    syllable: syllableMode,
+    sentence: sentenceMode,
+    sprint: sprintMode,
+    debug: debugMode,
+    meta: metaMode
   };
 
   function renderMode() {
