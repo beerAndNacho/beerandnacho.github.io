@@ -1,4 +1,4 @@
-name: publish Threecountry release foundation v1.2.0
+name: publish Threecountry release foundation v1.2.1
 
 on:
   push:
@@ -11,7 +11,7 @@ permissions:
   contents: write
 
 concurrency:
-  group: publish-threecountry-release-foundation-v120
+  group: publish-threecountry-release-foundation-v121
   cancel-in-progress: true
 
 jobs:
@@ -49,6 +49,7 @@ jobs:
             test -s "dist/$file"
           done
           grep -q 'Release Foundation Alpha' dist/index.html
+          grep -q 'tutorial-v1.js?v=1.2.1' dist/index.html
           ! grep -q 'character-art-v1' dist/index.html
 
       - name: Install Chromium gate runtime
@@ -63,14 +64,14 @@ jobs:
         shell: bash
         run: |
           set -euo pipefail
-          python3 -m http.server 4173 --directory dist >/tmp/threecountry-v120-server.log 2>&1 &
+          python3 -m http.server 4173 --directory dist >/tmp/threecountry-v121-server.log 2>&1 &
           server_pid=$!
           trap 'kill $server_pid 2>/dev/null || true' EXIT
           for attempt in $(seq 1 20); do
             if curl -fsSL http://127.0.0.1:4173/ >/dev/null; then break; fi
             sleep 1
           done
-          cat > verify-release-v120.mjs <<'EOF'
+          cat > verify-release-v121.mjs <<'EOF'
           import { chromium } from 'playwright';
 
           const browser = await chromium.launch({ headless: true });
@@ -91,7 +92,7 @@ jobs:
             }));
             localStorage.removeItem('threecountry:operation-campaign:v1');
             localStorage.removeItem('threecountry:save-slots:v1');
-            localStorage.setItem('threecountry:tutorial:v1', JSON.stringify({ version: '1.2.0', running: false, dismissed: true, completed: [], lastStep: '' }));
+            localStorage.setItem('threecountry:tutorial:v1', JSON.stringify({ version: '1.2.1', running: false, dismissed: true, completed: [], lastStep: '' }));
           });
           const page = await context.newPage();
           const errors = [];
@@ -116,7 +117,7 @@ jobs:
           if (operations.operations.length !== 4) throw new Error(`operation gate ${JSON.stringify(operations)}`);
           if (maps.mapCount !== 4 || maps.validationErrors.length) throw new Error(`map gate ${JSON.stringify(maps)}`);
           if (slots.slotCount !== 3 || slots.filledSlots < 1) throw new Error(`slot gate ${JSON.stringify(slots)}`);
-          if (tutorial.stepCount !== 15) throw new Error(`tutorial gate ${JSON.stringify(tutorial)}`);
+          if (tutorial.version !== '1.2.1' || tutorial.stepCount !== 15 || tutorial.stableCoach !== true) throw new Error(`tutorial gate ${JSON.stringify(tutorial)}`);
 
           await page.locator('[data-ocv1-board]').waitFor({ state: 'visible', timeout: 30000 });
           if (await page.locator('[data-omap-thumb]').count() !== 4) throw new Error('four operation thumbnails were not rendered');
@@ -130,12 +131,18 @@ jobs:
           await page.waitForFunction(() => window.__saveSlotsV1?.filledSlots === 2, undefined, { timeout: 10000 });
           const slotState = await page.evaluate(() => JSON.parse(localStorage.getItem('threecountry:save-slots:v1') || 'null'));
           if (!slotState?.slots?.[1]?.checksum) throw new Error('slot 2 checksum missing');
-          await page.locator('[data-ssv1-close]').last().click();
+          await page.evaluate(() => document.querySelector('[data-ssv1-close]')?.click());
+          await page.locator('[data-ssv1-modal]').waitFor({ state: 'detached', timeout: 10000 });
 
           await page.locator('[data-tutorial-start]').first().click();
           await page.locator('[data-tutorial-v1]').waitFor({ state: 'visible', timeout: 15000 });
           if (await page.locator('.tutorial-target-v1').count() < 1) throw new Error('tutorial live target missing');
-          await page.locator('[data-tutorial-skip]').click();
+          await page.waitForTimeout(700);
+          if (await page.locator('[data-tutorial-v1]').count() !== 1) throw new Error('tutorial coach was recreated or duplicated');
+          await page.evaluate(() => document.querySelector('[data-tutorial-skip]')?.click());
+          await page.locator('[data-tutorial-v1]').waitFor({ state: 'detached', timeout: 10000 });
+          const tutorialState = await page.evaluate(() => JSON.parse(localStorage.getItem('threecountry:tutorial:v1') || 'null'));
+          if (!tutorialState?.dismissed || tutorialState?.running) throw new Error(`tutorial dismissal was not persisted ${JSON.stringify(tutorialState)}`);
 
           await page.locator('[data-ocv1-difficulty]').selectOption('hard');
           await page.locator('[data-ocv1-start]').click();
@@ -151,7 +158,7 @@ jobs:
           console.log(JSON.stringify({ art, operations: operations.operations.length, maps: maps.mapCount, slots, tutorial, thumbnailCells }, null, 2));
           await browser.close();
           EOF
-          node verify-release-v120.mjs 2>&1 | tee /tmp/threecountry-v120-browser.log
+          node verify-release-v121.mjs 2>&1 | tee /tmp/threecountry-v121-browser.log
 
       - name: Publish browser-verified build
         shell: bash
@@ -161,11 +168,11 @@ jobs:
           mkdir -p threecountry-commercial
           cp -R _threecountry_commercial/dist/. threecountry-commercial/
           rm -rf _threecountry_commercial
-          printf '%s\n' 'Threecountry release foundation alpha v1.2.0 browser-verified' > threecountry-commercial/verified.txt
+          printf '%s\n' 'Threecountry release foundation alpha v1.2.1 browser-verified' > threecountry-commercial/verified.txt
           cat > threecountry-commercial/quality-status.json <<EOF
           {
             "status": "success",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "unitTests": "passed",
             "simulations": 1000,
             "browserGate": "390x844 Chromium",
@@ -177,7 +184,7 @@ jobs:
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add threecountry-commercial
-          git commit -m 'deploy: publish browser-verified Threecountry v1.2.0' || exit 0
+          git commit -m 'deploy: publish browser-verified Threecountry v1.2.1' || exit 0
           git push
 
       - name: Persist failure diagnostics
@@ -189,21 +196,21 @@ jobs:
           cat > threecountry-commercial/quality-status.json <<EOF
           {
             "status": "failure",
-            "version": "1.2.0",
+            "version": "1.2.1",
             "runId": "${GITHUB_RUN_ID}",
             "commit": "${GITHUB_SHA}"
           }
           EOF
-          if [ -s /tmp/threecountry-v120-browser.log ]; then
-            tail -n 160 /tmp/threecountry-v120-browser.log > threecountry-commercial/quality-failure.log
-          elif [ -s /tmp/threecountry-v120-server.log ]; then
-            tail -n 160 /tmp/threecountry-v120-server.log > threecountry-commercial/quality-failure.log
+          if [ -s /tmp/threecountry-v121-browser.log ]; then
+            tail -n 180 /tmp/threecountry-v121-browser.log > threecountry-commercial/quality-failure.log
+          elif [ -s /tmp/threecountry-v121-server.log ]; then
+            tail -n 180 /tmp/threecountry-v121-server.log > threecountry-commercial/quality-failure.log
           else
             printf '%s\n' 'Failure occurred before browser diagnostics were created.' > threecountry-commercial/quality-failure.log
           fi
           git config user.name 'github-actions[bot]'
           git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
           git add threecountry-commercial/quality-status.json threecountry-commercial/quality-failure.log
-          git commit -m 'ci: record Threecountry v1.2.0 gate failure' || exit 0
+          git commit -m 'ci: record Threecountry v1.2.1 gate failure' || exit 0
           git pull --rebase origin main
           git push origin HEAD:main
