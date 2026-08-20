@@ -37,7 +37,7 @@ jobs:
           cache: npm
           cache-dependency-path: _threecountry_commercial/package-lock.json
 
-      - name: Build and verify operation campaign alpha
+      - name: Build and verify four battlefield alpha
         working-directory: _threecountry_commercial
         shell: bash
         run: |
@@ -54,8 +54,12 @@ jobs:
           test -s dist/campaign-story-v3.js
           test -s dist/operation-campaign-v1.js
           test -s dist/operation-campaign-v1.css
-          grep -q 'Operation Campaign Alpha' dist/index.html
+          test -s dist/operation-map-data.js
+          test -s dist/operation-maps-v1.js
+          test -s dist/operation-maps-v1.css
+          grep -q 'Four Battlefields Alpha' dist/index.html
           grep -q 'operation-campaign-v1.js' dist/index.html
+          grep -q 'operation-maps-v1.js' dist/index.html
           ! grep -q 'character-art-v1' dist/index.html
           ! grep -q 'pixel-geometry-fix' dist/index.html
 
@@ -67,7 +71,7 @@ jobs:
           mkdir -p threecountry-commercial
           cp -R _threecountry_commercial/dist/. threecountry-commercial/
           rm -rf _threecountry_commercial
-          printf '%s\n' 'Threecountry operation campaign alpha v1.0.0' > threecountry-commercial/verified.txt
+          printf '%s\n' 'Threecountry four battlefields alpha v1.1.0' > threecountry-commercial/verified.txt
 
       - name: Commit deployment
         shell: bash
@@ -80,5 +84,5 @@ jobs:
             echo 'No deployment changes.'
             exit 0
           fi
-          git commit -m 'deploy: publish Threecountry operation campaign alpha v1.0.0'
+          git commit -m 'deploy: publish Threecountry four battlefields alpha v1.1.0'
           git push
