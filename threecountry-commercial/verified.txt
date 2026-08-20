@@ -1,1 +1,1 @@
-Threecountry release foundation alpha v1.2.0
+Threecountry character and tactics alpha v1.4.0 · 71 tests · 2,000 deterministic simulations
