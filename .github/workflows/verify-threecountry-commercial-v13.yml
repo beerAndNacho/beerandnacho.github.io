@@ -1,0 +1,116 @@
+name: verify Threecountry tactical input alpha v1.3
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/verify-threecountry-commercial-v13.yml'
+      - 'threecountry-commercial/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: verify-threecountry-commercial-v13
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Wait for the deployed v1.3 release and verify assets
+        shell: bash
+        run: |
+          set -euo pipefail
+          base='https://beerandnacho.github.io/threecountry-commercial'
+          for attempt in $(seq 1 60); do
+            if curl -fsSL "${base}/verified.txt?run=${GITHUB_RUN_ID}-${attempt}" | grep -q 'v1.3.0'; then
+              echo 'v1.3.0 deployment is live.'
+              break
+            fi
+            if [ "$attempt" -eq 60 ]; then
+              echo 'v1.3.0 deployment did not become available in time.'
+              exit 1
+            fi
+            sleep 5
+          done
+          for path in '/' '/accessibility-settings-core.js' '/input-accessibility-v1.js' '/input-accessibility-v1.css' '/objective-core.js' '/objective-hud-v1.js' '/objective-hud-v1.css'; do
+            echo "Checking ${base}${path}"
+            curl --retry 10 --retry-delay 2 --retry-all-errors -fsSL "${base}${path}?verify=${GITHUB_RUN_ID}" -o /dev/null
+          done
+          curl -fsSL "${base}/?verify=${GITHUB_RUN_ID}" -o /tmp/threecountry-v13.html
+          grep -q 'Tactical Input Alpha' /tmp/threecountry-v13.html
+          grep -q 'input-accessibility-v1.js' /tmp/threecountry-v13.html
+          grep -q 'objective-hud-v1.js' /tmp/threecountry-v13.html
+
+      - name: Install Chromium runtime
+        shell: bash
+        run: |
+          npm init -y >/dev/null 2>&1
+          npm install --no-audit --no-fund playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Verify mobile and desktop input settings
+        shell: bash
+        run: |
+          cat > verify-v13.mjs <<'EOF'
+          import { chromium } from 'playwright';
+
+          const browser = await chromium.launch({ headless: true });
+          const results = [];
+
+          for (const viewport of [{ name: 'mobile', width: 390, height: 844 }, { name: 'desktop', width: 1280, height: 800 }]) {
+            const page = await browser.newPage({ viewport, hasTouch: viewport.name === 'mobile', isMobile: viewport.name === 'mobile' });
+            const errors = [];
+            page.on('pageerror', (error) => errors.push(`pageerror: ${error.message}`));
+            page.on('requestfailed', (request) => errors.push(`requestfailed: ${request.url()} ${request.failure()?.errorText || ''}`));
+            const response = await page.goto(`https://beerandnacho.github.io/threecountry-commercial/?verify=v13-${viewport.name}-${Date.now()}`, { waitUntil: 'networkidle', timeout: 120_000 });
+            if (!response?.ok()) throw new Error(`${viewport.name} response ${response?.status()}`);
+            await page.waitForFunction(() => window.__inputAccessibilityV1?.ready === true, undefined, { timeout: 30_000 });
+            await page.waitForFunction(() => window.__objectiveHudV1?.ready === true, undefined, { timeout: 30_000 });
+
+            const inputInfo = await page.evaluate(() => window.__inputAccessibilityV1);
+            const objectiveInfo = await page.evaluate(() => window.__objectiveHudV1);
+            if (inputInfo.version !== '1.3.0') throw new Error(`Unexpected input version ${inputInfo.version}`);
+            if (inputInfo.bindingCount < 15) throw new Error(`Expected at least 15 bindings; got ${inputInfo.bindingCount}`);
+            if (objectiveInfo.objectiveCount !== 4) throw new Error(`Expected 4 objectives; got ${objectiveInfo.objectiveCount}`);
+
+            await page.keyboard.press('F1');
+            await page.locator('[data-iav1-help-modal]').waitFor({ state: 'visible', timeout: 10_000 });
+            await page.keyboard.press('Escape');
+            await page.locator('[data-iav1-help-modal]').waitFor({ state: 'detached', timeout: 10_000 });
+
+            await page.locator('[data-iav1-open]').first().click();
+            await page.locator('[data-iav1-modal]').waitFor({ state: 'visible', timeout: 10_000 });
+            await page.locator('select[data-iav1-setting="textScale"]').selectOption('large');
+            await page.locator('select[data-iav1-setting="contrast"]').selectOption('high');
+            await page.waitForFunction(() => document.documentElement.classList.contains('a11y-text-large') && document.documentElement.classList.contains('a11y-high-contrast'));
+            await page.locator('[data-iav1-close]').last().click();
+            await page.locator('[data-iav1-modal]').waitFor({ state: 'detached', timeout: 10_000 });
+
+            const persisted = await page.evaluate(() => JSON.parse(localStorage.getItem('threecountry:accessibility:v1') || '{}'));
+            if (persisted.textScale !== 'large' || persisted.contrast !== 'high') throw new Error(`Settings were not persisted: ${JSON.stringify(persisted)}`);
+            if (errors.length) throw new Error(errors.join('\n'));
+            await page.screenshot({ path: `threecountry-v13-${viewport.name}.png`, fullPage: true });
+            results.push({ viewport: viewport.name, inputInfo, objectiveInfo });
+            await page.close();
+          }
+
+          console.log(JSON.stringify(results, null, 2));
+          await browser.close();
+          EOF
+          node verify-v13.mjs
+
+      - name: Upload visual verification captures
+        uses: actions/upload-artifact@v4
+        with:
+          name: threecountry-v13-input-objective-captures
+          path: threecountry-v13-*.png
+          if-no-files-found: error
+          retention-days: 14
