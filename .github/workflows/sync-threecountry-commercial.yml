@@ -158,7 +158,7 @@ jobs:
           await page.waitForFunction(() => JSON.parse(localStorage.getItem('threecountry:srpg:v2') || 'null')?.battle?.flags?.operationMapVersion === '1.1.0', undefined, { timeout: 60000 });
           await page.locator('.battle-screen[data-operation-map="west-road"]').waitFor({ state: 'visible', timeout: 30000 });
           if (errors.length) throw new Error(errors.join('\n'));
-          console.log(JSON.stringify({ art, maps, slots: window.__saveSlotsV1, tutorial, thumbnailCells: cells }, null, 2));
+          console.log(JSON.stringify({ art, maps, slots, tutorial, thumbnailCells: cells }, null, 2));
           await browser.close();
           EOF
           node /tmp/verify-threecountry-local.mjs
