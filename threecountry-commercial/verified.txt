@@ -1,1 +1,1 @@
-Threecountry character and tactics alpha v1.4.0 · 71 tests · 2,000 deterministic simulations
+Threecountry character and tactics alpha v1.4.0 · 71 tests · 2,000 deterministic simulations · mobile browser QA pending
