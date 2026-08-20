@@ -17,7 +17,7 @@ concurrency:
 jobs:
   deploy:
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 24
     steps:
       - name: Checkout Pages repository
         uses: actions/checkout@v4
@@ -69,6 +69,100 @@ jobs:
           ! grep -q 'character-art-v1' dist/index.html
           ! grep -q 'pixel-geometry-fix' dist/index.html
 
+      - name: Install mobile browser test runtime
+        working-directory: _threecountry_commercial
+        shell: bash
+        run: |
+          npm install --no-save --package-lock=false playwright@1.55.0
+          npx playwright install --with-deps chromium
+
+      - name: Run local 390x844 product browser gate
+        working-directory: _threecountry_commercial
+        shell: bash
+        run: |
+          set -euo pipefail
+          python3 -m http.server 4173 --directory dist >/tmp/threecountry-local-server.log 2>&1 &
+          server_pid=$!
+          trap 'kill $server_pid 2>/dev/null || true' EXIT
+          for attempt in $(seq 1 20); do
+            if curl -fsSL http://127.0.0.1:4173/ >/dev/null; then break; fi
+            sleep 1
+          done
+          cat > /tmp/verify-threecountry-local.mjs <<'EOF'
+          import { chromium } from 'playwright';
+
+          const browser = await chromium.launch({ headless: true });
+          const context = await browser.newContext({ viewport: { width: 390, height: 844 }, isMobile: true, hasTouch: true });
+          await context.addInitScript(() => {
+            localStorage.setItem('threecountry:srpg:v2', JSON.stringify({
+              version: 2, screen: 'hub', resources: { gold: 900, grain: 760, fame: 20 },
+              facilities: { barracks: 1, market: 1, granary: 1, academy: 1 },
+              party: ['cao', 'xiahou', 'dian', 'guo'], strategy: 'assault', chapterCleared: false,
+              battle: null, records: { victories: 0, defeats: 0, bestTurns: null },
+              settings: { difficulty: 'normal', zoom: 'normal' }, lastRewards: null,
+            }));
+            localStorage.removeItem('threecountry:operation-campaign:v1');
+            localStorage.removeItem('threecountry:save-slots:v1');
+            localStorage.setItem('threecountry:tutorial:v1', JSON.stringify({ version: '1.2.0', running: false, dismissed: true, completed: [], lastStep: '' }));
+          });
+          const page = await context.newPage();
+          const errors = [];
+          page.on('pageerror', (error) => errors.push(`pageerror: ${error.message}`));
+          page.on('requestfailed', (request) => errors.push(`requestfailed: ${request.url()} ${request.failure()?.errorText || ''}`));
+          const response = await page.goto('http://127.0.0.1:4173/', { waitUntil: 'networkidle', timeout: 120000 });
+          if (!response?.ok()) throw new Error(`HTTP ${response?.status()}`);
+          for (const expression of [
+            'window.__commercialCharacterArtV2?.ready === true',
+            'window.__operationCampaignV1?.ready === true',
+            'window.__operationMapsV1?.ready === true',
+            'window.__saveSlotsV1?.ready === true',
+            'window.__tutorialV1?.ready === true',
+          ]) await page.waitForFunction(expression, undefined, { timeout: 30000 });
+
+          const art = await page.evaluate(() => window.__commercialCharacterArtV2);
+          const maps = await page.evaluate(() => window.__operationMapsV1);
+          const slots = await page.evaluate(() => window.__saveSlotsV1);
+          const tutorial = await page.evaluate(() => window.__tutorialV1);
+          if (art.renderer !== 'vector-svg' || art.heroCount !== 12 || art.states.length !== 8) throw new Error(`art gate: ${JSON.stringify(art)}`);
+          if (maps.mapCount !== 4 || maps.validationErrors.length) throw new Error(`map gate: ${JSON.stringify(maps)}`);
+          if (slots.slotCount !== 3 || slots.filledSlots < 1) throw new Error(`slot gate: ${JSON.stringify(slots)}`);
+          if (tutorial.stepCount !== 15) throw new Error(`tutorial gate: ${JSON.stringify(tutorial)}`);
+
+          await page.locator('[data-ocv1-board]').waitFor({ state: 'visible', timeout: 30000 });
+          if (await page.locator('[data-omap-thumb]').count() !== 4) throw new Error('expected four map thumbnails');
+          const cells = await page.locator('[data-omap-thumb]').evaluateAll((nodes) => nodes.map((node) => node.querySelectorAll('i').length));
+          if (cells.some((count) => count !== 96)) throw new Error(`thumbnail cells: ${cells}`);
+
+          await page.locator('[data-ssv1-open]').first().click();
+          await page.locator('[data-ssv1-modal]').waitFor({ state: 'visible', timeout: 15000 });
+          if (await page.locator('[data-ssv1-slot]').count() !== 3) throw new Error('expected three save slots');
+          await page.locator('[data-ssv1-save="2"]').click();
+          await page.waitForFunction(() => window.__saveSlotsV1?.filledSlots === 2, undefined, { timeout: 10000 });
+          const slotState = await page.evaluate(() => JSON.parse(localStorage.getItem('threecountry:save-slots:v1') || 'null'));
+          if (!slotState?.slots?.[1]?.checksum) throw new Error('slot checksum missing');
+          await page.locator('[data-ssv1-close]').last().click();
+
+          await page.locator('[data-tutorial-start]').first().click();
+          await page.locator('[data-tutorial-v1]').waitFor({ state: 'visible', timeout: 15000 });
+          if (await page.locator('.tutorial-target-v1').count() < 1) throw new Error('tutorial target missing');
+          await page.locator('[data-tutorial-skip]').click();
+
+          await page.locator('[data-ocv1-difficulty]').selectOption('hard');
+          await page.locator('[data-ocv1-start]').click();
+          await page.locator('.deployment-screen').waitFor({ state: 'visible', timeout: 30000 });
+          const preview = page.locator('.preview-grid[data-operation-map="west-road"]');
+          await preview.waitFor({ state: 'visible', timeout: 30000 });
+          if (await preview.locator(':scope > .terrain').count() !== 96) throw new Error('deployment preview is not 12x8');
+
+          await page.locator('[data-action="start-battle"]').click();
+          await page.waitForFunction(() => JSON.parse(localStorage.getItem('threecountry:srpg:v2') || 'null')?.battle?.flags?.operationMapVersion === '1.1.0', undefined, { timeout: 60000 });
+          await page.locator('.battle-screen[data-operation-map="west-road"]').waitFor({ state: 'visible', timeout: 30000 });
+          if (errors.length) throw new Error(errors.join('\n'));
+          console.log(JSON.stringify({ art, maps, slots: window.__saveSlotsV1, tutorial, thumbnailCells: cells }, null, 2));
+          await browser.close();
+          EOF
+          node /tmp/verify-threecountry-local.mjs
+
       - name: Replace isolated public alpha
         shell: bash
         run: |
@@ -77,7 +171,7 @@ jobs:
           mkdir -p threecountry-commercial
           cp -R _threecountry_commercial/dist/. threecountry-commercial/
           rm -rf _threecountry_commercial
-          printf '%s\n' 'Threecountry release foundation alpha v1.2.0' > threecountry-commercial/verified.txt
+          printf '%s\n' 'Threecountry release foundation alpha v1.2.0 browser-verified' > threecountry-commercial/verified.txt
 
       - name: Commit deployment
         shell: bash
@@ -90,5 +184,5 @@ jobs:
             echo 'No deployment changes.'
             exit 0
           fi
-          git commit -m 'deploy: publish Threecountry release foundation alpha v1.2.0'
+          git commit -m 'deploy: publish browser-verified Threecountry release foundation v1.2.0'
           git push
