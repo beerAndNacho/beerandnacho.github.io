@@ -18,35 +18,36 @@ concurrency:
 jobs:
   verify:
     runs-on: ubuntu-latest
-    timeout-minutes: 15
+    timeout-minutes: 18
     steps:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
 
-      - name: Wait for GitHub Pages and verify assets
+      - name: Wait for GitHub Pages and verify operation assets
         shell: bash
         run: |
           set -euo pipefail
           base='https://beerandnacho.github.io/threecountry-commercial'
-          for attempt in $(seq 1 40); do
-            if curl -fsSL "${base}/verified.txt?run=${GITHUB_RUN_ID}-${attempt}" | grep -q 'v0.8.1'; then
+          for attempt in $(seq 1 48); do
+            if curl -fsSL "${base}/verified.txt?run=${GITHUB_RUN_ID}-${attempt}" | grep -q 'v1.0.0'; then
               break
             fi
-            if [ "$attempt" -eq 40 ]; then
-              echo 'Published alpha did not become available in time.'
+            if [ "$attempt" -eq 48 ]; then
+              echo 'Published operation campaign alpha did not become available in time.'
               exit 1
             fi
             sleep 5
           done
-          for path in '/' '/styles.css' '/gameplay-v4.css' '/commercial-v1.css' '/mobile-command-v1.css' '/character-art-v2.css' '/story-director-v2.css' '/app.js' '/gameplay-v4.js' '/commercial-v1.js' '/mobile-command-v1.js' '/character-art-v2.js' '/story-director-v2.js'; do
+          for path in '/' '/styles.css' '/gameplay-v4.css' '/commercial-v1.css' '/mobile-command-v1.css' '/character-art-v2.css' '/story-director-v2.css' '/commercial-combat-v3.css' '/campaign-story-v3.css' '/operation-campaign-v1.css' '/app.js' '/gameplay-v4.js' '/commercial-v1.js' '/mobile-command-v1.js' '/character-art-v2.js' '/story-director-v2.js' '/commercial-combat-v3.js' '/campaign-story-v3.js' '/operation-campaign-v1.js'; do
             echo "Checking ${base}${path}"
             curl --retry 8 --retry-delay 2 --retry-all-errors -fsSL "${base}${path}?verify=${GITHUB_RUN_ID}" -o /dev/null
           done
           curl -fsSL "${base}/?verify=${GITHUB_RUN_ID}" -o /tmp/threecountry-commercial.html
-          grep -q 'Commercial Art Alpha' /tmp/threecountry-commercial.html
+          grep -q 'Operation Campaign Alpha' /tmp/threecountry-commercial.html
           grep -q 'character-art-v2.js' /tmp/threecountry-commercial.html
-          grep -q 'story-director-v2.js' /tmp/threecountry-commercial.html
+          grep -q 'campaign-story-v3.js' /tmp/threecountry-commercial.html
+          grep -q 'operation-campaign-v1.js' /tmp/threecountry-commercial.html
           ! grep -q 'character-art-v1' /tmp/threecountry-commercial.html
           ! grep -q 'pixel-geometry-fix' /tmp/threecountry-commercial.html
 
@@ -57,19 +58,36 @@ jobs:
           npm install --no-audit --no-fund playwright@1.55.0
           npx playwright install --with-deps chromium
 
-      - name: Verify mobile render, characters, motion and story
+      - name: Verify mobile characters, operation map and deployment transition
         shell: bash
         run: |
           cat > verify-commercial.mjs <<'EOF'
           import { chromium } from 'playwright';
 
           const browser = await chromium.launch({ headless: true });
-          const page = await browser.newPage({
+          const context = await browser.newContext({
             viewport: { width: 390, height: 844 },
             deviceScaleFactor: 1,
             isMobile: true,
             hasTouch: true,
           });
+          await context.addInitScript(() => {
+            localStorage.setItem('threecountry:srpg:v2', JSON.stringify({
+              version: 2,
+              screen: 'hub',
+              resources: { gold: 900, grain: 760, fame: 20 },
+              facilities: { barracks: 1, market: 1, granary: 1, academy: 1 },
+              party: ['cao', 'xiahou', 'dian', 'guo'],
+              strategy: 'assault',
+              chapterCleared: false,
+              battle: null,
+              records: { victories: 0, defeats: 0, bestTurns: null },
+              settings: { difficulty: 'normal' },
+              lastRewards: null,
+            }));
+            localStorage.removeItem('threecountry:operation-campaign:v1');
+          });
+          const page = await context.newPage();
           const errors = [];
           page.on('pageerror', (error) => errors.push(`pageerror: ${error.message}`));
           page.on('requestfailed', (request) => errors.push(`requestfailed: ${request.url()} ${request.failure()?.errorText || ''}`));
@@ -82,35 +100,42 @@ jobs:
           await page.locator('#app').waitFor({ state: 'visible', timeout: 30_000 });
           await page.waitForFunction(() => window.__commercialCharacterArtV2?.ready === true, undefined, { timeout: 30_000 });
           await page.waitForFunction(() => window.__storyDirectorV2?.ready === true, undefined, { timeout: 30_000 });
+          await page.waitForFunction(() => window.__operationCampaignV1?.ready === true, undefined, { timeout: 30_000 });
 
           const art = await page.evaluate(() => window.__commercialCharacterArtV2);
           const story = await page.evaluate(() => window.__storyDirectorV2);
+          const operations = await page.evaluate(() => window.__operationCampaignV1);
           if (art.renderer !== 'vector-svg') throw new Error(`Unexpected renderer: ${art.renderer}`);
           if (art.heroCount !== 12) throw new Error(`Expected 12 character profiles; got ${art.heroCount}`);
           if (art.states.length !== 8) throw new Error(`Expected 8 animation states; got ${art.states.length}`);
-          if (story.sceneCount !== 8) throw new Error(`Expected 8 story scenes; got ${story.sceneCount}`);
+          if (story.sceneCount !== 8) throw new Error(`Expected 8 core story scenes; got ${story.sceneCount}`);
+          if (operations.operations.length !== 4) throw new Error(`Expected 4 operations; got ${operations.operations.length}`);
+          if (operations.operations.filter((operation) => operation.unlocked).length !== 1) throw new Error('Only the first operation should be unlocked in a fresh campaign.');
+
+          await page.locator('[data-ocv1-board]').waitFor({ state: 'visible', timeout: 30_000 });
+          const operationCards = await page.locator('[data-ocv1-operation]').count();
+          if (operationCards !== 4) throw new Error(`Expected 4 operation cards; got ${operationCards}`);
+          const lockedCards = await page.locator('[data-ocv1-operation].locked').count();
+          if (lockedCards !== 3) throw new Error(`Expected 3 locked operations; got ${lockedCards}`);
 
           const portraits = page.locator('svg[data-commercial-art-v2="1"]');
           await portraits.first().waitFor({ state: 'visible', timeout: 30_000 });
           const portraitCount = await portraits.count();
-          if (portraitCount < 2) throw new Error(`Expected rendered character art; got ${portraitCount}`);
           const fingerprints = await portraits.evaluateAll((nodes) => [...new Set(nodes.map((node) => node.dataset.silhouette).filter(Boolean))]);
-          if (fingerprints.length < 2) throw new Error(`Character silhouettes are not differentiated: ${fingerprints.join(', ')}`);
+          if (portraitCount < 2 || fingerprints.length < 2) throw new Error('Commercial character silhouettes did not render distinctly.');
+
+          await page.screenshot({ path: 'commercial-mobile-operation-map.png', fullPage: true });
+          await page.locator('[data-ocv1-difficulty]').selectOption('hard');
+          await page.locator('[data-ocv1-start]').click();
+          await page.locator('.deployment-screen').waitFor({ state: 'visible', timeout: 30_000 });
+          const savedOperation = await page.evaluate(() => JSON.parse(localStorage.getItem('threecountry:srpg:v2') || 'null')?.operation);
+          if (savedOperation?.id !== 'west-road' || savedOperation?.difficulty !== 'hard') throw new Error(`Operation selection was not persisted: ${JSON.stringify(savedOperation)}`);
+          await page.screenshot({ path: 'commercial-mobile-deployment.png', fullPage: true });
 
           const oldPixelAssets = await page.evaluate(() => [...document.scripts, ...document.styleSheets].some((entry) => String(entry.src || entry.href || '').includes('character-art-v1')));
           if (oldPixelAssets) throw new Error('Retired pixel renderer is still loaded.');
-
-          await page.screenshot({ path: 'commercial-mobile-title.png', fullPage: true });
-
-          const start = page.locator('[data-action="start-game"], [data-action="new-game"], button').filter({ hasText: /새 연대기|게임 시작|시작/ }).first();
-          if (await start.count()) {
-            await start.click();
-            await page.waitForTimeout(900);
-            await page.screenshot({ path: 'commercial-mobile-after-start.png', fullPage: true });
-          }
-
           if (errors.length) throw new Error(errors.join('\n'));
-          console.log(JSON.stringify({ art, story, portraitCount, fingerprints }, null, 2));
+          console.log(JSON.stringify({ art, story, operations, operationCards, lockedCards, portraitCount, fingerprints, savedOperation }, null, 2));
           await browser.close();
           EOF
           node verify-commercial.mjs
@@ -118,7 +143,7 @@ jobs:
       - name: Upload visual review captures
         uses: actions/upload-artifact@v4
         with:
-          name: threecountry-commercial-alpha-v081-captures
+          name: threecountry-operation-campaign-v100-captures
           path: commercial-mobile-*.png
           if-no-files-found: error
           retention-days: 14
