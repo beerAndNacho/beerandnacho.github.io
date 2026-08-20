@@ -161,7 +161,7 @@ jobs:
           console.log(JSON.stringify({ art, maps, slots, tutorial, thumbnailCells: cells }, null, 2));
           await browser.close();
           EOF
-          node /tmp/verify-threecountry-local.mjs
+          node /tmp/verify-threecountry-local.mjs 2>&1 | tee /tmp/threecountry-browser-gate.log
 
       - name: Replace isolated public alpha
         shell: bash
@@ -172,6 +172,16 @@ jobs:
           cp -R _threecountry_commercial/dist/. threecountry-commercial/
           rm -rf _threecountry_commercial
           printf '%s\n' 'Threecountry release foundation alpha v1.2.0 browser-verified' > threecountry-commercial/verified.txt
+          cat > threecountry-commercial/quality-status.json <<EOF
+          {
+            "status": "success",
+            "version": "1.2.0",
+            "browserGate": "390x844 Chromium",
+            "runId": "${GITHUB_RUN_ID}",
+            "commit": "${GITHUB_SHA}"
+          }
+          EOF
+          rm -f threecountry-commercial/quality-failure.log
 
       - name: Commit deployment
         shell: bash
@@ -186,3 +196,31 @@ jobs:
           fi
           git commit -m 'deploy: publish browser-verified Threecountry release foundation v1.2.0'
           git push
+
+      - name: Persist failed gate diagnostics
+        if: failure()
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          mkdir -p threecountry-commercial
+          cat > threecountry-commercial/quality-status.json <<EOF
+          {
+            "status": "failure",
+            "version": "1.2.0",
+            "runId": "${GITHUB_RUN_ID}",
+            "commit": "${GITHUB_SHA}"
+          }
+          EOF
+          if [ -s /tmp/threecountry-browser-gate.log ]; then
+            tail -n 120 /tmp/threecountry-browser-gate.log > threecountry-commercial/quality-failure.log
+          elif [ -s /tmp/threecountry-local-server.log ]; then
+            tail -n 120 /tmp/threecountry-local-server.log > threecountry-commercial/quality-failure.log
+          else
+            printf '%s\n' 'Failure occurred before browser gate diagnostics were created.' > threecountry-commercial/quality-failure.log
+          fi
+          git add threecountry-commercial/quality-status.json threecountry-commercial/quality-failure.log
+          git commit -m 'ci: record Threecountry release foundation gate failure' || exit 0
+          git pull --rebase origin main
+          git push origin HEAD:main
