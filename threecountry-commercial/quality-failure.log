@@ -2,15 +2,11 @@ node:internal/modules/run_main:123
     triggerUncaughtException(
     ^
 
-locator.click: Timeout 30000ms exceeded.
+locator.waitFor: Timeout 30000ms exceeded.
 Call log:
-  - waiting for locator('[data-tutorial-skip]')
-    61 × locator resolved to <button type="button" data-tutorial-skip="">안내 종료</button>
-     - attempting click action
-       - waiting for element to be visible, enabled and stable
-     - element was detached from the DOM, retrying
+  - waiting for locator('.deployment-screen') to be visible
 
-    at /home/runner/work/beerandnacho.github.io/beerandnacho.github.io/_threecountry_commercial/verify-release-v120.mjs:65:44 {
+    at /home/runner/work/beerandnacho.github.io/beerandnacho.github.io/_threecountry_commercial/verify-release-v121.mjs:75:42 {
   name: 'TimeoutError'
 }
 
