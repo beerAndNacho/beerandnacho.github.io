@@ -1,0 +1,66 @@
+STEP launch { chrome: '/usr/bin/google-chrome' }
+STEP goto {}
+STEP loaded { title: '천하일지 SRPG · Character & Tactics Alpha v1.4.0' }
+STEP runtime-ready {
+  art: {
+    ready: true,
+    version: '1.4.0',
+    coreBusts: [
+      'cao',   'xiahou',
+      'dian',  'guo',
+      'liu',   'guan',
+      'zhang', 'zhao'
+    ],
+    profileCount: 12,
+    states: [
+      'idle',    'walk',
+      'attack',  'skill',
+      'hit',     'guard',
+      'counter', 'critical',
+      'victory', 'retreat'
+    ]
+  },
+  intel: {
+    ready: true,
+    version: '1.0.0',
+    profiles: 12,
+    tools: [
+      'threat-overlay',
+      'terrain-labels',
+      'compact-units',
+      'hud-density',
+      'officer-codex',
+      'selected-unit-dossier'
+    ],
+    preferences: { threat: true, terrain: false, compact: true, density: 'normal' }
+  },
+  text: '\n' +
+    '    \n' +
+    '    天ORIGINAL TACTICAL CHRONICLE천하일지?記1🔊 효과음\n' +
+    '    \n' +
+    '      公元 190 · 中原장수를 고르고전장을 움직여라도시를 운영하고 네 명의 장수를 편성한 뒤, 격자 전장에서 직접 이동·공격·책략을 지휘하는 스토리형 삼국 전술 게임.새 연대기전투를 시작한다 →12×8 전술 격자장수 4인 편성스토리·도시 운영API 비용 0원SRPG v0.4.0작은 유닛 · 경로 이동 · 전장 효과 · 분기 사건\n' +
+    '      \n' +
+    '    \n' +
+    '      \n' +
+    '      \n' +
+    '      \n' +
+    '      \n' +
+    '    \n' +
+    '    \n' +
+    '    '
+}
+STEP codex-button-ready {}
+STEP codex-open { codexCards: 10 }
+STEP dossier-open {
+  markers: [
+    [ '조조', true ],
+    [ '패국 초현', true ],
+    [ '현재 장비', true ],
+    [ '관계와 긴장', true ],
+    [ '전투 원칙', true ]
+  ]
+}
+STEP battle-tools-ready { threatened: 10 }
+STEP compact-toggle { compact: true }
+Error: runtime errors=console: Failed to load resource: the server responded with a status of 404 (File not found) requests=
+    at file:///home/runner/work/beerandnacho.github.io/beerandnacho.github.io/.diagnose-threecountry-v14.mjs:55:53
