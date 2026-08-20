@@ -1,0 +1,87 @@
+name: sync Threecountry character and tactics alpha v1.4
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/sync-threecountry-commercial-v14.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-threecountry-commercial-v14
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout Pages repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Checkout tested commercial alpha source
+        uses: actions/checkout@v4
+        with:
+          repository: beerAndNacho/Threecountry
+          ref: commercial-alpha
+          path: _threecountry_commercial
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+          cache-dependency-path: _threecountry_commercial/package-lock.json
+
+      - name: Build and run full quality gate
+        working-directory: _threecountry_commercial
+        shell: bash
+        run: |
+          set -euo pipefail
+          npm ci
+          npm run build
+          npm run quality
+          test -s dist/index.html
+          test -s dist/commercial-character-v4.js
+          test -s dist/commercial-character-v4.css
+          test -s dist/tactical-intel-v1.js
+          test -s dist/tactical-intel-v1.css
+          test -s dist/engine.js
+          test -s dist/chapter-two-content-v1.js
+          grep -q 'Character & Tactics Alpha v1.4.0' dist/index.html
+          grep -q 'commercial-character-v4.js' dist/index.html
+          grep -q 'tactical-intel-v1.js' dist/index.html
+          grep -q 'gate-crusher' dist/engine.js
+          grep -q 'black-feather' dist/engine.js
+          grep -q 'sky-piercer' dist/engine.js
+          grep -q 'tyrant-order' dist/engine.js
+          ! grep -q 'character-art-v1' dist/index.html
+          ! grep -q 'pixel-geometry-fix' dist/index.html
+
+      - name: Replace isolated public alpha
+        shell: bash
+        run: |
+          set -euo pipefail
+          rm -rf threecountry-commercial
+          mkdir -p threecountry-commercial
+          cp -R _threecountry_commercial/dist/. threecountry-commercial/
+          printf '%s\n' 'Threecountry character and tactics alpha v1.4.0 · 71 tests · 2,000 deterministic simulations' > threecountry-commercial/verified.txt
+          rm -rf _threecountry_commercial
+
+      - name: Commit deployment
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add threecountry-commercial
+          if git diff --cached --quiet; then
+            echo 'No deployment changes.'
+            exit 0
+          fi
+          git commit -m 'deploy: publish Threecountry character and tactics alpha v1.4.0'
+          git push
