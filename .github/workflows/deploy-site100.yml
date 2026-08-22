@@ -1,0 +1,89 @@
+name: Deploy Site100 into user Pages site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/deploy-site100.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: deploy-site100-user-pages
+  cancel-in-progress: true
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Pages repository
+        uses: actions/checkout@v4
+        with:
+          path: site
+          fetch-depth: 0
+
+      - name: Checkout Site100 source
+        uses: actions/checkout@v4
+        with:
+          repository: beerAndNacho/Site100
+          ref: main
+          path: source
+          persist-credentials: false
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Validate design diversity
+        working-directory: source
+        run: npm run check
+
+      - name: Build gallery and 100 websites
+        working-directory: source
+        run: npm run build
+
+      - name: Verify build output
+        run: |
+          set -euo pipefail
+          test -s source/dist/index.html
+          test -s source/dist/assets/catalog.js
+          test -s source/dist/assets/app.js
+          test -s source/dist/assets/styles.css
+          route_count="$(find source/dist/sites -mindepth 2 -maxdepth 2 -name index.html | wc -l | tr -d ' ')"
+          design_count="$(find source/dist/sites -mindepth 2 -maxdepth 2 -name design.json | wc -l | tr -d ' ')"
+          test "$route_count" -eq 100
+          test "$design_count" -eq 100
+          test -s source/dist/sites/salt-bakery/index.html
+          test -s source/dist/sites/harbor-law/index.html
+          test -s source/dist/sites/endpoint-api/index.html
+          test -s source/dist/sites/compile-bootcamp/index.html
+          test -s source/dist/sites/still-yoga/index.html
+          test -s source/dist/sites/framework-film/index.html
+          test -s source/dist/sites/dal-hanok-stay/index.html
+          test -s source/dist/sites/table-7/index.html
+          test -s source/dist/sites/open-hand/index.html
+          test -s source/dist/sites/desktop-cv/index.html
+          test -s source/dist/sites/100worlds-gallery/index.html
+
+      - name: Publish under /Site100
+        run: |
+          rm -rf site/Site100
+          mkdir -p site/Site100
+          cp -R source/dist/. site/Site100/
+          touch site/Site100/.nojekyll
+
+      - name: Commit deployment
+        working-directory: site
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Site100
+          if git diff --cached --quiet; then
+            echo 'No deployment changes.'
+            exit 0
+          fi
+          git commit -m 'deploy: publish Site100 100 distinct websites'
+          git push
