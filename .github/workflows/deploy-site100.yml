@@ -31,11 +31,11 @@ jobs:
           path: site
           fetch-depth: 0
 
-      - name: Checkout Site100 copy-polish source
+      - name: Checkout Site100 main
         uses: actions/checkout@v4
         with:
           repository: beerAndNacho/Site100
-          ref: site100-v2-copy-polish
+          ref: main
           path: source
           persist-credentials: false
 
@@ -51,7 +51,7 @@ jobs:
       - name: Verify v2.1 build output
         run: |
           set -euo pipefail
-          echo 'Publishing Site100 verified build v2.1.'
+          echo 'Publishing Site100 verified build v2.1 from source main.'
           test -s source/dist/index.html
           test -s source/dist/assets/catalog.js
           test -s source/dist/assets/copy.js
@@ -113,6 +113,6 @@ jobs:
             echo 'No deployment changes.'
             exit 0
           fi
-          git commit -m 'deploy: publish Site100 100WORLDS v2.1 copy polish'
+          git commit -m 'deploy: publish Site100 100WORLDS v2.1'
           git pull --rebase origin main
           git push origin HEAD:main
