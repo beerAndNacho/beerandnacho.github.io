@@ -1,0 +1,55 @@
+{
+  "version": "4.0.0",
+  "patchVersion": "4.0.1",
+  "routes": 100,
+  "layouts": 25,
+  "viewportMatrix": [
+    {
+      "name": "compact-360",
+      "width": 360,
+      "height": 800
+    },
+    {
+      "name": "mobile-390",
+      "width": 390,
+      "height": 844
+    },
+    {
+      "name": "phone-landscape",
+      "width": 844,
+      "height": 390
+    },
+    {
+      "name": "tablet-768",
+      "width": 768,
+      "height": 1024
+    },
+    {
+      "name": "tablet-landscape",
+      "width": 1024,
+      "height": 768
+    },
+    {
+      "name": "laptop-1366",
+      "width": 1366,
+      "height": 900
+    },
+    {
+      "name": "wide-1536",
+      "width": 1536,
+      "height": 960
+    }
+  ],
+  "cssChecks": 21,
+  "runtimeChecks": 17,
+  "fixes": [
+    "gallery-render-retry",
+    "hidden-panel-priority",
+    "mobile-nav-hit-layer",
+    "44px-touch-target",
+    "radial-nav-normalization",
+    "device-preview-binding",
+    "dialog-inline-containment"
+  ],
+  "failures": []
+}

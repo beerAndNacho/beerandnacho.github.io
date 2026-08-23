@@ -3,8 +3,8 @@ import { SITES, SECTORS } from './catalog.js';
 
 const h = (v) => String(v).replace(/[&<>"']/g, (c) => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const pad = (n) => String(n).padStart(3,'0');
-const $ = (s,r=document) => r.querySelector(s);
-const $$ = (s,r=document) => [...r.querySelectorAll(s)];
+const $ = (s,r=document) => r?.querySelector?.(s) || null;
+const $$ = (s,r=document) => r?.querySelectorAll ? [...r.querySelectorAll(s)] : [];
 
 function sequence(site){
   const pool=['services','story','process','showcase','proof','materials','journal','team','pricing','faq','impact','timeline','contact','location','manifesto','schedule'];

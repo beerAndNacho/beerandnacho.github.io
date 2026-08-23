@@ -150,5 +150,76 @@
       "section-rail",
       "premium-gallery-runway"
     ]
-  }
+  },
+  "responsiveVersion": "4.0.0",
+  "responsiveSystem": {
+    "strategy": "viewport-and-container-queries",
+    "minimumWidth": 280,
+    "auditedViewports": [
+      {
+        "name": "compact-360",
+        "width": 360,
+        "height": 800
+      },
+      {
+        "name": "mobile-390",
+        "width": 390,
+        "height": 844
+      },
+      {
+        "name": "phone-landscape",
+        "width": 844,
+        "height": 390
+      },
+      {
+        "name": "tablet-768",
+        "width": 768,
+        "height": 1024
+      },
+      {
+        "name": "tablet-landscape",
+        "width": 1024,
+        "height": 768
+      },
+      {
+        "name": "laptop-1366",
+        "width": 1366,
+        "height": 900
+      },
+      {
+        "name": "wide-1536",
+        "width": 1536,
+        "height": 960
+      }
+    ],
+    "routeCoverage": 100,
+    "features": [
+      "safe-area-insets",
+      "visual-viewport-keyboard",
+      "mobile-navigation-focus-trap",
+      "container-query-device-preview",
+      "adaptive-grids",
+      "touch-target-normalization",
+      "fixed-ui-collision-spacing",
+      "responsive-dialogs",
+      "horizontal-content-regions",
+      "runtime-overflow-scan",
+      "landscape-phone-layout",
+      "print-layout",
+      "gallery-render-retry",
+      "radial-nav-normalization",
+      "null-safe-progressive-modules"
+    ],
+    "patch": "browser-audit-fixes",
+    "fixedFailureClasses": [
+      "gallery-null-root",
+      "mobile-navigation-hit-layer",
+      "touch-target-width",
+      "dialog-inline-overflow",
+      "radial-navigation-bounds",
+      "simulated-device-preview-width",
+      "clipped-decoration-overflow-flag"
+    ]
+  },
+  "responsivePatchVersion": "4.0.1"
 }

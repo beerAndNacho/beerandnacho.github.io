@@ -1,7 +1,7 @@
 import { SITES } from './catalog.js';
 
-const $ = (selector, root = document) => root.querySelector(selector);
-const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+const $ = (selector, root = document) => root?.querySelector?.(selector) || null;
+const $$ = (selector, root = document) => root?.querySelectorAll ? [...root.querySelectorAll(selector)] : [];
 const pad = (value) => String(value).padStart(3, '0');
 const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (character) => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'

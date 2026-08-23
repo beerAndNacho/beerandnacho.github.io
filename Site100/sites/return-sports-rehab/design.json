@@ -40,5 +40,44 @@
   "copyVersion": "2.1.0",
   "visualVersion": "3.0.0",
   "artDirection": "organic",
-  "artwork": "/Site100/artworks/return-sports-rehab.svg"
+  "artwork": "/Site100/artworks/return-sports-rehab.svg",
+  "responsiveVersion": "4.0.0",
+  "responsive": {
+    "strategy": "viewport-and-container-queries",
+    "minimumWidth": 280,
+    "breakpoints": [
+      390,
+      520,
+      760,
+      980,
+      1100,
+      1280,
+      1440,
+      1900
+    ],
+    "previewModes": [
+      "desktop",
+      "tablet",
+      "mobile"
+    ],
+    "capabilities": [
+      "safe-area-insets",
+      "visual-viewport-keyboard",
+      "adaptive-navigation",
+      "container-query-preview",
+      "touch-targets",
+      "overflow-guard",
+      "responsive-dialogs",
+      "landscape-phone",
+      "reduced-motion",
+      "print-layout",
+      "hero-navigation-layering",
+      "normalized-touch-targets",
+      "dialog-inline-containment",
+      "forced-device-preview-widths",
+      "clipped-decoration-overflow-policy"
+    ],
+    "patch": "browser-audit-fixes"
+  },
+  "responsivePatchVersion": "4.0.1"
 }

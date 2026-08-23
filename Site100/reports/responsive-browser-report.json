@@ -1,0 +1,59 @@
+{
+  "version": "4.0.1",
+  "startedAt": "2026-08-23T10:17:26.353Z",
+  "checks": 262,
+  "profiles": [
+    {
+      "name": "compact-360",
+      "width": 360,
+      "height": 800,
+      "routes": 101,
+      "failures": 0
+    },
+    {
+      "name": "desktop-1366",
+      "width": 1366,
+      "height": 900,
+      "routes": 101,
+      "failures": 0
+    },
+    {
+      "name": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "routes": 12,
+      "failures": 0
+    },
+    {
+      "name": "phone-landscape",
+      "width": 844,
+      "height": 390,
+      "routes": 12,
+      "failures": 0
+    },
+    {
+      "name": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "routes": 12,
+      "failures": 0
+    },
+    {
+      "name": "tablet-landscape",
+      "width": 1024,
+      "height": 768,
+      "routes": 12,
+      "failures": 0
+    },
+    {
+      "name": "wide-1536",
+      "width": 1536,
+      "height": 960,
+      "routes": 12,
+      "failures": 0
+    }
+  ],
+  "clippedDecorativeOverflowChecks": 10,
+  "failures": [],
+  "finishedAt": "2026-08-23T10:18:51.967Z"
+}

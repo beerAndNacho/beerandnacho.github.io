@@ -1,5 +1,5 @@
-const $ = (selector, root = document) => root.querySelector(selector);
-const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+const $ = (selector, root = document) => root?.querySelector?.(selector) || null;
+const $$ = (selector, root = document) => root?.querySelectorAll ? [...root.querySelectorAll(selector)] : [];
 
 function applyCompatibilityFixes() {
   // v1 binds the sector filter handler to every element with data-sector,

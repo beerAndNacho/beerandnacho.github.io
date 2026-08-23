@@ -1,7 +1,7 @@
 import { SITES, SECTORS } from './catalog.js';
 
-const $ = (selector, root = document) => root.querySelector(selector);
-const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
+const $ = (selector, root = document) => root?.querySelector?.(selector) || null;
+const $$ = (selector, root = document) => root?.querySelectorAll ? [...root.querySelectorAll(selector)] : [];
 const pad = (value) => String(value).padStart(3, '0');
 const escapeHtml = (value) => String(value).replace(/[&<>"']/g, (char) => ({
   '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
@@ -132,6 +132,12 @@ function setupGallery() {
   const index = $('.gindex');
   const tools = $('.gtools');
   const grid = $('.ggrid');
+  if (!index || !tools || !grid) {
+    window.__SITE100_GALLERY_RETRY__ = (window.__SITE100_GALLERY_RETRY__ || 0) + 1;
+    if (window.__SITE100_GALLERY_RETRY__ < 20) setTimeout(setupGallery, 16);
+    return;
+  }
+  window.__SITE100_GALLERY_RETRY__ = 0;
   const originalCards = $$('.gcard', grid);
 
   const toolbar = document.createElement('div');
