@@ -37,5 +37,8 @@
     "accent2": "hsl(63.8 55% 59%)"
   },
   "fingerprint": "notebook|top|poster|condensed|sharp|paper|dense|natural|2",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "organic",
+  "artwork": "/Site100/artworks/formula-skincare.svg"
 }

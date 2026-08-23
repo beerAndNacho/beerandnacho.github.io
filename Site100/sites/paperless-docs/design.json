@@ -37,5 +37,8 @@
     "accent2": "hsl(122.2 58% 60%)"
   },
   "fingerprint": "kinetic|top|manifesto|serif|sharp|frame|airy|warm|1",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "interface",
+  "artwork": "/Site100/artworks/paperless-docs.svg"
 }

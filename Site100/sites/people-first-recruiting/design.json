@@ -37,5 +37,8 @@
     "accent2": "hsl(17.1 58% 60%)"
   },
   "fingerprint": "masonry|dock|drawer|condensed|organic|light|compact|experimental|1",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "precision",
+  "artwork": "/Site100/artworks/people-first-recruiting.svg"
 }

@@ -37,5 +37,8 @@
     "accent2": "hsl(327.3 49% 57%)"
   },
   "fingerprint": "data|tabs|poster|serif|blueprint|paper|dense|experimental|4",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "experimental",
+  "artwork": "/Site100/artworks/remember-memorial.svg"
 }

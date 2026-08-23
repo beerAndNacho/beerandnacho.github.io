@@ -37,5 +37,8 @@
     "accent2": "hsl(339.7 49% 57%)"
   },
   "fingerprint": "timeline|ticker|ticket|technical|circle|vector|balanced|digital|4",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "civic",
+  "artwork": "/Site100/artworks/civic-one-public.svg"
 }

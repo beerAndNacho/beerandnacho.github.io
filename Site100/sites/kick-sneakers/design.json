@@ -37,5 +37,8 @@
     "accent2": "hsl(319.6 49% 57%)"
   },
   "fingerprint": "horizontal|rail|room|wide|round|glass|airy|public|4",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "catalog",
+  "artwork": "/Site100/artworks/kick-sneakers.svg"
 }

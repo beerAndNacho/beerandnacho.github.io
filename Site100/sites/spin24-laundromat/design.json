@@ -37,5 +37,8 @@
     "accent2": "hsl(304.5 58% 60%)"
   },
   "fingerprint": "dashboard|radial|split|humanist|layer|vector|balanced|public|1",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "atelier",
+  "artwork": "/Site100/artworks/spin24-laundromat.svg"
 }

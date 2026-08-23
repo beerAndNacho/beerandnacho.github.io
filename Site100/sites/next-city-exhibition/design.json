@@ -37,5 +37,8 @@
     "accent2": "hsl(104.8 49% 57%)"
   },
   "fingerprint": "glass|minimal|timeline|neo|module|documents|immersive|luxury|4",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "experimental",
+  "artwork": "/Site100/artworks/next-city-exhibition.svg"
 }

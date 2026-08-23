@@ -37,5 +37,8 @@
     "accent2": "hsl(175.5 52% 58%)"
   },
   "fingerprint": "ticket|split|wave|condensed|ribbon|halftone|balanced|warm|3",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "atlas",
+  "artwork": "/Site100/artworks/linewalk-tour.svg"
 }

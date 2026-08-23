@@ -37,5 +37,8 @@
     "accent2": "hsl(219.5 58% 60%)"
   },
   "fingerprint": "book|ticker|room|rounded|circle|glass|airy|luxury|1",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "atelier",
+  "artwork": "/Site100/artworks/puppy-parade-grooming.svg"
 }

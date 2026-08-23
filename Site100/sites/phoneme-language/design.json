@@ -37,5 +37,8 @@
     "accent2": "hsl(213.7 55% 59%)"
   },
   "fingerprint": "terminal|tabs|drawer|mono|blueprint|light|compact|warm|2",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "notebook",
+  "artwork": "/Site100/artworks/phoneme-language.svg"
 }

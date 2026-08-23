@@ -37,5 +37,8 @@
     "accent2": "hsl(240.4 52% 58%)"
   },
   "fingerprint": "map|split|terminal|condensed|ribbon|halftone|balanced|warm|3",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "studio",
+  "artwork": "/Site100/artworks/offset-design-agency.svg"
 }

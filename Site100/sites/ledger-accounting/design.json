@@ -37,5 +37,8 @@
     "accent2": "hsl(324.6 58% 60%)"
   },
   "fingerprint": "floorplan|corner|notebook|neo|paper|isometric|dense|digital|1",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "precision",
+  "artwork": "/Site100/artworks/ledger-accounting.svg"
 }

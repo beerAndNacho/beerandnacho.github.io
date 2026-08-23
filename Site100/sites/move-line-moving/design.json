@@ -37,5 +37,8 @@
     "accent2": "hsl(272.1 58% 60%)"
   },
   "fingerprint": "shelf|tabs|wave|soft|blueprint|halftone|balanced|playful|1",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "atelier",
+  "artwork": "/Site100/artworks/move-line-moving.svg"
 }

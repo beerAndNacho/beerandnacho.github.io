@@ -37,5 +37,8 @@
     "accent2": "hsl(292.1 58% 60%)"
   },
   "fingerprint": "isometric|split|headline|contrast|ribbon|paper|dense|industrial|1",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "precision",
+  "artwork": "/Site100/artworks/blackbox-security.svg"
 }

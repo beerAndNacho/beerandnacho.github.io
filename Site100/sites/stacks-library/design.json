@@ -37,5 +37,8 @@
     "accent2": "hsl(233.8 55% 59%)"
   },
   "fingerprint": "masonry|split|monolith|serif|ribbon|ink|immersive|playful|2",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "notebook",
+  "artwork": "/Site100/artworks/stacks-library.svg"
 }

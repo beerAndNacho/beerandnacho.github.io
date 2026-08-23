@@ -37,5 +37,8 @@
     "accent2": "hsl(17.9 52% 58%)"
   },
   "fingerprint": "dashboard|rail|mosaic|rounded|round|grid|compact|digital|3",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "studio",
+  "artwork": "/Site100/artworks/spine-publishing.svg"
 }

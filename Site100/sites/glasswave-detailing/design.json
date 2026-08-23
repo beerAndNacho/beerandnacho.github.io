@@ -37,5 +37,8 @@
     "accent2": "hsl(49.6 58% 60%)"
   },
   "fingerprint": "timeline|minimal|map|wide|module|grid|compact|precise|1",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "atelier",
+  "artwork": "/Site100/artworks/glasswave-detailing.svg"
 }

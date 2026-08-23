@@ -37,5 +37,8 @@
     "accent2": "hsl(239.6 58% 60%)"
   },
   "fingerprint": "newspaper|radial|ticket|humanist|layer|vector|balanced|public|1",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "precision",
+  "artwork": "/Site100/artworks/flowline-logistics.svg"
 }

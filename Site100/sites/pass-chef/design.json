@@ -37,5 +37,8 @@
     "accent2": "hsl(137.2 49% 57%)"
   },
   "fingerprint": "notebook|dock|monolith|contrast|organic|ink|immersive|warm|4",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "experimental",
+  "artwork": "/Site100/artworks/pass-chef.svg"
 }

@@ -37,5 +37,8 @@
     "accent2": "hsl(259.7 58% 60%)"
   },
   "fingerprint": "cinema|corner|radial|neo|paper|isometric|dense|digital|1",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "interface",
+  "artwork": "/Site100/artworks/pulse-monitoring.svg"
 }

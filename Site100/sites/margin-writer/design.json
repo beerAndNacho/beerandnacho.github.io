@@ -37,5 +37,8 @@
     "accent2": "hsl(222.2 49% 57%)"
   },
   "fingerprint": "isometric|bottom|manifesto|condensed|stamp|frame|airy|playful|4",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "experimental",
+  "artwork": "/Site100/artworks/margin-writer.svg"
 }

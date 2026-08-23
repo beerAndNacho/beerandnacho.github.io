@@ -37,5 +37,8 @@
     "accent2": "hsl(168.9 55% 59%)"
   },
   "fingerprint": "collage|split|metrics|serif|ribbon|ink|immersive|playful|2",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "organic",
+  "artwork": "/Site100/artworks/sleep8-center.svg"
 }

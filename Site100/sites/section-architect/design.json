@@ -37,5 +37,8 @@
     "accent2": "hsl(274.8 49% 57%)"
   },
   "fingerprint": "archive|ticker|split|technical|circle|vector|balanced|digital|4",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "experimental",
+  "artwork": "/Site100/artworks/section-architect.svg"
 }

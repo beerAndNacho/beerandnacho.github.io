@@ -37,5 +37,8 @@
     "accent2": "hsl(12.1 49% 57%)"
   },
   "fingerprint": "poster|top|wave|mono|sharp|halftone|balanced|industrial|4",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "catalog",
+  "artwork": "/Site100/artworks/fieldkit-outdoor.svg"
 }

@@ -37,5 +37,8 @@
     "accent2": "hsl(128.8 55% 59%)"
   },
   "fingerprint": "shelf|top|headline|condensed|sharp|paper|dense|natural|2",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "notebook",
+  "artwork": "/Site100/artworks/cadence-music-school.svg"
 }

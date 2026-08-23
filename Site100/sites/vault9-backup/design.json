@@ -37,5 +37,8 @@
     "accent2": "hsl(174.7 58% 60%)"
   },
   "fingerprint": "glass|radial|split|humanist|layer|vector|balanced|public|1",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "interface",
+  "artwork": "/Site100/artworks/vault9-backup.svg"
 }

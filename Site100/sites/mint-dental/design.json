@@ -37,5 +37,8 @@
     "accent2": "hsl(286.3 55% 59%)"
   },
   "fingerprint": "wave|minimal|room|humanist|module|glass|airy|digital|2",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "organic",
+  "artwork": "/Site100/artworks/mint-dental.svg"
 }

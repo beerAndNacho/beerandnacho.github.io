@@ -37,5 +37,8 @@
     "accent2": "hsl(246.2 55% 59%)"
   },
   "fingerprint": "horizontal|radial|map|technical|layer|grid|compact|luxury|2",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "interface",
+  "artwork": "/Site100/artworks/endpoint-api.svg"
 }

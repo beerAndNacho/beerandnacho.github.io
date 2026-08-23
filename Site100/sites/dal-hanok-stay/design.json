@@ -37,5 +37,8 @@
     "accent2": "hsl(5.5 52% 58%)"
   },
   "fingerprint": "isometric|top|metrics|soft|sharp|ink|immersive|experimental|3",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "atlas",
+  "artwork": "/Site100/artworks/dal-hanok-stay.svg"
 }

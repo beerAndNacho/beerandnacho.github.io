@@ -37,5 +37,8 @@
     "accent2": "hsl(344.7 58% 60%)"
   },
   "fingerprint": "archive|minimal|mosaic|wide|module|grid|compact|precise|1",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "precision",
+  "artwork": "/Site100/artworks/northstar-consulting.svg"
 }

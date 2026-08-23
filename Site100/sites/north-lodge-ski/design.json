@@ -37,5 +37,8 @@
     "accent2": "hsl(228.0 52% 58%)"
   },
   "fingerprint": "monolith|minimal|notebook|technical|module|isometric|dense|public|3",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "atlas",
+  "artwork": "/Site100/artworks/north-lodge-ski.svg"
 }

@@ -37,5 +37,8 @@
     "accent2": "hsl(202.2 49% 57%)"
   },
   "fingerprint": "shelf|dock|metrics|contrast|organic|ink|immersive|warm|4",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "civic",
+  "artwork": "/Site100/artworks/new-home-shelter.svg"
 }

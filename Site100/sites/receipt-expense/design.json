@@ -37,5 +37,8 @@
     "accent2": "hsl(161.2 55% 59%)"
   },
   "fingerprint": "dashboard|ticker|notebook|wide|circle|isometric|dense|quiet|2",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "interface",
+  "artwork": "/Site100/artworks/receipt-expense.svg"
 }

@@ -37,5 +37,8 @@
     "accent2": "hsl(345.5 52% 58%)"
   },
   "fingerprint": "shelf|bottom|shelf|serif|stamp|light|compact|industrial|3",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "studio",
+  "artwork": "/Site100/artworks/clay-note-pottery.svg"
 }

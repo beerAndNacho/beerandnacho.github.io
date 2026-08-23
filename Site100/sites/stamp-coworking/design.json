@@ -37,5 +37,8 @@
     "accent2": "hsl(58.1 52% 58%)"
   },
   "fingerprint": "archive|radial|book|neo|layer|glass|airy|quiet|3",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "atlas",
+  "artwork": "/Site100/artworks/stamp-coworking.svg"
 }

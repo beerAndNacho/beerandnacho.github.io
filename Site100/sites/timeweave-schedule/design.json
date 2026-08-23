@@ -37,5 +37,8 @@
     "accent2": "hsl(37.2 58% 60%)"
   },
   "fingerprint": "data|bottom|monolith|mono|stamp|ink|immersive|natural|1",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "interface",
+  "artwork": "/Site100/artworks/timeweave-schedule.svg"
 }

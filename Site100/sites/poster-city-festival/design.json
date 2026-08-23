@@ -37,5 +37,8 @@
     "accent2": "hsl(117.2 49% 57%)"
   },
   "fingerprint": "split|split|drawer|soft|ribbon|light|compact|natural|4",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "civic",
+  "artwork": "/Site100/artworks/poster-city-festival.svg"
 }

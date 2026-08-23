@@ -37,5 +37,8 @@
     "accent2": "hsl(234.6 49% 57%)"
   },
   "fingerprint": "dashboard|minimal|timeline|neo|module|documents|immersive|luxury|4",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "catalog",
+  "artwork": "/Site100/artworks/air-note-fragrance.svg"
 }

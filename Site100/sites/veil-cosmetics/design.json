@@ -37,5 +37,8 @@
     "accent2": "hsl(182.1 49% 57%)"
   },
   "fingerprint": "editorial|split|shelf|soft|ribbon|light|compact|natural|4",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "catalog",
+  "artwork": "/Site100/artworks/veil-cosmetics.svg"
 }

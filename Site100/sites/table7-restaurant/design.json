@@ -37,5 +37,8 @@
     "accent2": "hsl(195.6 52% 58%)"
   },
   "fingerprint": "kinetic|dock|headline|mono|organic|paper|dense|playful|3",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "catalog",
+  "artwork": "/Site100/artworks/table7-restaurant.svg"
 }

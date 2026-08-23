@@ -37,5 +37,8 @@
     "accent2": "hsl(167.0 58% 60%)"
   },
   "fingerprint": "map|bottom|monolith|mono|stamp|ink|immersive|natural|1",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "atelier",
+  "artwork": "/Site100/artworks/folia-flower-studio.svg"
 }

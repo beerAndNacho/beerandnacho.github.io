@@ -37,5 +37,8 @@
     "accent2": "hsl(154.6 58% 60%)"
   },
   "fingerprint": "monolith|ticker|book|rounded|circle|glass|airy|luxury|1",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "precision",
+  "artwork": "/Site100/artworks/mirror-translation.svg"
 }

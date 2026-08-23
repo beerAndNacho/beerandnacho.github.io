@@ -124,5 +124,31 @@
     "share",
     "structured-data",
     "generated-previews"
-  ]
+  ],
+  "visualVersion": "3.0.0",
+  "visualSystem": {
+    "directions": [
+      "atelier",
+      "precision",
+      "interface",
+      "notebook",
+      "organic",
+      "studio",
+      "atlas",
+      "catalog",
+      "civic",
+      "experimental"
+    ],
+    "artworkCount": 100,
+    "features": [
+      "sector-art-direction",
+      "generated-hero-art",
+      "material-marquee",
+      "section-rhythm",
+      "pointer-parallax",
+      "reveal-motion",
+      "section-rail",
+      "premium-gallery-runway"
+    ]
+  }
 }

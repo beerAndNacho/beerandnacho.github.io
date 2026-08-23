@@ -37,5 +37,8 @@
     "accent2": "hsl(84.7 49% 57%)"
   },
   "fingerprint": "monolith|corner|mosaic|humanist|paper|grid|compact|quiet|4",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "experimental",
+  "artwork": "/Site100/artworks/desktop-cv.svg"
 }

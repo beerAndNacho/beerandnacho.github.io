@@ -37,5 +37,8 @@
     "accent2": "hsl(110.6 52% 58%)"
   },
   "fingerprint": "data|split|terminal|condensed|ribbon|halftone|balanced|warm|3",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "catalog",
+  "artwork": "/Site100/artworks/tea-atlas.svg"
 }

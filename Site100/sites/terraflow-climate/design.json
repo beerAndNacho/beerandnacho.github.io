@@ -37,5 +37,8 @@
     "accent2": "hsl(298.7 55% 59%)"
   },
   "fingerprint": "poster|split|metrics|serif|ribbon|ink|immersive|playful|2",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "interface",
+  "artwork": "/Site100/artworks/terraflow-climate.svg"
 }

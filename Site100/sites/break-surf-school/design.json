@@ -37,5 +37,8 @@
     "accent2": "hsl(90.5 52% 58%)"
   },
   "fingerprint": "masonry|tabs|window|contrast|blueprint|frame|airy|natural|3",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "atlas",
+  "artwork": "/Site100/artworks/break-surf-school.svg"
 }

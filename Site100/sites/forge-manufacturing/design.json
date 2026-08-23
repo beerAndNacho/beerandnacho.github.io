@@ -37,5 +37,8 @@
     "accent2": "hsl(69.6 58% 60%)"
   },
   "fingerprint": "wave|rail|cinema|technical|round|documents|immersive|quiet|1",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "precision",
+  "artwork": "/Site100/artworks/forge-manufacturing.svg"
 }

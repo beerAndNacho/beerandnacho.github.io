@@ -37,5 +37,8 @@
     "accent2": "hsl(252.0 58% 60%)"
   },
   "fingerprint": "editorial|top|manifesto|serif|sharp|frame|airy|warm|1",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "atelier",
+  "artwork": "/Site100/artworks/salt-bakery.svg"
 }

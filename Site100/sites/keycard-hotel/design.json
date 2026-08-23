@@ -37,5 +37,8 @@
     "accent2": "hsl(260.5 52% 58%)"
   },
   "fingerprint": "split|dock|poster|mono|organic|paper|dense|playful|3",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "atlas",
+  "artwork": "/Site100/artworks/keycard-hotel.svg"
 }

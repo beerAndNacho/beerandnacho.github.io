@@ -37,5 +37,8 @@
     "accent2": "hsl(351.3 55% 59%)"
   },
   "fingerprint": "radial|minimal|book|humanist|module|glass|airy|digital|2",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "notebook",
+  "artwork": "/Site100/artworks/open-studio-art-school.svg"
 }

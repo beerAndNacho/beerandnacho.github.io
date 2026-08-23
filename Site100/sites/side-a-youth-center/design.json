@@ -37,5 +37,8 @@
     "accent2": "hsl(307.2 49% 57%)"
   },
   "fingerprint": "masonry|top|terminal|mono|sharp|halftone|balanced|industrial|4",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "civic",
+  "artwork": "/Site100/artworks/side-a-youth-center.svg"
 }

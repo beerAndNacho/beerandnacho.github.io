@@ -37,5 +37,8 @@
     "accent2": "hsl(29.5 58% 60%)"
   },
   "fingerprint": "horizontal|corner|radial|neo|paper|isometric|dense|digital|1",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "atelier",
+  "artwork": "/Site100/artworks/noon-barber.svg"
 }

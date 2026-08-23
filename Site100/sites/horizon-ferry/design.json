@@ -37,5 +37,8 @@
     "accent2": "hsl(280.5 52% 58%)"
   },
   "fingerprint": "notebook|bottom|drawer|serif|stamp|light|compact|industrial|3",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "atlas",
+  "artwork": "/Site100/artworks/horizon-ferry.svg"
 }

@@ -37,5 +37,8 @@
     "accent2": "hsl(325.4 52% 58%)"
   },
   "fingerprint": "editorial|dock|headline|mono|organic|paper|dense|playful|3",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "studio",
+  "artwork": "/Site100/artworks/framework-film.svg"
 }

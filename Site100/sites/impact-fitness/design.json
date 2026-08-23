@@ -37,5 +37,8 @@
     "accent2": "hsl(116.4 55% 59%)"
   },
   "fingerprint": "cinema|radial|map|technical|layer|grid|compact|luxury|2",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "organic",
+  "artwork": "/Site100/artworks/impact-fitness.svg"
 }

@@ -37,5 +37,8 @@
     "accent2": "hsl(201.4 55% 59%)"
   },
   "fingerprint": "archive|corner|timeline|rounded|paper|documents|immersive|public|2",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "organic",
+  "artwork": "/Site100/artworks/private-room-mental-health.svg"
 }

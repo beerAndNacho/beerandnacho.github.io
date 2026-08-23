@@ -37,5 +37,8 @@
     "accent2": "hsl(312.2 58% 60%)"
   },
   "fingerprint": "collage|dock|shelf|condensed|organic|light|compact|experimental|1",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "interface",
+  "artwork": "/Site100/artworks/blockstage-nocode.svg"
 }

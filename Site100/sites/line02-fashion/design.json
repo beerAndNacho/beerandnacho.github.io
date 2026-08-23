@@ -37,5 +37,8 @@
     "accent2": "hsl(70.4 52% 58%)"
   },
   "fingerprint": "terminal|top|monolith|soft|sharp|ink|immersive|experimental|3",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "studio",
+  "artwork": "/Site100/artworks/line02-fashion.svg"
 }

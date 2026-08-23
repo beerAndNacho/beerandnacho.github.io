@@ -37,5 +37,8 @@
     "accent2": "hsl(82.0 58% 60%)"
   },
   "fingerprint": "poster|dock|shelf|condensed|organic|light|compact|experimental|1",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "atelier",
+  "artwork": "/Site100/artworks/blueprint-home-repair.svg"
 }

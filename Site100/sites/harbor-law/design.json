@@ -37,5 +37,8 @@
     "accent2": "hsl(187.1 58% 60%)"
   },
   "fingerprint": "split|top|window|serif|sharp|frame|airy|warm|1",
-  "copyVersion": "2.1.0"
+  "copyVersion": "2.1.0",
+  "visualVersion": "3.0.0",
+  "artDirection": "precision",
+  "artwork": "/Site100/artworks/harbor-law.svg"
 }
