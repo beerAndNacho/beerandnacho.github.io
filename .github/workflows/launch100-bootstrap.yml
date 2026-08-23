@@ -1,8 +1,8 @@
 name: Bootstrap Launch100 MVP
 
 on:
-  push:
-    branches: [launch100-mvp]
+  pull_request:
+    branches: [main]
     paths:
       - '.launch100/**'
       - '.github/workflows/launch100-bootstrap.yml'
@@ -12,16 +12,18 @@ permissions:
   contents: write
 
 concurrency:
-  group: bootstrap-launch100-${{ github.ref }}
+  group: bootstrap-launch100-${{ github.event.pull_request.head.ref || github.ref }}
   cancel-in-progress: false
 
 jobs:
   bootstrap:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout branch
+      - name: Checkout PR head branch
         uses: actions/checkout@v4
         with:
+          ref: ${{ github.event.pull_request.head.ref || github.ref_name }}
           fetch-depth: 0
 
       - name: Verify and extract source
@@ -54,8 +56,9 @@ jobs:
           console.log('Verified static and browser audit report.');
           NODE
 
-      - name: Commit unpacked source
+      - name: Commit unpacked source to PR branch
         run: |
+          set -euo pipefail
           rm -rf .launch100
           rm -f .github/workflows/launch100-bootstrap.yml
           git config user.name 'github-actions[bot]'
@@ -66,4 +69,4 @@ jobs:
             exit 0
           fi
           git commit -m 'feat: add Launch100 website builder MVP'
-          git push
+          git push origin HEAD:${{ github.event.pull_request.head.ref || github.ref_name }}
