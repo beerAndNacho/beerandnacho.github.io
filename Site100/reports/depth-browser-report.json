@@ -1,7 +1,7 @@
 {
   "version": "5.0.0",
   "checks": 520,
-  "startedAt": "2026-08-23T12:08:53.691Z",
+  "startedAt": "2026-08-23T12:17:14.436Z",
   "profiles": [
     {
       "name": "compact-360",
@@ -40,5 +40,5 @@
     }
   ],
   "failures": [],
-  "finishedAt": "2026-08-23T12:13:00.987Z"
+  "finishedAt": "2026-08-23T12:21:26.445Z"
 }
