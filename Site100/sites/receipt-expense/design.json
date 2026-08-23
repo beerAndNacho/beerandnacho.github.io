@@ -5,13 +5,13 @@
   "slug": "receipt-expense",
   "sector": "SaaS·기술",
   "kind": "경비 관리",
-  "tagline": "영수증 롤와 분류 도장을 중심으로 경비 관리의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "영수증 롤과 분류 도장을 핵심 인터페이스로 삼아, 경비 관리의 조건 입력과 결과 계산 흐름을 한 화면에서 경험합니다.",
   "cta": "계산하기",
   "interaction": "calculate",
   "services": [
-    "경비 관리 안내",
-    "맞춤 경비 관리",
-    "경비 관리 상담·예약"
+    "조건 입력",
+    "결과 계산",
+    "결과 기반 상담"
   ],
   "materials": [
     "영수증 롤",
@@ -36,5 +36,6 @@
     "accent": "hsl(27.2 68% 52%)",
     "accent2": "hsl(161.2 55% 59%)"
   },
-  "fingerprint": "dashboard|ticker|notebook|wide|circle|isometric|dense|quiet|2"
+  "fingerprint": "dashboard|ticker|notebook|wide|circle|isometric|dense|quiet|2",
+  "copyVersion": "2.1.0"
 }

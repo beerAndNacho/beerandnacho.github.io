@@ -5,13 +5,13 @@
   "slug": "private-room-mental-health",
   "sector": "웰니스·케어",
   "kind": "마음건강 서비스",
-  "tagline": "잠금 일기장와 감정 카드을 중심으로 마음건강 서비스의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "잠금 일기장과 감정 카드를 핵심 인터페이스로 삼아, 마음건강 서비스의 상황 접수와 상담 흐름을 한 화면에서 경험합니다.",
   "cta": "문의 작성",
   "interaction": "form",
   "services": [
-    "마음건강 서비스 안내",
-    "맞춤 마음건강 서비스",
-    "마음건강 서비스 상담·예약"
+    "상황 접수",
+    "검토 범위 확인",
+    "상담 일정"
   ],
   "materials": [
     "잠금 일기장",
@@ -36,5 +36,6 @@
     "accent": "hsl(67.4 68% 52%)",
     "accent2": "hsl(201.4 55% 59%)"
   },
-  "fingerprint": "archive|corner|timeline|rounded|paper|documents|immersive|public|2"
+  "fingerprint": "archive|corner|timeline|rounded|paper|documents|immersive|public|2",
+  "copyVersion": "2.1.0"
 }

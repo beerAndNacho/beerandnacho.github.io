@@ -5,13 +5,13 @@
   "slug": "blackbox-security",
   "sector": "전문 서비스",
   "kind": "보안회사",
-  "tagline": "터미널 로그와 위협 신호을 중심으로 보안회사의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "터미널 로그와 위협 신호를 핵심 인터페이스로 삼아, 보안회사의 기능 실행과 결과 확인 흐름을 한 화면에서 경험합니다.",
   "cta": "실행하기",
   "interaction": "command",
   "services": [
-    "보안회사 안내",
-    "맞춤 보안회사",
-    "보안회사 상담·예약"
+    "명령·기능 실행",
+    "결과·상태 확인",
+    "도입 상담"
   ],
   "materials": [
     "터미널 로그",
@@ -36,5 +36,6 @@
     "accent": "hsl(158.1 72% 51%)",
     "accent2": "hsl(292.1 58% 60%)"
   },
-  "fingerprint": "isometric|split|headline|contrast|ribbon|paper|dense|industrial|1"
+  "fingerprint": "isometric|split|headline|contrast|ribbon|paper|dense|industrial|1",
+  "copyVersion": "2.1.0"
 }

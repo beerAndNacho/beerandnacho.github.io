@@ -5,13 +5,13 @@
   "slug": "timeweave-schedule",
   "sector": "SaaS·기술",
   "kind": "일정 관리",
-  "tagline": "시간 모자이크와 드래그 블록을 중심으로 일정 관리의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "시간 모자이크와 드래그 블록을 핵심 인터페이스로 삼아, 일정 관리의 직접 배치와 구성 변경 흐름을 한 화면에서 경험합니다.",
   "cta": "배치하기",
   "interaction": "drag",
   "services": [
-    "일정 관리 안내",
-    "맞춤 일정 관리",
-    "일정 관리 상담·예약"
+    "요소 직접 배치",
+    "구성 비교",
+    "프로젝트 상담"
   ],
   "materials": [
     "시간 모자이크",
@@ -36,5 +36,6 @@
     "accent": "hsl(263.2 72% 51%)",
     "accent2": "hsl(37.2 58% 60%)"
   },
-  "fingerprint": "data|bottom|monolith|mono|stamp|ink|immersive|natural|1"
+  "fingerprint": "data|bottom|monolith|mono|stamp|ink|immersive|natural|1",
+  "copyVersion": "2.1.0"
 }

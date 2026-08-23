@@ -5,13 +5,13 @@
   "slug": "sleep8-center",
   "sector": "웰니스·케어",
   "kind": "수면센터",
-  "tagline": "밤 타임라인와 달 위상을 중심으로 수면센터의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "밤 타임라인과 달 위상을 핵심 인터페이스로 삼아, 수면센터의 과정 이해와 단계 확인 흐름을 한 화면에서 경험합니다.",
   "cta": "과정 보기",
   "interaction": "timeline",
   "services": [
-    "수면센터 안내",
-    "맞춤 수면센터",
-    "수면센터 상담·예약"
+    "전체 과정 보기",
+    "단계별 준비사항",
+    "진행 상담"
   ],
   "materials": [
     "밤 타임라인",
@@ -36,5 +36,6 @@
     "accent": "hsl(34.9 68% 52%)",
     "accent2": "hsl(168.9 55% 59%)"
   },
-  "fingerprint": "collage|split|metrics|serif|ribbon|ink|immersive|playful|2"
+  "fingerprint": "collage|split|metrics|serif|ribbon|ink|immersive|playful|2",
+  "copyVersion": "2.1.0"
 }

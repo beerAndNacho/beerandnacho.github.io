@@ -5,13 +5,13 @@
   "slug": "market-day-grocery",
   "sector": "음식·라이프스타일",
   "kind": "식료품점",
-  "tagline": "농산물 색상와 계절 표을 중심으로 식료품점의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "농산물 색상과 계절 표를 핵심 인터페이스로 삼아, 식료품점의 조건 탐색과 항목 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "필터 열기",
   "interaction": "filter",
   "services": [
-    "식료품점 안내",
-    "맞춤 식료품점",
-    "식료품점 상담·예약"
+    "조건 필터",
+    "추천 목록 확인",
+    "선택 상담"
   ],
   "materials": [
     "농산물 색상",
@@ -36,5 +36,6 @@
     "accent": "hsl(251.6 64% 53%)",
     "accent2": "hsl(25.6 52% 58%)"
   },
-  "fingerprint": "collage|tabs|manifesto|contrast|blueprint|frame|airy|natural|3"
+  "fingerprint": "collage|tabs|manifesto|contrast|blueprint|frame|airy|natural|3",
+  "copyVersion": "2.1.0"
 }

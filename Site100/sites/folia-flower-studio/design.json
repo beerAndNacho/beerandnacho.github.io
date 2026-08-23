@@ -5,13 +5,13 @@
   "slug": "folia-flower-studio",
   "sector": "지역 매장",
   "kind": "플라워 스튜디오",
-  "tagline": "압화 표본와 리본 릴을 중심으로 플라워 스튜디오의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "압화 표본과 리본 릴을 핵심 인터페이스로 삼아, 플라워 스튜디오의 취향 조합과 맞춤 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "조합하기",
   "interaction": "mixer",
   "services": [
-    "플라워 스튜디오 안내",
-    "맞춤 플라워 스튜디오",
-    "플라워 스튜디오 상담·예약"
+    "취향·조건 조합",
+    "추천 구성 확인",
+    "맞춤 상담"
   ],
   "materials": [
     "압화 표본",
@@ -36,5 +36,6 @@
     "accent": "hsl(33.0 72% 51%)",
     "accent2": "hsl(167.0 58% 60%)"
   },
-  "fingerprint": "map|bottom|monolith|mono|stamp|ink|immersive|natural|1"
+  "fingerprint": "map|bottom|monolith|mono|stamp|ink|immersive|natural|1",
+  "copyVersion": "2.1.0"
 }

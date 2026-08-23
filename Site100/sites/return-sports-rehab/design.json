@@ -5,13 +5,13 @@
   "slug": "return-sports-rehab",
   "sector": "웰니스·케어",
   "kind": "스포츠 재활",
-  "tagline": "선수 HUD와 회복 마일스톤을 중심으로 스포츠 재활의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "선수 HUD와 회복 마일스톤을 핵심 인터페이스로 삼아, 스포츠 재활의 과정 이해와 단계 확인 흐름을 한 화면에서 경험합니다.",
   "cta": "과정 보기",
   "interaction": "timeline",
   "services": [
-    "스포츠 재활 안내",
-    "맞춤 스포츠 재활",
-    "스포츠 재활 상담·예약"
+    "전체 과정 보기",
+    "단계별 준비사항",
+    "진행 상담"
   ],
   "materials": [
     "선수 HUD",
@@ -36,5 +36,6 @@
     "accent": "hsl(119.9 68% 52%)",
     "accent2": "hsl(253.9 55% 59%)"
   },
-  "fingerprint": "data|dock|window|soft|organic|frame|airy|industrial|2"
+  "fingerprint": "data|dock|window|soft|organic|frame|airy|industrial|2",
+  "copyVersion": "2.1.0"
 }

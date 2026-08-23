@@ -5,13 +5,13 @@
   "slug": "section-architect",
   "sector": "개인·실험",
   "kind": "건축가 포트폴리오",
-  "tagline": "도면 레이어와 단면선을 중심으로 건축가 포트폴리오의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "도면 레이어와 단면선을 핵심 인터페이스로 삼아, 건축가 포트폴리오의 핵심 정보 탐색과 상세 확인 흐름을 한 화면에서 경험합니다.",
   "cta": "레이어 열기",
   "interaction": "reveal",
   "services": [
-    "건축가 포트폴리오 안내",
-    "맞춤 건축가 포트폴리오",
-    "건축가 포트폴리오 상담·예약"
+    "핵심 정보 탐색",
+    "세부 레이어 확인",
+    "상담·문의"
   ],
   "materials": [
     "도면 레이어",
@@ -36,5 +36,6 @@
     "accent": "hsl(140.8 60% 54%)",
     "accent2": "hsl(274.8 49% 57%)"
   },
-  "fingerprint": "archive|ticker|split|technical|circle|vector|balanced|digital|4"
+  "fingerprint": "archive|ticker|split|technical|circle|vector|balanced|digital|4",
+  "copyVersion": "2.1.0"
 }

@@ -5,13 +5,13 @@
   "slug": "tea-atlas",
   "sector": "음식·라이프스타일",
   "kind": "찻집",
-  "tagline": "산지 지도와 찻잎 표본을 중심으로 찻집의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "산지 지도와 찻잎 표본을 핵심 인터페이스로 삼아, 찻집의 위치 탐색과 경로 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "지도 보기",
   "interaction": "map",
   "services": [
-    "찻집 안내",
-    "맞춤 찻집",
-    "찻집 상담·예약"
+    "위치·구역 탐색",
+    "조건별 장소 확인",
+    "방문·이용 문의"
   ],
   "materials": [
     "산지 지도",
@@ -36,5 +36,6 @@
     "accent": "hsl(336.6 64% 53%)",
     "accent2": "hsl(110.6 52% 58%)"
   },
-  "fingerprint": "data|split|terminal|condensed|ribbon|halftone|balanced|warm|3"
+  "fingerprint": "data|split|terminal|condensed|ribbon|halftone|balanced|warm|3",
+  "copyVersion": "2.1.0"
 }

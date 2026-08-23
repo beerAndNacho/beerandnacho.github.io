@@ -5,13 +5,13 @@
   "slug": "roots-family-history",
   "sector": "개인·실험",
   "kind": "가족 역사 기록",
-  "tagline": "가계도 선와 연도 노드을 중심으로 가족 역사 기록의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "가계도 선과 연도 노드를 핵심 인터페이스로 삼아, 가족 역사 기록의 과정 이해와 단계 확인 흐름을 한 화면에서 경험합니다.",
   "cta": "과정 보기",
   "interaction": "timeline",
   "services": [
-    "가족 역사 기록 안내",
-    "맞춤 가족 역사 기록",
-    "가족 역사 기록 상담·예약"
+    "전체 과정 보기",
+    "단계별 준비사항",
+    "진행 상담"
   ],
   "materials": [
     "가계도 선",
@@ -36,5 +36,6 @@
     "accent": "hsl(278.3 60% 54%)",
     "accent2": "hsl(52.3 49% 57%)"
   },
-  "fingerprint": "kinetic|split|shelf|soft|ribbon|light|compact|natural|4"
+  "fingerprint": "kinetic|split|shelf|soft|ribbon|light|compact|natural|4",
+  "copyVersion": "2.1.0"
 }

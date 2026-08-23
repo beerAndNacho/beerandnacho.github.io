@@ -5,13 +5,13 @@
   "slug": "harbor-law",
   "sector": "전문 서비스",
   "kind": "법률사무소",
-  "tagline": "사건 서류철와 인덱스 탭을 중심으로 법률사무소의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "사건 서류철과 인덱스 탭을 핵심 인터페이스로 삼아, 법률사무소의 상황 접수와 상담 흐름을 한 화면에서 경험합니다.",
   "cta": "문의 작성",
   "interaction": "form",
   "services": [
-    "법률사무소 안내",
-    "맞춤 법률사무소",
-    "법률사무소 상담·예약"
+    "상황 접수",
+    "검토 범위 확인",
+    "상담 일정"
   ],
   "materials": [
     "사건 서류철",
@@ -36,5 +36,6 @@
     "accent": "hsl(53.1 72% 51%)",
     "accent2": "hsl(187.1 58% 60%)"
   },
-  "fingerprint": "split|top|window|serif|sharp|frame|airy|warm|1"
+  "fingerprint": "split|top|window|serif|sharp|frame|airy|warm|1",
+  "copyVersion": "2.1.0"
 }

@@ -5,13 +5,13 @@
   "slug": "still-yoga",
   "sector": "웰니스·케어",
   "kind": "요가 스튜디오",
-  "tagline": "호흡 원와 수련 매트을 중심으로 요가 스튜디오의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "호흡 원과 수련 매트를 핵심 인터페이스로 삼아, 요가 스튜디오의 일정 탐색과 시간 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "일정 보기",
   "interaction": "schedule",
   "services": [
-    "요가 스튜디오 안내",
-    "맞춤 요가 스튜디오",
-    "요가 스튜디오 상담·예약"
+    "일정 탐색",
+    "시간·프로그램 선택",
+    "예약·참여 문의"
   ],
   "materials": [
     "호흡 원",
@@ -36,5 +36,6 @@
     "accent": "hsl(237.3 68% 52%)",
     "accent2": "hsl(11.3 55% 59%)"
   },
-  "fingerprint": "monolith|rail|split|neo|round|vector|balanced|precise|2"
+  "fingerprint": "monolith|rail|split|neo|round|vector|balanced|precise|2",
+  "copyVersion": "2.1.0"
 }

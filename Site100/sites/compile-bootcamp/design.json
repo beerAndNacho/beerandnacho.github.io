@@ -5,13 +5,13 @@
   "slug": "compile-bootcamp",
   "sector": "교육·지식",
   "kind": "코딩 부트캠프",
-  "tagline": "컴파일 로그와 코드 블록을 중심으로 코딩 부트캠프의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "컴파일 로그와 코드 블록을 핵심 인터페이스로 삼아, 코딩 부트캠프의 기능 실행과 결과 확인 흐름을 한 화면에서 경험합니다.",
   "cta": "실행하기",
   "interaction": "command",
   "services": [
-    "코딩 부트캠프 안내",
-    "맞춤 코딩 부트캠프",
-    "코딩 부트캠프 상담·예약"
+    "명령·기능 실행",
+    "결과·상태 확인",
+    "도입 상담"
   ],
   "materials": [
     "컴파일 로그",
@@ -36,5 +36,6 @@
     "accent": "hsl(302.2 68% 52%)",
     "accent2": "hsl(76.2 55% 59%)"
   },
-  "fingerprint": "book|rail|ticket|neo|round|vector|balanced|precise|2"
+  "fingerprint": "book|rail|ticket|neo|round|vector|balanced|precise|2",
+  "copyVersion": "2.1.0"
 }

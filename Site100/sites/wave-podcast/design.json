@@ -5,13 +5,13 @@
   "slug": "wave-podcast",
   "sector": "문화·창작",
   "kind": "팟캐스트 네트워크",
-  "tagline": "음성 파형와 재생 헤드을 중심으로 팟캐스트 네트워크의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "음성 파형과 재생 헤드를 핵심 인터페이스로 삼아, 팟캐스트 네트워크의 콘텐츠 탐색과 재생 흐름을 한 화면에서 경험합니다.",
   "cta": "재생하기",
   "interaction": "audio",
   "services": [
-    "팟캐스트 네트워크 안내",
-    "맞춤 팟캐스트 네트워크",
-    "팟캐스트 네트워크 상담·예약"
+    "콘텐츠 재생",
+    "목록·구간 탐색",
+    "수업·제작 문의"
   ],
   "materials": [
     "음성 파형",
@@ -36,5 +36,6 @@
     "accent": "hsl(21.4 64% 53%)",
     "accent2": "hsl(155.4 52% 58%)"
   },
-  "fingerprint": "poster|tabs|manifesto|contrast|blueprint|frame|airy|natural|3"
+  "fingerprint": "poster|tabs|manifesto|contrast|blueprint|frame|airy|natural|3",
+  "copyVersion": "2.1.0"
 }

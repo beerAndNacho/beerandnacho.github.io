@@ -5,13 +5,13 @@
   "slug": "pass-chef",
   "sector": "개인·실험",
   "kind": "셰프 포트폴리오",
-  "tagline": "레시피 노트와 주문 티켓을 중심으로 셰프 포트폴리오의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "레시피 노트와 주문 티켓을 핵심 인터페이스로 삼아, 셰프 포트폴리오의 메뉴 탐색과 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "메뉴 고르기",
   "interaction": "menu",
   "services": [
-    "셰프 포트폴리오 안내",
-    "맞춤 셰프 포트폴리오",
-    "셰프 포트폴리오 상담·예약"
+    "대표 메뉴 둘러보기",
+    "오늘의 추천 선택",
+    "예약·단체 문의"
   ],
   "materials": [
     "레시피 노트",
@@ -36,5 +36,6 @@
     "accent": "hsl(3.2 60% 54%)",
     "accent2": "hsl(137.2 49% 57%)"
   },
-  "fingerprint": "notebook|dock|monolith|contrast|organic|ink|immersive|warm|4"
+  "fingerprint": "notebook|dock|monolith|contrast|organic|ink|immersive|warm|4",
+  "copyVersion": "2.1.0"
 }

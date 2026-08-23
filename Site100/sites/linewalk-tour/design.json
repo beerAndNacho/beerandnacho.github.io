@@ -5,13 +5,13 @@
   "slug": "linewalk-tour",
   "sector": "여행·숙박",
   "kind": "도보 여행",
-  "tagline": "노선도와 정류장 점을 중심으로 도보 여행의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "노선도와 정류장 점을 핵심 인터페이스로 삼아, 도보 여행의 과정 이해와 단계 확인 흐름을 한 화면에서 경험합니다.",
   "cta": "과정 보기",
   "interaction": "timeline",
   "services": [
-    "도보 여행 안내",
-    "맞춤 도보 여행",
-    "도보 여행 상담·예약"
+    "전체 과정 보기",
+    "단계별 준비사항",
+    "진행 상담"
   ],
   "materials": [
     "노선도",
@@ -36,5 +36,6 @@
     "accent": "hsl(41.5 64% 53%)",
     "accent2": "hsl(175.5 52% 58%)"
   },
-  "fingerprint": "ticket|split|wave|condensed|ribbon|halftone|balanced|warm|3"
+  "fingerprint": "ticket|split|wave|condensed|ribbon|halftone|balanced|warm|3",
+  "copyVersion": "2.1.0"
 }

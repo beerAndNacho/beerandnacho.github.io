@@ -5,13 +5,13 @@
   "slug": "blue-earth-campaign",
   "sector": "공공·커뮤니티",
   "kind": "환경 캠페인",
-  "tagline": "데이터 스크롤와 지구 레이어을 중심으로 환경 캠페인의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "데이터 스크롤과 지구 레이어를 핵심 인터페이스로 삼아, 환경 캠페인의 조건 비교와 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "비교하기",
   "interaction": "compare",
   "services": [
-    "환경 캠페인 안내",
-    "맞춤 환경 캠페인",
-    "환경 캠페인 상담·예약"
+    "조건별 비교",
+    "추천 선택 확인",
+    "상담·예약"
   ],
   "materials": [
     "데이터 스크롤",
@@ -36,5 +36,6 @@
     "accent": "hsl(290.7 60% 54%)",
     "accent2": "hsl(64.7 49% 57%)"
   },
-  "fingerprint": "radial|radial|notebook|rounded|layer|isometric|dense|precise|4"
+  "fingerprint": "radial|radial|notebook|rounded|layer|isometric|dense|precise|4",
+  "copyVersion": "2.1.0"
 }

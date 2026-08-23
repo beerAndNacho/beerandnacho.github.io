@@ -5,13 +5,13 @@
   "slug": "flowline-logistics",
   "sector": "전문 서비스",
   "kind": "물류회사",
-  "tagline": "관제 지도와 화물 노드을 중심으로 물류회사의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "관제 지도와 화물 노드를 핵심 인터페이스로 삼아, 물류회사의 위치 탐색과 경로 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "지도 보기",
   "interaction": "map",
   "services": [
-    "물류회사 안내",
-    "맞춤 물류회사",
-    "물류회사 상담·예약"
+    "위치·구역 탐색",
+    "조건별 장소 확인",
+    "방문·이용 문의"
   ],
   "materials": [
     "관제 지도",
@@ -36,5 +36,6 @@
     "accent": "hsl(105.6 72% 51%)",
     "accent2": "hsl(239.6 58% 60%)"
   },
-  "fingerprint": "newspaper|radial|ticket|humanist|layer|vector|balanced|public|1"
+  "fingerprint": "newspaper|radial|ticket|humanist|layer|vector|balanced|public|1",
+  "copyVersion": "2.1.0"
 }

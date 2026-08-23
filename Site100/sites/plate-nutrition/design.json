@@ -5,13 +5,13 @@
   "slug": "plate-nutrition",
   "sector": "웰니스·케어",
   "kind": "영양 코칭",
-  "tagline": "접시 비율와 식재료 행렬을 중심으로 영양 코칭의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "접시 비율과 식재료 행렬을 핵심 인터페이스로 삼아, 영양 코칭의 조건 입력과 결과 계산 흐름을 한 화면에서 경험합니다.",
   "cta": "계산하기",
   "interaction": "calculate",
   "services": [
-    "영양 코칭 안내",
-    "맞춤 영양 코칭",
-    "영양 코칭 상담·예약"
+    "조건 입력",
+    "결과 계산",
+    "결과 기반 상담"
   ],
   "materials": [
     "접시 비율",
@@ -36,5 +36,6 @@
     "accent": "hsl(204.9 68% 52%)",
     "accent2": "hsl(338.9 55% 59%)"
   },
-  "fingerprint": "kinetic|bottom|wave|contrast|stamp|halftone|balanced|experimental|2"
+  "fingerprint": "kinetic|bottom|wave|contrast|stamp|halftone|balanced|experimental|2",
+  "copyVersion": "2.1.0"
 }

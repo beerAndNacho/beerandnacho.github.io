@@ -5,13 +5,13 @@
   "slug": "offset-design-agency",
   "sector": "문화·창작",
   "kind": "디자인 에이전시",
-  "tagline": "분할 커서와 콜라주 조각을 중심으로 디자인 에이전시의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "분할 커서와 콜라주 조각을 핵심 인터페이스로 삼아, 디자인 에이전시의 직접 배치와 구성 변경 흐름을 한 화면에서 경험합니다.",
   "cta": "배치하기",
   "interaction": "drag",
   "services": [
-    "디자인 에이전시 안내",
-    "맞춤 디자인 에이전시",
-    "디자인 에이전시 상담·예약"
+    "요소 직접 배치",
+    "구성 비교",
+    "프로젝트 상담"
   ],
   "materials": [
     "분할 커서",
@@ -36,5 +36,6 @@
     "accent": "hsl(106.4 64% 53%)",
     "accent2": "hsl(240.4 52% 58%)"
   },
-  "fingerprint": "map|split|terminal|condensed|ribbon|halftone|balanced|warm|3"
+  "fingerprint": "map|split|terminal|condensed|ribbon|halftone|balanced|warm|3",
+  "copyVersion": "2.1.0"
 }

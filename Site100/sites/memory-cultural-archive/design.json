@@ -5,13 +5,13 @@
   "slug": "memory-cultural-archive",
   "sector": "공공·커뮤니티",
   "kind": "문화 아카이브",
-  "tagline": "연도 타임라인와 원문 문서을 중심으로 문화 아카이브의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "연도 타임라인과 원문 문서를 핵심 인터페이스로 삼아, 문화 아카이브의 자료 검색과 기록 열람 흐름을 한 화면에서 경험합니다.",
   "cta": "자료 찾기",
   "interaction": "archive",
   "services": [
-    "문화 아카이브 안내",
-    "맞춤 문화 아카이브",
-    "문화 아카이브 상담·예약"
+    "자료 검색",
+    "주제별 컬렉션",
+    "열람·협업 문의"
   ],
   "materials": [
     "연도 타임라인",
@@ -36,5 +36,6 @@
     "accent": "hsl(35.7 60% 54%)",
     "accent2": "hsl(169.7 49% 57%)"
   },
-  "fingerprint": "newspaper|minimal|cinema|neo|module|documents|immersive|luxury|4"
+  "fingerprint": "newspaper|minimal|cinema|neo|module|documents|immersive|luxury|4",
+  "copyVersion": "2.1.0"
 }

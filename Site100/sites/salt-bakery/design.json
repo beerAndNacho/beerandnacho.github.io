@@ -5,13 +5,13 @@
   "slug": "salt-bakery",
   "sector": "지역 매장",
   "kind": "베이커리",
-  "tagline": "오븐 선반와 발효 시계을 중심으로 베이커리의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "오븐 선반과 발효 시계를 핵심 인터페이스로 삼아, 베이커리의 메뉴 탐색과 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "메뉴 고르기",
   "interaction": "menu",
   "services": [
-    "베이커리 안내",
-    "맞춤 베이커리",
-    "베이커리 상담·예약"
+    "대표 메뉴 둘러보기",
+    "오늘의 추천 선택",
+    "예약·단체 문의"
   ],
   "materials": [
     "오븐 선반",
@@ -36,5 +36,6 @@
     "accent": "hsl(118.0 72% 51%)",
     "accent2": "hsl(252.0 58% 60%)"
   },
-  "fingerprint": "editorial|top|manifesto|serif|sharp|frame|airy|warm|1"
+  "fingerprint": "editorial|top|manifesto|serif|sharp|frame|airy|warm|1",
+  "copyVersion": "2.1.0"
 }

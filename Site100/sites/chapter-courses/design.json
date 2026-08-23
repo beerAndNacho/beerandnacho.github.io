@@ -5,13 +5,13 @@
   "slug": "chapter-courses",
   "sector": "교육·지식",
   "kind": "온라인 강의",
-  "tagline": "책 페이지와 챕터 탭을 중심으로 온라인 강의의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "책 페이지와 챕터 탭을 핵심 인터페이스로 삼아, 온라인 강의의 사례 탐색과 장면 확인 흐름을 한 화면에서 경험합니다.",
   "cta": "장면 보기",
   "interaction": "carousel",
   "services": [
-    "온라인 강의 안내",
-    "맞춤 온라인 강의",
-    "온라인 강의 상담·예약"
+    "대표 사례 탐색",
+    "세부 장면 보기",
+    "프로젝트 문의"
   ],
   "materials": [
     "책 페이지",
@@ -36,5 +36,6 @@
     "accent": "hsl(47.3 68% 52%)",
     "accent2": "hsl(181.3 55% 59%)"
   },
-  "fingerprint": "floorplan|radial|mosaic|technical|layer|grid|compact|luxury|2"
+  "fingerprint": "floorplan|radial|mosaic|technical|layer|grid|compact|luxury|2",
+  "copyVersion": "2.1.0"
 }

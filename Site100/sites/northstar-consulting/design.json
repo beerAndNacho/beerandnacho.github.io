@@ -5,13 +5,13 @@
   "slug": "northstar-consulting",
   "sector": "전문 서비스",
   "kind": "컨설팅",
-  "tagline": "연차보고서와 사례 챕터을 중심으로 컨설팅의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "연차보고서와 사례 챕터를 핵심 인터페이스로 삼아, 컨설팅의 사례 탐색과 장면 확인 흐름을 한 화면에서 경험합니다.",
   "cta": "장면 보기",
   "interaction": "carousel",
   "services": [
-    "컨설팅 안내",
-    "맞춤 컨설팅",
-    "컨설팅 상담·예약"
+    "대표 사례 탐색",
+    "세부 장면 보기",
+    "프로젝트 문의"
   ],
   "materials": [
     "연차보고서",
@@ -36,5 +36,6 @@
     "accent": "hsl(210.7 72% 51%)",
     "accent2": "hsl(344.7 58% 60%)"
   },
-  "fingerprint": "archive|minimal|mosaic|wide|module|grid|compact|precise|1"
+  "fingerprint": "archive|minimal|mosaic|wide|module|grid|compact|precise|1",
+  "copyVersion": "2.1.0"
 }

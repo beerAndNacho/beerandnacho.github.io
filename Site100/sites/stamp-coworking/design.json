@@ -5,13 +5,13 @@
   "slug": "stamp-coworking",
   "sector": "여행·숙박",
   "kind": "코워킹",
-  "tagline": "여권 도장와 도시 탭을 중심으로 코워킹의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "여권 도장과 도시 탭을 핵심 인터페이스로 삼아, 코워킹의 관점 전환과 정보 비교 흐름을 한 화면에서 경험합니다.",
   "cta": "보기 전환",
   "interaction": "switcher",
   "services": [
-    "코워킹 안내",
-    "맞춤 코워킹",
-    "코워킹 상담·예약"
+    "관점·언어 전환",
+    "정보 비교",
+    "도입 문의"
   ],
   "materials": [
     "여권 도장",
@@ -36,5 +36,6 @@
     "accent": "hsl(284.1 64% 53%)",
     "accent2": "hsl(58.1 52% 58%)"
   },
-  "fingerprint": "archive|radial|book|neo|layer|glass|airy|quiet|3"
+  "fingerprint": "archive|radial|book|neo|layer|glass|airy|quiet|3",
+  "copyVersion": "2.1.0"
 }

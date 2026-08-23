@@ -5,13 +5,13 @@
   "slug": "two-of-us-wedding",
   "sector": "개인·실험",
   "kind": "모바일 청첩장",
-  "tagline": "긴 스크롤와 날짜 타이포을 중심으로 모바일 청첩장의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "긴 스크롤과 날짜 타이포를 핵심 인터페이스로 삼아, 모바일 청첩장의 행사 확인과 참석 응답 흐름을 한 화면에서 경험합니다.",
   "cta": "참석하기",
   "interaction": "rsvp",
   "services": [
-    "모바일 청첩장 안내",
-    "맞춤 모바일 청첩장",
-    "모바일 청첩장 상담·예약"
+    "행사 정보 확인",
+    "참석 여부 입력",
+    "일정·장소 안내"
   ],
   "materials": [
     "긴 스크롤",
@@ -36,5 +36,6 @@
     "accent": "hsl(55.8 60% 54%)",
     "accent2": "hsl(189.8 49% 57%)"
   },
-  "fingerprint": "cinema|rail|room|wide|round|glass|airy|public|4"
+  "fingerprint": "cinema|rail|room|wide|round|glass|airy|public|4",
+  "copyVersion": "2.1.0"
 }

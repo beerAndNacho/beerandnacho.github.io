@@ -5,13 +5,13 @@
   "slug": "pulse-monitoring",
   "sector": "SaaS·기술",
   "kind": "서버 모니터링",
-  "tagline": "오실로스코프와 상태등을 중심으로 서버 모니터링의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "오실로스코프와 상태등을 핵심 인터페이스로 삼아, 서버 모니터링의 상태 확인과 이용 판단 흐름을 한 화면에서 경험합니다.",
   "cta": "상태 보기",
   "interaction": "status",
   "services": [
-    "서버 모니터링 안내",
-    "맞춤 서버 모니터링",
-    "서버 모니터링 상담·예약"
+    "실시간 현황 확인",
+    "이용 가능 시간",
+    "변경 알림 안내"
   ],
   "materials": [
     "오실로스코프",
@@ -36,5 +36,6 @@
     "accent": "hsl(125.7 72% 51%)",
     "accent2": "hsl(259.7 58% 60%)"
   },
-  "fingerprint": "cinema|corner|radial|neo|paper|isometric|dense|digital|1"
+  "fingerprint": "cinema|corner|radial|neo|paper|isometric|dense|digital|1",
+  "copyVersion": "2.1.0"
 }

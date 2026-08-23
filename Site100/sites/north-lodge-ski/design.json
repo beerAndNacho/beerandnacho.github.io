@@ -5,13 +5,13 @@
   "slug": "north-lodge-ski",
   "sector": "여행·숙박",
   "kind": "스키 숙소",
-  "tagline": "지역신문와 적설 패널을 중심으로 스키 숙소의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "지역신문과 적설 패널을 핵심 인터페이스로 삼아, 스키 숙소의 일정 탐색과 예약 흐름을 한 화면에서 경험합니다.",
   "cta": "예약하기",
   "interaction": "booking",
   "services": [
-    "스키 숙소 안내",
-    "맞춤 스키 숙소",
-    "스키 숙소 상담·예약"
+    "스키 숙소 프로그램 보기",
+    "날짜·시간 선택",
+    "예약 전 안내"
   ],
   "materials": [
     "지역신문",
@@ -36,5 +36,6 @@
     "accent": "hsl(94.0 64% 53%)",
     "accent2": "hsl(228.0 52% 58%)"
   },
-  "fingerprint": "monolith|minimal|notebook|technical|module|isometric|dense|public|3"
+  "fingerprint": "monolith|minimal|notebook|technical|module|isometric|dense|public|3",
+  "copyVersion": "2.1.0"
 }

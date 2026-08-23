@@ -5,13 +5,13 @@
   "slug": "phoneme-language",
   "sector": "교육·지식",
   "kind": "어학원",
-  "tagline": "발음기호와 파형을 중심으로 어학원의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "발음기호와 파형을 핵심 인터페이스로 삼아, 어학원의 콘텐츠 탐색과 재생 흐름을 한 화면에서 경험합니다.",
   "cta": "재생하기",
   "interaction": "audio",
   "services": [
-    "어학원 안내",
-    "맞춤 어학원",
-    "어학원 상담·예약"
+    "콘텐츠 재생",
+    "목록·구간 탐색",
+    "수업·제작 문의"
   ],
   "materials": [
     "발음기호",
@@ -36,5 +36,6 @@
     "accent": "hsl(79.7 68% 52%)",
     "accent2": "hsl(213.7 55% 59%)"
   },
-  "fingerprint": "terminal|tabs|drawer|mono|blueprint|light|compact|warm|2"
+  "fingerprint": "terminal|tabs|drawer|mono|blueprint|light|compact|warm|2",
+  "copyVersion": "2.1.0"
 }

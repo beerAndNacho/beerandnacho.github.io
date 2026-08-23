@@ -5,13 +5,13 @@
   "slug": "veil-cosmetics",
   "sector": "음식·라이프스타일",
   "kind": "화장품 브랜드",
-  "tagline": "반투명 레이어와 색조 원을 중심으로 화장품 브랜드의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "반투명 레이어와 색조 원을 핵심 인터페이스로 삼아, 화장품 브랜드의 취향 조합과 맞춤 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "조합하기",
   "interaction": "mixer",
   "services": [
-    "화장품 브랜드 안내",
-    "맞춤 화장품 브랜드",
-    "화장품 브랜드 상담·예약"
+    "취향·조건 조합",
+    "추천 구성 확인",
+    "맞춤 상담"
   ],
   "materials": [
     "반투명 레이어",
@@ -36,5 +36,6 @@
     "accent": "hsl(48.1 60% 54%)",
     "accent2": "hsl(182.1 49% 57%)"
   },
-  "fingerprint": "editorial|split|shelf|soft|ribbon|light|compact|natural|4"
+  "fingerprint": "editorial|split|shelf|soft|ribbon|light|compact|natural|4",
+  "copyVersion": "2.1.0"
 }

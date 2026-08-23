@@ -5,13 +5,13 @@
   "slug": "table7-restaurant",
   "sector": "음식·라이프스타일",
   "kind": "레스토랑",
-  "tagline": "코스 번호와 접시 실루엣을 중심으로 레스토랑의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "코스 번호와 접시 실루엣을 핵심 인터페이스로 삼아, 레스토랑의 메뉴 탐색과 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "메뉴 고르기",
   "interaction": "menu",
   "services": [
-    "레스토랑 안내",
-    "맞춤 레스토랑",
-    "레스토랑 상담·예약"
+    "대표 메뉴 둘러보기",
+    "오늘의 추천 선택",
+    "예약·단체 문의"
   ],
   "materials": [
     "코스 번호",
@@ -36,5 +36,6 @@
     "accent": "hsl(61.6 64% 53%)",
     "accent2": "hsl(195.6 52% 58%)"
   },
-  "fingerprint": "kinetic|dock|headline|mono|organic|paper|dense|playful|3"
+  "fingerprint": "kinetic|dock|headline|mono|organic|paper|dense|playful|3",
+  "copyVersion": "2.1.0"
 }

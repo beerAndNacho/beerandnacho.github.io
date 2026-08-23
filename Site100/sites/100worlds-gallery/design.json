@@ -5,13 +5,13 @@
   "slug": "100worlds-gallery",
   "sector": "개인·실험",
   "kind": "디자인 갤러리",
-  "tagline": "100개 미니 프리뷰와 디자인 지문을 중심으로 디자인 갤러리의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "100개 미니 프리뷰와 디자인 지문을 핵심 인터페이스로 삼아, 디자인 갤러리의 조건 탐색과 항목 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "필터 열기",
   "interaction": "filter",
   "services": [
-    "디자인 갤러리 안내",
-    "맞춤 디자인 갤러리",
-    "디자인 갤러리 상담·예약"
+    "조건 필터",
+    "추천 목록 확인",
+    "선택 상담"
   ],
   "materials": [
     "100개 미니 프리뷰",
@@ -36,5 +36,6 @@
     "accent": "hsl(108.3 60% 54%)",
     "accent2": "hsl(242.3 49% 57%)"
   },
-  "fingerprint": "collage|top|wave|mono|sharp|halftone|balanced|industrial|4"
+  "fingerprint": "collage|top|wave|mono|sharp|halftone|balanced|industrial|4",
+  "copyVersion": "2.1.0"
 }

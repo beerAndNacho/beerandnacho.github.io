@@ -5,13 +5,13 @@
   "slug": "mini-lab-science",
   "sector": "교육·지식",
   "kind": "어린이 과학관",
-  "tagline": "실험 노트와 스티커 도장을 중심으로 어린이 과학관의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "실험 노트와 스티커 도장을 핵심 인터페이스로 삼아, 어린이 과학관의 구성 조립과 결과 미리보기 흐름을 한 화면에서 경험합니다.",
   "cta": "조립하기",
   "interaction": "build",
   "services": [
-    "어린이 과학관 안내",
-    "맞춤 어린이 과학관",
-    "어린이 과학관 상담·예약"
+    "구성 요소 선택",
+    "결과 미리보기",
+    "맞춤 제작 문의"
   ],
   "materials": [
     "실험 노트",
@@ -36,5 +36,6 @@
     "accent": "hsl(132.3 68% 52%)",
     "accent2": "hsl(266.3 55% 59%)"
   },
-  "fingerprint": "timeline|corner|cinema|rounded|paper|documents|immersive|public|2"
+  "fingerprint": "timeline|corner|cinema|rounded|paper|documents|immersive|public|2",
+  "copyVersion": "2.1.0"
 }

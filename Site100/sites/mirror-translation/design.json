@@ -5,13 +5,13 @@
   "slug": "mirror-translation",
   "sector": "전문 서비스",
   "kind": "번역회사",
-  "tagline": "대칭 문단와 언어 토글을 중심으로 번역회사의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "대칭 문단과 언어 토글을 핵심 인터페이스로 삼아, 번역회사의 관점 전환과 정보 비교 흐름을 한 화면에서 경험합니다.",
   "cta": "보기 전환",
   "interaction": "switcher",
   "services": [
-    "번역회사 안내",
-    "맞춤 번역회사",
-    "번역회사 상담·예약"
+    "관점·언어 전환",
+    "정보 비교",
+    "도입 문의"
   ],
   "materials": [
     "대칭 문단",
@@ -36,5 +36,6 @@
     "accent": "hsl(20.6 72% 51%)",
     "accent2": "hsl(154.6 58% 60%)"
   },
-  "fingerprint": "monolith|ticker|book|rounded|circle|glass|airy|luxury|1"
+  "fingerprint": "monolith|ticker|book|rounded|circle|glass|airy|luxury|1",
+  "copyVersion": "2.1.0"
 }

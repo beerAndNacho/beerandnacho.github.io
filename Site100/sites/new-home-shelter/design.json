@@ -5,13 +5,13 @@
   "slug": "new-home-shelter",
   "sector": "공공·커뮤니티",
   "kind": "동물보호소",
-  "tagline": "동물 프로필와 성격 태그을 중심으로 동물보호소의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "동물 프로필과 성격 태그를 핵심 인터페이스로 삼아, 동물보호소의 조건 탐색과 항목 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "필터 열기",
   "interaction": "filter",
   "services": [
-    "동물보호소 안내",
-    "맞춤 동물보호소",
-    "동물보호소 상담·예약"
+    "조건 필터",
+    "추천 목록 확인",
+    "선택 상담"
   ],
   "materials": [
     "동물 프로필",
@@ -36,5 +36,6 @@
     "accent": "hsl(68.2 60% 54%)",
     "accent2": "hsl(202.2 49% 57%)"
   },
-  "fingerprint": "shelf|dock|metrics|contrast|organic|ink|immersive|warm|4"
+  "fingerprint": "shelf|dock|metrics|contrast|organic|ink|immersive|warm|4",
+  "copyVersion": "2.1.0"
 }

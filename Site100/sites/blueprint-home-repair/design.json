@@ -5,13 +5,13 @@
   "slug": "blueprint-home-repair",
   "sector": "지역 매장",
   "kind": "집수리",
-  "tagline": "청사진와 치수선을 중심으로 집수리의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "청사진과 치수선을 핵심 인터페이스로 삼아, 집수리의 범위 선택과 견적 요청 흐름을 한 화면에서 경험합니다.",
   "cta": "견적 만들기",
   "interaction": "quote",
   "services": [
-    "집수리 안내",
-    "맞춤 집수리",
-    "집수리 상담·예약"
+    "현황·범위 확인",
+    "항목별 견적 구성",
+    "진행 상담"
   ],
   "materials": [
     "청사진",
@@ -36,5 +36,6 @@
     "accent": "hsl(308.0 72% 51%)",
     "accent2": "hsl(82.0 58% 60%)"
   },
-  "fingerprint": "poster|dock|shelf|condensed|organic|light|compact|experimental|1"
+  "fingerprint": "poster|dock|shelf|condensed|organic|light|compact|experimental|1",
+  "copyVersion": "2.1.0"
 }

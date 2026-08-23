@@ -5,13 +5,13 @@
   "slug": "next-city-exhibition",
   "sector": "개인·실험",
   "kind": "미래도시 전시",
-  "tagline": "미래 지도와 도시 데이터을 중심으로 미래도시 전시의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "미래 지도와 도시 데이터를 핵심 인터페이스로 삼아, 미래도시 전시의 위치 탐색과 경로 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "지도 보기",
   "interaction": "map",
   "services": [
-    "미래도시 전시 안내",
-    "맞춤 미래도시 전시",
-    "미래도시 전시 상담·예약"
+    "위치·구역 탐색",
+    "조건별 장소 확인",
+    "방문·이용 문의"
   ],
   "materials": [
     "미래 지도",
@@ -36,5 +36,6 @@
     "accent": "hsl(330.8 60% 54%)",
     "accent2": "hsl(104.8 49% 57%)"
   },
-  "fingerprint": "glass|minimal|timeline|neo|module|documents|immersive|luxury|4"
+  "fingerprint": "glass|minimal|timeline|neo|module|documents|immersive|luxury|4",
+  "copyVersion": "2.1.0"
 }

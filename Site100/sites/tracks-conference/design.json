@@ -5,13 +5,13 @@
   "slug": "tracks-conference",
   "sector": "공공·커뮤니티",
   "kind": "콘퍼런스",
-  "tagline": "트랙 매트릭스와 시간 열을 중심으로 콘퍼런스의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "트랙 매트릭스와 시간 열을 핵심 인터페이스로 삼아, 콘퍼런스의 일정 탐색과 시간 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "일정 보기",
   "interaction": "schedule",
   "services": [
-    "콘퍼런스 안내",
-    "맞춤 콘퍼런스",
-    "콘퍼런스 상담·예약"
+    "일정 탐색",
+    "시간·프로그램 선택",
+    "예약·참여 문의"
   ],
   "materials": [
     "트랙 매트릭스",
@@ -36,5 +36,6 @@
     "accent": "hsl(120.7 60% 54%)",
     "accent2": "hsl(254.7 49% 57%)"
   },
-  "fingerprint": "floorplan|rail|book|wide|round|glass|airy|public|4"
+  "fingerprint": "floorplan|rail|book|wide|round|glass|airy|public|4",
+  "copyVersion": "2.1.0"
 }

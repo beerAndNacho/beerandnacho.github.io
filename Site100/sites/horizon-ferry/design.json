@@ -5,13 +5,13 @@
   "slug": "horizon-ferry",
   "sector": "여행·숙박",
   "kind": "섬 페리",
-  "tagline": "수평선와 배 시간표을 중심으로 섬 페리의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "수평선과 배 시간표를 핵심 인터페이스로 삼아, 섬 페리의 일정 탐색과 시간 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "일정 보기",
   "interaction": "schedule",
   "services": [
-    "섬 페리 안내",
-    "맞춤 섬 페리",
-    "섬 페리 상담·예약"
+    "일정 탐색",
+    "시간·프로그램 선택",
+    "예약·참여 문의"
   ],
   "materials": [
     "수평선",
@@ -36,5 +36,6 @@
     "accent": "hsl(146.5 64% 53%)",
     "accent2": "hsl(280.5 52% 58%)"
   },
-  "fingerprint": "notebook|bottom|drawer|serif|stamp|light|compact|industrial|3"
+  "fingerprint": "notebook|bottom|drawer|serif|stamp|light|compact|industrial|3",
+  "copyVersion": "2.1.0"
 }

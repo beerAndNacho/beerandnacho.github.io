@@ -5,13 +5,13 @@
   "slug": "sugar-shapes",
   "sector": "음식·라이프스타일",
   "kind": "디저트숍",
-  "tagline": "사탕 기하학와 색상 칩을 중심으로 디저트숍의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "사탕 기하학과 색상 칩을 핵심 인터페이스로 삼아, 디저트숍의 취향 조합과 맞춤 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "조합하기",
   "interaction": "mixer",
   "services": [
-    "디저트숍 안내",
-    "맞춤 디저트숍",
-    "디저트숍 상담·예약"
+    "취향·조건 조합",
+    "추천 구성 확인",
+    "맞춤 상담"
   ],
   "materials": [
     "사탕 기하학",
@@ -36,5 +36,6 @@
     "accent": "hsl(114.1 64% 53%)",
     "accent2": "hsl(248.1 52% 58%)"
   },
-  "fingerprint": "glass|rail|mosaic|rounded|round|grid|compact|digital|3"
+  "fingerprint": "glass|rail|mosaic|rounded|round|grid|compact|digital|3",
+  "copyVersion": "2.1.0"
 }

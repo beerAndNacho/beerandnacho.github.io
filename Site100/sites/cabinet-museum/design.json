@@ -5,13 +5,13 @@
   "slug": "cabinet-museum",
   "sector": "교육·지식",
   "kind": "박물관 교육",
-  "tagline": "보관 서랍와 유물 라벨을 중심으로 박물관 교육의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "보관 서랍과 유물 라벨을 핵심 인터페이스로 삼아, 박물관 교육의 자료 검색과 기록 열람 흐름을 한 화면에서 경험합니다.",
   "cta": "자료 찾기",
   "interaction": "archive",
   "services": [
-    "박물관 교육 안내",
-    "맞춤 박물관 교육",
-    "박물관 교육 상담·예약"
+    "자료 검색",
+    "주제별 컬렉션",
+    "열람·협업 문의"
   ],
   "materials": [
     "보관 서랍",
@@ -36,5 +36,6 @@
     "accent": "hsl(322.3 68% 52%)",
     "accent2": "hsl(96.3 55% 59%)"
   },
-  "fingerprint": "newspaper|ticker|radial|wide|circle|isometric|dense|quiet|2"
+  "fingerprint": "newspaper|ticker|radial|wide|circle|isometric|dense|quiet|2",
+  "copyVersion": "2.1.0"
 }

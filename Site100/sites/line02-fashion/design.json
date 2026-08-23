@@ -5,13 +5,13 @@
   "slug": "line02-fashion",
   "sector": "문화·창작",
   "kind": "패션 디자이너",
-  "tagline": "수직 런웨이와 원단 샘플을 중심으로 패션 디자이너의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "수직 런웨이와 원단 샘플을 핵심 인터페이스로 삼아, 패션 디자이너의 사례 탐색과 장면 확인 흐름을 한 화면에서 경험합니다.",
   "cta": "장면 보기",
   "interaction": "carousel",
   "services": [
-    "패션 디자이너 안내",
-    "맞춤 패션 디자이너",
-    "패션 디자이너 상담·예약"
+    "대표 사례 탐색",
+    "세부 장면 보기",
+    "프로젝트 문의"
   ],
   "materials": [
     "수직 런웨이",
@@ -36,5 +36,6 @@
     "accent": "hsl(296.4 64% 53%)",
     "accent2": "hsl(70.4 52% 58%)"
   },
-  "fingerprint": "terminal|top|monolith|soft|sharp|ink|immersive|experimental|3"
+  "fingerprint": "terminal|top|monolith|soft|sharp|ink|immersive|experimental|3",
+  "copyVersion": "2.1.0"
 }

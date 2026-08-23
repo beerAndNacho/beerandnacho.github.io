@@ -5,13 +5,13 @@
   "slug": "dal-hanok-stay",
   "sector": "여행·숙박",
   "kind": "한옥스테이",
-  "tagline": "한지 질감와 중정 그리드을 중심으로 한옥스테이의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "한지 질감과 중정 그리드를 핵심 인터페이스로 삼아, 한옥스테이의 일정 탐색과 예약 흐름을 한 화면에서 경험합니다.",
   "cta": "예약하기",
   "interaction": "booking",
   "services": [
-    "한옥스테이 안내",
-    "맞춤 한옥스테이",
-    "한옥스테이 상담·예약"
+    "한옥스테이 프로그램 보기",
+    "날짜·시간 선택",
+    "예약 전 안내"
   ],
   "materials": [
     "한지 질감",
@@ -36,5 +36,6 @@
     "accent": "hsl(231.5 64% 53%)",
     "accent2": "hsl(5.5 52% 58%)"
   },
-  "fingerprint": "isometric|top|metrics|soft|sharp|ink|immersive|experimental|3"
+  "fingerprint": "isometric|top|metrics|soft|sharp|ink|immersive|experimental|3",
+  "copyVersion": "2.1.0"
 }

@@ -5,13 +5,13 @@
   "slug": "clear-day-cleaning",
   "sector": "지역 매장",
   "kind": "청소 서비스",
-  "tagline": "전후 슬라이더와 방별 체크을 중심으로 청소 서비스의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "전후 슬라이더와 방별 체크를 핵심 인터페이스로 삼아, 청소 서비스의 조건 비교와 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "비교하기",
   "interaction": "compare",
   "services": [
-    "청소 서비스 안내",
-    "맞춤 청소 서비스",
-    "청소 서비스 상담·예약"
+    "조건별 비교",
+    "추천 선택 확인",
+    "상담·예약"
   ],
   "materials": [
     "전후 슬라이더",
@@ -36,5 +36,6 @@
     "accent": "hsl(0.6 72% 51%)",
     "accent2": "hsl(134.6 58% 60%)"
   },
-  "fingerprint": "radial|rail|timeline|technical|round|documents|immersive|quiet|1"
+  "fingerprint": "radial|rail|timeline|technical|round|documents|immersive|quiet|1",
+  "copyVersion": "2.1.0"
 }

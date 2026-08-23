@@ -5,13 +5,13 @@
   "slug": "forge-manufacturing",
   "sector": "전문 서비스",
   "kind": "제조기업",
-  "tagline": "공정 라인와 금속 부품을 중심으로 제조기업의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "공정 라인과 금속 부품을 핵심 인터페이스로 삼아, 제조기업의 과정 이해와 단계 확인 흐름을 한 화면에서 경험합니다.",
   "cta": "과정 보기",
   "interaction": "timeline",
   "services": [
-    "제조기업 안내",
-    "맞춤 제조기업",
-    "제조기업 상담·예약"
+    "전체 과정 보기",
+    "단계별 준비사항",
+    "진행 상담"
   ],
   "materials": [
     "공정 라인",
@@ -36,5 +36,6 @@
     "accent": "hsl(295.6 72% 51%)",
     "accent2": "hsl(69.6 58% 60%)"
   },
-  "fingerprint": "wave|rail|cinema|technical|round|documents|immersive|quiet|1"
+  "fingerprint": "wave|rail|cinema|technical|round|documents|immersive|quiet|1",
+  "copyVersion": "2.1.0"
 }

@@ -5,13 +5,13 @@
   "slug": "link-volunteer",
   "sector": "공공·커뮤니티",
   "kind": "자원봉사 매칭",
-  "tagline": "관계 지도와 기술 태그을 중심으로 자원봉사 매칭의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "관계 지도와 기술 태그를 핵심 인터페이스로 삼아, 자원봉사 매칭의 조건 탐색과 항목 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "필터 열기",
   "interaction": "filter",
   "services": [
-    "자원봉사 매칭 안내",
-    "맞춤 자원봉사 매칭",
-    "자원봉사 매칭 상담·예약"
+    "조건 필터",
+    "추천 목록 확인",
+    "선택 상담"
   ],
   "materials": [
     "관계 지도",
@@ -36,5 +36,6 @@
     "accent": "hsl(258.2 60% 54%)",
     "accent2": "hsl(32.2 49% 57%)"
   },
-  "fingerprint": "ticket|tabs|headline|serif|blueprint|paper|dense|experimental|4"
+  "fingerprint": "ticket|tabs|headline|serif|blueprint|paper|dense|experimental|4",
+  "copyVersion": "2.1.0"
 }

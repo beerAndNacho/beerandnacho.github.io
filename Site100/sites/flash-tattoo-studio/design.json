@@ -5,13 +5,13 @@
   "slug": "flash-tattoo-studio",
   "sector": "문화·창작",
   "kind": "타투 스튜디오",
-  "tagline": "플래시 시트와 모티프 태그을 중심으로 타투 스튜디오의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "플래시 시트와 모티프 태그를 핵심 인터페이스로 삼아, 타투 스튜디오의 조건 탐색과 항목 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "필터 열기",
   "interaction": "filter",
   "services": [
-    "타투 스튜디오 안내",
-    "맞춤 타투 스튜디오",
-    "타투 스튜디오 상담·예약"
+    "조건 필터",
+    "추천 목록 확인",
+    "선택 상담"
   ],
   "materials": [
     "플래시 시트",
@@ -36,5 +36,6 @@
     "accent": "hsl(349.0 64% 53%)",
     "accent2": "hsl(123.0 52% 58%)"
   },
-  "fingerprint": "timeline|radial|room|neo|layer|glass|airy|quiet|3"
+  "fingerprint": "timeline|radial|room|neo|layer|glass|airy|quiet|3",
+  "copyVersion": "2.1.0"
 }

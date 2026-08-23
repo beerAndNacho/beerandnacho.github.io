@@ -5,13 +5,13 @@
   "slug": "axis-research",
   "sector": "교육·지식",
   "kind": "연구소",
-  "tagline": "인용 그래프와 초록 카드을 중심으로 연구소의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "인용 그래프와 초록 카드를 핵심 인터페이스로 삼아, 연구소의 자료 검색과 기록 열람 흐름을 한 화면에서 경험합니다.",
   "cta": "자료 찾기",
   "interaction": "archive",
   "services": [
-    "연구소 안내",
-    "맞춤 연구소",
-    "연구소 상담·예약"
+    "자료 검색",
+    "주제별 컬렉션",
+    "열람·협업 문의"
   ],
   "materials": [
     "인용 그래프",
@@ -36,5 +36,6 @@
     "accent": "hsl(269.8 68% 52%)",
     "accent2": "hsl(43.8 55% 59%)"
   },
-  "fingerprint": "split|bottom|terminal|contrast|stamp|halftone|balanced|experimental|2"
+  "fingerprint": "split|bottom|terminal|contrast|stamp|halftone|balanced|experimental|2",
+  "copyVersion": "2.1.0"
 }

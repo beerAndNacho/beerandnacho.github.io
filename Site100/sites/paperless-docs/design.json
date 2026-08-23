@@ -5,13 +5,13 @@
   "slug": "paperless-docs",
   "sector": "SaaS·기술",
   "kind": "문서 SaaS",
-  "tagline": "빈 문서와 변환 블록을 중심으로 문서 SaaS의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "빈 문서와 변환 블록을 핵심 인터페이스로 삼아, 문서 SaaS의 구성 조립과 결과 미리보기 흐름을 한 화면에서 경험합니다.",
   "cta": "조립하기",
   "interaction": "build",
   "services": [
-    "문서 SaaS 안내",
-    "맞춤 문서 SaaS",
-    "문서 SaaS 상담·예약"
+    "구성 요소 선택",
+    "결과 미리보기",
+    "맞춤 제작 문의"
   ],
   "materials": [
     "빈 문서",
@@ -36,5 +36,6 @@
     "accent": "hsl(348.2 72% 51%)",
     "accent2": "hsl(122.2 58% 60%)"
   },
-  "fingerprint": "kinetic|top|manifesto|serif|sharp|frame|airy|warm|1"
+  "fingerprint": "kinetic|top|manifesto|serif|sharp|frame|airy|warm|1",
+  "copyVersion": "2.1.0"
 }

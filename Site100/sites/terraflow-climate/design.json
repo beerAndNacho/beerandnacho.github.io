@@ -5,13 +5,13 @@
   "slug": "terraflow-climate",
   "sector": "SaaS·기술",
   "kind": "기후 SaaS",
-  "tagline": "지형도와 기후 레이어을 중심으로 기후 SaaS의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "지형도와 기후 레이어를 핵심 인터페이스로 삼아, 기후 SaaS의 조건 비교와 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "비교하기",
   "interaction": "compare",
   "services": [
-    "기후 SaaS 안내",
-    "맞춤 기후 SaaS",
-    "기후 SaaS 상담·예약"
+    "조건별 비교",
+    "추천 선택 확인",
+    "상담·예약"
   ],
   "materials": [
     "지형도",
@@ -36,5 +36,6 @@
     "accent": "hsl(164.7 68% 52%)",
     "accent2": "hsl(298.7 55% 59%)"
   },
-  "fingerprint": "poster|split|metrics|serif|ribbon|ink|immersive|playful|2"
+  "fingerprint": "poster|split|metrics|serif|ribbon|ink|immersive|playful|2",
+  "copyVersion": "2.1.0"
 }

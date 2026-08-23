@@ -5,13 +5,13 @@
   "slug": "town-room-community",
   "sector": "공공·커뮤니티",
   "kind": "주민센터",
-  "tagline": "코르크 게시판와 달력을 중심으로 주민센터의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "코르크 게시판과 달력을 핵심 인터페이스로 삼아, 주민센터의 일정 탐색과 시간 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "일정 보기",
   "interaction": "schedule",
   "services": [
-    "주민센터 안내",
-    "맞춤 주민센터",
-    "주민센터 상담·예약"
+    "일정 탐색",
+    "시간·프로그램 선택",
+    "예약·참여 문의"
   ],
   "materials": [
     "코르크 게시판",
@@ -36,5 +36,6 @@
     "accent": "hsl(153.1 60% 54%)",
     "accent2": "hsl(287.1 49% 57%)"
   },
-  "fingerprint": "terminal|bottom|window|condensed|stamp|frame|airy|playful|4"
+  "fingerprint": "terminal|bottom|window|condensed|stamp|frame|airy|playful|4",
+  "copyVersion": "2.1.0"
 }

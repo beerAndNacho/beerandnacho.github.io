@@ -5,13 +5,13 @@
   "slug": "side-b-musician",
   "sector": "개인·실험",
   "kind": "뮤지션 포트폴리오",
-  "tagline": "회전 음반와 트랙 리스트을 중심으로 뮤지션 포트폴리오의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "회전 음반과 트랙 리스트를 핵심 인터페이스로 삼아, 뮤지션 포트폴리오의 콘텐츠 탐색과 재생 흐름을 한 화면에서 경험합니다.",
   "cta": "재생하기",
   "interaction": "audio",
   "services": [
-    "뮤지션 포트폴리오 안내",
-    "맞춤 뮤지션 포트폴리오",
-    "뮤지션 포트폴리오 상담·예약"
+    "콘텐츠 재생",
+    "목록·구간 탐색",
+    "수업·제작 문의"
   ],
   "materials": [
     "회전 음반",
@@ -36,5 +36,6 @@
     "accent": "hsl(225.7 60% 54%)",
     "accent2": "hsl(359.7 49% 57%)"
   },
-  "fingerprint": "wave|radial|radial|rounded|layer|isometric|dense|precise|4"
+  "fingerprint": "wave|radial|radial|rounded|layer|isometric|dense|precise|4",
+  "copyVersion": "2.1.0"
 }

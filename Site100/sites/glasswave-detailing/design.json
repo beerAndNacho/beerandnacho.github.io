@@ -5,13 +5,13 @@
   "slug": "glasswave-detailing",
   "sector": "지역 매장",
   "kind": "자동차 디테일링",
-  "tagline": "리퀴드 크롬와 차체 반사을 중심으로 자동차 디테일링의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "리퀴드 크롬과 차체 반사를 핵심 인터페이스로 삼아, 자동차 디테일링의 조건 비교와 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "비교하기",
   "interaction": "compare",
   "services": [
-    "자동차 디테일링 안내",
-    "맞춤 자동차 디테일링",
-    "자동차 디테일링 상담·예약"
+    "조건별 비교",
+    "추천 선택 확인",
+    "상담·예약"
   ],
   "materials": [
     "리퀴드 크롬",
@@ -36,5 +36,6 @@
     "accent": "hsl(275.6 72% 51%)",
     "accent2": "hsl(49.6 58% 60%)"
   },
-  "fingerprint": "timeline|minimal|map|wide|module|grid|compact|precise|1"
+  "fingerprint": "timeline|minimal|map|wide|module|grid|compact|precise|1",
+  "copyVersion": "2.1.0"
 }

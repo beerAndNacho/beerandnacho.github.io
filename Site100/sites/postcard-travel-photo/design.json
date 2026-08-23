@@ -5,13 +5,13 @@
   "slug": "postcard-travel-photo",
   "sector": "여행·숙박",
   "kind": "여행 사진관",
-  "tagline": "엽서 스택와 우표을 중심으로 여행 사진관의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "엽서 스택과 우표를 핵심 인터페이스로 삼아, 여행 사진관의 사례 탐색과 장면 확인 흐름을 한 화면에서 경험합니다.",
   "cta": "장면 보기",
   "interaction": "carousel",
   "services": [
-    "여행 사진관 안내",
-    "맞춤 여행 사진관",
-    "여행 사진관 상담·예약"
+    "대표 사례 탐색",
+    "세부 장면 보기",
+    "프로젝트 문의"
   ],
   "materials": [
     "엽서 스택",
@@ -36,5 +36,6 @@
     "accent": "hsl(179.0 64% 53%)",
     "accent2": "hsl(313.0 52% 58%)"
   },
-  "fingerprint": "newspaper|rail|map|rounded|round|grid|compact|digital|3"
+  "fingerprint": "newspaper|rail|map|rounded|round|grid|compact|digital|3",
+  "copyVersion": "2.1.0"
 }

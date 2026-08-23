@@ -5,13 +5,13 @@
   "slug": "formula-skincare",
   "sector": "웰니스·케어",
   "kind": "스킨케어 클리닉",
-  "tagline": "성분표와 투명 레이어을 중심으로 스킨케어 클리닉의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "성분표와 투명 레이어를 핵심 인터페이스로 삼아, 스킨케어 클리닉의 취향 조합과 맞춤 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "조합하기",
   "interaction": "mixer",
   "services": [
-    "스킨케어 클리닉 안내",
-    "맞춤 스킨케어 클리닉",
-    "스킨케어 클리닉 상담·예약"
+    "취향·조건 조합",
+    "추천 구성 확인",
+    "맞춤 상담"
   ],
   "materials": [
     "성분표",
@@ -36,5 +36,6 @@
     "accent": "hsl(289.8 68% 52%)",
     "accent2": "hsl(63.8 55% 59%)"
   },
-  "fingerprint": "notebook|top|poster|condensed|sharp|paper|dense|natural|2"
+  "fingerprint": "notebook|top|poster|condensed|sharp|paper|dense|natural|2",
+  "copyVersion": "2.1.0"
 }

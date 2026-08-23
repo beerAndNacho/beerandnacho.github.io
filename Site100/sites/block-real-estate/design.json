@@ -5,13 +5,13 @@
   "slug": "block-real-estate",
   "sector": "전문 서비스",
   "kind": "부동산",
-  "tagline": "전체 지도와 매물 핀을 중심으로 부동산의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "전체 지도와 매물 핀을 핵심 인터페이스로 삼아, 부동산의 위치 탐색과 경로 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "지도 보기",
   "interaction": "map",
   "services": [
-    "부동산 안내",
-    "맞춤 부동산",
-    "부동산 상담·예약"
+    "위치·구역 탐색",
+    "조건별 장소 확인",
+    "방문·이용 문의"
   ],
   "materials": [
     "전체 지도",
@@ -36,5 +36,6 @@
     "accent": "hsl(73.1 72% 51%)",
     "accent2": "hsl(207.1 58% 60%)"
   },
-  "fingerprint": "notebook|tabs|terminal|soft|blueprint|halftone|balanced|playful|1"
+  "fingerprint": "notebook|tabs|terminal|soft|blueprint|halftone|balanced|playful|1",
+  "copyVersion": "2.1.0"
 }

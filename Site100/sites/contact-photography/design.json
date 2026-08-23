@@ -5,13 +5,13 @@
   "slug": "contact-photography",
   "sector": "문화·창작",
   "kind": "사진작가",
-  "tagline": "콘택트시트와 암실 라이트을 중심으로 사진작가의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "콘택트시트와 암실 라이트를 핵심 인터페이스로 삼아, 사진작가의 조건 탐색과 항목 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "필터 열기",
   "interaction": "filter",
   "services": [
-    "사진작가 안내",
-    "맞춤 사진작가",
-    "사진작가 상담·예약"
+    "조건 필터",
+    "추천 목록 확인",
+    "선택 상담"
   ],
   "materials": [
     "콘택트시트",
@@ -36,5 +36,6 @@
     "accent": "hsl(328.9 64% 53%)",
     "accent2": "hsl(102.9 52% 58%)"
   },
-  "fingerprint": "horizontal|ticker|cinema|humanist|circle|documents|immersive|precise|3"
+  "fingerprint": "horizontal|ticker|cinema|humanist|circle|documents|immersive|precise|3",
+  "copyVersion": "2.1.0"
 }

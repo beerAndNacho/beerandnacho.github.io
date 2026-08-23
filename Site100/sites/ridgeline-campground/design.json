@@ -5,13 +5,13 @@
   "slug": "ridgeline-campground",
   "sector": "여행·숙박",
   "kind": "캠핑장",
-  "tagline": "등고선와 사이트 핀을 중심으로 캠핑장의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "등고선과 사이트 핀을 핵심 인터페이스로 삼아, 캠핑장의 위치 탐색과 경로 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "지도 보기",
   "interaction": "map",
   "services": [
-    "캠핑장 안내",
-    "맞춤 캠핑장",
-    "캠핑장 상담·예약"
+    "위치·구역 탐색",
+    "조건별 장소 확인",
+    "방문·이용 문의"
   ],
   "materials": [
     "등고선",
@@ -36,5 +36,6 @@
     "accent": "hsl(264.0 64% 53%)",
     "accent2": "hsl(38.0 52% 58%)"
   },
-  "fingerprint": "floorplan|ticker|timeline|humanist|circle|documents|immersive|precise|3"
+  "fingerprint": "floorplan|ticker|timeline|humanist|circle|documents|immersive|precise|3",
+  "copyVersion": "2.1.0"
 }

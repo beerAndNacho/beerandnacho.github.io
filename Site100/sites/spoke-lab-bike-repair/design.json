@@ -5,13 +5,13 @@
   "slug": "spoke-lab-bike-repair",
   "sector": "지역 매장",
   "kind": "자전거 수리",
-  "tagline": "자전거 분해도와 체인 링크을 중심으로 자전거 수리의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "자전거 분해도와 체인 링크를 핵심 인터페이스로 삼아, 자전거 수리의 핵심 정보 탐색과 상세 확인 흐름을 한 화면에서 경험합니다.",
   "cta": "레이어 열기",
   "interaction": "reveal",
   "services": [
-    "자전거 수리 안내",
-    "맞춤 자전거 수리",
-    "자전거 수리 상담·예약"
+    "핵심 정보 탐색",
+    "세부 레이어 확인",
+    "상담·문의"
   ],
   "materials": [
     "자전거 분해도",
@@ -36,5 +36,6 @@
     "accent": "hsl(223.0 72% 51%)",
     "accent2": "hsl(357.0 58% 60%)"
   },
-  "fingerprint": "terminal|split|poster|contrast|ribbon|paper|dense|industrial|1"
+  "fingerprint": "terminal|split|poster|contrast|ribbon|paper|dense|industrial|1",
+  "copyVersion": "2.1.0"
 }

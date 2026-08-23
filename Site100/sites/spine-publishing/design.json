@@ -5,13 +5,13 @@
   "slug": "spine-publishing",
   "sector": "문화·창작",
   "kind": "출판사",
-  "tagline": "책등 메뉴와 페이지 넘김을 중심으로 출판사의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "책등 메뉴와 페이지 넘김을 핵심 인터페이스로 삼아, 출판사의 사례 탐색과 장면 확인 흐름을 한 화면에서 경험합니다.",
   "cta": "장면 보기",
   "interaction": "carousel",
   "services": [
-    "출판사 안내",
-    "맞춤 출판사",
-    "출판사 상담·예약"
+    "대표 사례 탐색",
+    "세부 장면 보기",
+    "프로젝트 문의"
   ],
   "materials": [
     "책등 메뉴",
@@ -36,5 +36,6 @@
     "accent": "hsl(243.9 64% 53%)",
     "accent2": "hsl(17.9 52% 58%)"
   },
-  "fingerprint": "dashboard|rail|mosaic|rounded|round|grid|compact|digital|3"
+  "fingerprint": "dashboard|rail|mosaic|rounded|round|grid|compact|digital|3",
+  "copyVersion": "2.1.0"
 }

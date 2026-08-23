@@ -5,13 +5,13 @@
   "slug": "blockstage-nocode",
   "sector": "SaaS·기술",
   "kind": "노코드 빌더",
-  "tagline": "콘텐츠 블록와 드래그 캔버스을 중심으로 노코드 빌더의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "콘텐츠 블록과 드래그 캔버스를 핵심 인터페이스로 삼아, 노코드 빌더의 구성 조립과 결과 미리보기 흐름을 한 화면에서 경험합니다.",
   "cta": "조립하기",
   "interaction": "build",
   "services": [
-    "노코드 빌더 안내",
-    "맞춤 노코드 빌더",
-    "노코드 빌더 상담·예약"
+    "구성 요소 선택",
+    "결과 미리보기",
+    "맞춤 제작 문의"
   ],
   "materials": [
     "콘텐츠 블록",
@@ -36,5 +36,6 @@
     "accent": "hsl(178.2 72% 51%)",
     "accent2": "hsl(312.2 58% 60%)"
   },
-  "fingerprint": "collage|dock|shelf|condensed|organic|light|compact|experimental|1"
+  "fingerprint": "collage|dock|shelf|condensed|organic|light|compact|experimental|1",
+  "copyVersion": "2.1.0"
 }

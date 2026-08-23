@@ -5,13 +5,13 @@
   "slug": "people-first-recruiting",
   "sector": "전문 서비스",
   "kind": "채용회사",
-  "tagline": "인재 카드와 역량 태그을 중심으로 채용회사의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "인재 카드와 역량 태그를 핵심 인터페이스로 삼아, 채용회사의 조건 탐색과 항목 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "필터 열기",
   "interaction": "filter",
   "services": [
-    "채용회사 안내",
-    "맞춤 채용회사",
-    "채용회사 상담·예약"
+    "조건 필터",
+    "추천 목록 확인",
+    "선택 상담"
   ],
   "materials": [
     "인재 카드",
@@ -36,5 +36,6 @@
     "accent": "hsl(243.1 72% 51%)",
     "accent2": "hsl(17.1 58% 60%)"
   },
-  "fingerprint": "masonry|dock|drawer|condensed|organic|light|compact|experimental|1"
+  "fingerprint": "masonry|dock|drawer|condensed|organic|light|compact|experimental|1",
+  "copyVersion": "2.1.0"
 }

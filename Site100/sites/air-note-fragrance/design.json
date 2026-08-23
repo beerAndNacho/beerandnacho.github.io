@@ -5,13 +5,13 @@
   "slug": "air-note-fragrance",
   "sector": "음식·라이프스타일",
   "kind": "홈 프래그런스",
-  "tagline": "향 원형 차트와 연기 선을 중심으로 홈 프래그런스의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "향 원형 차트와 연기 선을 핵심 인터페이스로 삼아, 홈 프래그런스의 취향 조합과 맞춤 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "조합하기",
   "interaction": "mixer",
   "services": [
-    "홈 프래그런스 안내",
-    "맞춤 홈 프래그런스",
-    "홈 프래그런스 상담·예약"
+    "취향·조건 조합",
+    "추천 구성 확인",
+    "맞춤 상담"
   ],
   "materials": [
     "향 원형 차트",
@@ -36,5 +36,6 @@
     "accent": "hsl(100.6 60% 54%)",
     "accent2": "hsl(234.6 49% 57%)"
   },
-  "fingerprint": "dashboard|minimal|timeline|neo|module|documents|immersive|luxury|4"
+  "fingerprint": "dashboard|minimal|timeline|neo|module|documents|immersive|luxury|4",
+  "copyVersion": "2.1.0"
 }

@@ -5,13 +5,13 @@
   "slug": "ledger-accounting",
   "sector": "전문 서비스",
   "kind": "회계사무소",
-  "tagline": "회계 장부와 월별 표을 중심으로 회계사무소의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "회계 장부와 월별 표를 핵심 인터페이스로 삼아, 회계사무소의 조건 입력과 결과 계산 흐름을 한 화면에서 경험합니다.",
   "cta": "계산하기",
   "interaction": "calculate",
   "services": [
-    "회계사무소 안내",
-    "맞춤 회계사무소",
-    "회계사무소 상담·예약"
+    "조건 입력",
+    "결과 계산",
+    "결과 기반 상담"
   ],
   "materials": [
     "회계 장부",
@@ -36,5 +36,6 @@
     "accent": "hsl(190.6 72% 51%)",
     "accent2": "hsl(324.6 58% 60%)"
   },
-  "fingerprint": "floorplan|corner|notebook|neo|paper|isometric|dense|digital|1"
+  "fingerprint": "floorplan|corner|notebook|neo|paper|isometric|dense|digital|1",
+  "copyVersion": "2.1.0"
 }

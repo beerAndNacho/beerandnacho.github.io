@@ -5,13 +5,13 @@
   "slug": "kindday-senior-care",
   "sector": "웰니스·케어",
   "kind": "시니어 케어",
-  "tagline": "큰 시간표와 높은 대비을 중심으로 시니어 케어의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "큰 시간표와 높은 대비를 핵심 인터페이스로 삼아, 시니어 케어의 일정 탐색과 시간 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "일정 보기",
   "interaction": "schedule",
   "services": [
-    "시니어 케어 안내",
-    "맞춤 시니어 케어",
-    "시니어 케어 상담·예약"
+    "일정 탐색",
+    "시간·프로그램 선택",
+    "예약·참여 문의"
   ],
   "materials": [
     "큰 시간표",
@@ -36,5 +36,6 @@
     "accent": "hsl(257.4 68% 52%)",
     "accent2": "hsl(31.4 55% 59%)"
   },
-  "fingerprint": "glass|ticker|notebook|wide|circle|isometric|dense|quiet|2"
+  "fingerprint": "glass|ticker|notebook|wide|circle|isometric|dense|quiet|2",
+  "copyVersion": "2.1.0"
 }

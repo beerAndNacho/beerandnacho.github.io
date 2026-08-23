@@ -5,13 +5,13 @@
   "slug": "fieldkit-outdoor",
   "sector": "음식·라이프스타일",
   "kind": "아웃도어 브랜드",
-  "tagline": "필드 매뉴얼와 장비 체크을 중심으로 아웃도어 브랜드의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "필드 매뉴얼과 장비 체크를 핵심 인터페이스로 삼아, 아웃도어 브랜드의 구성 조립과 결과 미리보기 흐름을 한 화면에서 경험합니다.",
   "cta": "조립하기",
   "interaction": "build",
   "services": [
-    "아웃도어 브랜드 안내",
-    "맞춤 아웃도어 브랜드",
-    "아웃도어 브랜드 상담·예약"
+    "구성 요소 선택",
+    "결과 미리보기",
+    "맞춤 제작 문의"
   ],
   "materials": [
     "필드 매뉴얼",
@@ -36,5 +36,6 @@
     "accent": "hsl(238.1 60% 54%)",
     "accent2": "hsl(12.1 49% 57%)"
   },
-  "fingerprint": "poster|top|wave|mono|sharp|halftone|balanced|industrial|4"
+  "fingerprint": "poster|top|wave|mono|sharp|halftone|balanced|industrial|4",
+  "copyVersion": "2.1.0"
 }

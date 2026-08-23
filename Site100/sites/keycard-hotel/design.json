@@ -5,13 +5,13 @@
   "slug": "keycard-hotel",
   "sector": "여행·숙박",
   "kind": "부티크 호텔",
-  "tagline": "키카드 메뉴와 객실 번호을 중심으로 부티크 호텔의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "키카드 메뉴와 객실 번호를 핵심 인터페이스로 삼아, 부티크 호텔의 일정 탐색과 예약 흐름을 한 화면에서 경험합니다.",
   "cta": "예약하기",
   "interaction": "booking",
   "services": [
-    "부티크 호텔 안내",
-    "맞춤 부티크 호텔",
-    "부티크 호텔 상담·예약"
+    "부티크 호텔 프로그램 보기",
+    "날짜·시간 선택",
+    "예약 전 안내"
   ],
   "materials": [
     "키카드 메뉴",
@@ -36,5 +36,6 @@
     "accent": "hsl(126.5 64% 53%)",
     "accent2": "hsl(260.5 52% 58%)"
   },
-  "fingerprint": "split|dock|poster|mono|organic|paper|dense|playful|3"
+  "fingerprint": "split|dock|poster|mono|organic|paper|dense|playful|3",
+  "copyVersion": "2.1.0"
 }

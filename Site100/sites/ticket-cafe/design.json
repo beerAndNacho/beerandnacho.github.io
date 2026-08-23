@@ -5,13 +5,13 @@
   "slug": "ticket-cafe",
   "sector": "음식·라이프스타일",
   "kind": "카페",
-  "tagline": "영수증 롤와 주문 번호을 중심으로 카페의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "영수증 롤과 주문 번호를 핵심 인터페이스로 삼아, 카페의 메뉴 탐색과 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "메뉴 고르기",
   "interaction": "menu",
   "services": [
-    "카페 안내",
-    "맞춤 카페",
-    "카페 상담·예약"
+    "대표 메뉴 둘러보기",
+    "오늘의 추천 선택",
+    "예약·단체 문의"
   ],
   "materials": [
     "영수증 롤",
@@ -36,5 +36,6 @@
     "accent": "hsl(199.1 64% 53%)",
     "accent2": "hsl(333.1 52% 58%)"
   },
-  "fingerprint": "cinema|ticker|cinema|humanist|circle|documents|immersive|precise|3"
+  "fingerprint": "cinema|ticker|cinema|humanist|circle|documents|immersive|precise|3",
+  "copyVersion": "2.1.0"
 }

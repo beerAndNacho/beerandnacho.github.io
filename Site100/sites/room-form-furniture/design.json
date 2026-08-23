@@ -5,13 +5,13 @@
   "slug": "room-form-furniture",
   "sector": "문화·창작",
   "kind": "가구 작업실",
-  "tagline": "아이소메트릭 방와 가구 블록을 중심으로 가구 작업실의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "아이소메트릭 방과 가구 블록을 핵심 인터페이스로 삼아, 가구 작업실의 옵션 구성과 맞춤 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "구성하기",
   "interaction": "configure",
   "services": [
-    "가구 작업실 안내",
-    "맞춤 가구 작업실",
-    "가구 작업실 상담·예약"
+    "옵션 선택",
+    "구성 결과 확인",
+    "맞춤 주문 문의"
   ],
   "materials": [
     "아이소메트릭 방",
@@ -36,5 +36,6 @@
     "accent": "hsl(74.0 64% 53%)",
     "accent2": "hsl(208.0 52% 58%)"
   },
-  "fingerprint": "radial|corner|split|wide|paper|vector|balanced|luxury|3"
+  "fingerprint": "radial|corner|split|wide|paper|vector|balanced|luxury|3",
+  "copyVersion": "2.1.0"
 }

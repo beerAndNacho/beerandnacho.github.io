@@ -5,13 +5,13 @@
   "slug": "break-surf-school",
   "sector": "여행·숙박",
   "kind": "서핑스쿨",
-  "tagline": "파도 컷와 조수 시간을 중심으로 서핑스쿨의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "파도 컷과 조수 시간을 핵심 인터페이스로 삼아, 서핑스쿨의 일정 탐색과 시간 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "일정 보기",
   "interaction": "schedule",
   "services": [
-    "서핑스쿨 안내",
-    "맞춤 서핑스쿨",
-    "서핑스쿨 상담·예약"
+    "일정 탐색",
+    "시간·프로그램 선택",
+    "예약·참여 문의"
   ],
   "materials": [
     "파도 컷",
@@ -36,5 +36,6 @@
     "accent": "hsl(316.5 64% 53%)",
     "accent2": "hsl(90.5 52% 58%)"
   },
-  "fingerprint": "masonry|tabs|window|contrast|blueprint|frame|airy|natural|3"
+  "fingerprint": "masonry|tabs|window|contrast|blueprint|frame|airy|natural|3",
+  "copyVersion": "2.1.0"
 }

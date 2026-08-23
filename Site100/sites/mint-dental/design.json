@@ -5,13 +5,13 @@
   "slug": "mint-dental",
   "sector": "웰니스·케어",
   "kind": "치과",
-  "tagline": "스위스 그리드와 진료 단계을 중심으로 치과의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "스위스 그리드와 진료 단계를 핵심 인터페이스로 삼아, 치과의 일정 탐색과 예약 흐름을 한 화면에서 경험합니다.",
   "cta": "예약하기",
   "interaction": "booking",
   "services": [
-    "치과 안내",
-    "맞춤 치과",
-    "치과 상담·예약"
+    "치과 프로그램 보기",
+    "날짜·시간 선택",
+    "예약 전 안내"
   ],
   "materials": [
     "스위스 그리드",
@@ -36,5 +36,6 @@
     "accent": "hsl(152.3 68% 52%)",
     "accent2": "hsl(286.3 55% 59%)"
   },
-  "fingerprint": "wave|minimal|room|humanist|module|glass|airy|digital|2"
+  "fingerprint": "wave|minimal|room|humanist|module|glass|airy|digital|2",
+  "copyVersion": "2.1.0"
 }

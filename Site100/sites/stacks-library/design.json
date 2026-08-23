@@ -5,13 +5,13 @@
   "slug": "stacks-library",
   "sector": "교육·지식",
   "kind": "디지털 도서관",
-  "tagline": "가상 책등와 검색 필터을 중심으로 디지털 도서관의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "가상 책등과 검색 필터를 핵심 인터페이스로 삼아, 디지털 도서관의 조건 탐색과 항목 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "필터 열기",
   "interaction": "filter",
   "services": [
-    "디지털 도서관 안내",
-    "맞춤 디지털 도서관",
-    "디지털 도서관 상담·예약"
+    "조건 필터",
+    "추천 목록 확인",
+    "선택 상담"
   ],
   "materials": [
     "가상 책등",
@@ -36,5 +36,6 @@
     "accent": "hsl(99.8 68% 52%)",
     "accent2": "hsl(233.8 55% 59%)"
   },
-  "fingerprint": "masonry|split|monolith|serif|ribbon|ink|immersive|playful|2"
+  "fingerprint": "masonry|split|monolith|serif|ribbon|ink|immersive|playful|2",
+  "copyVersion": "2.1.0"
 }

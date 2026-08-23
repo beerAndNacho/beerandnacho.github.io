@@ -5,13 +5,13 @@
   "slug": "open-hand-nonprofit",
   "sector": "공공·커뮤니티",
   "kind": "비영리단체",
-  "tagline": "임팩트 장부와 기부 흐름을 중심으로 비영리단체의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "임팩트 장부와 기부 흐름을 핵심 인터페이스로 삼아, 비영리단체의 후원 선택과 변화 확인 흐름을 한 화면에서 경험합니다.",
   "cta": "후원하기",
   "interaction": "donation",
   "services": [
-    "비영리단체 안내",
-    "맞춤 비영리단체",
-    "비영리단체 상담·예약"
+    "후원 금액 선택",
+    "사용처·영향 확인",
+    "정기 후원 안내"
   ],
   "materials": [
     "임팩트 장부",
@@ -36,5 +36,6 @@
     "accent": "hsl(15.6 60% 54%)",
     "accent2": "hsl(149.6 49% 57%)"
   },
-  "fingerprint": "book|corner|map|humanist|paper|grid|compact|quiet|4"
+  "fingerprint": "book|corner|map|humanist|paper|grid|compact|quiet|4",
+  "copyVersion": "2.1.0"
 }

@@ -5,13 +5,13 @@
   "slug": "skyway-airline",
   "sector": "여행·숙박",
   "kind": "항공 서비스",
-  "tagline": "탑승권와 게이트 전광판을 중심으로 항공 서비스의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "탑승권과 게이트 전광판을 핵심 인터페이스로 삼아, 항공 서비스의 일정 탐색과 시간 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "일정 보기",
   "interaction": "schedule",
   "services": [
-    "항공 서비스 안내",
-    "맞춤 항공 서비스",
-    "항공 서비스 상담·예약"
+    "일정 탐색",
+    "시간·프로그램 선택",
+    "예약·참여 문의"
   ],
   "materials": [
     "탑승권",
@@ -36,5 +36,6 @@
     "accent": "hsl(9.0 64% 53%)",
     "accent2": "hsl(143.0 52% 58%)"
   },
-  "fingerprint": "wave|corner|ticket|wide|paper|vector|balanced|luxury|3"
+  "fingerprint": "wave|corner|ticket|wide|paper|vector|balanced|luxury|3",
+  "copyVersion": "2.1.0"
 }

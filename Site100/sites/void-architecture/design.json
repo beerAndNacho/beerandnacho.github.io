@@ -5,13 +5,13 @@
   "slug": "void-architecture",
   "sector": "전문 서비스",
   "kind": "건축사무소",
-  "tagline": "평면도와 단면선을 중심으로 건축사무소의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "평면도와 단면선을 핵심 인터페이스로 삼아, 건축사무소의 사례 탐색과 장면 확인 흐름을 한 화면에서 경험합니다.",
   "cta": "장면 보기",
   "interaction": "carousel",
   "services": [
-    "건축사무소 안내",
-    "맞춤 건축사무소",
-    "건축사무소 상담·예약"
+    "대표 사례 탐색",
+    "세부 장면 보기",
+    "프로젝트 문의"
   ],
   "materials": [
     "평면도",
@@ -36,5 +36,6 @@
     "accent": "hsl(328.1 72% 51%)",
     "accent2": "hsl(102.1 58% 60%)"
   },
-  "fingerprint": "ticket|bottom|metrics|mono|stamp|ink|immersive|natural|1"
+  "fingerprint": "ticket|bottom|metrics|mono|stamp|ink|immersive|natural|1",
+  "copyVersion": "2.1.0"
 }

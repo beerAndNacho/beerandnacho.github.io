@@ -5,13 +5,13 @@
   "slug": "move-line-moving",
   "sector": "지역 매장",
   "kind": "이사 서비스",
-  "tagline": "이동 경로와 박스 라벨을 중심으로 이사 서비스의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "이동 경로와 박스 라벨을 핵심 인터페이스로 삼아, 이사 서비스의 과정 이해와 단계 확인 흐름을 한 화면에서 경험합니다.",
   "cta": "과정 보기",
   "interaction": "timeline",
   "services": [
-    "이사 서비스 안내",
-    "맞춤 이사 서비스",
-    "이사 서비스 상담·예약"
+    "전체 과정 보기",
+    "단계별 준비사항",
+    "진행 상담"
   ],
   "materials": [
     "이동 경로",
@@ -36,5 +36,6 @@
     "accent": "hsl(138.1 72% 51%)",
     "accent2": "hsl(272.1 58% 60%)"
   },
-  "fingerprint": "shelf|tabs|wave|soft|blueprint|halftone|balanced|playful|1"
+  "fingerprint": "shelf|tabs|wave|soft|blueprint|halftone|balanced|playful|1",
+  "copyVersion": "2.1.0"
 }

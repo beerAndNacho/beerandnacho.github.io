@@ -5,13 +5,13 @@
   "slug": "endpoint-api",
   "sector": "SaaS·기술",
   "kind": "API 서비스",
-  "tagline": "코드 콘솔와 응답 패널을 중심으로 API 서비스의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "코드 콘솔과 응답 패널을 핵심 인터페이스로 삼아, API 서비스의 기능 실행과 결과 확인 흐름을 한 화면에서 경험합니다.",
   "cta": "실행하기",
   "interaction": "command",
   "services": [
-    "API 서비스 안내",
-    "맞춤 API 서비스",
-    "API 서비스 상담·예약"
+    "명령·기능 실행",
+    "결과·상태 확인",
+    "도입 상담"
   ],
   "materials": [
     "코드 콘솔",
@@ -36,5 +36,6 @@
     "accent": "hsl(112.2 68% 52%)",
     "accent2": "hsl(246.2 55% 59%)"
   },
-  "fingerprint": "horizontal|radial|map|technical|layer|grid|compact|luxury|2"
+  "fingerprint": "horizontal|radial|map|technical|layer|grid|compact|luxury|2",
+  "copyVersion": "2.1.0"
 }

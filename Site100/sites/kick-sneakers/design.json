@@ -5,13 +5,13 @@
   "slug": "kick-sneakers",
   "sector": "음식·라이프스타일",
   "kind": "스니커즈숍",
-  "tagline": "운동화 분해도와 색상 탭을 중심으로 스니커즈숍의 실제 선택을 화면에서 경험합니다.",
+  "tagline": "운동화 분해도와 색상 탭을 핵심 인터페이스로 삼아, 스니커즈숍의 옵션 구성과 맞춤 선택 흐름을 한 화면에서 경험합니다.",
   "cta": "구성하기",
   "interaction": "configure",
   "services": [
-    "스니커즈숍 안내",
-    "맞춤 스니커즈숍",
-    "스니커즈숍 상담·예약"
+    "옵션 선택",
+    "구성 결과 확인",
+    "맞춤 주문 문의"
   ],
   "materials": [
     "운동화 분해도",
@@ -36,5 +36,6 @@
     "accent": "hsl(185.6 60% 54%)",
     "accent2": "hsl(319.6 49% 57%)"
   },
-  "fingerprint": "horizontal|rail|room|wide|round|glass|airy|public|4"
+  "fingerprint": "horizontal|rail|room|wide|round|glass|airy|public|4",
+  "copyVersion": "2.1.0"
 }
