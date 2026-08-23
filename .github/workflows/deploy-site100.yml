@@ -44,7 +44,7 @@ jobs:
       - name: Verify v2 build output
         run: |
           set -euo pipefail
-          echo 'Publishing Site100 verified build v2.'
+          echo 'Publishing Site100 verified build v2.1.'
           test -s source/dist/index.html
           test -s source/dist/assets/catalog.js
           test -s source/dist/assets/app.js
@@ -79,8 +79,8 @@ jobs:
           test -s source/dist/sites/still-yoga/index.html
           test -s source/dist/sites/framework-film/index.html
           test -s source/dist/sites/dal-hanok-stay/index.html
-          test -s source/dist/sites/table-7/index.html
-          test -s source/dist/sites/open-hand/index.html
+          test -s source/dist/sites/table7-restaurant/index.html
+          test -s source/dist/sites/open-hand-nonprofit/index.html
           test -s source/dist/sites/desktop-cv/index.html
           test -s source/dist/sites/100worlds-gallery/index.html
 
