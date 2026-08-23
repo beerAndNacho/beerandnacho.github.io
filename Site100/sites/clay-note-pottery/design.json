@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 59,
+  "name": "CLAY NOTE 도예공방",
+  "slug": "clay-note-pottery",
+  "sector": "문화·창작",
+  "kind": "도예공방",
+  "tagline": "회전 원형와 흙 질감을 중심으로 도예공방의 실제 선택을 화면에서 경험합니다.",
+  "cta": "장면 보기",
+  "interaction": "carousel",
+  "services": [
+    "도예공방 안내",
+    "맞춤 도예공방",
+    "도예공방 상담·예약"
+  ],
+  "materials": [
+    "회전 원형",
+    "흙 질감",
+    "유약 표본",
+    "작품 받침"
+  ],
+  "contentSignature": "도예공방|carousel|회전 원형|흙 질감|유약 표본|작품 받침",
+  "layout": "shelf",
+  "nav": "bottom",
+  "hero": "shelf",
+  "type": "serif",
+  "geometry": "stamp",
+  "medium": "light",
+  "density": "compact",
+  "mood": "industrial",
+  "variant": 3,
+  "palette": {
+    "bg": "hsl(93.5 26% 15%)",
+    "surface": "hsl(125.5 22% 85%)",
+    "ink": "hsl(283.5 28% 11%)",
+    "accent": "hsl(211.5 64% 53%)",
+    "accent2": "hsl(345.5 52% 58%)"
+  },
+  "fingerprint": "shelf|bottom|shelf|serif|stamp|light|compact|industrial|3"
+}

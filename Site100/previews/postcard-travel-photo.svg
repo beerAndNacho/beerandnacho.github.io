@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">POSTCARD 여행 사진관 디자인 미리보기</title>
+  <desc id="desc">newspaper 레이아웃, map 히어로, 여행 사진관 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(61.0 26% 15%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(93.0 22% 85%)" stroke="hsl(251.0 28% 11%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(251.0 28% 11%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(179.0 64% 53%)"/>
+  <text x="70" y="52" fill="hsl(93.0 22% 85%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 064 · 여행 사진관</text>
+  <line x1="38" y1="122" x2="592" y2="122" stroke="hsl(251.0 28% 11%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="561" y2="164" stroke="hsl(251.0 28% 11%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="690" y2="206" stroke="hsl(251.0 28% 11%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="659" y2="248" stroke="hsl(251.0 28% 11%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="628" y2="290" stroke="hsl(251.0 28% 11%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="597" y2="332" stroke="hsl(251.0 28% 11%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="566" y2="374" stroke="hsl(251.0 28% 11%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="695" y2="416" stroke="hsl(251.0 28% 11%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="664" y2="458" stroke="hsl(251.0 28% 11%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="244" y="183" width="112" height="24" rx="12" fill="hsl(179.0 64% 53%)" opacity=".94"/><rect x="333" y="244" width="155" height="53" rx="26.5" fill="hsl(313.0 52% 58%)" opacity=".94"/><rect x="422" y="305" width="198" height="20" rx="10" fill="hsl(93.0 22% 85%)" opacity=".72"/><rect x="511" y="366" width="91" height="49" rx="24.5" fill="hsl(179.0 64% 53%)" opacity=".94"/><rect x="100" y="427" width="134" height="16" rx="8" fill="hsl(313.0 52% 58%)" opacity=".94"/><rect x="189" y="128" width="177" height="45" rx="22.5" fill="hsl(93.0 22% 85%)" opacity=".72"/><rect x="278" y="189" width="70" height="74" rx="35" fill="hsl(179.0 64% 53%)" opacity=".94"/><rect x="367" y="250" width="113" height="41" rx="20.5" fill="hsl(313.0 52% 58%)" opacity=".94"/>
+  <circle cx="648" cy="230" r="78" fill="none" stroke="hsl(179.0 64% 53%)" stroke-width="18" opacity=".82"/>
+  <circle cx="648" cy="230" r="43" fill="hsl(313.0 52% 58%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(251.0 28% 11%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">POSTCARD 여행 사진관</text>
+  <text x="55" y="462" fill="hsl(251.0 28% 11%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">newspaper / map / grid</text>
+</svg>

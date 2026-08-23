@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 13,
+  "name": "VOID 건축사무소",
+  "slug": "void-architecture",
+  "sector": "전문 서비스",
+  "kind": "건축사무소",
+  "tagline": "평면도와 단면선을 중심으로 건축사무소의 실제 선택을 화면에서 경험합니다.",
+  "cta": "장면 보기",
+  "interaction": "carousel",
+  "services": [
+    "건축사무소 안내",
+    "맞춤 건축사무소",
+    "건축사무소 상담·예약"
+  ],
+  "materials": [
+    "평면도",
+    "단면선",
+    "재료 샘플",
+    "모형 프레임"
+  ],
+  "contentSignature": "건축사무소|carousel|평면도|단면선|재료 샘플|모형 프레임",
+  "layout": "ticket",
+  "nav": "bottom",
+  "hero": "metrics",
+  "type": "mono",
+  "geometry": "stamp",
+  "medium": "ink",
+  "density": "immersive",
+  "mood": "natural",
+  "variant": 1,
+  "palette": {
+    "bg": "hsl(210.1 26% 11%)",
+    "surface": "hsl(242.1 22% 91%)",
+    "ink": "hsl(40.1 28% 9%)",
+    "accent": "hsl(328.1 72% 51%)",
+    "accent2": "hsl(102.1 58% 60%)"
+  },
+  "fingerprint": "ticket|bottom|metrics|mono|stamp|ink|immersive|natural|1"
+}

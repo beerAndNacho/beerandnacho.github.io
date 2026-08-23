@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 53,
+  "name": "OFFSET 디자인 에이전시",
+  "slug": "offset-design-agency",
+  "sector": "문화·창작",
+  "kind": "디자인 에이전시",
+  "tagline": "분할 커서와 콜라주 조각을 중심으로 디자인 에이전시의 실제 선택을 화면에서 경험합니다.",
+  "cta": "배치하기",
+  "interaction": "drag",
+  "services": [
+    "디자인 에이전시 안내",
+    "맞춤 디자인 에이전시",
+    "디자인 에이전시 상담·예약"
+  ],
+  "materials": [
+    "분할 커서",
+    "콜라주 조각",
+    "오프셋 인쇄",
+    "프로젝트 스티커"
+  ],
+  "contentSignature": "디자인 에이전시|drag|분할 커서|콜라주 조각|오프셋 인쇄|프로젝트 스티커",
+  "layout": "map",
+  "nav": "split",
+  "hero": "terminal",
+  "type": "condensed",
+  "geometry": "ribbon",
+  "medium": "halftone",
+  "density": "balanced",
+  "mood": "warm",
+  "variant": 3,
+  "palette": {
+    "bg": "hsl(348.4 26% 15%)",
+    "surface": "hsl(20.4 22% 85%)",
+    "ink": "hsl(178.4 28% 11%)",
+    "accent": "hsl(106.4 64% 53%)",
+    "accent2": "hsl(240.4 52% 58%)"
+  },
+  "fingerprint": "map|split|terminal|condensed|ribbon|halftone|balanced|warm|3"
+}

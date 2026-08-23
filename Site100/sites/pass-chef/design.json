@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 94,
+  "name": "PASS 셰프 포트폴리오",
+  "slug": "pass-chef",
+  "sector": "개인·실험",
+  "kind": "셰프 포트폴리오",
+  "tagline": "레시피 노트와 주문 티켓을 중심으로 셰프 포트폴리오의 실제 선택을 화면에서 경험합니다.",
+  "cta": "메뉴 고르기",
+  "interaction": "menu",
+  "services": [
+    "셰프 포트폴리오 안내",
+    "맞춤 셰프 포트폴리오",
+    "셰프 포트폴리오 상담·예약"
+  ],
+  "materials": [
+    "레시피 노트",
+    "주문 티켓",
+    "재료 표",
+    "플레이팅 스케치"
+  ],
+  "contentSignature": "셰프 포트폴리오|menu|레시피 노트|주문 티켓|재료 표|플레이팅 스케치",
+  "layout": "notebook",
+  "nav": "dock",
+  "hero": "monolith",
+  "type": "contrast",
+  "geometry": "organic",
+  "medium": "ink",
+  "density": "immersive",
+  "mood": "warm",
+  "variant": 4,
+  "palette": {
+    "bg": "hsl(245.2 26% 17%)",
+    "surface": "hsl(277.2 22% 82%)",
+    "ink": "hsl(75.2 28% 12%)",
+    "accent": "hsl(3.2 60% 54%)",
+    "accent2": "hsl(137.2 49% 57%)"
+  },
+  "fingerprint": "notebook|dock|monolith|contrast|organic|ink|immersive|warm|4"
+}

@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 6,
+  "name": "PUPPY PARADE 애견미용",
+  "slug": "puppy-parade-grooming",
+  "sector": "지역 매장",
+  "kind": "애견미용",
+  "tagline": "반려견 프로필와 미용 가위을 중심으로 애견미용의 실제 선택을 화면에서 경험합니다.",
+  "cta": "예약하기",
+  "interaction": "booking",
+  "services": [
+    "애견미용 안내",
+    "맞춤 애견미용",
+    "애견미용 상담·예약"
+  ],
+  "materials": [
+    "반려견 프로필",
+    "미용 가위",
+    "스티커 배지",
+    "예약 카드"
+  ],
+  "contentSignature": "애견미용|booking|반려견 프로필|미용 가위|스티커 배지|예약 카드",
+  "layout": "book",
+  "nav": "ticker",
+  "hero": "room",
+  "type": "rounded",
+  "geometry": "circle",
+  "medium": "glass",
+  "density": "airy",
+  "mood": "luxury",
+  "variant": 1,
+  "palette": {
+    "bg": "hsl(327.5 26% 11%)",
+    "surface": "hsl(359.5 22% 91%)",
+    "ink": "hsl(157.5 28% 9%)",
+    "accent": "hsl(85.5 72% 51%)",
+    "accent2": "hsl(219.5 58% 60%)"
+  },
+  "fingerprint": "book|ticker|room|rounded|circle|glass|airy|luxury|1"
+}

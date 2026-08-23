@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 43,
+  "name": "MINT 치과",
+  "slug": "mint-dental",
+  "sector": "웰니스·케어",
+  "kind": "치과",
+  "tagline": "스위스 그리드와 진료 단계을 중심으로 치과의 실제 선택을 화면에서 경험합니다.",
+  "cta": "예약하기",
+  "interaction": "booking",
+  "services": [
+    "치과 안내",
+    "맞춤 치과",
+    "치과 상담·예약"
+  ],
+  "materials": [
+    "스위스 그리드",
+    "진료 단계",
+    "예약 슬롯",
+    "관리 아이콘"
+  ],
+  "contentSignature": "치과|booking|스위스 그리드|진료 단계|예약 슬롯|관리 아이콘",
+  "layout": "wave",
+  "nav": "minimal",
+  "hero": "room",
+  "type": "humanist",
+  "geometry": "module",
+  "medium": "glass",
+  "density": "airy",
+  "mood": "digital",
+  "variant": 2,
+  "palette": {
+    "bg": "hsl(34.3 26% 13%)",
+    "surface": "hsl(66.3 22% 88%)",
+    "ink": "hsl(224.3 28% 10%)",
+    "accent": "hsl(152.3 68% 52%)",
+    "accent2": "hsl(286.3 55% 59%)"
+  },
+  "fingerprint": "wave|minimal|room|humanist|module|glass|airy|digital|2"
+}

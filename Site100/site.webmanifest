@@ -1,0 +1,18 @@
+{
+  "name": "100WORLDS · Site100",
+  "short_name": "100WORLDS",
+  "description": "업종의 실제 사물과 행동을 화면 구조로 옮긴 서로 다른 반응형 홈페이지 디자인 100개. 검색, 추천, 비교, 즐겨찾기와 맞춤 미리보기를 제공합니다.",
+  "start_url": "/Site100/",
+  "scope": "/Site100/",
+  "display": "standalone",
+  "background_color": "#111715",
+  "theme_color": "#111715",
+  "icons": [
+    {
+      "src": "/Site100/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

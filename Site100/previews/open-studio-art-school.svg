@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">OPEN STUDIO 미술학교 디자인 미리보기</title>
+  <desc id="desc">radial 레이아웃, book 히어로, 미술학교 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(99.3 26% 13%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(131.3 22% 88%)" stroke="hsl(289.3 28% 10%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(289.3 28% 10%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(217.3 68% 52%)"/>
+  <text x="70" y="52" fill="hsl(131.3 22% 88%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 033 · 미술학교</text>
+  <line x1="38" y1="122" x2="719" y2="122" stroke="hsl(289.3 28% 10%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="688" y2="164" stroke="hsl(289.3 28% 10%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="657" y2="206" stroke="hsl(289.3 28% 10%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="626" y2="248" stroke="hsl(289.3 28% 10%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="595" y2="290" stroke="hsl(289.3 28% 10%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="564" y2="332" stroke="hsl(289.3 28% 10%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="693" y2="374" stroke="hsl(289.3 28% 10%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="662" y2="416" stroke="hsl(289.3 28% 10%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="631" y2="458" stroke="hsl(289.3 28% 10%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="237" y="416" width="105" height="55" rx="0" fill="hsl(217.3 68% 52%)" opacity=".94"/><rect x="326" y="117" width="148" height="22" rx="0" fill="hsl(351.3 55% 59%)" opacity=".94"/><rect x="415" y="178" width="191" height="51" rx="0" fill="hsl(131.3 22% 88%)" opacity=".72"/><rect x="504" y="239" width="84" height="18" rx="0" fill="hsl(217.3 68% 52%)" opacity=".94"/><rect x="93" y="300" width="127" height="47" rx="0" fill="hsl(351.3 55% 59%)" opacity=".94"/><rect x="182" y="361" width="170" height="76" rx="0" fill="hsl(131.3 22% 88%)" opacity=".72"/><rect x="271" y="422" width="63" height="43" rx="0" fill="hsl(217.3 68% 52%)" opacity=".94"/><rect x="360" y="123" width="106" height="72" rx="0" fill="hsl(351.3 55% 59%)" opacity=".94"/>
+  <circle cx="611" cy="283" r="78" fill="none" stroke="hsl(217.3 68% 52%)" stroke-width="18" opacity=".82"/>
+  <circle cx="611" cy="283" r="43" fill="hsl(351.3 55% 59%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(289.3 28% 10%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">OPEN STUDIO 미술학교</text>
+  <text x="55" y="462" fill="hsl(289.3 28% 10%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">radial / book / glass</text>
+</svg>

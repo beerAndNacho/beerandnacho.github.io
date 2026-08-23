@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 78,
+  "name": "PAPERCLIP 문구점",
+  "slug": "paperclip-stationery",
+  "sector": "음식·라이프스타일",
+  "kind": "문구점",
+  "tagline": "메모 패드와 종이 클립을 중심으로 문구점의 실제 선택을 화면에서 경험합니다.",
+  "cta": "조립하기",
+  "interaction": "build",
+  "services": [
+    "문구점 안내",
+    "맞춤 문구점",
+    "문구점 상담·예약"
+  ],
+  "materials": [
+    "메모 패드",
+    "종이 클립",
+    "스티커",
+    "책상 그리드"
+  ],
+  "contentSignature": "문구점|build|메모 패드|종이 클립|스티커|책상 그리드",
+  "layout": "map",
+  "nav": "tabs",
+  "hero": "poster",
+  "type": "serif",
+  "geometry": "blueprint",
+  "medium": "paper",
+  "density": "dense",
+  "mood": "experimental",
+  "variant": 4,
+  "palette": {
+    "bg": "hsl(205.1 26% 17%)",
+    "surface": "hsl(237.1 22% 82%)",
+    "ink": "hsl(35.1 28% 12%)",
+    "accent": "hsl(323.1 60% 54%)",
+    "accent2": "hsl(97.1 49% 57%)"
+  },
+  "fingerprint": "map|tabs|poster|serif|blueprint|paper|dense|experimental|4"
+}

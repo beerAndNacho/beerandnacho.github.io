@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 11,
+  "name": "HARBOR 법률사무소",
+  "slug": "harbor-law",
+  "sector": "전문 서비스",
+  "kind": "법률사무소",
+  "tagline": "사건 서류철와 인덱스 탭을 중심으로 법률사무소의 실제 선택을 화면에서 경험합니다.",
+  "cta": "문의 작성",
+  "interaction": "form",
+  "services": [
+    "법률사무소 안내",
+    "맞춤 법률사무소",
+    "법률사무소 상담·예약"
+  ],
+  "materials": [
+    "사건 서류철",
+    "인덱스 탭",
+    "상담 질문",
+    "절차 타임라인"
+  ],
+  "contentSignature": "법률사무소|form|사건 서류철|인덱스 탭|상담 질문|절차 타임라인",
+  "layout": "split",
+  "nav": "top",
+  "hero": "window",
+  "type": "serif",
+  "geometry": "sharp",
+  "medium": "frame",
+  "density": "airy",
+  "mood": "warm",
+  "variant": 1,
+  "palette": {
+    "bg": "hsl(295.1 26% 11%)",
+    "surface": "hsl(327.1 22% 91%)",
+    "ink": "hsl(125.1 28% 9%)",
+    "accent": "hsl(53.1 72% 51%)",
+    "accent2": "hsl(187.1 58% 60%)"
+  },
+  "fingerprint": "split|top|window|serif|sharp|frame|airy|warm|1"
+}

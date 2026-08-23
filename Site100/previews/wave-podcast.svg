@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">WAVE 팟캐스트 네트워크 디자인 미리보기</title>
+  <desc id="desc">poster 레이아웃, manifesto 히어로, 팟캐스트 네트워크 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(263.4 26% 15%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(295.4 22% 85%)" stroke="hsl(93.4 28% 11%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(93.4 28% 11%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(21.4 64% 53%)"/>
+  <text x="70" y="52" fill="hsl(295.4 22% 85%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 055 · 팟캐스트 네트워크</text>
+  <line x1="38" y1="122" x2="665" y2="122" stroke="hsl(93.4 28% 11%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="634" y2="164" stroke="hsl(93.4 28% 11%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="603" y2="206" stroke="hsl(93.4 28% 11%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="572" y2="248" stroke="hsl(93.4 28% 11%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="701" y2="290" stroke="hsl(93.4 28% 11%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="670" y2="332" stroke="hsl(93.4 28% 11%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="639" y2="374" stroke="hsl(93.4 28% 11%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="608" y2="416" stroke="hsl(93.4 28% 11%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="577" y2="458" stroke="hsl(93.4 28% 11%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="371" y="390" width="139" height="19" rx="0" fill="hsl(21.4 64% 53%)" opacity=".94"/><rect x="460" y="451" width="182" height="48" rx="0" fill="hsl(155.4 52% 58%)" opacity=".94"/><rect x="49" y="152" width="75" height="77" rx="0" fill="hsl(295.4 22% 85%)" opacity=".72"/><rect x="138" y="213" width="118" height="44" rx="0" fill="hsl(21.4 64% 53%)" opacity=".94"/><rect x="227" y="274" width="161" height="73" rx="0" fill="hsl(155.4 52% 58%)" opacity=".94"/><rect x="316" y="335" width="54" height="40" rx="0" fill="hsl(295.4 22% 85%)" opacity=".72"/><rect x="405" y="396" width="97" height="69" rx="0" fill="hsl(21.4 64% 53%)" opacity=".94"/><rect x="494" y="97" width="140" height="36" rx="0" fill="hsl(155.4 52% 58%)" opacity=".94"/>
+  <circle cx="585" cy="257" r="78" fill="none" stroke="hsl(21.4 64% 53%)" stroke-width="18" opacity=".82"/>
+  <circle cx="585" cy="257" r="43" fill="hsl(155.4 52% 58%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(93.4 28% 11%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">WAVE 팟캐스트 네트워크</text>
+  <text x="55" y="462" fill="hsl(93.4 28% 11%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">poster / manifesto / frame</text>
+</svg>

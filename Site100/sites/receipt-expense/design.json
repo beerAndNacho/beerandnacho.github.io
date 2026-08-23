@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 29,
+  "name": "RECEIPT 경비 관리",
+  "slug": "receipt-expense",
+  "sector": "SaaS·기술",
+  "kind": "경비 관리",
+  "tagline": "영수증 롤와 분류 도장을 중심으로 경비 관리의 실제 선택을 화면에서 경험합니다.",
+  "cta": "계산하기",
+  "interaction": "calculate",
+  "services": [
+    "경비 관리 안내",
+    "맞춤 경비 관리",
+    "경비 관리 상담·예약"
+  ],
+  "materials": [
+    "영수증 롤",
+    "분류 도장",
+    "합계 숫자",
+    "승인선"
+  ],
+  "contentSignature": "경비 관리|calculate|영수증 롤|분류 도장|합계 숫자|승인선",
+  "layout": "dashboard",
+  "nav": "ticker",
+  "hero": "notebook",
+  "type": "wide",
+  "geometry": "circle",
+  "medium": "isometric",
+  "density": "dense",
+  "mood": "quiet",
+  "variant": 2,
+  "palette": {
+    "bg": "hsl(269.2 26% 13%)",
+    "surface": "hsl(301.2 22% 88%)",
+    "ink": "hsl(99.2 28% 10%)",
+    "accent": "hsl(27.2 68% 52%)",
+    "accent2": "hsl(161.2 55% 59%)"
+  },
+  "fingerprint": "dashboard|ticker|notebook|wide|circle|isometric|dense|quiet|2"
+}

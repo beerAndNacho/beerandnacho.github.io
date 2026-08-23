@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">OFFSET 디자인 에이전시 디자인 미리보기</title>
+  <desc id="desc">map 레이아웃, terminal 히어로, 디자인 에이전시 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(348.4 26% 15%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(20.4 22% 85%)" stroke="hsl(178.4 28% 11%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(178.4 28% 11%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(106.4 64% 53%)"/>
+  <text x="70" y="52" fill="hsl(20.4 22% 85%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 053 · 디자인 에이전시</text>
+  <line x1="38" y1="122" x2="699" y2="122" stroke="hsl(178.4 28% 11%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="668" y2="164" stroke="hsl(178.4 28% 11%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="637" y2="206" stroke="hsl(178.4 28% 11%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="606" y2="248" stroke="hsl(178.4 28% 11%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="575" y2="290" stroke="hsl(178.4 28% 11%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="704" y2="332" stroke="hsl(178.4 28% 11%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="673" y2="374" stroke="hsl(178.4 28% 11%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="642" y2="416" stroke="hsl(178.4 28% 11%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="611" y2="458" stroke="hsl(178.4 28% 11%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="177" y="196" width="95" height="73" rx="0" fill="hsl(106.4 64% 53%)" opacity=".94"/><rect x="266" y="257" width="138" height="40" rx="0" fill="hsl(240.4 52% 58%)" opacity=".94"/><rect x="355" y="318" width="181" height="69" rx="0" fill="hsl(20.4 22% 85%)" opacity=".72"/><rect x="444" y="379" width="74" height="36" rx="0" fill="hsl(106.4 64% 53%)" opacity=".94"/><rect x="533" y="440" width="117" height="65" rx="0" fill="hsl(240.4 52% 58%)" opacity=".94"/><rect x="122" y="141" width="160" height="32" rx="0" fill="hsl(20.4 22% 85%)" opacity=".72"/><rect x="211" y="202" width="203" height="61" rx="0" fill="hsl(106.4 64% 53%)" opacity=".94"/><rect x="300" y="263" width="96" height="28" rx="0" fill="hsl(240.4 52% 58%)" opacity=".94"/>
+  <circle cx="571" cy="243" r="78" fill="none" stroke="hsl(106.4 64% 53%)" stroke-width="18" opacity=".82"/>
+  <circle cx="571" cy="243" r="43" fill="hsl(240.4 52% 58%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(178.4 28% 11%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">OFFSET 디자인 에이전시</text>
+  <text x="55" y="462" fill="hsl(178.4 28% 11%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">map / terminal / halftone</text>
+</svg>

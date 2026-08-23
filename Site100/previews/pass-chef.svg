@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">PASS 셰프 포트폴리오 디자인 미리보기</title>
+  <desc id="desc">notebook 레이아웃, monolith 히어로, 셰프 포트폴리오 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(245.2 26% 17%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(277.2 22% 82%)" stroke="hsl(75.2 28% 12%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(75.2 28% 12%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(3.2 60% 54%)"/>
+  <text x="70" y="52" fill="hsl(277.2 22% 82%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 094 · 셰프 포트폴리오</text>
+  <line x1="38" y1="122" x2="562" y2="122" stroke="hsl(75.2 28% 12%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="691" y2="164" stroke="hsl(75.2 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="660" y2="206" stroke="hsl(75.2 28% 12%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="629" y2="248" stroke="hsl(75.2 28% 12%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="598" y2="290" stroke="hsl(75.2 28% 12%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="567" y2="332" stroke="hsl(75.2 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="696" y2="374" stroke="hsl(75.2 28% 12%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="665" y2="416" stroke="hsl(75.2 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="634" y2="458" stroke="hsl(75.2 28% 12%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="154" y="213" width="172" height="20" rx="10" fill="hsl(3.2 60% 54%)" opacity=".94"/><rect x="243" y="274" width="65" height="49" rx="24.5" fill="hsl(137.2 49% 57%)" opacity=".94"/><rect x="332" y="335" width="108" height="16" rx="8" fill="hsl(277.2 22% 82%)" opacity=".72"/><rect x="421" y="396" width="151" height="45" rx="22.5" fill="hsl(3.2 60% 54%)" opacity=".94"/><rect x="510" y="97" width="194" height="74" rx="37" fill="hsl(137.2 49% 57%)" opacity=".94"/><rect x="99" y="158" width="87" height="41" rx="20.5" fill="hsl(277.2 22% 82%)" opacity=".72"/><rect x="188" y="219" width="130" height="70" rx="35" fill="hsl(3.2 60% 54%)" opacity=".94"/><rect x="277" y="280" width="173" height="37" rx="18.5" fill="hsl(137.2 49% 57%)" opacity=".94"/>
+  <circle cx="588" cy="260" r="78" fill="none" stroke="hsl(3.2 60% 54%)" stroke-width="18" opacity=".82"/>
+  <circle cx="588" cy="260" r="43" fill="hsl(137.2 49% 57%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(75.2 28% 12%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">PASS 셰프 포트폴리오</text>
+  <text x="55" y="462" fill="hsl(75.2 28% 12%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">notebook / monolith / ink</text>
+</svg>

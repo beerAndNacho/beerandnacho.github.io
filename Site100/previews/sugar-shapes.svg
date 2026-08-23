@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">SUGAR SHAPES 디저트숍 디자인 미리보기</title>
+  <desc id="desc">glass 레이아웃, mosaic 히어로, 디저트숍 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(356.1 26% 15%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(28.1 22% 85%)" stroke="hsl(186.1 28% 11%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(186.1 28% 11%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(114.1 64% 53%)"/>
+  <text x="70" y="52" fill="hsl(28.1 22% 85%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 074 · 디저트숍</text>
+  <line x1="38" y1="122" x2="582" y2="122" stroke="hsl(186.1 28% 11%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="711" y2="164" stroke="hsl(186.1 28% 11%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="680" y2="206" stroke="hsl(186.1 28% 11%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="649" y2="248" stroke="hsl(186.1 28% 11%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="618" y2="290" stroke="hsl(186.1 28% 11%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="587" y2="332" stroke="hsl(186.1 28% 11%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="716" y2="374" stroke="hsl(186.1 28% 11%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="685" y2="416" stroke="hsl(186.1 28% 11%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="654" y2="458" stroke="hsl(186.1 28% 11%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="214" y="433" width="182" height="64" rx="32" fill="hsl(114.1 64% 53%)" opacity=".94"/><rect x="303" y="134" width="75" height="31" rx="15.5" fill="hsl(248.1 52% 58%)" opacity=".94"/><rect x="392" y="195" width="118" height="60" rx="30" fill="hsl(28.1 22% 85%)" opacity=".72"/><rect x="481" y="256" width="161" height="27" rx="13.5" fill="hsl(114.1 64% 53%)" opacity=".94"/><rect x="70" y="317" width="54" height="56" rx="27" fill="hsl(248.1 52% 58%)" opacity=".94"/><rect x="159" y="378" width="97" height="23" rx="11.5" fill="hsl(28.1 22% 85%)" opacity=".72"/><rect x="248" y="439" width="140" height="52" rx="26" fill="hsl(114.1 64% 53%)" opacity=".94"/><rect x="337" y="140" width="183" height="19" rx="9.5" fill="hsl(248.1 52% 58%)" opacity=".94"/>
+  <circle cx="628" cy="300" r="78" fill="none" stroke="hsl(114.1 64% 53%)" stroke-width="18" opacity=".82"/>
+  <circle cx="628" cy="300" r="43" fill="hsl(248.1 52% 58%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(186.1 28% 11%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">SUGAR SHAPES 디저트숍</text>
+  <text x="55" y="462" fill="hsl(186.1 28% 11%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">glass / mosaic / grid</text>
+</svg>

@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 84,
+  "name": "NEW HOME 동물보호소",
+  "slug": "new-home-shelter",
+  "sector": "공공·커뮤니티",
+  "kind": "동물보호소",
+  "tagline": "동물 프로필와 성격 태그을 중심으로 동물보호소의 실제 선택을 화면에서 경험합니다.",
+  "cta": "필터 열기",
+  "interaction": "filter",
+  "services": [
+    "동물보호소 안내",
+    "맞춤 동물보호소",
+    "동물보호소 상담·예약"
+  ],
+  "materials": [
+    "동물 프로필",
+    "성격 태그",
+    "입양 여정",
+    "건강 기록"
+  ],
+  "contentSignature": "동물보호소|filter|동물 프로필|성격 태그|입양 여정|건강 기록",
+  "layout": "shelf",
+  "nav": "dock",
+  "hero": "metrics",
+  "type": "contrast",
+  "geometry": "organic",
+  "medium": "ink",
+  "density": "immersive",
+  "mood": "warm",
+  "variant": 4,
+  "palette": {
+    "bg": "hsl(310.2 26% 17%)",
+    "surface": "hsl(342.2 22% 82%)",
+    "ink": "hsl(140.2 28% 12%)",
+    "accent": "hsl(68.2 60% 54%)",
+    "accent2": "hsl(202.2 49% 57%)"
+  },
+  "fingerprint": "shelf|dock|metrics|contrast|organic|ink|immersive|warm|4"
+}

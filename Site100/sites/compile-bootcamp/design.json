@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 31,
+  "name": "COMPILE 코딩 부트캠프",
+  "slug": "compile-bootcamp",
+  "sector": "교육·지식",
+  "kind": "코딩 부트캠프",
+  "tagline": "컴파일 로그와 코드 블록을 중심으로 코딩 부트캠프의 실제 선택을 화면에서 경험합니다.",
+  "cta": "실행하기",
+  "interaction": "command",
+  "services": [
+    "코딩 부트캠프 안내",
+    "맞춤 코딩 부트캠프",
+    "코딩 부트캠프 상담·예약"
+  ],
+  "materials": [
+    "컴파일 로그",
+    "코드 블록",
+    "진행 바",
+    "프로젝트 카드"
+  ],
+  "contentSignature": "코딩 부트캠프|command|컴파일 로그|코드 블록|진행 바|프로젝트 카드",
+  "layout": "book",
+  "nav": "rail",
+  "hero": "ticket",
+  "type": "neo",
+  "geometry": "round",
+  "medium": "vector",
+  "density": "balanced",
+  "mood": "precise",
+  "variant": 2,
+  "palette": {
+    "bg": "hsl(184.2 26% 13%)",
+    "surface": "hsl(216.2 22% 88%)",
+    "ink": "hsl(14.2 28% 10%)",
+    "accent": "hsl(302.2 68% 52%)",
+    "accent2": "hsl(76.2 55% 59%)"
+  },
+  "fingerprint": "book|rail|ticket|neo|round|vector|balanced|precise|2"
+}

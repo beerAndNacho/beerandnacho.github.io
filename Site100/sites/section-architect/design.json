@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 95,
+  "name": "SECTION 건축가 개인 사이트",
+  "slug": "section-architect",
+  "sector": "개인·실험",
+  "kind": "건축가 포트폴리오",
+  "tagline": "도면 레이어와 단면선을 중심으로 건축가 포트폴리오의 실제 선택을 화면에서 경험합니다.",
+  "cta": "레이어 열기",
+  "interaction": "reveal",
+  "services": [
+    "건축가 포트폴리오 안내",
+    "맞춤 건축가 포트폴리오",
+    "건축가 포트폴리오 상담·예약"
+  ],
+  "materials": [
+    "도면 레이어",
+    "단면선",
+    "주석 번호",
+    "재료 샘플"
+  ],
+  "contentSignature": "건축가 포트폴리오|reveal|도면 레이어|단면선|주석 번호|재료 샘플",
+  "layout": "archive",
+  "nav": "ticker",
+  "hero": "split",
+  "type": "technical",
+  "geometry": "circle",
+  "medium": "vector",
+  "density": "balanced",
+  "mood": "digital",
+  "variant": 4,
+  "palette": {
+    "bg": "hsl(22.8 26% 17%)",
+    "surface": "hsl(54.8 22% 82%)",
+    "ink": "hsl(212.8 28% 12%)",
+    "accent": "hsl(140.8 60% 54%)",
+    "accent2": "hsl(274.8 49% 57%)"
+  },
+  "fingerprint": "archive|ticker|split|technical|circle|vector|balanced|digital|4"
+}

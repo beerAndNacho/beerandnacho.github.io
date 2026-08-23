@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 68,
+  "name": "SKYWAY 항공 콘셉트",
+  "slug": "skyway-airline",
+  "sector": "여행·숙박",
+  "kind": "항공 서비스",
+  "tagline": "탑승권와 게이트 전광판을 중심으로 항공 서비스의 실제 선택을 화면에서 경험합니다.",
+  "cta": "일정 보기",
+  "interaction": "schedule",
+  "services": [
+    "항공 서비스 안내",
+    "맞춤 항공 서비스",
+    "항공 서비스 상담·예약"
+  ],
+  "materials": [
+    "탑승권",
+    "게이트 전광판",
+    "노선 곡선",
+    "좌석 카드"
+  ],
+  "contentSignature": "항공 서비스|schedule|탑승권|게이트 전광판|노선 곡선|좌석 카드",
+  "layout": "wave",
+  "nav": "corner",
+  "hero": "ticket",
+  "type": "wide",
+  "geometry": "paper",
+  "medium": "vector",
+  "density": "balanced",
+  "mood": "luxury",
+  "variant": 3,
+  "palette": {
+    "bg": "hsl(251.0 26% 15%)",
+    "surface": "hsl(283.0 22% 85%)",
+    "ink": "hsl(81.0 28% 11%)",
+    "accent": "hsl(9.0 64% 53%)",
+    "accent2": "hsl(143.0 52% 58%)"
+  },
+  "fingerprint": "wave|corner|ticket|wide|paper|vector|balanced|luxury|3"
+}

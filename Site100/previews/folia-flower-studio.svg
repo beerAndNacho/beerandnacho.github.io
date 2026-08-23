@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">FOLIA 꽃 작업실 디자인 미리보기</title>
+  <desc id="desc">map 레이아웃, monolith 히어로, 플라워 스튜디오 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(275.0 26% 11%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(307.0 22% 91%)" stroke="hsl(105.0 28% 9%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(105.0 28% 9%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(33.0 72% 51%)"/>
+  <text x="70" y="52" fill="hsl(307.0 22% 91%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 003 · 플라워 스튜디오</text>
+  <line x1="38" y1="122" x2="589" y2="122" stroke="hsl(105.0 28% 9%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="718" y2="164" stroke="hsl(105.0 28% 9%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="687" y2="206" stroke="hsl(105.0 28% 9%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="656" y2="248" stroke="hsl(105.0 28% 9%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="625" y2="290" stroke="hsl(105.0 28% 9%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="594" y2="332" stroke="hsl(105.0 28% 9%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="563" y2="374" stroke="hsl(105.0 28% 9%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="692" y2="416" stroke="hsl(105.0 28% 9%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="661" y2="458" stroke="hsl(105.0 28% 9%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="327" y="386" width="195" height="59" rx="0" fill="hsl(33.0 72% 51%)" opacity=".94"/><rect x="416" y="447" width="88" height="26" rx="0" fill="hsl(167.0 58% 60%)" opacity=".94"/><rect x="505" y="148" width="131" height="55" rx="0" fill="hsl(307.0 22% 91%)" opacity=".72"/><rect x="94" y="209" width="174" height="22" rx="0" fill="hsl(33.0 72% 51%)" opacity=".94"/><rect x="183" y="270" width="67" height="51" rx="0" fill="hsl(167.0 58% 60%)" opacity=".94"/><rect x="272" y="331" width="110" height="18" rx="0" fill="hsl(307.0 22% 91%)" opacity=".72"/><rect x="361" y="392" width="153" height="47" rx="0" fill="hsl(33.0 72% 51%)" opacity=".94"/><rect x="450" y="453" width="196" height="76" rx="0" fill="hsl(167.0 58% 60%)" opacity=".94"/>
+  <circle cx="581" cy="253" r="78" fill="none" stroke="hsl(33.0 72% 51%)" stroke-width="18" opacity=".82"/>
+  <circle cx="581" cy="253" r="43" fill="hsl(167.0 58% 60%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(105.0 28% 9%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">FOLIA 꽃 작업실</text>
+  <text x="55" y="462" fill="hsl(105.0 28% 9%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">map / monolith / ink</text>
+</svg>

@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 40,
+  "name": "STACKS 디지털 도서관",
+  "slug": "stacks-library",
+  "sector": "교육·지식",
+  "kind": "디지털 도서관",
+  "tagline": "가상 책등와 검색 필터을 중심으로 디지털 도서관의 실제 선택을 화면에서 경험합니다.",
+  "cta": "필터 열기",
+  "interaction": "filter",
+  "services": [
+    "디지털 도서관 안내",
+    "맞춤 디지털 도서관",
+    "디지털 도서관 상담·예약"
+  ],
+  "materials": [
+    "가상 책등",
+    "검색 필터",
+    "주제 라벨",
+    "대출 카드"
+  ],
+  "contentSignature": "디지털 도서관|filter|가상 책등|검색 필터|주제 라벨|대출 카드",
+  "layout": "masonry",
+  "nav": "split",
+  "hero": "monolith",
+  "type": "serif",
+  "geometry": "ribbon",
+  "medium": "ink",
+  "density": "immersive",
+  "mood": "playful",
+  "variant": 2,
+  "palette": {
+    "bg": "hsl(341.8 26% 13%)",
+    "surface": "hsl(13.8 22% 88%)",
+    "ink": "hsl(171.8 28% 10%)",
+    "accent": "hsl(99.8 68% 52%)",
+    "accent2": "hsl(233.8 55% 59%)"
+  },
+  "fingerprint": "masonry|split|monolith|serif|ribbon|ink|immersive|playful|2"
+}

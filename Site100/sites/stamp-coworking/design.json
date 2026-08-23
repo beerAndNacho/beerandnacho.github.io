@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 70,
+  "name": "STAMP 여행형 코워킹",
+  "slug": "stamp-coworking",
+  "sector": "여행·숙박",
+  "kind": "코워킹",
+  "tagline": "여권 도장와 도시 탭을 중심으로 코워킹의 실제 선택을 화면에서 경험합니다.",
+  "cta": "보기 전환",
+  "interaction": "switcher",
+  "services": [
+    "코워킹 안내",
+    "맞춤 코워킹",
+    "코워킹 상담·예약"
+  ],
+  "materials": [
+    "여권 도장",
+    "도시 탭",
+    "책상 지도",
+    "멤버 카드"
+  ],
+  "contentSignature": "코워킹|switcher|여권 도장|도시 탭|책상 지도|멤버 카드",
+  "layout": "archive",
+  "nav": "radial",
+  "hero": "book",
+  "type": "neo",
+  "geometry": "layer",
+  "medium": "glass",
+  "density": "airy",
+  "mood": "quiet",
+  "variant": 3,
+  "palette": {
+    "bg": "hsl(166.1 26% 15%)",
+    "surface": "hsl(198.1 22% 85%)",
+    "ink": "hsl(356.1 28% 11%)",
+    "accent": "hsl(284.1 64% 53%)",
+    "accent2": "hsl(58.1 52% 58%)"
+  },
+  "fingerprint": "archive|radial|book|neo|layer|glass|airy|quiet|3"
+}

@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 54,
+  "name": "SPINE 출판사",
+  "slug": "spine-publishing",
+  "sector": "문화·창작",
+  "kind": "출판사",
+  "tagline": "책등 메뉴와 페이지 넘김을 중심으로 출판사의 실제 선택을 화면에서 경험합니다.",
+  "cta": "장면 보기",
+  "interaction": "carousel",
+  "services": [
+    "출판사 안내",
+    "맞춤 출판사",
+    "출판사 상담·예약"
+  ],
+  "materials": [
+    "책등 메뉴",
+    "페이지 넘김",
+    "서평 주석",
+    "표지 카드"
+  ],
+  "contentSignature": "출판사|carousel|책등 메뉴|페이지 넘김|서평 주석|표지 카드",
+  "layout": "dashboard",
+  "nav": "rail",
+  "hero": "mosaic",
+  "type": "rounded",
+  "geometry": "round",
+  "medium": "grid",
+  "density": "compact",
+  "mood": "digital",
+  "variant": 3,
+  "palette": {
+    "bg": "hsl(125.9 26% 15%)",
+    "surface": "hsl(157.9 22% 85%)",
+    "ink": "hsl(315.9 28% 11%)",
+    "accent": "hsl(243.9 64% 53%)",
+    "accent2": "hsl(17.9 52% 58%)"
+  },
+  "fingerprint": "dashboard|rail|mosaic|rounded|round|grid|compact|digital|3"
+}

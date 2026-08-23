@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 3,
+  "name": "FOLIA 꽃 작업실",
+  "slug": "folia-flower-studio",
+  "sector": "지역 매장",
+  "kind": "플라워 스튜디오",
+  "tagline": "압화 표본와 리본 릴을 중심으로 플라워 스튜디오의 실제 선택을 화면에서 경험합니다.",
+  "cta": "조합하기",
+  "interaction": "mixer",
+  "services": [
+    "플라워 스튜디오 안내",
+    "맞춤 플라워 스튜디오",
+    "플라워 스튜디오 상담·예약"
+  ],
+  "materials": [
+    "압화 표본",
+    "리본 릴",
+    "꽃잎 콜라주",
+    "색상 카드"
+  ],
+  "contentSignature": "플라워 스튜디오|mixer|압화 표본|리본 릴|꽃잎 콜라주|색상 카드",
+  "layout": "map",
+  "nav": "bottom",
+  "hero": "monolith",
+  "type": "mono",
+  "geometry": "stamp",
+  "medium": "ink",
+  "density": "immersive",
+  "mood": "natural",
+  "variant": 1,
+  "palette": {
+    "bg": "hsl(275.0 26% 11%)",
+    "surface": "hsl(307.0 22% 91%)",
+    "ink": "hsl(105.0 28% 9%)",
+    "accent": "hsl(33.0 72% 51%)",
+    "accent2": "hsl(167.0 58% 60%)"
+  },
+  "fingerprint": "map|bottom|monolith|mono|stamp|ink|immersive|natural|1"
+}

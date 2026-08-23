@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 79,
+  "name": "AIR NOTE 홈 프래그런스",
+  "slug": "air-note-fragrance",
+  "sector": "음식·라이프스타일",
+  "kind": "홈 프래그런스",
+  "tagline": "향 원형 차트와 연기 선을 중심으로 홈 프래그런스의 실제 선택을 화면에서 경험합니다.",
+  "cta": "조합하기",
+  "interaction": "mixer",
+  "services": [
+    "홈 프래그런스 안내",
+    "맞춤 홈 프래그런스",
+    "홈 프래그런스 상담·예약"
+  ],
+  "materials": [
+    "향 원형 차트",
+    "연기 선",
+    "노트 카드",
+    "유리병"
+  ],
+  "contentSignature": "홈 프래그런스|mixer|향 원형 차트|연기 선|노트 카드|유리병",
+  "layout": "dashboard",
+  "nav": "minimal",
+  "hero": "timeline",
+  "type": "neo",
+  "geometry": "module",
+  "medium": "documents",
+  "density": "immersive",
+  "mood": "luxury",
+  "variant": 4,
+  "palette": {
+    "bg": "hsl(342.6 26% 17%)",
+    "surface": "hsl(14.6 22% 82%)",
+    "ink": "hsl(172.6 28% 12%)",
+    "accent": "hsl(100.6 60% 54%)",
+    "accent2": "hsl(234.6 49% 57%)"
+  },
+  "fingerprint": "dashboard|minimal|timeline|neo|module|documents|immersive|luxury|4"
+}

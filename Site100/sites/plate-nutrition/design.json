@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 46,
+  "name": "PLATE 영양 코칭",
+  "slug": "plate-nutrition",
+  "sector": "웰니스·케어",
+  "kind": "영양 코칭",
+  "tagline": "접시 비율와 식재료 행렬을 중심으로 영양 코칭의 실제 선택을 화면에서 경험합니다.",
+  "cta": "계산하기",
+  "interaction": "calculate",
+  "services": [
+    "영양 코칭 안내",
+    "맞춤 영양 코칭",
+    "영양 코칭 상담·예약"
+  ],
+  "materials": [
+    "접시 비율",
+    "식재료 행렬",
+    "영양 게이지",
+    "주간 표"
+  ],
+  "contentSignature": "영양 코칭|calculate|접시 비율|식재료 행렬|영양 게이지|주간 표",
+  "layout": "kinetic",
+  "nav": "bottom",
+  "hero": "wave",
+  "type": "contrast",
+  "geometry": "stamp",
+  "medium": "halftone",
+  "density": "balanced",
+  "mood": "experimental",
+  "variant": 2,
+  "palette": {
+    "bg": "hsl(86.9 26% 13%)",
+    "surface": "hsl(118.9 22% 88%)",
+    "ink": "hsl(276.9 28% 10%)",
+    "accent": "hsl(204.9 68% 52%)",
+    "accent2": "hsl(338.9 55% 59%)"
+  },
+  "fingerprint": "kinetic|bottom|wave|contrast|stamp|halftone|balanced|experimental|2"
+}

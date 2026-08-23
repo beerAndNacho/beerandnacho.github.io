@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 64,
+  "name": "POSTCARD 여행 사진관",
+  "slug": "postcard-travel-photo",
+  "sector": "여행·숙박",
+  "kind": "여행 사진관",
+  "tagline": "엽서 스택와 우표을 중심으로 여행 사진관의 실제 선택을 화면에서 경험합니다.",
+  "cta": "장면 보기",
+  "interaction": "carousel",
+  "services": [
+    "여행 사진관 안내",
+    "맞춤 여행 사진관",
+    "여행 사진관 상담·예약"
+  ],
+  "materials": [
+    "엽서 스택",
+    "우표",
+    "손글씨 위치",
+    "사진 가장자리"
+  ],
+  "contentSignature": "여행 사진관|carousel|엽서 스택|우표|손글씨 위치|사진 가장자리",
+  "layout": "newspaper",
+  "nav": "rail",
+  "hero": "map",
+  "type": "rounded",
+  "geometry": "round",
+  "medium": "grid",
+  "density": "compact",
+  "mood": "digital",
+  "variant": 3,
+  "palette": {
+    "bg": "hsl(61.0 26% 15%)",
+    "surface": "hsl(93.0 22% 85%)",
+    "ink": "hsl(251.0 28% 11%)",
+    "accent": "hsl(179.0 64% 53%)",
+    "accent2": "hsl(313.0 52% 58%)"
+  },
+  "fingerprint": "newspaper|rail|map|rounded|round|grid|compact|digital|3"
+}

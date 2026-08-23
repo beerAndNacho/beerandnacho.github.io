@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">FORMULA 스킨케어 클리닉 디자인 미리보기</title>
+  <desc id="desc">notebook 레이아웃, poster 히어로, 스킨케어 클리닉 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(171.8 26% 13%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(203.8 22% 88%)" stroke="hsl(1.8 28% 10%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(1.8 28% 10%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(289.8 68% 52%)"/>
+  <text x="70" y="52" fill="hsl(203.8 22% 88%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 044 · 스킨케어 클리닉</text>
+  <line x1="38" y1="122" x2="612" y2="122" stroke="hsl(1.8 28% 10%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="581" y2="164" stroke="hsl(1.8 28% 10%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="710" y2="206" stroke="hsl(1.8 28% 10%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="679" y2="248" stroke="hsl(1.8 28% 10%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="648" y2="290" stroke="hsl(1.8 28% 10%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="617" y2="332" stroke="hsl(1.8 28% 10%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="586" y2="374" stroke="hsl(1.8 28% 10%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="715" y2="416" stroke="hsl(1.8 28% 10%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="684" y2="458" stroke="hsl(1.8 28% 10%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="304" y="403" width="122" height="68" rx="0" fill="hsl(289.8 68% 52%)" opacity=".94"/><rect x="393" y="104" width="165" height="35" rx="0" fill="hsl(63.8 55% 59%)" opacity=".94"/><rect x="482" y="165" width="58" height="64" rx="0" fill="hsl(203.8 22% 88%)" opacity=".72"/><rect x="71" y="226" width="101" height="31" rx="0" fill="hsl(289.8 68% 52%)" opacity=".94"/><rect x="160" y="287" width="144" height="60" rx="0" fill="hsl(63.8 55% 59%)" opacity=".94"/><rect x="249" y="348" width="187" height="27" rx="0" fill="hsl(203.8 22% 88%)" opacity=".72"/><rect x="338" y="409" width="80" height="56" rx="0" fill="hsl(289.8 68% 52%)" opacity=".94"/><rect x="427" y="110" width="123" height="23" rx="0" fill="hsl(63.8 55% 59%)" opacity=".94"/>
+  <circle cx="598" cy="270" r="78" fill="none" stroke="hsl(289.8 68% 52%)" stroke-width="18" opacity=".82"/>
+  <circle cx="598" cy="270" r="43" fill="hsl(63.8 55% 59%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(1.8 28% 10%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">FORMULA 스킨케어 클리닉</text>
+  <text x="55" y="462" fill="hsl(1.8 28% 10%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">notebook / poster / paper</text>
+</svg>

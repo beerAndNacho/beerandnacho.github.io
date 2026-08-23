@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">PRIVATE ROOM 마음건강 서비스 디자인 미리보기</title>
+  <desc id="desc">archive 레이아웃, timeline 히어로, 마음건강 서비스 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(309.4 26% 13%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(341.4 22% 88%)" stroke="hsl(139.4 28% 10%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(139.4 28% 10%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(67.4 68% 52%)"/>
+  <text x="70" y="52" fill="hsl(341.4 22% 88%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 045 · 마음건강 서비스</text>
+  <line x1="38" y1="122" x2="675" y2="122" stroke="hsl(139.4 28% 10%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="644" y2="164" stroke="hsl(139.4 28% 10%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="613" y2="206" stroke="hsl(139.4 28% 10%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="582" y2="248" stroke="hsl(139.4 28% 10%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="711" y2="290" stroke="hsl(139.4 28% 10%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="680" y2="332" stroke="hsl(139.4 28% 10%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="649" y2="374" stroke="hsl(139.4 28% 10%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="618" y2="416" stroke="hsl(139.4 28% 10%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="587" y2="458" stroke="hsl(139.4 28% 10%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="401" y="140" width="69" height="41" rx="4" fill="hsl(67.4 68% 52%)" opacity=".94"/><rect x="490" y="201" width="112" height="70" rx="4" fill="hsl(201.4 55% 59%)" opacity=".94"/><rect x="79" y="262" width="155" height="37" rx="4" fill="hsl(341.4 22% 88%)" opacity=".72"/><rect x="168" y="323" width="198" height="66" rx="4" fill="hsl(67.4 68% 52%)" opacity=".94"/><rect x="257" y="384" width="91" height="33" rx="4" fill="hsl(201.4 55% 59%)" opacity=".94"/><rect x="346" y="445" width="134" height="62" rx="4" fill="hsl(341.4 22% 88%)" opacity=".72"/><rect x="435" y="146" width="177" height="29" rx="4" fill="hsl(67.4 68% 52%)" opacity=".94"/><rect x="524" y="207" width="70" height="58" rx="4" fill="hsl(201.4 55% 59%)" opacity=".94"/>
+  <circle cx="605" cy="187" r="78" fill="none" stroke="hsl(67.4 68% 52%)" stroke-width="18" opacity=".82"/>
+  <circle cx="605" cy="187" r="43" fill="hsl(201.4 55% 59%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(139.4 28% 10%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">PRIVATE ROOM 마음건강 서비스</text>
+  <text x="55" y="462" fill="hsl(139.4 28% 10%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">archive / timeline / documents</text>
+</svg>

@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 8,
+  "name": "CLEAR DAY 청소 서비스",
+  "slug": "clear-day-cleaning",
+  "sector": "지역 매장",
+  "kind": "청소 서비스",
+  "tagline": "전후 슬라이더와 방별 체크을 중심으로 청소 서비스의 실제 선택을 화면에서 경험합니다.",
+  "cta": "비교하기",
+  "interaction": "compare",
+  "services": [
+    "청소 서비스 안내",
+    "맞춤 청소 서비스",
+    "청소 서비스 상담·예약"
+  ],
+  "materials": [
+    "전후 슬라이더",
+    "방별 체크",
+    "청소 도구",
+    "견적 카드"
+  ],
+  "contentSignature": "청소 서비스|compare|전후 슬라이더|방별 체크|청소 도구|견적 카드",
+  "layout": "radial",
+  "nav": "rail",
+  "hero": "timeline",
+  "type": "technical",
+  "geometry": "round",
+  "medium": "documents",
+  "density": "immersive",
+  "mood": "quiet",
+  "variant": 1,
+  "palette": {
+    "bg": "hsl(242.6 26% 11%)",
+    "surface": "hsl(274.6 22% 91%)",
+    "ink": "hsl(72.6 28% 9%)",
+    "accent": "hsl(0.6 72% 51%)",
+    "accent2": "hsl(134.6 58% 60%)"
+  },
+  "fingerprint": "radial|rail|timeline|technical|round|documents|immersive|quiet|1"
+}

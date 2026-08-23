@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 42,
+  "name": "MOTION 재활센터",
+  "slug": "motion-rehab",
+  "sector": "웰니스·케어",
+  "kind": "재활센터",
+  "tagline": "관절 선와 움직임 각도을 중심으로 재활센터의 실제 선택을 화면에서 경험합니다.",
+  "cta": "과정 보기",
+  "interaction": "timeline",
+  "services": [
+    "재활센터 안내",
+    "맞춤 재활센터",
+    "재활센터 상담·예약"
+  ],
+  "materials": [
+    "관절 선",
+    "움직임 각도",
+    "회복 단계",
+    "운동 카드"
+  ],
+  "contentSignature": "재활센터|timeline|관절 선|움직임 각도|회복 단계|운동 카드",
+  "layout": "isometric",
+  "nav": "tabs",
+  "hero": "shelf",
+  "type": "mono",
+  "geometry": "blueprint",
+  "medium": "light",
+  "density": "compact",
+  "mood": "warm",
+  "variant": 2,
+  "palette": {
+    "bg": "hsl(256.8 26% 13%)",
+    "surface": "hsl(288.8 22% 88%)",
+    "ink": "hsl(86.8 28% 10%)",
+    "accent": "hsl(14.8 68% 52%)",
+    "accent2": "hsl(148.8 55% 59%)"
+  },
+  "fingerprint": "isometric|tabs|shelf|mono|blueprint|light|compact|warm|2"
+}

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">TWO OF US 모바일 청첩장 디자인 미리보기</title>
+  <desc id="desc">cinema 레이아웃, room 히어로, 모바일 청첩장 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(297.8 26% 17%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(329.8 22% 82%)" stroke="hsl(127.8 28% 12%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(127.8 28% 12%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(55.8 60% 54%)"/>
+  <text x="70" y="52" fill="hsl(329.8 22% 82%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 097 · 모바일 청첩장</text>
+  <line x1="38" y1="122" x2="591" y2="122" stroke="hsl(127.8 28% 12%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="720" y2="164" stroke="hsl(127.8 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="689" y2="206" stroke="hsl(127.8 28% 12%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="658" y2="248" stroke="hsl(127.8 28% 12%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="627" y2="290" stroke="hsl(127.8 28% 12%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="596" y2="332" stroke="hsl(127.8 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="565" y2="374" stroke="hsl(127.8 28% 12%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="694" y2="416" stroke="hsl(127.8 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="663" y2="458" stroke="hsl(127.8 28% 12%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="445" y="144" width="163" height="63" rx="31.5" fill="hsl(55.8 60% 54%)" opacity=".94"/><rect x="534" y="205" width="56" height="30" rx="15" fill="hsl(189.8 49% 57%)" opacity=".94"/><rect x="123" y="266" width="99" height="59" rx="29.5" fill="hsl(329.8 22% 82%)" opacity=".72"/><rect x="212" y="327" width="142" height="26" rx="13" fill="hsl(55.8 60% 54%)" opacity=".94"/><rect x="301" y="388" width="185" height="55" rx="27.5" fill="hsl(189.8 49% 57%)" opacity=".94"/><rect x="390" y="449" width="78" height="22" rx="11" fill="hsl(329.8 22% 82%)" opacity=".72"/><rect x="479" y="150" width="121" height="51" rx="25.5" fill="hsl(55.8 60% 54%)" opacity=".94"/><rect x="68" y="211" width="164" height="18" rx="9" fill="hsl(189.8 49% 57%)" opacity=".94"/>
+  <circle cx="609" cy="191" r="78" fill="none" stroke="hsl(55.8 60% 54%)" stroke-width="18" opacity=".82"/>
+  <circle cx="609" cy="191" r="43" fill="hsl(189.8 49% 57%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(127.8 28% 12%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">TWO OF US 모바일 청첩장</text>
+  <text x="55" y="462" fill="hsl(127.8 28% 12%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">cinema / room / glass</text>
+</svg>

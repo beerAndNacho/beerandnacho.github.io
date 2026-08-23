@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">NEW HOME 동물보호소 디자인 미리보기</title>
+  <desc id="desc">shelf 레이아웃, metrics 히어로, 동물보호소 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(310.2 26% 17%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(342.2 22% 82%)" stroke="hsl(140.2 28% 12%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(140.2 28% 12%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(68.2 60% 54%)"/>
+  <text x="70" y="52" fill="hsl(342.2 22% 82%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 084 · 동물보호소</text>
+  <line x1="38" y1="122" x2="572" y2="122" stroke="hsl(140.2 28% 12%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="701" y2="164" stroke="hsl(140.2 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="670" y2="206" stroke="hsl(140.2 28% 12%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="639" y2="248" stroke="hsl(140.2 28% 12%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="608" y2="290" stroke="hsl(140.2 28% 12%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="577" y2="332" stroke="hsl(140.2 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="706" y2="374" stroke="hsl(140.2 28% 12%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="675" y2="416" stroke="hsl(140.2 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="644" y2="458" stroke="hsl(140.2 28% 12%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="184" y="323" width="102" height="42" rx="21" fill="hsl(68.2 60% 54%)" opacity=".94"/><rect x="273" y="384" width="145" height="71" rx="35.5" fill="hsl(202.2 49% 57%)" opacity=".94"/><rect x="362" y="445" width="188" height="38" rx="19" fill="hsl(342.2 22% 82%)" opacity=".72"/><rect x="451" y="146" width="81" height="67" rx="33.5" fill="hsl(68.2 60% 54%)" opacity=".94"/><rect x="40" y="207" width="124" height="34" rx="17" fill="hsl(202.2 49% 57%)" opacity=".94"/><rect x="129" y="268" width="167" height="63" rx="31.5" fill="hsl(342.2 22% 82%)" opacity=".72"/><rect x="218" y="329" width="60" height="30" rx="15" fill="hsl(68.2 60% 54%)" opacity=".94"/><rect x="307" y="390" width="103" height="59" rx="29.5" fill="hsl(202.2 49% 57%)" opacity=".94"/>
+  <circle cx="608" cy="190" r="78" fill="none" stroke="hsl(68.2 60% 54%)" stroke-width="18" opacity=".82"/>
+  <circle cx="608" cy="190" r="43" fill="hsl(202.2 49% 57%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(140.2 28% 12%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">NEW HOME 동물보호소</text>
+  <text x="55" y="462" fill="hsl(140.2 28% 12%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">shelf / metrics / ink</text>
+</svg>

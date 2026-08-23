@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 73,
+  "name": "TEA ATLAS 찻집",
+  "slug": "tea-atlas",
+  "sector": "음식·라이프스타일",
+  "kind": "찻집",
+  "tagline": "산지 지도와 찻잎 표본을 중심으로 찻집의 실제 선택을 화면에서 경험합니다.",
+  "cta": "지도 보기",
+  "interaction": "map",
+  "services": [
+    "찻집 안내",
+    "맞춤 찻집",
+    "찻집 상담·예약"
+  ],
+  "materials": [
+    "산지 지도",
+    "찻잎 표본",
+    "우림 온도",
+    "향 카드"
+  ],
+  "contentSignature": "찻집|map|산지 지도|찻잎 표본|우림 온도|향 카드",
+  "layout": "data",
+  "nav": "split",
+  "hero": "terminal",
+  "type": "condensed",
+  "geometry": "ribbon",
+  "medium": "halftone",
+  "density": "balanced",
+  "mood": "warm",
+  "variant": 3,
+  "palette": {
+    "bg": "hsl(218.6 26% 15%)",
+    "surface": "hsl(250.6 22% 85%)",
+    "ink": "hsl(48.6 28% 11%)",
+    "accent": "hsl(336.6 64% 53%)",
+    "accent2": "hsl(110.6 52% 58%)"
+  },
+  "fingerprint": "data|split|terminal|condensed|ribbon|halftone|balanced|warm|3"
+}

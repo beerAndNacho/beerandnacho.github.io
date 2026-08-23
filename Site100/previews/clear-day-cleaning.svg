@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">CLEAR DAY 청소 서비스 디자인 미리보기</title>
+  <desc id="desc">radial 레이아웃, timeline 히어로, 청소 서비스 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(242.6 26% 11%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(274.6 22% 91%)" stroke="hsl(72.6 28% 9%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(72.6 28% 9%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(0.6 72% 51%)"/>
+  <text x="70" y="52" fill="hsl(274.6 22% 91%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 008 · 청소 서비스</text>
+  <line x1="38" y1="122" x2="584" y2="122" stroke="hsl(72.6 28% 9%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="713" y2="164" stroke="hsl(72.6 28% 9%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="682" y2="206" stroke="hsl(72.6 28% 9%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="651" y2="248" stroke="hsl(72.6 28% 9%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="620" y2="290" stroke="hsl(72.6 28% 9%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="589" y2="332" stroke="hsl(72.6 28% 9%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="718" y2="374" stroke="hsl(72.6 28% 9%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="687" y2="416" stroke="hsl(72.6 28% 9%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="656" y2="458" stroke="hsl(72.6 28% 9%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="312" y="151" width="80" height="48" rx="24" fill="hsl(0.6 72% 51%)" opacity=".94"/><rect x="401" y="212" width="123" height="77" rx="38.5" fill="hsl(134.6 58% 60%)" opacity=".94"/><rect x="490" y="273" width="166" height="44" rx="22" fill="hsl(274.6 22% 91%)" opacity=".72"/><rect x="79" y="334" width="59" height="73" rx="29.5" fill="hsl(0.6 72% 51%)" opacity=".94"/><rect x="168" y="395" width="102" height="40" rx="20" fill="hsl(134.6 58% 60%)" opacity=".94"/><rect x="257" y="96" width="145" height="69" rx="34.5" fill="hsl(274.6 22% 91%)" opacity=".72"/><rect x="346" y="157" width="188" height="36" rx="18" fill="hsl(0.6 72% 51%)" opacity=".94"/><rect x="435" y="218" width="81" height="65" rx="32.5" fill="hsl(134.6 58% 60%)" opacity=".94"/>
+  <circle cx="616" cy="198" r="78" fill="none" stroke="hsl(0.6 72% 51%)" stroke-width="18" opacity=".82"/>
+  <circle cx="616" cy="198" r="43" fill="hsl(134.6 58% 60%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(72.6 28% 9%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">CLEAR DAY 청소 서비스</text>
+  <text x="55" y="462" fill="hsl(72.6 28% 9%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">radial / timeline / documents</text>
+</svg>

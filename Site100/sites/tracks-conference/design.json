@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 87,
+  "name": "TRACKS 콘퍼런스",
+  "slug": "tracks-conference",
+  "sector": "공공·커뮤니티",
+  "kind": "콘퍼런스",
+  "tagline": "트랙 매트릭스와 시간 열을 중심으로 콘퍼런스의 실제 선택을 화면에서 경험합니다.",
+  "cta": "일정 보기",
+  "interaction": "schedule",
+  "services": [
+    "콘퍼런스 안내",
+    "맞춤 콘퍼런스",
+    "콘퍼런스 상담·예약"
+  ],
+  "materials": [
+    "트랙 매트릭스",
+    "시간 열",
+    "발표자 카드",
+    "일정 체크"
+  ],
+  "contentSignature": "콘퍼런스|schedule|트랙 매트릭스|시간 열|발표자 카드|일정 체크",
+  "layout": "floorplan",
+  "nav": "rail",
+  "hero": "book",
+  "type": "wide",
+  "geometry": "round",
+  "medium": "glass",
+  "density": "airy",
+  "mood": "public",
+  "variant": 4,
+  "palette": {
+    "bg": "hsl(2.7 26% 17%)",
+    "surface": "hsl(34.7 22% 82%)",
+    "ink": "hsl(192.7 28% 12%)",
+    "accent": "hsl(120.7 60% 54%)",
+    "accent2": "hsl(254.7 49% 57%)"
+  },
+  "fingerprint": "floorplan|rail|book|wide|round|glass|airy|public|4"
+}

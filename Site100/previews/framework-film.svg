@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">FRAMEWORK 영화제작사 디자인 미리보기</title>
+  <desc id="desc">editorial 레이아웃, headline 히어로, 영화제작사 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(73.4 26% 15%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(105.4 22% 85%)" stroke="hsl(263.4 28% 11%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(263.4 28% 11%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(191.4 64% 53%)"/>
+  <text x="70" y="52" fill="hsl(105.4 22% 85%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 051 · 영화제작사</text>
+  <line x1="38" y1="122" x2="573" y2="122" stroke="hsl(263.4 28% 11%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="702" y2="164" stroke="hsl(263.4 28% 11%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="671" y2="206" stroke="hsl(263.4 28% 11%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="640" y2="248" stroke="hsl(263.4 28% 11%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="609" y2="290" stroke="hsl(263.4 28% 11%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="578" y2="332" stroke="hsl(263.4 28% 11%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="707" y2="374" stroke="hsl(263.4 28% 11%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="676" y2="416" stroke="hsl(263.4 28% 11%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="645" y2="458" stroke="hsl(263.4 28% 11%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="483" y="362" width="201" height="65" rx="32.5" fill="hsl(191.4 64% 53%)" opacity=".94"/><rect x="72" y="423" width="94" height="32" rx="16" fill="hsl(325.4 52% 58%)" opacity=".94"/><rect x="161" y="124" width="137" height="61" rx="30.5" fill="hsl(105.4 22% 85%)" opacity=".72"/><rect x="250" y="185" width="180" height="28" rx="14" fill="hsl(191.4 64% 53%)" opacity=".94"/><rect x="339" y="246" width="73" height="57" rx="28.5" fill="hsl(325.4 52% 58%)" opacity=".94"/><rect x="428" y="307" width="116" height="24" rx="12" fill="hsl(105.4 22% 85%)" opacity=".72"/><rect x="517" y="368" width="159" height="53" rx="26.5" fill="hsl(191.4 64% 53%)" opacity=".94"/><rect x="106" y="429" width="202" height="20" rx="10" fill="hsl(325.4 52% 58%)" opacity=".94"/>
+  <circle cx="647" cy="229" r="78" fill="none" stroke="hsl(191.4 64% 53%)" stroke-width="18" opacity=".82"/>
+  <circle cx="647" cy="229" r="43" fill="hsl(325.4 52% 58%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(263.4 28% 11%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">FRAMEWORK 영화제작사</text>
+  <text x="55" y="462" fill="hsl(263.4 28% 11%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">editorial / headline / paper</text>
+</svg>

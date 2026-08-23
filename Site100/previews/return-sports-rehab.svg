@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">RETURN 스포츠 재활 디자인 미리보기</title>
+  <desc id="desc">data 레이아웃, window 히어로, 스포츠 재활 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(1.9 26% 13%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(33.9 22% 88%)" stroke="hsl(191.9 28% 10%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(191.9 28% 10%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(119.9 68% 52%)"/>
+  <text x="70" y="52" fill="hsl(33.9 22% 88%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 048 · 스포츠 재활</text>
+  <line x1="38" y1="122" x2="704" y2="122" stroke="hsl(191.9 28% 10%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="673" y2="164" stroke="hsl(191.9 28% 10%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="642" y2="206" stroke="hsl(191.9 28% 10%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="611" y2="248" stroke="hsl(191.9 28% 10%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="580" y2="290" stroke="hsl(191.9 28% 10%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="709" y2="332" stroke="hsl(191.9 28% 10%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="678" y2="374" stroke="hsl(191.9 28% 10%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="647" y2="416" stroke="hsl(191.9 28% 10%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="616" y2="458" stroke="hsl(191.9 28% 10%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="192" y="431" width="60" height="22" rx="11" fill="hsl(119.9 68% 52%)" opacity=".94"/><rect x="281" y="132" width="103" height="51" rx="25.5" fill="hsl(253.9 55% 59%)" opacity=".94"/><rect x="370" y="193" width="146" height="18" rx="9" fill="hsl(33.9 22% 88%)" opacity=".72"/><rect x="459" y="254" width="189" height="47" rx="23.5" fill="hsl(119.9 68% 52%)" opacity=".94"/><rect x="48" y="315" width="82" height="76" rx="38" fill="hsl(253.9 55% 59%)" opacity=".94"/><rect x="137" y="376" width="125" height="43" rx="21.5" fill="hsl(33.9 22% 88%)" opacity=".72"/><rect x="226" y="437" width="168" height="72" rx="36" fill="hsl(119.9 68% 52%)" opacity=".94"/><rect x="315" y="138" width="61" height="39" rx="19.5" fill="hsl(253.9 55% 59%)" opacity=".94"/>
+  <circle cx="626" cy="298" r="78" fill="none" stroke="hsl(119.9 68% 52%)" stroke-width="18" opacity=".82"/>
+  <circle cx="626" cy="298" r="43" fill="hsl(253.9 55% 59%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(191.9 28% 10%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">RETURN 스포츠 재활</text>
+  <text x="55" y="462" fill="hsl(191.9 28% 10%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">data / window / frame</text>
+</svg>

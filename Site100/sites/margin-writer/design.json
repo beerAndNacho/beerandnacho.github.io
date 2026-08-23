@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 92,
+  "name": "MARGIN 작가 포트폴리오",
+  "slug": "margin-writer",
+  "sector": "개인·실험",
+  "kind": "작가 포트폴리오",
+  "tagline": "원고지와 여백 주석을 중심으로 작가 포트폴리오의 실제 선택을 화면에서 경험합니다.",
+  "cta": "자료 찾기",
+  "interaction": "archive",
+  "services": [
+    "작가 포트폴리오 안내",
+    "맞춤 작가 포트폴리오",
+    "작가 포트폴리오 상담·예약"
+  ],
+  "materials": [
+    "원고지",
+    "여백 주석",
+    "교정 부호",
+    "문장 카드"
+  ],
+  "contentSignature": "작가 포트폴리오|archive|원고지|여백 주석|교정 부호|문장 카드",
+  "layout": "isometric",
+  "nav": "bottom",
+  "hero": "manifesto",
+  "type": "condensed",
+  "geometry": "stamp",
+  "medium": "frame",
+  "density": "airy",
+  "mood": "playful",
+  "variant": 4,
+  "palette": {
+    "bg": "hsl(330.2 26% 17%)",
+    "surface": "hsl(2.2 22% 82%)",
+    "ink": "hsl(160.2 28% 12%)",
+    "accent": "hsl(88.2 60% 54%)",
+    "accent2": "hsl(222.2 49% 57%)"
+  },
+  "fingerprint": "isometric|bottom|manifesto|condensed|stamp|frame|airy|playful|4"
+}

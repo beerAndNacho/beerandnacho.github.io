@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 20,
+  "name": "NORTHSTAR 컨설팅",
+  "slug": "northstar-consulting",
+  "sector": "전문 서비스",
+  "kind": "컨설팅",
+  "tagline": "연차보고서와 사례 챕터을 중심으로 컨설팅의 실제 선택을 화면에서 경험합니다.",
+  "cta": "장면 보기",
+  "interaction": "carousel",
+  "services": [
+    "컨설팅 안내",
+    "맞춤 컨설팅",
+    "컨설팅 상담·예약"
+  ],
+  "materials": [
+    "연차보고서",
+    "사례 챕터",
+    "지표 표",
+    "실행 로드맵"
+  ],
+  "contentSignature": "컨설팅|carousel|연차보고서|사례 챕터|지표 표|실행 로드맵",
+  "layout": "archive",
+  "nav": "minimal",
+  "hero": "mosaic",
+  "type": "wide",
+  "geometry": "module",
+  "medium": "grid",
+  "density": "compact",
+  "mood": "precise",
+  "variant": 1,
+  "palette": {
+    "bg": "hsl(92.7 26% 11%)",
+    "surface": "hsl(124.7 22% 91%)",
+    "ink": "hsl(282.7 28% 9%)",
+    "accent": "hsl(210.7 72% 51%)",
+    "accent2": "hsl(344.7 58% 60%)"
+  },
+  "fingerprint": "archive|minimal|mosaic|wide|module|grid|compact|precise|1"
+}

@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 62,
+  "name": "RIDGELINE 캠핑장",
+  "slug": "ridgeline-campground",
+  "sector": "여행·숙박",
+  "kind": "캠핑장",
+  "tagline": "등고선와 사이트 핀을 중심으로 캠핑장의 실제 선택을 화면에서 경험합니다.",
+  "cta": "지도 보기",
+  "interaction": "map",
+  "services": [
+    "캠핑장 안내",
+    "맞춤 캠핑장",
+    "캠핑장 상담·예약"
+  ],
+  "materials": [
+    "등고선",
+    "사이트 핀",
+    "고도 표식",
+    "장비 아이콘"
+  ],
+  "contentSignature": "캠핑장|map|등고선|사이트 핀|고도 표식|장비 아이콘",
+  "layout": "floorplan",
+  "nav": "ticker",
+  "hero": "timeline",
+  "type": "humanist",
+  "geometry": "circle",
+  "medium": "documents",
+  "density": "immersive",
+  "mood": "precise",
+  "variant": 3,
+  "palette": {
+    "bg": "hsl(146.0 26% 15%)",
+    "surface": "hsl(178.0 22% 85%)",
+    "ink": "hsl(336.0 28% 11%)",
+    "accent": "hsl(264.0 64% 53%)",
+    "accent2": "hsl(38.0 52% 58%)"
+  },
+  "fingerprint": "floorplan|ticker|timeline|humanist|circle|documents|immersive|precise|3"
+}

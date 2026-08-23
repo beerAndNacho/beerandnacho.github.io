@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 44,
+  "name": "FORMULA 스킨케어 클리닉",
+  "slug": "formula-skincare",
+  "sector": "웰니스·케어",
+  "kind": "스킨케어 클리닉",
+  "tagline": "성분표와 투명 레이어을 중심으로 스킨케어 클리닉의 실제 선택을 화면에서 경험합니다.",
+  "cta": "조합하기",
+  "interaction": "mixer",
+  "services": [
+    "스킨케어 클리닉 안내",
+    "맞춤 스킨케어 클리닉",
+    "스킨케어 클리닉 상담·예약"
+  ],
+  "materials": [
+    "성분표",
+    "투명 레이어",
+    "색조 드롭",
+    "관리 카드"
+  ],
+  "contentSignature": "스킨케어 클리닉|mixer|성분표|투명 레이어|색조 드롭|관리 카드",
+  "layout": "notebook",
+  "nav": "top",
+  "hero": "poster",
+  "type": "condensed",
+  "geometry": "sharp",
+  "medium": "paper",
+  "density": "dense",
+  "mood": "natural",
+  "variant": 2,
+  "palette": {
+    "bg": "hsl(171.8 26% 13%)",
+    "surface": "hsl(203.8 22% 88%)",
+    "ink": "hsl(1.8 28% 10%)",
+    "accent": "hsl(289.8 68% 52%)",
+    "accent2": "hsl(63.8 55% 59%)"
+  },
+  "fingerprint": "notebook|top|poster|condensed|sharp|paper|dense|natural|2"
+}

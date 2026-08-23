@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 56,
+  "name": "LOWPOLY 게임 스튜디오",
+  "slug": "lowpoly-game-studio",
+  "sector": "문화·창작",
+  "kind": "게임 스튜디오",
+  "tagline": "픽셀 창와 로우폴리 오브젝트을 중심으로 게임 스튜디오의 실제 선택을 화면에서 경험합니다.",
+  "cta": "장면 보기",
+  "interaction": "carousel",
+  "services": [
+    "게임 스튜디오 안내",
+    "맞춤 게임 스튜디오",
+    "게임 스튜디오 상담·예약"
+  ],
+  "materials": [
+    "픽셀 창",
+    "로우폴리 오브젝트",
+    "레벨 맵",
+    "플레이 카드"
+  ],
+  "contentSignature": "게임 스튜디오|carousel|픽셀 창|로우폴리 오브젝트|레벨 맵|플레이 카드",
+  "layout": "book",
+  "nav": "minimal",
+  "hero": "radial",
+  "type": "technical",
+  "geometry": "module",
+  "medium": "isometric",
+  "density": "dense",
+  "mood": "public",
+  "variant": 3,
+  "palette": {
+    "bg": "hsl(40.9 26% 15%)",
+    "surface": "hsl(72.9 22% 85%)",
+    "ink": "hsl(230.9 28% 11%)",
+    "accent": "hsl(158.9 64% 53%)",
+    "accent2": "hsl(292.9 52% 58%)"
+  },
+  "fingerprint": "book|minimal|radial|technical|module|isometric|dense|public|3"
+}

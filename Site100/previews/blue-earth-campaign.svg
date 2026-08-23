@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">BLUE EARTH 환경 캠페인 디자인 미리보기</title>
+  <desc id="desc">radial 레이아웃, notebook 히어로, 환경 캠페인 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(172.7 26% 17%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(204.7 22% 82%)" stroke="hsl(2.7 28% 12%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(2.7 28% 12%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(290.7 60% 54%)"/>
+  <text x="70" y="52" fill="hsl(204.7 22% 82%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 083 · 환경 캠페인</text>
+  <line x1="38" y1="122" x2="669" y2="122" stroke="hsl(2.7 28% 12%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="638" y2="164" stroke="hsl(2.7 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="607" y2="206" stroke="hsl(2.7 28% 12%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="576" y2="248" stroke="hsl(2.7 28% 12%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="705" y2="290" stroke="hsl(2.7 28% 12%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="674" y2="332" stroke="hsl(2.7 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="643" y2="374" stroke="hsl(2.7 28% 12%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="612" y2="416" stroke="hsl(2.7 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="581" y2="458" stroke="hsl(2.7 28% 12%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="87" y="226" width="155" height="69" rx="0" fill="hsl(290.7 60% 54%)" opacity=".94"/><rect x="176" y="287" width="198" height="36" rx="0" fill="hsl(64.7 49% 57%)" opacity=".94"/><rect x="265" y="348" width="91" height="65" rx="0" fill="hsl(204.7 22% 82%)" opacity=".72"/><rect x="354" y="409" width="134" height="32" rx="0" fill="hsl(290.7 60% 54%)" opacity=".94"/><rect x="443" y="110" width="177" height="61" rx="0" fill="hsl(64.7 49% 57%)" opacity=".94"/><rect x="532" y="171" width="70" height="28" rx="0" fill="hsl(204.7 22% 82%)" opacity=".72"/><rect x="121" y="232" width="113" height="57" rx="0" fill="hsl(290.7 60% 54%)" opacity=".94"/><rect x="210" y="293" width="156" height="24" rx="0" fill="hsl(64.7 49% 57%)" opacity=".94"/>
+  <circle cx="601" cy="273" r="78" fill="none" stroke="hsl(290.7 60% 54%)" stroke-width="18" opacity=".82"/>
+  <circle cx="601" cy="273" r="43" fill="hsl(64.7 49% 57%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(2.7 28% 12%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">BLUE EARTH 환경 캠페인</text>
+  <text x="55" y="462" fill="hsl(2.7 28% 12%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">radial / notebook / isometric</text>
+</svg>

@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 7,
+  "name": "SPOKE LAB 자전거 수리",
+  "slug": "spoke-lab-bike-repair",
+  "sector": "지역 매장",
+  "kind": "자전거 수리",
+  "tagline": "자전거 분해도와 체인 링크을 중심으로 자전거 수리의 실제 선택을 화면에서 경험합니다.",
+  "cta": "레이어 열기",
+  "interaction": "reveal",
+  "services": [
+    "자전거 수리 안내",
+    "맞춤 자전거 수리",
+    "자전거 수리 상담·예약"
+  ],
+  "materials": [
+    "자전거 분해도",
+    "체인 링크",
+    "스포크 휠",
+    "부품 태그"
+  ],
+  "contentSignature": "자전거 수리|reveal|자전거 분해도|체인 링크|스포크 휠|부품 태그",
+  "layout": "terminal",
+  "nav": "split",
+  "hero": "poster",
+  "type": "contrast",
+  "geometry": "ribbon",
+  "medium": "paper",
+  "density": "dense",
+  "mood": "industrial",
+  "variant": 1,
+  "palette": {
+    "bg": "hsl(105.0 26% 11%)",
+    "surface": "hsl(137.0 22% 91%)",
+    "ink": "hsl(295.0 28% 9%)",
+    "accent": "hsl(223.0 72% 51%)",
+    "accent2": "hsl(357.0 58% 60%)"
+  },
+  "fingerprint": "terminal|split|poster|contrast|ribbon|paper|dense|industrial|1"
+}

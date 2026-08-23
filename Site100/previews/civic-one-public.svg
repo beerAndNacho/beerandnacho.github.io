@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">CIVIC ONE 공공서비스 디자인 미리보기</title>
+  <desc id="desc">timeline 레이아웃, ticket 히어로, 공공서비스 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(87.7 26% 17%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(119.7 22% 82%)" stroke="hsl(277.7 28% 12%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(277.7 28% 12%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(205.7 60% 54%)"/>
+  <text x="70" y="52" fill="hsl(119.7 22% 82%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 085 · 공공서비스</text>
+  <line x1="38" y1="122" x2="635" y2="122" stroke="hsl(277.7 28% 12%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="604" y2="164" stroke="hsl(277.7 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="573" y2="206" stroke="hsl(277.7 28% 12%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="702" y2="248" stroke="hsl(277.7 28% 12%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="671" y2="290" stroke="hsl(277.7 28% 12%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="640" y2="332" stroke="hsl(277.7 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="609" y2="374" stroke="hsl(277.7 28% 12%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="578" y2="416" stroke="hsl(277.7 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="707" y2="458" stroke="hsl(277.7 28% 12%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="281" y="420" width="199" height="77" rx="38.5" fill="hsl(205.7 60% 54%)" opacity=".94"/><rect x="370" y="121" width="92" height="44" rx="22" fill="hsl(339.7 49% 57%)" opacity=".94"/><rect x="459" y="182" width="135" height="73" rx="36.5" fill="hsl(119.7 22% 82%)" opacity=".72"/><rect x="48" y="243" width="178" height="40" rx="20" fill="hsl(205.7 60% 54%)" opacity=".94"/><rect x="137" y="304" width="71" height="69" rx="34.5" fill="hsl(339.7 49% 57%)" opacity=".94"/><rect x="226" y="365" width="114" height="36" rx="18" fill="hsl(119.7 22% 82%)" opacity=".72"/><rect x="315" y="426" width="157" height="65" rx="32.5" fill="hsl(205.7 60% 54%)" opacity=".94"/><rect x="404" y="127" width="200" height="32" rx="16" fill="hsl(339.7 49% 57%)" opacity=".94"/>
+  <circle cx="615" cy="287" r="78" fill="none" stroke="hsl(205.7 60% 54%)" stroke-width="18" opacity=".82"/>
+  <circle cx="615" cy="287" r="43" fill="hsl(339.7 49% 57%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(277.7 28% 12%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">CIVIC ONE 공공서비스</text>
+  <text x="55" y="462" fill="hsl(277.7 28% 12%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">timeline / ticket / vector</text>
+</svg>

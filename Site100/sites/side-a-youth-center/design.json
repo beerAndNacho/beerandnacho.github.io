@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 90,
+  "name": "SIDE A 청년문화센터",
+  "slug": "side-a-youth-center",
+  "sector": "공공·커뮤니티",
+  "kind": "청년문화센터",
+  "tagline": "복사 질감와 잡지 페이지을 중심으로 청년문화센터의 실제 선택을 화면에서 경험합니다.",
+  "cta": "배치하기",
+  "interaction": "drag",
+  "services": [
+    "청년문화센터 안내",
+    "맞춤 청년문화센터",
+    "청년문화센터 상담·예약"
+  ],
+  "materials": [
+    "복사 질감",
+    "잡지 페이지",
+    "찢긴 포스터",
+    "스테이플"
+  ],
+  "contentSignature": "청년문화센터|drag|복사 질감|잡지 페이지|찢긴 포스터|스테이플",
+  "layout": "masonry",
+  "nav": "top",
+  "hero": "terminal",
+  "type": "mono",
+  "geometry": "sharp",
+  "medium": "halftone",
+  "density": "balanced",
+  "mood": "industrial",
+  "variant": 4,
+  "palette": {
+    "bg": "hsl(55.2 26% 17%)",
+    "surface": "hsl(87.2 22% 82%)",
+    "ink": "hsl(245.2 28% 12%)",
+    "accent": "hsl(173.2 60% 54%)",
+    "accent2": "hsl(307.2 49% 57%)"
+  },
+  "fingerprint": "masonry|top|terminal|mono|sharp|halftone|balanced|industrial|4"
+}

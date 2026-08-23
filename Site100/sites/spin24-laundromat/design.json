@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 4,
+  "name": "SPIN24 세탁방",
+  "slug": "spin24-laundromat",
+  "sector": "지역 매장",
+  "kind": "셀프 세탁방",
+  "tagline": "원형 드럼와 남은 시간 링을 중심으로 셀프 세탁방의 실제 선택을 화면에서 경험합니다.",
+  "cta": "상태 보기",
+  "interaction": "status",
+  "services": [
+    "셀프 세탁방 안내",
+    "맞춤 셀프 세탁방",
+    "셀프 세탁방 상담·예약"
+  ],
+  "materials": [
+    "원형 드럼",
+    "남은 시간 링",
+    "세제 자판기",
+    "상태등"
+  ],
+  "contentSignature": "셀프 세탁방|status|원형 드럼|남은 시간 링|세제 자판기|상태등",
+  "layout": "dashboard",
+  "nav": "radial",
+  "hero": "split",
+  "type": "humanist",
+  "geometry": "layer",
+  "medium": "vector",
+  "density": "balanced",
+  "mood": "public",
+  "variant": 1,
+  "palette": {
+    "bg": "hsl(52.5 26% 11%)",
+    "surface": "hsl(84.5 22% 91%)",
+    "ink": "hsl(242.5 28% 9%)",
+    "accent": "hsl(170.5 72% 51%)",
+    "accent2": "hsl(304.5 58% 60%)"
+  },
+  "fingerprint": "dashboard|radial|split|humanist|layer|vector|balanced|public|1"
+}

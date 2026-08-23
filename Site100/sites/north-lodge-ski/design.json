@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 66,
+  "name": "NORTH LODGE 스키 숙소",
+  "slug": "north-lodge-ski",
+  "sector": "여행·숙박",
+  "kind": "스키 숙소",
+  "tagline": "지역신문와 적설 패널을 중심으로 스키 숙소의 실제 선택을 화면에서 경험합니다.",
+  "cta": "예약하기",
+  "interaction": "booking",
+  "services": [
+    "스키 숙소 안내",
+    "맞춤 스키 숙소",
+    "스키 숙소 상담·예약"
+  ],
+  "materials": [
+    "지역신문",
+    "적설 패널",
+    "객실 표",
+    "셔틀 시간"
+  ],
+  "contentSignature": "스키 숙소|booking|지역신문|적설 패널|객실 표|셔틀 시간",
+  "layout": "monolith",
+  "nav": "minimal",
+  "hero": "notebook",
+  "type": "technical",
+  "geometry": "module",
+  "medium": "isometric",
+  "density": "dense",
+  "mood": "public",
+  "variant": 3,
+  "palette": {
+    "bg": "hsl(336.0 26% 15%)",
+    "surface": "hsl(8.0 22% 85%)",
+    "ink": "hsl(166.0 28% 11%)",
+    "accent": "hsl(94.0 64% 53%)",
+    "accent2": "hsl(228.0 52% 58%)"
+  },
+  "fingerprint": "monolith|minimal|notebook|technical|module|isometric|dense|public|3"
+}

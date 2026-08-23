@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 61,
+  "name": "KEYCARD 부티크 호텔",
+  "slug": "keycard-hotel",
+  "sector": "여행·숙박",
+  "kind": "부티크 호텔",
+  "tagline": "키카드 메뉴와 객실 번호을 중심으로 부티크 호텔의 실제 선택을 화면에서 경험합니다.",
+  "cta": "예약하기",
+  "interaction": "booking",
+  "services": [
+    "부티크 호텔 안내",
+    "맞춤 부티크 호텔",
+    "부티크 호텔 상담·예약"
+  ],
+  "materials": [
+    "키카드 메뉴",
+    "객실 번호",
+    "체크인 시간",
+    "도어 태그"
+  ],
+  "contentSignature": "부티크 호텔|booking|키카드 메뉴|객실 번호|체크인 시간|도어 태그",
+  "layout": "split",
+  "nav": "dock",
+  "hero": "poster",
+  "type": "mono",
+  "geometry": "organic",
+  "medium": "paper",
+  "density": "dense",
+  "mood": "playful",
+  "variant": 3,
+  "palette": {
+    "bg": "hsl(8.5 26% 15%)",
+    "surface": "hsl(40.5 22% 85%)",
+    "ink": "hsl(198.5 28% 11%)",
+    "accent": "hsl(126.5 64% 53%)",
+    "accent2": "hsl(260.5 52% 58%)"
+  },
+  "fingerprint": "split|dock|poster|mono|organic|paper|dense|playful|3"
+}

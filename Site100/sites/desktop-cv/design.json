@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 91,
+  "name": "DESKTOP CV 개발자 이력서",
+  "slug": "desktop-cv",
+  "sector": "개인·실험",
+  "kind": "개발자 포트폴리오",
+  "tagline": "데스크톱 창와 명령 팔레트을 중심으로 개발자 포트폴리오의 실제 선택을 화면에서 경험합니다.",
+  "cta": "실행하기",
+  "interaction": "command",
+  "services": [
+    "개발자 포트폴리오 안내",
+    "맞춤 개발자 포트폴리오",
+    "개발자 포트폴리오 상담·예약"
+  ],
+  "materials": [
+    "데스크톱 창",
+    "명령 팔레트",
+    "폴더 아이콘",
+    "상태 바"
+  ],
+  "contentSignature": "개발자 포트폴리오|command|데스크톱 창|명령 팔레트|폴더 아이콘|상태 바",
+  "layout": "monolith",
+  "nav": "corner",
+  "hero": "mosaic",
+  "type": "humanist",
+  "geometry": "paper",
+  "medium": "grid",
+  "density": "compact",
+  "mood": "quiet",
+  "variant": 4,
+  "palette": {
+    "bg": "hsl(192.7 26% 17%)",
+    "surface": "hsl(224.7 22% 82%)",
+    "ink": "hsl(22.7 28% 12%)",
+    "accent": "hsl(310.7 60% 54%)",
+    "accent2": "hsl(84.7 49% 57%)"
+  },
+  "fingerprint": "monolith|corner|mosaic|humanist|paper|grid|compact|quiet|4"
+}

@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 15,
+  "name": "PEOPLE FIRST 채용회사",
+  "slug": "people-first-recruiting",
+  "sector": "전문 서비스",
+  "kind": "채용회사",
+  "tagline": "인재 카드와 역량 태그을 중심으로 채용회사의 실제 선택을 화면에서 경험합니다.",
+  "cta": "필터 열기",
+  "interaction": "filter",
+  "services": [
+    "채용회사 안내",
+    "맞춤 채용회사",
+    "채용회사 상담·예약"
+  ],
+  "materials": [
+    "인재 카드",
+    "역량 태그",
+    "팀 그래프",
+    "대화 질문"
+  ],
+  "contentSignature": "채용회사|filter|인재 카드|역량 태그|팀 그래프|대화 질문",
+  "layout": "masonry",
+  "nav": "dock",
+  "hero": "drawer",
+  "type": "condensed",
+  "geometry": "organic",
+  "medium": "light",
+  "density": "compact",
+  "mood": "experimental",
+  "variant": 1,
+  "palette": {
+    "bg": "hsl(125.1 26% 11%)",
+    "surface": "hsl(157.1 22% 91%)",
+    "ink": "hsl(315.1 28% 9%)",
+    "accent": "hsl(243.1 72% 51%)",
+    "accent2": "hsl(17.1 58% 60%)"
+  },
+  "fingerprint": "masonry|dock|drawer|condensed|organic|light|compact|experimental|1"
+}

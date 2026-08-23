@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 12,
+  "name": "LEDGER & CO 회계사무소",
+  "slug": "ledger-accounting",
+  "sector": "전문 서비스",
+  "kind": "회계사무소",
+  "tagline": "회계 장부와 월별 표을 중심으로 회계사무소의 실제 선택을 화면에서 경험합니다.",
+  "cta": "계산하기",
+  "interaction": "calculate",
+  "services": [
+    "회계사무소 안내",
+    "맞춤 회계사무소",
+    "회계사무소 상담·예약"
+  ],
+  "materials": [
+    "회계 장부",
+    "월별 표",
+    "증빙 클립",
+    "현금 흐름선"
+  ],
+  "contentSignature": "회계사무소|calculate|회계 장부|월별 표|증빙 클립|현금 흐름선",
+  "layout": "floorplan",
+  "nav": "corner",
+  "hero": "notebook",
+  "type": "neo",
+  "geometry": "paper",
+  "medium": "isometric",
+  "density": "dense",
+  "mood": "digital",
+  "variant": 1,
+  "palette": {
+    "bg": "hsl(72.6 26% 11%)",
+    "surface": "hsl(104.6 22% 91%)",
+    "ink": "hsl(262.6 28% 9%)",
+    "accent": "hsl(190.6 72% 51%)",
+    "accent2": "hsl(324.6 58% 60%)"
+  },
+  "fingerprint": "floorplan|corner|notebook|neo|paper|isometric|dense|digital|1"
+}

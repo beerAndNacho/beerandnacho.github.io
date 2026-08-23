@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 16,
+  "name": "MIRROR 번역회사",
+  "slug": "mirror-translation",
+  "sector": "전문 서비스",
+  "kind": "번역회사",
+  "tagline": "대칭 문단와 언어 토글을 중심으로 번역회사의 실제 선택을 화면에서 경험합니다.",
+  "cta": "보기 전환",
+  "interaction": "switcher",
+  "services": [
+    "번역회사 안내",
+    "맞춤 번역회사",
+    "번역회사 상담·예약"
+  ],
+  "materials": [
+    "대칭 문단",
+    "언어 토글",
+    "문맥 주석",
+    "용어 카드"
+  ],
+  "contentSignature": "번역회사|switcher|대칭 문단|언어 토글|문맥 주석|용어 카드",
+  "layout": "monolith",
+  "nav": "ticker",
+  "hero": "book",
+  "type": "rounded",
+  "geometry": "circle",
+  "medium": "glass",
+  "density": "airy",
+  "mood": "luxury",
+  "variant": 1,
+  "palette": {
+    "bg": "hsl(262.6 26% 11%)",
+    "surface": "hsl(294.6 22% 91%)",
+    "ink": "hsl(92.6 28% 9%)",
+    "accent": "hsl(20.6 72% 51%)",
+    "accent2": "hsl(154.6 58% 60%)"
+  },
+  "fingerprint": "monolith|ticker|book|rounded|circle|glass|airy|luxury|1"
+}

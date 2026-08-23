@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 51,
+  "name": "FRAMEWORK 영화제작사",
+  "slug": "framework-film",
+  "sector": "문화·창작",
+  "kind": "영화제작사",
+  "tagline": "시네마스코프와 필름 스크러버을 중심으로 영화제작사의 실제 선택을 화면에서 경험합니다.",
+  "cta": "장면 보기",
+  "interaction": "carousel",
+  "services": [
+    "영화제작사 안내",
+    "맞춤 영화제작사",
+    "영화제작사 상담·예약"
+  ],
+  "materials": [
+    "시네마스코프",
+    "필름 스크러버",
+    "장면 카드",
+    "타임코드"
+  ],
+  "contentSignature": "영화제작사|carousel|시네마스코프|필름 스크러버|장면 카드|타임코드",
+  "layout": "editorial",
+  "nav": "dock",
+  "hero": "headline",
+  "type": "mono",
+  "geometry": "organic",
+  "medium": "paper",
+  "density": "dense",
+  "mood": "playful",
+  "variant": 3,
+  "palette": {
+    "bg": "hsl(73.4 26% 15%)",
+    "surface": "hsl(105.4 22% 85%)",
+    "ink": "hsl(263.4 28% 11%)",
+    "accent": "hsl(191.4 64% 53%)",
+    "accent2": "hsl(325.4 52% 58%)"
+  },
+  "fingerprint": "editorial|dock|headline|mono|organic|paper|dense|playful|3"
+}

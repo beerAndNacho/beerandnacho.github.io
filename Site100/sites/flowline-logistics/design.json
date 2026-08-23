@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 14,
+  "name": "FLOWLINE 물류회사",
+  "slug": "flowline-logistics",
+  "sector": "전문 서비스",
+  "kind": "물류회사",
+  "tagline": "관제 지도와 화물 노드을 중심으로 물류회사의 실제 선택을 화면에서 경험합니다.",
+  "cta": "지도 보기",
+  "interaction": "map",
+  "services": [
+    "물류회사 안내",
+    "맞춤 물류회사",
+    "물류회사 상담·예약"
+  ],
+  "materials": [
+    "관제 지도",
+    "화물 노드",
+    "창고 랙",
+    "운송 상태선"
+  ],
+  "contentSignature": "물류회사|map|관제 지도|화물 노드|창고 랙|운송 상태선",
+  "layout": "newspaper",
+  "nav": "radial",
+  "hero": "ticket",
+  "type": "humanist",
+  "geometry": "layer",
+  "medium": "vector",
+  "density": "balanced",
+  "mood": "public",
+  "variant": 1,
+  "palette": {
+    "bg": "hsl(347.6 26% 11%)",
+    "surface": "hsl(19.6 22% 91%)",
+    "ink": "hsl(177.6 28% 9%)",
+    "accent": "hsl(105.6 72% 51%)",
+    "accent2": "hsl(239.6 58% 60%)"
+  },
+  "fingerprint": "newspaper|radial|ticket|humanist|layer|vector|balanced|public|1"
+}

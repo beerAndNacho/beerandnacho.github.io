@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">NORTH LODGE 스키 숙소 디자인 미리보기</title>
+  <desc id="desc">monolith 레이아웃, notebook 히어로, 스키 숙소 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(336.0 26% 15%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(8.0 22% 85%)" stroke="hsl(166.0 28% 11%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(166.0 28% 11%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(94.0 64% 53%)"/>
+  <text x="70" y="52" fill="hsl(8.0 22% 85%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 066 · 스키 숙소</text>
+  <line x1="38" y1="122" x2="718" y2="122" stroke="hsl(166.0 28% 11%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="687" y2="164" stroke="hsl(166.0 28% 11%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="656" y2="206" stroke="hsl(166.0 28% 11%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="625" y2="248" stroke="hsl(166.0 28% 11%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="594" y2="290" stroke="hsl(166.0 28% 11%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="563" y2="332" stroke="hsl(166.0 28% 11%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="692" y2="374" stroke="hsl(166.0 28% 11%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="661" y2="416" stroke="hsl(166.0 28% 11%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="630" y2="458" stroke="hsl(166.0 28% 11%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="438" y="377" width="156" height="32" rx="0" fill="hsl(94.0 64% 53%)" opacity=".94"/><rect x="527" y="438" width="199" height="61" rx="0" fill="hsl(228.0 52% 58%)" opacity=".94"/><rect x="116" y="139" width="92" height="28" rx="0" fill="hsl(8.0 22% 85%)" opacity=".72"/><rect x="205" y="200" width="135" height="57" rx="0" fill="hsl(94.0 64% 53%)" opacity=".94"/><rect x="294" y="261" width="178" height="24" rx="0" fill="hsl(228.0 52% 58%)" opacity=".94"/><rect x="383" y="322" width="71" height="53" rx="0" fill="hsl(8.0 22% 85%)" opacity=".72"/><rect x="472" y="383" width="114" height="20" rx="0" fill="hsl(94.0 64% 53%)" opacity=".94"/><rect x="61" y="444" width="157" height="49" rx="0" fill="hsl(228.0 52% 58%)" opacity=".94"/>
+  <circle cx="572" cy="244" r="78" fill="none" stroke="hsl(94.0 64% 53%)" stroke-width="18" opacity=".82"/>
+  <circle cx="572" cy="244" r="43" fill="hsl(228.0 52% 58%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(166.0 28% 11%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">NORTH LODGE 스키 숙소</text>
+  <text x="55" y="462" fill="hsl(166.0 28% 11%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">monolith / notebook / isometric</text>
+</svg>

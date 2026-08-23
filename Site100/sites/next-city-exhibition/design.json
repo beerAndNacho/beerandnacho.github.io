@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 99,
+  "name": "NEXT CITY 미래도시 전시",
+  "slug": "next-city-exhibition",
+  "sector": "개인·실험",
+  "kind": "미래도시 전시",
+  "tagline": "미래 지도와 도시 데이터을 중심으로 미래도시 전시의 실제 선택을 화면에서 경험합니다.",
+  "cta": "지도 보기",
+  "interaction": "map",
+  "services": [
+    "미래도시 전시 안내",
+    "맞춤 미래도시 전시",
+    "미래도시 전시 상담·예약"
+  ],
+  "materials": [
+    "미래 지도",
+    "도시 데이터",
+    "전시 핀",
+    "공간 레이어"
+  ],
+  "contentSignature": "미래도시 전시|map|미래 지도|도시 데이터|전시 핀|공간 레이어",
+  "layout": "glass",
+  "nav": "minimal",
+  "hero": "timeline",
+  "type": "neo",
+  "geometry": "module",
+  "medium": "documents",
+  "density": "immersive",
+  "mood": "luxury",
+  "variant": 4,
+  "palette": {
+    "bg": "hsl(212.8 26% 17%)",
+    "surface": "hsl(244.8 22% 82%)",
+    "ink": "hsl(42.8 28% 12%)",
+    "accent": "hsl(330.8 60% 54%)",
+    "accent2": "hsl(104.8 49% 57%)"
+  },
+  "fingerprint": "glass|minimal|timeline|neo|module|documents|immersive|luxury|4"
+}

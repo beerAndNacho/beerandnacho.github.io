@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 98,
+  "name": "REMEMBER 추모 기록관",
+  "slug": "remember-memorial",
+  "sector": "개인·실험",
+  "kind": "추모 기록관",
+  "tagline": "빛 밝히기와 문서 아카이브을 중심으로 추모 기록관의 실제 선택을 화면에서 경험합니다.",
+  "cta": "레이어 열기",
+  "interaction": "reveal",
+  "services": [
+    "추모 기록관 안내",
+    "맞춤 추모 기록관",
+    "추모 기록관 상담·예약"
+  ],
+  "materials": [
+    "빛 밝히기",
+    "문서 아카이브",
+    "사진 여백",
+    "기억 문장"
+  ],
+  "contentSignature": "추모 기록관|reveal|빛 밝히기|문서 아카이브|사진 여백|기억 문장",
+  "layout": "data",
+  "nav": "tabs",
+  "hero": "poster",
+  "type": "serif",
+  "geometry": "blueprint",
+  "medium": "paper",
+  "density": "dense",
+  "mood": "experimental",
+  "variant": 4,
+  "palette": {
+    "bg": "hsl(75.3 26% 17%)",
+    "surface": "hsl(107.3 22% 82%)",
+    "ink": "hsl(265.3 28% 12%)",
+    "accent": "hsl(193.3 60% 54%)",
+    "accent2": "hsl(327.3 49% 57%)"
+  },
+  "fingerprint": "data|tabs|poster|serif|blueprint|paper|dense|experimental|4"
+}

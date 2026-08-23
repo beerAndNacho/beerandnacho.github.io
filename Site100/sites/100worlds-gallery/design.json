@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 100,
+  "name": "100WORLDS 디자인 갤러리",
+  "slug": "100worlds-gallery",
+  "sector": "개인·실험",
+  "kind": "디자인 갤러리",
+  "tagline": "100개 미니 프리뷰와 디자인 지문을 중심으로 디자인 갤러리의 실제 선택을 화면에서 경험합니다.",
+  "cta": "필터 열기",
+  "interaction": "filter",
+  "services": [
+    "디자인 갤러리 안내",
+    "맞춤 디자인 갤러리",
+    "디자인 갤러리 상담·예약"
+  ],
+  "materials": [
+    "100개 미니 프리뷰",
+    "디자인 지문",
+    "필터 매트릭스",
+    "비교 보드"
+  ],
+  "contentSignature": "디자인 갤러리|filter|100개 미니 프리뷰|디자인 지문|필터 매트릭스|비교 보드",
+  "layout": "collage",
+  "nav": "top",
+  "hero": "wave",
+  "type": "mono",
+  "geometry": "sharp",
+  "medium": "halftone",
+  "density": "balanced",
+  "mood": "industrial",
+  "variant": 4,
+  "palette": {
+    "bg": "hsl(350.3 26% 17%)",
+    "surface": "hsl(22.3 22% 82%)",
+    "ink": "hsl(180.3 28% 12%)",
+    "accent": "hsl(108.3 60% 54%)",
+    "accent2": "hsl(242.3 49% 57%)"
+  },
+  "fingerprint": "collage|top|wave|mono|sharp|halftone|balanced|industrial|4"
+}

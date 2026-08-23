@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 48,
+  "name": "RETURN 스포츠 재활",
+  "slug": "return-sports-rehab",
+  "sector": "웰니스·케어",
+  "kind": "스포츠 재활",
+  "tagline": "선수 HUD와 회복 마일스톤을 중심으로 스포츠 재활의 실제 선택을 화면에서 경험합니다.",
+  "cta": "과정 보기",
+  "interaction": "timeline",
+  "services": [
+    "스포츠 재활 안내",
+    "맞춤 스포츠 재활",
+    "스포츠 재활 상담·예약"
+  ],
+  "materials": [
+    "선수 HUD",
+    "회복 마일스톤",
+    "성능 그래프",
+    "테스트 카드"
+  ],
+  "contentSignature": "스포츠 재활|timeline|선수 HUD|회복 마일스톤|성능 그래프|테스트 카드",
+  "layout": "data",
+  "nav": "dock",
+  "hero": "window",
+  "type": "soft",
+  "geometry": "organic",
+  "medium": "frame",
+  "density": "airy",
+  "mood": "industrial",
+  "variant": 2,
+  "palette": {
+    "bg": "hsl(1.9 26% 13%)",
+    "surface": "hsl(33.9 22% 88%)",
+    "ink": "hsl(191.9 28% 10%)",
+    "accent": "hsl(119.9 68% 52%)",
+    "accent2": "hsl(253.9 55% 59%)"
+  },
+  "fingerprint": "data|dock|window|soft|organic|frame|airy|industrial|2"
+}

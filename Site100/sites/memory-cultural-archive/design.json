@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 89,
+  "name": "MEMORY 문화 아카이브",
+  "slug": "memory-cultural-archive",
+  "sector": "공공·커뮤니티",
+  "kind": "문화 아카이브",
+  "tagline": "연도 타임라인와 원문 문서을 중심으로 문화 아카이브의 실제 선택을 화면에서 경험합니다.",
+  "cta": "자료 찾기",
+  "interaction": "archive",
+  "services": [
+    "문화 아카이브 안내",
+    "맞춤 문화 아카이브",
+    "문화 아카이브 상담·예약"
+  ],
+  "materials": [
+    "연도 타임라인",
+    "원문 문서",
+    "사진 봉투",
+    "자료 번호"
+  ],
+  "contentSignature": "문화 아카이브|archive|연도 타임라인|원문 문서|사진 봉투|자료 번호",
+  "layout": "newspaper",
+  "nav": "minimal",
+  "hero": "cinema",
+  "type": "neo",
+  "geometry": "module",
+  "medium": "documents",
+  "density": "immersive",
+  "mood": "luxury",
+  "variant": 4,
+  "palette": {
+    "bg": "hsl(277.7 26% 17%)",
+    "surface": "hsl(309.7 22% 82%)",
+    "ink": "hsl(107.7 28% 12%)",
+    "accent": "hsl(35.7 60% 54%)",
+    "accent2": "hsl(169.7 49% 57%)"
+  },
+  "fingerprint": "newspaper|minimal|cinema|neo|module|documents|immersive|luxury|4"
+}

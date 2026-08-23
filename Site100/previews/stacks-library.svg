@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">STACKS 디지털 도서관 디자인 미리보기</title>
+  <desc id="desc">masonry 레이아웃, monolith 히어로, 디지털 도서관 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(341.8 26% 13%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(13.8 22% 88%)" stroke="hsl(171.8 28% 10%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(171.8 28% 10%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(99.8 68% 52%)"/>
+  <text x="70" y="52" fill="hsl(13.8 22% 88%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 040 · 디지털 도서관</text>
+  <line x1="38" y1="122" x2="680" y2="122" stroke="hsl(171.8 28% 10%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="649" y2="164" stroke="hsl(171.8 28% 10%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="618" y2="206" stroke="hsl(171.8 28% 10%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="587" y2="248" stroke="hsl(171.8 28% 10%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="716" y2="290" stroke="hsl(171.8 28% 10%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="685" y2="332" stroke="hsl(171.8 28% 10%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="654" y2="374" stroke="hsl(171.8 28% 10%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="623" y2="416" stroke="hsl(171.8 28% 10%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="592" y2="458" stroke="hsl(171.8 28% 10%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="416" y="375" width="184" height="52" rx="0" fill="hsl(99.8 68% 52%)" opacity=".94"/><rect x="505" y="436" width="77" height="19" rx="0" fill="hsl(233.8 55% 59%)" opacity=".94"/><rect x="94" y="137" width="120" height="48" rx="0" fill="hsl(13.8 22% 88%)" opacity=".72"/><rect x="183" y="198" width="163" height="77" rx="0" fill="hsl(99.8 68% 52%)" opacity=".94"/><rect x="272" y="259" width="56" height="44" rx="0" fill="hsl(233.8 55% 59%)" opacity=".94"/><rect x="361" y="320" width="99" height="73" rx="0" fill="hsl(13.8 22% 88%)" opacity=".72"/><rect x="450" y="381" width="142" height="40" rx="0" fill="hsl(99.8 68% 52%)" opacity=".94"/><rect x="39" y="442" width="185" height="69" rx="0" fill="hsl(233.8 55% 59%)" opacity=".94"/>
+  <circle cx="570" cy="242" r="78" fill="none" stroke="hsl(99.8 68% 52%)" stroke-width="18" opacity=".82"/>
+  <circle cx="570" cy="242" r="43" fill="hsl(233.8 55% 59%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(171.8 28% 10%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">STACKS 디지털 도서관</text>
+  <text x="55" y="462" fill="hsl(171.8 28% 10%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">masonry / monolith / ink</text>
+</svg>

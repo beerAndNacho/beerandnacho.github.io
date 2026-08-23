@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">IMPACT 피트니스 센터 디자인 미리보기</title>
+  <desc id="desc">cinema 레이아웃, map 히어로, 피트니스 센터 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(224.4 26% 13%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(256.4 22% 88%)" stroke="hsl(54.4 28% 10%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(54.4 28% 10%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(342.4 68% 52%)"/>
+  <text x="70" y="52" fill="hsl(256.4 22% 88%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 047 · 피트니스 센터</text>
+  <line x1="38" y1="122" x2="641" y2="122" stroke="hsl(54.4 28% 10%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="610" y2="164" stroke="hsl(54.4 28% 10%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="579" y2="206" stroke="hsl(54.4 28% 10%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="708" y2="248" stroke="hsl(54.4 28% 10%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="677" y2="290" stroke="hsl(54.4 28% 10%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="646" y2="332" stroke="hsl(54.4 28% 10%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="615" y2="374" stroke="hsl(54.4 28% 10%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="584" y2="416" stroke="hsl(54.4 28% 10%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="713" y2="458" stroke="hsl(54.4 28% 10%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="95" y="334" width="113" height="49" rx="0" fill="hsl(342.4 68% 52%)" opacity=".94"/><rect x="184" y="395" width="156" height="16" rx="0" fill="hsl(116.4 55% 59%)" opacity=".94"/><rect x="273" y="96" width="199" height="45" rx="0" fill="hsl(256.4 22% 88%)" opacity=".72"/><rect x="362" y="157" width="92" height="74" rx="0" fill="hsl(342.4 68% 52%)" opacity=".94"/><rect x="451" y="218" width="135" height="41" rx="0" fill="hsl(116.4 55% 59%)" opacity=".94"/><rect x="40" y="279" width="178" height="70" rx="0" fill="hsl(256.4 22% 88%)" opacity=".72"/><rect x="129" y="340" width="71" height="37" rx="0" fill="hsl(342.4 68% 52%)" opacity=".94"/><rect x="218" y="401" width="114" height="66" rx="0" fill="hsl(116.4 55% 59%)" opacity=".94"/>
+  <circle cx="619" cy="201" r="78" fill="none" stroke="hsl(342.4 68% 52%)" stroke-width="18" opacity=".82"/>
+  <circle cx="619" cy="201" r="43" fill="hsl(116.4 55% 59%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(54.4 28% 10%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">IMPACT 피트니스 센터</text>
+  <text x="55" y="462" fill="hsl(54.4 28% 10%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">cinema / map / grid</text>
+</svg>

@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 86,
+  "name": "POSTER CITY 지역축제",
+  "slug": "poster-city-festival",
+  "sector": "공공·커뮤니티",
+  "kind": "지역축제",
+  "tagline": "겹친 포스터와 시간 스티커을 중심으로 지역축제의 실제 선택을 화면에서 경험합니다.",
+  "cta": "일정 보기",
+  "interaction": "schedule",
+  "services": [
+    "지역축제 안내",
+    "맞춤 지역축제",
+    "지역축제 상담·예약"
+  ],
+  "materials": [
+    "겹친 포스터",
+    "시간 스티커",
+    "무대 색상",
+    "장소 표"
+  ],
+  "contentSignature": "지역축제|schedule|겹친 포스터|시간 스티커|무대 색상|장소 표",
+  "layout": "split",
+  "nav": "split",
+  "hero": "drawer",
+  "type": "soft",
+  "geometry": "ribbon",
+  "medium": "light",
+  "density": "compact",
+  "mood": "natural",
+  "variant": 4,
+  "palette": {
+    "bg": "hsl(225.2 26% 17%)",
+    "surface": "hsl(257.2 22% 82%)",
+    "ink": "hsl(55.2 28% 12%)",
+    "accent": "hsl(343.2 60% 54%)",
+    "accent2": "hsl(117.2 49% 57%)"
+  },
+  "fingerprint": "split|split|drawer|soft|ribbon|light|compact|natural|4"
+}

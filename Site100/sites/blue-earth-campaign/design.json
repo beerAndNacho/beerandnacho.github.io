@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 83,
+  "name": "BLUE EARTH 환경 캠페인",
+  "slug": "blue-earth-campaign",
+  "sector": "공공·커뮤니티",
+  "kind": "환경 캠페인",
+  "tagline": "데이터 스크롤와 지구 레이어을 중심으로 환경 캠페인의 실제 선택을 화면에서 경험합니다.",
+  "cta": "비교하기",
+  "interaction": "compare",
+  "services": [
+    "환경 캠페인 안내",
+    "맞춤 환경 캠페인",
+    "환경 캠페인 상담·예약"
+  ],
+  "materials": [
+    "데이터 스크롤",
+    "지구 레이어",
+    "행동 수치",
+    "전후 지도"
+  ],
+  "contentSignature": "환경 캠페인|compare|데이터 스크롤|지구 레이어|행동 수치|전후 지도",
+  "layout": "radial",
+  "nav": "radial",
+  "hero": "notebook",
+  "type": "rounded",
+  "geometry": "layer",
+  "medium": "isometric",
+  "density": "dense",
+  "mood": "precise",
+  "variant": 4,
+  "palette": {
+    "bg": "hsl(172.7 26% 17%)",
+    "surface": "hsl(204.7 22% 82%)",
+    "ink": "hsl(2.7 28% 12%)",
+    "accent": "hsl(290.7 60% 54%)",
+    "accent2": "hsl(64.7 49% 57%)"
+  },
+  "fingerprint": "radial|radial|notebook|rounded|layer|isometric|dense|precise|4"
+}

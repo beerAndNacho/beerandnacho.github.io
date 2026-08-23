@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">SIDE B 뮤지션 디자인 미리보기</title>
+  <desc id="desc">wave 레이아웃, radial 히어로, 뮤지션 포트폴리오 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(107.7 26% 17%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(139.7 22% 82%)" stroke="hsl(297.7 28% 12%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(297.7 28% 12%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(225.7 60% 54%)"/>
+  <text x="70" y="52" fill="hsl(139.7 22% 82%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 093 · 뮤지션 포트폴리오</text>
+  <line x1="38" y1="122" x2="659" y2="122" stroke="hsl(297.7 28% 12%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="628" y2="164" stroke="hsl(297.7 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="597" y2="206" stroke="hsl(297.7 28% 12%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="566" y2="248" stroke="hsl(297.7 28% 12%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="695" y2="290" stroke="hsl(297.7 28% 12%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="664" y2="332" stroke="hsl(297.7 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="633" y2="374" stroke="hsl(297.7 28% 12%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="602" y2="416" stroke="hsl(297.7 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="571" y2="458" stroke="hsl(297.7 28% 12%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="57" y="116" width="75" height="47" rx="0" fill="hsl(225.7 60% 54%)" opacity=".94"/><rect x="146" y="177" width="118" height="76" rx="0" fill="hsl(359.7 49% 57%)" opacity=".94"/><rect x="235" y="238" width="161" height="43" rx="0" fill="hsl(139.7 22% 82%)" opacity=".72"/><rect x="324" y="299" width="54" height="72" rx="0" fill="hsl(225.7 60% 54%)" opacity=".94"/><rect x="413" y="360" width="97" height="39" rx="0" fill="hsl(359.7 49% 57%)" opacity=".94"/><rect x="502" y="421" width="140" height="68" rx="0" fill="hsl(139.7 22% 82%)" opacity=".72"/><rect x="91" y="122" width="183" height="35" rx="0" fill="hsl(225.7 60% 54%)" opacity=".94"/><rect x="180" y="183" width="76" height="64" rx="0" fill="hsl(359.7 49% 57%)" opacity=".94"/>
+  <circle cx="581" cy="163" r="78" fill="none" stroke="hsl(225.7 60% 54%)" stroke-width="18" opacity=".82"/>
+  <circle cx="581" cy="163" r="43" fill="hsl(359.7 49% 57%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(297.7 28% 12%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">SIDE B 뮤지션</text>
+  <text x="55" y="462" fill="hsl(297.7 28% 12%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">wave / radial / isometric</text>
+</svg>

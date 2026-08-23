@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 25,
+  "name": "BLOCKSTAGE 노코드 빌더",
+  "slug": "blockstage-nocode",
+  "sector": "SaaS·기술",
+  "kind": "노코드 빌더",
+  "tagline": "콘텐츠 블록와 드래그 캔버스을 중심으로 노코드 빌더의 실제 선택을 화면에서 경험합니다.",
+  "cta": "조립하기",
+  "interaction": "build",
+  "services": [
+    "노코드 빌더 안내",
+    "맞춤 노코드 빌더",
+    "노코드 빌더 상담·예약"
+  ],
+  "materials": [
+    "콘텐츠 블록",
+    "드래그 캔버스",
+    "폼 모듈",
+    "배포 버튼"
+  ],
+  "contentSignature": "노코드 빌더|build|콘텐츠 블록|드래그 캔버스|폼 모듈|배포 버튼",
+  "layout": "collage",
+  "nav": "dock",
+  "hero": "shelf",
+  "type": "condensed",
+  "geometry": "organic",
+  "medium": "light",
+  "density": "compact",
+  "mood": "experimental",
+  "variant": 1,
+  "palette": {
+    "bg": "hsl(60.2 26% 11%)",
+    "surface": "hsl(92.2 22% 91%)",
+    "ink": "hsl(250.2 28% 9%)",
+    "accent": "hsl(178.2 72% 51%)",
+    "accent2": "hsl(312.2 58% 60%)"
+  },
+  "fingerprint": "collage|dock|shelf|condensed|organic|light|compact|experimental|1"
+}

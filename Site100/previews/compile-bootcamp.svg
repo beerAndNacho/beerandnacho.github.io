@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">COMPILE 코딩 부트캠프 디자인 미리보기</title>
+  <desc id="desc">book 레이아웃, ticket 히어로, 코딩 부트캠프 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(184.2 26% 13%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(216.2 22% 88%)" stroke="hsl(14.2 28% 10%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(14.2 28% 10%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(302.2 68% 52%)"/>
+  <text x="70" y="52" fill="hsl(216.2 22% 88%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 031 · 코딩 부트캠프</text>
+  <line x1="38" y1="122" x2="593" y2="122" stroke="hsl(14.2 28% 10%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="562" y2="164" stroke="hsl(14.2 28% 10%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="691" y2="206" stroke="hsl(14.2 28% 10%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="660" y2="248" stroke="hsl(14.2 28% 10%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="629" y2="290" stroke="hsl(14.2 28% 10%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="598" y2="332" stroke="hsl(14.2 28% 10%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="567" y2="374" stroke="hsl(14.2 28% 10%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="696" y2="416" stroke="hsl(14.2 28% 10%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="665" y2="458" stroke="hsl(14.2 28% 10%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="43" y="222" width="61" height="47" rx="23.5" fill="hsl(302.2 68% 52%)" opacity=".94"/><rect x="132" y="283" width="104" height="76" rx="38" fill="hsl(76.2 55% 59%)" opacity=".94"/><rect x="221" y="344" width="147" height="43" rx="21.5" fill="hsl(216.2 22% 88%)" opacity=".72"/><rect x="310" y="405" width="190" height="72" rx="36" fill="hsl(302.2 68% 52%)" opacity=".94"/><rect x="399" y="106" width="83" height="39" rx="19.5" fill="hsl(76.2 55% 59%)" opacity=".94"/><rect x="488" y="167" width="126" height="68" rx="34" fill="hsl(216.2 22% 88%)" opacity=".72"/><rect x="77" y="228" width="169" height="35" rx="17.5" fill="hsl(302.2 68% 52%)" opacity=".94"/><rect x="166" y="289" width="62" height="64" rx="31" fill="hsl(76.2 55% 59%)" opacity=".94"/>
+  <circle cx="597" cy="269" r="78" fill="none" stroke="hsl(302.2 68% 52%)" stroke-width="18" opacity=".82"/>
+  <circle cx="597" cy="269" r="43" fill="hsl(76.2 55% 59%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(14.2 28% 10%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">COMPILE 코딩 부트캠프</text>
+  <text x="55" y="462" fill="hsl(14.2 28% 10%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">book / ticket / vector</text>
+</svg>

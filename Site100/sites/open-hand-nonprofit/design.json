@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 81,
+  "name": "OPEN HAND 비영리단체",
+  "slug": "open-hand-nonprofit",
+  "sector": "공공·커뮤니티",
+  "kind": "비영리단체",
+  "tagline": "임팩트 장부와 기부 흐름을 중심으로 비영리단체의 실제 선택을 화면에서 경험합니다.",
+  "cta": "후원하기",
+  "interaction": "donation",
+  "services": [
+    "비영리단체 안내",
+    "맞춤 비영리단체",
+    "비영리단체 상담·예약"
+  ],
+  "materials": [
+    "임팩트 장부",
+    "기부 흐름",
+    "변화 숫자",
+    "후원 도장"
+  ],
+  "contentSignature": "비영리단체|donation|임팩트 장부|기부 흐름|변화 숫자|후원 도장",
+  "layout": "book",
+  "nav": "corner",
+  "hero": "map",
+  "type": "humanist",
+  "geometry": "paper",
+  "medium": "grid",
+  "density": "compact",
+  "mood": "quiet",
+  "variant": 4,
+  "palette": {
+    "bg": "hsl(257.6 26% 17%)",
+    "surface": "hsl(289.6 22% 82%)",
+    "ink": "hsl(87.6 28% 12%)",
+    "accent": "hsl(15.6 60% 54%)",
+    "accent2": "hsl(149.6 49% 57%)"
+  },
+  "fingerprint": "book|corner|map|humanist|paper|grid|compact|quiet|4"
+}

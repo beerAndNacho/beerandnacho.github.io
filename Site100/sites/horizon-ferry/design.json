@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 69,
+  "name": "HORIZON 섬 페리",
+  "slug": "horizon-ferry",
+  "sector": "여행·숙박",
+  "kind": "섬 페리",
+  "tagline": "수평선와 배 시간표을 중심으로 섬 페리의 실제 선택을 화면에서 경험합니다.",
+  "cta": "일정 보기",
+  "interaction": "schedule",
+  "services": [
+    "섬 페리 안내",
+    "맞춤 섬 페리",
+    "섬 페리 상담·예약"
+  ],
+  "materials": [
+    "수평선",
+    "배 시간표",
+    "부두 번호",
+    "항로 선"
+  ],
+  "contentSignature": "섬 페리|schedule|수평선|배 시간표|부두 번호|항로 선",
+  "layout": "notebook",
+  "nav": "bottom",
+  "hero": "drawer",
+  "type": "serif",
+  "geometry": "stamp",
+  "medium": "light",
+  "density": "compact",
+  "mood": "industrial",
+  "variant": 3,
+  "palette": {
+    "bg": "hsl(28.5 26% 15%)",
+    "surface": "hsl(60.5 22% 85%)",
+    "ink": "hsl(218.5 28% 11%)",
+    "accent": "hsl(146.5 64% 53%)",
+    "accent2": "hsl(280.5 52% 58%)"
+  },
+  "fingerprint": "notebook|bottom|drawer|serif|stamp|light|compact|industrial|3"
+}

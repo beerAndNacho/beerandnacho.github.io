@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 41,
+  "name": "STILL 요가 스튜디오",
+  "slug": "still-yoga",
+  "sector": "웰니스·케어",
+  "kind": "요가 스튜디오",
+  "tagline": "호흡 원와 수련 매트을 중심으로 요가 스튜디오의 실제 선택을 화면에서 경험합니다.",
+  "cta": "일정 보기",
+  "interaction": "schedule",
+  "services": [
+    "요가 스튜디오 안내",
+    "맞춤 요가 스튜디오",
+    "요가 스튜디오 상담·예약"
+  ],
+  "materials": [
+    "호흡 원",
+    "수련 매트",
+    "시간표",
+    "느린 그라디언트"
+  ],
+  "contentSignature": "요가 스튜디오|schedule|호흡 원|수련 매트|시간표|느린 그라디언트",
+  "layout": "monolith",
+  "nav": "rail",
+  "hero": "split",
+  "type": "neo",
+  "geometry": "round",
+  "medium": "vector",
+  "density": "balanced",
+  "mood": "precise",
+  "variant": 2,
+  "palette": {
+    "bg": "hsl(119.3 26% 13%)",
+    "surface": "hsl(151.3 22% 88%)",
+    "ink": "hsl(309.3 28% 10%)",
+    "accent": "hsl(237.3 68% 52%)",
+    "accent2": "hsl(11.3 55% 59%)"
+  },
+  "fingerprint": "monolith|rail|split|neo|round|vector|balanced|precise|2"
+}

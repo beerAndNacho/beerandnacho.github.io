@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 60,
+  "name": "FLASH 타투 스튜디오",
+  "slug": "flash-tattoo-studio",
+  "sector": "문화·창작",
+  "kind": "타투 스튜디오",
+  "tagline": "플래시 시트와 모티프 태그을 중심으로 타투 스튜디오의 실제 선택을 화면에서 경험합니다.",
+  "cta": "필터 열기",
+  "interaction": "filter",
+  "services": [
+    "타투 스튜디오 안내",
+    "맞춤 타투 스튜디오",
+    "타투 스튜디오 상담·예약"
+  ],
+  "materials": [
+    "플래시 시트",
+    "모티프 태그",
+    "잉크 선",
+    "위치 가이드"
+  ],
+  "contentSignature": "타투 스튜디오|filter|플래시 시트|모티프 태그|잉크 선|위치 가이드",
+  "layout": "timeline",
+  "nav": "radial",
+  "hero": "room",
+  "type": "neo",
+  "geometry": "layer",
+  "medium": "glass",
+  "density": "airy",
+  "mood": "quiet",
+  "variant": 3,
+  "palette": {
+    "bg": "hsl(231.0 26% 15%)",
+    "surface": "hsl(263.0 22% 85%)",
+    "ink": "hsl(61.0 28% 11%)",
+    "accent": "hsl(349.0 64% 53%)",
+    "accent2": "hsl(123.0 52% 58%)"
+  },
+  "fingerprint": "timeline|radial|room|neo|layer|glass|airy|quiet|3"
+}

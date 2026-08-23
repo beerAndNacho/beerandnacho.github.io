@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://beerandnacho.github.io/Site100/sitemap.xml

@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 24,
+  "name": "VAULT9 클라우드 백업",
+  "slug": "vault9-backup",
+  "sector": "SaaS·기술",
+  "kind": "클라우드 백업",
+  "tagline": "금고 큐브와 파일 레이어을 중심으로 클라우드 백업의 실제 선택을 화면에서 경험합니다.",
+  "cta": "레이어 열기",
+  "interaction": "reveal",
+  "services": [
+    "클라우드 백업 안내",
+    "맞춤 클라우드 백업",
+    "클라우드 백업 상담·예약"
+  ],
+  "materials": [
+    "금고 큐브",
+    "파일 레이어",
+    "복구 키",
+    "보관 상태"
+  ],
+  "contentSignature": "클라우드 백업|reveal|금고 큐브|파일 레이어|복구 키|보관 상태",
+  "layout": "glass",
+  "nav": "radial",
+  "hero": "split",
+  "type": "humanist",
+  "geometry": "layer",
+  "medium": "vector",
+  "density": "balanced",
+  "mood": "public",
+  "variant": 1,
+  "palette": {
+    "bg": "hsl(282.7 26% 11%)",
+    "surface": "hsl(314.7 22% 91%)",
+    "ink": "hsl(112.7 28% 9%)",
+    "accent": "hsl(40.7 72% 51%)",
+    "accent2": "hsl(174.7 58% 60%)"
+  },
+  "fingerprint": "glass|radial|split|humanist|layer|vector|balanced|public|1"
+}

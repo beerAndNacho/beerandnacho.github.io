@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 32,
+  "name": "PHONEME 어학원",
+  "slug": "phoneme-language",
+  "sector": "교육·지식",
+  "kind": "어학원",
+  "tagline": "발음기호와 파형을 중심으로 어학원의 실제 선택을 화면에서 경험합니다.",
+  "cta": "재생하기",
+  "interaction": "audio",
+  "services": [
+    "어학원 안내",
+    "맞춤 어학원",
+    "어학원 상담·예약"
+  ],
+  "materials": [
+    "발음기호",
+    "파형",
+    "언어 토글",
+    "말하기 카드"
+  ],
+  "contentSignature": "어학원|audio|발음기호|파형|언어 토글|말하기 카드",
+  "layout": "terminal",
+  "nav": "tabs",
+  "hero": "drawer",
+  "type": "mono",
+  "geometry": "blueprint",
+  "medium": "light",
+  "density": "compact",
+  "mood": "warm",
+  "variant": 2,
+  "palette": {
+    "bg": "hsl(321.7 26% 13%)",
+    "surface": "hsl(353.7 22% 88%)",
+    "ink": "hsl(151.7 28% 10%)",
+    "accent": "hsl(79.7 68% 52%)",
+    "accent2": "hsl(213.7 55% 59%)"
+  },
+  "fingerprint": "terminal|tabs|drawer|mono|blueprint|light|compact|warm|2"
+}

@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 93,
+  "name": "SIDE B 뮤지션",
+  "slug": "side-b-musician",
+  "sector": "개인·실험",
+  "kind": "뮤지션 포트폴리오",
+  "tagline": "회전 음반와 트랙 리스트을 중심으로 뮤지션 포트폴리오의 실제 선택을 화면에서 경험합니다.",
+  "cta": "재생하기",
+  "interaction": "audio",
+  "services": [
+    "뮤지션 포트폴리오 안내",
+    "맞춤 뮤지션 포트폴리오",
+    "뮤지션 포트폴리오 상담·예약"
+  ],
+  "materials": [
+    "회전 음반",
+    "트랙 리스트",
+    "재생 바",
+    "공연 포스터"
+  ],
+  "contentSignature": "뮤지션 포트폴리오|audio|회전 음반|트랙 리스트|재생 바|공연 포스터",
+  "layout": "wave",
+  "nav": "radial",
+  "hero": "radial",
+  "type": "rounded",
+  "geometry": "layer",
+  "medium": "isometric",
+  "density": "dense",
+  "mood": "precise",
+  "variant": 4,
+  "palette": {
+    "bg": "hsl(107.7 26% 17%)",
+    "surface": "hsl(139.7 22% 82%)",
+    "ink": "hsl(297.7 28% 12%)",
+    "accent": "hsl(225.7 60% 54%)",
+    "accent2": "hsl(359.7 49% 57%)"
+  },
+  "fingerprint": "wave|radial|radial|rounded|layer|isometric|dense|precise|4"
+}

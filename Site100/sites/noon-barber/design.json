@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 2,
+  "name": "NOON BARBER",
+  "slug": "noon-barber",
+  "sector": "지역 매장",
+  "kind": "바버숍",
+  "tagline": "이발 의자와 면도 브러시을 중심으로 바버숍의 실제 선택을 화면에서 경험합니다.",
+  "cta": "예약하기",
+  "interaction": "booking",
+  "services": [
+    "바버숍 안내",
+    "맞춤 바버숍",
+    "바버숍 상담·예약"
+  ],
+  "materials": [
+    "이발 의자",
+    "면도 브러시",
+    "도구 트레이",
+    "예약 레일"
+  ],
+  "contentSignature": "바버숍|booking|이발 의자|면도 브러시|도구 트레이|예약 레일",
+  "layout": "horizontal",
+  "nav": "corner",
+  "hero": "radial",
+  "type": "neo",
+  "geometry": "paper",
+  "medium": "isometric",
+  "density": "dense",
+  "mood": "digital",
+  "variant": 1,
+  "palette": {
+    "bg": "hsl(137.5 26% 11%)",
+    "surface": "hsl(169.5 22% 91%)",
+    "ink": "hsl(327.5 28% 9%)",
+    "accent": "hsl(255.5 72% 51%)",
+    "accent2": "hsl(29.5 58% 60%)"
+  },
+  "fingerprint": "horizontal|corner|radial|neo|paper|isometric|dense|digital|1"
+}

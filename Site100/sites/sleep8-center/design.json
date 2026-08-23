@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 50,
+  "name": "SLEEP 8 수면센터",
+  "slug": "sleep8-center",
+  "sector": "웰니스·케어",
+  "kind": "수면센터",
+  "tagline": "밤 타임라인와 달 위상을 중심으로 수면센터의 실제 선택을 화면에서 경험합니다.",
+  "cta": "과정 보기",
+  "interaction": "timeline",
+  "services": [
+    "수면센터 안내",
+    "맞춤 수면센터",
+    "수면센터 상담·예약"
+  ],
+  "materials": [
+    "밤 타임라인",
+    "달 위상",
+    "조도 링",
+    "수면 기록"
+  ],
+  "contentSignature": "수면센터|timeline|밤 타임라인|달 위상|조도 링|수면 기록",
+  "layout": "collage",
+  "nav": "split",
+  "hero": "metrics",
+  "type": "serif",
+  "geometry": "ribbon",
+  "medium": "ink",
+  "density": "immersive",
+  "mood": "playful",
+  "variant": 2,
+  "palette": {
+    "bg": "hsl(276.9 26% 13%)",
+    "surface": "hsl(308.9 22% 88%)",
+    "ink": "hsl(106.9 28% 10%)",
+    "accent": "hsl(34.9 68% 52%)",
+    "accent2": "hsl(168.9 55% 59%)"
+  },
+  "fingerprint": "collage|split|metrics|serif|ribbon|ink|immersive|playful|2"
+}

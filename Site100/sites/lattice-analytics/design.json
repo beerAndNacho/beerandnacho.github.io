@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 28,
+  "name": "LATTICE 데이터 분석",
+  "slug": "lattice-analytics",
+  "sector": "SaaS·기술",
+  "kind": "데이터 분석",
+  "tagline": "데이터 조형와 필터 칩을 중심으로 데이터 분석의 실제 선택을 화면에서 경험합니다.",
+  "cta": "필터 열기",
+  "interaction": "filter",
+  "services": [
+    "데이터 분석 안내",
+    "맞춤 데이터 분석",
+    "데이터 분석 상담·예약"
+  ],
+  "materials": [
+    "데이터 조형",
+    "필터 칩",
+    "축 좌표",
+    "분석 카드"
+  ],
+  "contentSignature": "데이터 분석|filter|데이터 조형|필터 칩|축 좌표|분석 카드",
+  "layout": "map",
+  "nav": "dock",
+  "hero": "window",
+  "type": "soft",
+  "geometry": "organic",
+  "medium": "frame",
+  "density": "airy",
+  "mood": "industrial",
+  "variant": 2,
+  "palette": {
+    "bg": "hsl(131.7 26% 13%)",
+    "surface": "hsl(163.7 22% 88%)",
+    "ink": "hsl(321.7 28% 10%)",
+    "accent": "hsl(249.7 68% 52%)",
+    "accent2": "hsl(23.7 55% 59%)"
+  },
+  "fingerprint": "map|dock|window|soft|organic|frame|airy|industrial|2"
+}

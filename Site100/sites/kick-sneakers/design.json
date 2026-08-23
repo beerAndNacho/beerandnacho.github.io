@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 77,
+  "name": "KICK 스니커즈숍",
+  "slug": "kick-sneakers",
+  "sector": "음식·라이프스타일",
+  "kind": "스니커즈숍",
+  "tagline": "운동화 분해도와 색상 탭을 중심으로 스니커즈숍의 실제 선택을 화면에서 경험합니다.",
+  "cta": "구성하기",
+  "interaction": "configure",
+  "services": [
+    "스니커즈숍 안내",
+    "맞춤 스니커즈숍",
+    "스니커즈숍 상담·예약"
+  ],
+  "materials": [
+    "운동화 분해도",
+    "색상 탭",
+    "밑창 패턴",
+    "사이즈 카드"
+  ],
+  "contentSignature": "스니커즈숍|configure|운동화 분해도|색상 탭|밑창 패턴|사이즈 카드",
+  "layout": "horizontal",
+  "nav": "rail",
+  "hero": "room",
+  "type": "wide",
+  "geometry": "round",
+  "medium": "glass",
+  "density": "airy",
+  "mood": "public",
+  "variant": 4,
+  "palette": {
+    "bg": "hsl(67.6 26% 17%)",
+    "surface": "hsl(99.6 22% 82%)",
+    "ink": "hsl(257.6 28% 12%)",
+    "accent": "hsl(185.6 60% 54%)",
+    "accent2": "hsl(319.6 49% 57%)"
+  },
+  "fingerprint": "horizontal|rail|room|wide|round|glass|airy|public|4"
+}

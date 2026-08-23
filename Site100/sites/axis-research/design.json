@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 36,
+  "name": "AXIS 연구소",
+  "slug": "axis-research",
+  "sector": "교육·지식",
+  "kind": "연구소",
+  "tagline": "인용 그래프와 초록 카드을 중심으로 연구소의 실제 선택을 화면에서 경험합니다.",
+  "cta": "자료 찾기",
+  "interaction": "archive",
+  "services": [
+    "연구소 안내",
+    "맞춤 연구소",
+    "연구소 상담·예약"
+  ],
+  "materials": [
+    "인용 그래프",
+    "초록 카드",
+    "연구 축",
+    "문헌 서랍"
+  ],
+  "contentSignature": "연구소|archive|인용 그래프|초록 카드|연구 축|문헌 서랍",
+  "layout": "split",
+  "nav": "bottom",
+  "hero": "terminal",
+  "type": "contrast",
+  "geometry": "stamp",
+  "medium": "halftone",
+  "density": "balanced",
+  "mood": "experimental",
+  "variant": 2,
+  "palette": {
+    "bg": "hsl(151.8 26% 13%)",
+    "surface": "hsl(183.8 22% 88%)",
+    "ink": "hsl(341.8 28% 10%)",
+    "accent": "hsl(269.8 68% 52%)",
+    "accent2": "hsl(43.8 55% 59%)"
+  },
+  "fingerprint": "split|bottom|terminal|contrast|stamp|halftone|balanced|experimental|2"
+}

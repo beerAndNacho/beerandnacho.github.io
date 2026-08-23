@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 71,
+  "name": "TABLE 7 레스토랑",
+  "slug": "table7-restaurant",
+  "sector": "음식·라이프스타일",
+  "kind": "레스토랑",
+  "tagline": "코스 번호와 접시 실루엣을 중심으로 레스토랑의 실제 선택을 화면에서 경험합니다.",
+  "cta": "메뉴 고르기",
+  "interaction": "menu",
+  "services": [
+    "레스토랑 안내",
+    "맞춤 레스토랑",
+    "레스토랑 상담·예약"
+  ],
+  "materials": [
+    "코스 번호",
+    "접시 실루엣",
+    "메뉴 카드",
+    "예약 태그"
+  ],
+  "contentSignature": "레스토랑|menu|코스 번호|접시 실루엣|메뉴 카드|예약 태그",
+  "layout": "kinetic",
+  "nav": "dock",
+  "hero": "headline",
+  "type": "mono",
+  "geometry": "organic",
+  "medium": "paper",
+  "density": "dense",
+  "mood": "playful",
+  "variant": 3,
+  "palette": {
+    "bg": "hsl(303.6 26% 15%)",
+    "surface": "hsl(335.6 22% 85%)",
+    "ink": "hsl(133.6 28% 11%)",
+    "accent": "hsl(61.6 64% 53%)",
+    "accent2": "hsl(195.6 52% 58%)"
+  },
+  "fingerprint": "kinetic|dock|headline|mono|organic|paper|dense|playful|3"
+}

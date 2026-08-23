@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">소금결 베이커리 디자인 미리보기</title>
+  <desc id="desc">editorial 레이아웃, manifesto 히어로, 베이커리 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(0.0 26% 11%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(32.0 22% 91%)" stroke="hsl(190.0 28% 9%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(190.0 28% 9%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(118.0 72% 51%)"/>
+  <text x="70" y="52" fill="hsl(32.0 22% 91%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 001 · 베이커리</text>
+  <line x1="38" y1="122" x2="623" y2="122" stroke="hsl(190.0 28% 9%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="592" y2="164" stroke="hsl(190.0 28% 9%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="561" y2="206" stroke="hsl(190.0 28% 9%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="690" y2="248" stroke="hsl(190.0 28% 9%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="659" y2="290" stroke="hsl(190.0 28% 9%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="628" y2="332" stroke="hsl(190.0 28% 9%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="597" y2="374" stroke="hsl(190.0 28% 9%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="566" y2="416" stroke="hsl(190.0 28% 9%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="695" y2="458" stroke="hsl(190.0 28% 9%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="133" y="192" width="151" height="51" rx="0" fill="hsl(118.0 72% 51%)" opacity=".94"/><rect x="222" y="253" width="194" height="18" rx="0" fill="hsl(252.0 58% 60%)" opacity=".94"/><rect x="311" y="314" width="87" height="47" rx="0" fill="hsl(32.0 22% 91%)" opacity=".72"/><rect x="400" y="375" width="130" height="76" rx="0" fill="hsl(118.0 72% 51%)" opacity=".94"/><rect x="489" y="436" width="173" height="43" rx="0" fill="hsl(252.0 58% 60%)" opacity=".94"/><rect x="78" y="137" width="66" height="72" rx="0" fill="hsl(32.0 22% 91%)" opacity=".72"/><rect x="167" y="198" width="109" height="39" rx="0" fill="hsl(118.0 72% 51%)" opacity=".94"/><rect x="256" y="259" width="152" height="68" rx="0" fill="hsl(252.0 58% 60%)" opacity=".94"/>
+  <circle cx="567" cy="239" r="78" fill="none" stroke="hsl(118.0 72% 51%)" stroke-width="18" opacity=".82"/>
+  <circle cx="567" cy="239" r="43" fill="hsl(252.0 58% 60%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(190.0 28% 9%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">소금결 베이커리</text>
+  <text x="55" y="462" fill="hsl(190.0 28% 9%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">editorial / manifesto / frame</text>
+</svg>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">MEMORY 문화 아카이브 디자인 미리보기</title>
+  <desc id="desc">newspaper 레이아웃, cinema 히어로, 문화 아카이브 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(277.7 26% 17%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(309.7 22% 82%)" stroke="hsl(107.7 28% 12%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(107.7 28% 12%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(35.7 60% 54%)"/>
+  <text x="70" y="52" fill="hsl(309.7 22% 82%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 089 · 문화 아카이브</text>
+  <line x1="38" y1="122" x2="567" y2="122" stroke="hsl(107.7 28% 12%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="696" y2="164" stroke="hsl(107.7 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="665" y2="206" stroke="hsl(107.7 28% 12%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="634" y2="248" stroke="hsl(107.7 28% 12%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="603" y2="290" stroke="hsl(107.7 28% 12%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="572" y2="332" stroke="hsl(107.7 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="701" y2="374" stroke="hsl(107.7 28% 12%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="670" y2="416" stroke="hsl(107.7 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="639" y2="458" stroke="hsl(107.7 28% 12%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="169" y="448" width="137" height="31" rx="0" fill="hsl(35.7 60% 54%)" opacity=".94"/><rect x="258" y="149" width="180" height="60" rx="0" fill="hsl(169.7 49% 57%)" opacity=".94"/><rect x="347" y="210" width="73" height="27" rx="0" fill="hsl(309.7 22% 82%)" opacity=".72"/><rect x="436" y="271" width="116" height="56" rx="0" fill="hsl(35.7 60% 54%)" opacity=".94"/><rect x="525" y="332" width="159" height="23" rx="0" fill="hsl(169.7 49% 57%)" opacity=".94"/><rect x="114" y="393" width="202" height="52" rx="0" fill="hsl(309.7 22% 82%)" opacity=".72"/><rect x="203" y="454" width="95" height="19" rx="0" fill="hsl(35.7 60% 54%)" opacity=".94"/><rect x="292" y="155" width="138" height="48" rx="0" fill="hsl(169.7 49% 57%)" opacity=".94"/>
+  <circle cx="643" cy="315" r="78" fill="none" stroke="hsl(35.7 60% 54%)" stroke-width="18" opacity=".82"/>
+  <circle cx="643" cy="315" r="43" fill="hsl(169.7 49% 57%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(107.7 28% 12%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">MEMORY 문화 아카이브</text>
+  <text x="55" y="462" fill="hsl(107.7 28% 12%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">newspaper / cinema / documents</text>
+</svg>

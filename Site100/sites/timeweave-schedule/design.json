@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 23,
+  "name": "TIMEWEAVE 일정 관리",
+  "slug": "timeweave-schedule",
+  "sector": "SaaS·기술",
+  "kind": "일정 관리",
+  "tagline": "시간 모자이크와 드래그 블록을 중심으로 일정 관리의 실제 선택을 화면에서 경험합니다.",
+  "cta": "배치하기",
+  "interaction": "drag",
+  "services": [
+    "일정 관리 안내",
+    "맞춤 일정 관리",
+    "일정 관리 상담·예약"
+  ],
+  "materials": [
+    "시간 모자이크",
+    "드래그 블록",
+    "요일 레일",
+    "빈 시간대"
+  ],
+  "contentSignature": "일정 관리|drag|시간 모자이크|드래그 블록|요일 레일|빈 시간대",
+  "layout": "data",
+  "nav": "bottom",
+  "hero": "monolith",
+  "type": "mono",
+  "geometry": "stamp",
+  "medium": "ink",
+  "density": "immersive",
+  "mood": "natural",
+  "variant": 1,
+  "palette": {
+    "bg": "hsl(145.2 26% 11%)",
+    "surface": "hsl(177.2 22% 91%)",
+    "ink": "hsl(335.2 28% 9%)",
+    "accent": "hsl(263.2 72% 51%)",
+    "accent2": "hsl(37.2 58% 60%)"
+  },
+  "fingerprint": "data|bottom|monolith|mono|stamp|ink|immersive|natural|1"
+}

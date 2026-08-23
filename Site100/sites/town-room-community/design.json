@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 82,
+  "name": "TOWN ROOM 주민센터",
+  "slug": "town-room-community",
+  "sector": "공공·커뮤니티",
+  "kind": "주민센터",
+  "tagline": "코르크 게시판와 달력을 중심으로 주민센터의 실제 선택을 화면에서 경험합니다.",
+  "cta": "일정 보기",
+  "interaction": "schedule",
+  "services": [
+    "주민센터 안내",
+    "맞춤 주민센터",
+    "주민센터 상담·예약"
+  ],
+  "materials": [
+    "코르크 게시판",
+    "달력",
+    "공지 핀",
+    "대관 표"
+  ],
+  "contentSignature": "주민센터|schedule|코르크 게시판|달력|공지 핀|대관 표",
+  "layout": "terminal",
+  "nav": "bottom",
+  "hero": "window",
+  "type": "condensed",
+  "geometry": "stamp",
+  "medium": "frame",
+  "density": "airy",
+  "mood": "playful",
+  "variant": 4,
+  "palette": {
+    "bg": "hsl(35.1 26% 17%)",
+    "surface": "hsl(67.1 22% 82%)",
+    "ink": "hsl(225.1 28% 12%)",
+    "accent": "hsl(153.1 60% 54%)",
+    "accent2": "hsl(287.1 49% 57%)"
+  },
+  "fingerprint": "terminal|bottom|window|condensed|stamp|frame|airy|playful|4"
+}

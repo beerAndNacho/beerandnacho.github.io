@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">DAL 한옥스테이 디자인 미리보기</title>
+  <desc id="desc">isometric 레이아웃, metrics 히어로, 한옥스테이 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(113.5 26% 15%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(145.5 22% 85%)" stroke="hsl(303.5 28% 11%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(303.5 28% 11%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(231.5 64% 53%)"/>
+  <text x="70" y="52" fill="hsl(145.5 22% 85%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 067 · 한옥스테이</text>
+  <line x1="38" y1="122" x2="621" y2="122" stroke="hsl(303.5 28% 11%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="590" y2="164" stroke="hsl(303.5 28% 11%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="719" y2="206" stroke="hsl(303.5 28% 11%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="688" y2="248" stroke="hsl(303.5 28% 11%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="657" y2="290" stroke="hsl(303.5 28% 11%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="626" y2="332" stroke="hsl(303.5 28% 11%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="595" y2="374" stroke="hsl(303.5 28% 11%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="564" y2="416" stroke="hsl(303.5 28% 11%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="693" y2="458" stroke="hsl(303.5 28% 11%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="535" y="114" width="103" height="67" rx="0" fill="hsl(231.5 64% 53%)" opacity=".94"/><rect x="124" y="175" width="146" height="34" rx="0" fill="hsl(5.5 52% 58%)" opacity=".94"/><rect x="213" y="236" width="189" height="63" rx="0" fill="hsl(145.5 22% 85%)" opacity=".72"/><rect x="302" y="297" width="82" height="30" rx="0" fill="hsl(231.5 64% 53%)" opacity=".94"/><rect x="391" y="358" width="125" height="59" rx="0" fill="hsl(5.5 52% 58%)" opacity=".94"/><rect x="480" y="419" width="168" height="26" rx="0" fill="hsl(145.5 22% 85%)" opacity=".72"/><rect x="69" y="120" width="61" height="55" rx="0" fill="hsl(231.5 64% 53%)" opacity=".94"/><rect x="158" y="181" width="104" height="22" rx="0" fill="hsl(5.5 52% 58%)" opacity=".94"/>
+  <circle cx="579" cy="161" r="78" fill="none" stroke="hsl(231.5 64% 53%)" stroke-width="18" opacity=".82"/>
+  <circle cx="579" cy="161" r="43" fill="hsl(5.5 52% 58%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(303.5 28% 11%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">DAL 한옥스테이</text>
+  <text x="55" y="462" fill="hsl(303.5 28% 11%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">isometric / metrics / ink</text>
+</svg>

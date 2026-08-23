@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">SLEEP 8 수면센터 디자인 미리보기</title>
+  <desc id="desc">collage 레이아웃, metrics 히어로, 수면센터 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(276.9 26% 13%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(308.9 22% 88%)" stroke="hsl(106.9 28% 10%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(106.9 28% 10%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(34.9 68% 52%)"/>
+  <text x="70" y="52" fill="hsl(308.9 22% 88%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 050 · 수면센터</text>
+  <line x1="38" y1="122" x2="670" y2="122" stroke="hsl(106.9 28% 10%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="639" y2="164" stroke="hsl(106.9 28% 10%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="608" y2="206" stroke="hsl(106.9 28% 10%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="577" y2="248" stroke="hsl(106.9 28% 10%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="706" y2="290" stroke="hsl(106.9 28% 10%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="675" y2="332" stroke="hsl(106.9 28% 10%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="644" y2="374" stroke="hsl(106.9 28% 10%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="613" y2="416" stroke="hsl(106.9 28% 10%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="582" y2="458" stroke="hsl(106.9 28% 10%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="386" y="265" width="104" height="30" rx="0" fill="hsl(34.9 68% 52%)" opacity=".94"/><rect x="475" y="326" width="147" height="59" rx="0" fill="hsl(168.9 55% 59%)" opacity=".94"/><rect x="64" y="387" width="190" height="26" rx="0" fill="hsl(308.9 22% 88%)" opacity=".72"/><rect x="153" y="448" width="83" height="55" rx="0" fill="hsl(34.9 68% 52%)" opacity=".94"/><rect x="242" y="149" width="126" height="22" rx="0" fill="hsl(168.9 55% 59%)" opacity=".94"/><rect x="331" y="210" width="169" height="51" rx="0" fill="hsl(308.9 22% 88%)" opacity=".72"/><rect x="420" y="271" width="62" height="18" rx="0" fill="hsl(34.9 68% 52%)" opacity=".94"/><rect x="509" y="332" width="105" height="47" rx="0" fill="hsl(168.9 55% 59%)" opacity=".94"/>
+  <circle cx="640" cy="312" r="78" fill="none" stroke="hsl(34.9 68% 52%)" stroke-width="18" opacity=".82"/>
+  <circle cx="640" cy="312" r="43" fill="hsl(168.9 55% 59%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(106.9 28% 10%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">SLEEP 8 수면센터</text>
+  <text x="55" y="462" fill="hsl(106.9 28% 10%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">collage / metrics / ink</text>
+</svg>

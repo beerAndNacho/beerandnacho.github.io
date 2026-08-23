@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 5,
+  "name": "BLUEPRINT 집수리",
+  "slug": "blueprint-home-repair",
+  "sector": "지역 매장",
+  "kind": "집수리",
+  "tagline": "청사진와 치수선을 중심으로 집수리의 실제 선택을 화면에서 경험합니다.",
+  "cta": "견적 만들기",
+  "interaction": "quote",
+  "services": [
+    "집수리 안내",
+    "맞춤 집수리",
+    "집수리 상담·예약"
+  ],
+  "materials": [
+    "청사진",
+    "치수선",
+    "공구 실루엣",
+    "견적 단계표"
+  ],
+  "contentSignature": "집수리|quote|청사진|치수선|공구 실루엣|견적 단계표",
+  "layout": "poster",
+  "nav": "dock",
+  "hero": "shelf",
+  "type": "condensed",
+  "geometry": "organic",
+  "medium": "light",
+  "density": "compact",
+  "mood": "experimental",
+  "variant": 1,
+  "palette": {
+    "bg": "hsl(190.0 26% 11%)",
+    "surface": "hsl(222.0 22% 91%)",
+    "ink": "hsl(20.0 28% 9%)",
+    "accent": "hsl(308.0 72% 51%)",
+    "accent2": "hsl(82.0 58% 60%)"
+  },
+  "fingerprint": "poster|dock|shelf|condensed|organic|light|compact|experimental|1"
+}

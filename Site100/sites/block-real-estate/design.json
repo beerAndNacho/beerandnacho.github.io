@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 19,
+  "name": "BLOCK 부동산",
+  "slug": "block-real-estate",
+  "sector": "전문 서비스",
+  "kind": "부동산",
+  "tagline": "전체 지도와 매물 핀을 중심으로 부동산의 실제 선택을 화면에서 경험합니다.",
+  "cta": "지도 보기",
+  "interaction": "map",
+  "services": [
+    "부동산 안내",
+    "맞춤 부동산",
+    "부동산 상담·예약"
+  ],
+  "materials": [
+    "전체 지도",
+    "매물 핀",
+    "평면 카드",
+    "생활권 링"
+  ],
+  "contentSignature": "부동산|map|전체 지도|매물 핀|평면 카드|생활권 링",
+  "layout": "notebook",
+  "nav": "tabs",
+  "hero": "terminal",
+  "type": "soft",
+  "geometry": "blueprint",
+  "medium": "halftone",
+  "density": "balanced",
+  "mood": "playful",
+  "variant": 1,
+  "palette": {
+    "bg": "hsl(315.1 26% 11%)",
+    "surface": "hsl(347.1 22% 91%)",
+    "ink": "hsl(145.1 28% 9%)",
+    "accent": "hsl(73.1 72% 51%)",
+    "accent2": "hsl(207.1 58% 60%)"
+  },
+  "fingerprint": "notebook|tabs|terminal|soft|blueprint|halftone|balanced|playful|1"
+}

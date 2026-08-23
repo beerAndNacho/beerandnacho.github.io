@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 97,
+  "name": "TWO OF US 모바일 청첩장",
+  "slug": "two-of-us-wedding",
+  "sector": "개인·실험",
+  "kind": "모바일 청첩장",
+  "tagline": "긴 스크롤와 날짜 타이포을 중심으로 모바일 청첩장의 실제 선택을 화면에서 경험합니다.",
+  "cta": "참석하기",
+  "interaction": "rsvp",
+  "services": [
+    "모바일 청첩장 안내",
+    "맞춤 모바일 청첩장",
+    "모바일 청첩장 상담·예약"
+  ],
+  "materials": [
+    "긴 스크롤",
+    "날짜 타이포",
+    "사진 프레임",
+    "RSVP 카드"
+  ],
+  "contentSignature": "모바일 청첩장|rsvp|긴 스크롤|날짜 타이포|사진 프레임|RSVP 카드",
+  "layout": "cinema",
+  "nav": "rail",
+  "hero": "room",
+  "type": "wide",
+  "geometry": "round",
+  "medium": "glass",
+  "density": "airy",
+  "mood": "public",
+  "variant": 4,
+  "palette": {
+    "bg": "hsl(297.8 26% 17%)",
+    "surface": "hsl(329.8 22% 82%)",
+    "ink": "hsl(127.8 28% 12%)",
+    "accent": "hsl(55.8 60% 54%)",
+    "accent2": "hsl(189.8 49% 57%)"
+  },
+  "fingerprint": "cinema|rail|room|wide|round|glass|airy|public|4"
+}

@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 17,
+  "name": "BLACKBOX 보안회사",
+  "slug": "blackbox-security",
+  "sector": "전문 서비스",
+  "kind": "보안회사",
+  "tagline": "터미널 로그와 위협 신호을 중심으로 보안회사의 실제 선택을 화면에서 경험합니다.",
+  "cta": "실행하기",
+  "interaction": "command",
+  "services": [
+    "보안회사 안내",
+    "맞춤 보안회사",
+    "보안회사 상담·예약"
+  ],
+  "materials": [
+    "터미널 로그",
+    "위협 신호",
+    "대응 명령",
+    "암호화 블록"
+  ],
+  "contentSignature": "보안회사|command|터미널 로그|위협 신호|대응 명령|암호화 블록",
+  "layout": "isometric",
+  "nav": "split",
+  "hero": "headline",
+  "type": "contrast",
+  "geometry": "ribbon",
+  "medium": "paper",
+  "density": "dense",
+  "mood": "industrial",
+  "variant": 1,
+  "palette": {
+    "bg": "hsl(40.1 26% 11%)",
+    "surface": "hsl(72.1 22% 91%)",
+    "ink": "hsl(230.1 28% 9%)",
+    "accent": "hsl(158.1 72% 51%)",
+    "accent2": "hsl(292.1 58% 60%)"
+  },
+  "fingerprint": "isometric|split|headline|contrast|ribbon|paper|dense|industrial|1"
+}

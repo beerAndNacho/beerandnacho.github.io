@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 45,
+  "name": "PRIVATE ROOM 마음건강 서비스",
+  "slug": "private-room-mental-health",
+  "sector": "웰니스·케어",
+  "kind": "마음건강 서비스",
+  "tagline": "잠금 일기장와 감정 카드을 중심으로 마음건강 서비스의 실제 선택을 화면에서 경험합니다.",
+  "cta": "문의 작성",
+  "interaction": "form",
+  "services": [
+    "마음건강 서비스 안내",
+    "맞춤 마음건강 서비스",
+    "마음건강 서비스 상담·예약"
+  ],
+  "materials": [
+    "잠금 일기장",
+    "감정 카드",
+    "조용한 방",
+    "기록 봉투"
+  ],
+  "contentSignature": "마음건강 서비스|form|잠금 일기장|감정 카드|조용한 방|기록 봉투",
+  "layout": "archive",
+  "nav": "corner",
+  "hero": "timeline",
+  "type": "rounded",
+  "geometry": "paper",
+  "medium": "documents",
+  "density": "immersive",
+  "mood": "public",
+  "variant": 2,
+  "palette": {
+    "bg": "hsl(309.4 26% 13%)",
+    "surface": "hsl(341.4 22% 88%)",
+    "ink": "hsl(139.4 28% 10%)",
+    "accent": "hsl(67.4 68% 52%)",
+    "accent2": "hsl(201.4 55% 59%)"
+  },
+  "fingerprint": "archive|corner|timeline|rounded|paper|documents|immersive|public|2"
+}

@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 27,
+  "name": "ENDPOINT API 서비스",
+  "slug": "endpoint-api",
+  "sector": "SaaS·기술",
+  "kind": "API 서비스",
+  "tagline": "코드 콘솔와 응답 패널을 중심으로 API 서비스의 실제 선택을 화면에서 경험합니다.",
+  "cta": "실행하기",
+  "interaction": "command",
+  "services": [
+    "API 서비스 안내",
+    "맞춤 API 서비스",
+    "API 서비스 상담·예약"
+  ],
+  "materials": [
+    "코드 콘솔",
+    "응답 패널",
+    "엔드포인트",
+    "키 토큰"
+  ],
+  "contentSignature": "API 서비스|command|코드 콘솔|응답 패널|엔드포인트|키 토큰",
+  "layout": "horizontal",
+  "nav": "radial",
+  "hero": "map",
+  "type": "technical",
+  "geometry": "layer",
+  "medium": "grid",
+  "density": "compact",
+  "mood": "luxury",
+  "variant": 2,
+  "palette": {
+    "bg": "hsl(354.2 26% 13%)",
+    "surface": "hsl(26.2 22% 88%)",
+    "ink": "hsl(184.2 28% 10%)",
+    "accent": "hsl(112.2 68% 52%)",
+    "accent2": "hsl(246.2 55% 59%)"
+  },
+  "fingerprint": "horizontal|radial|map|technical|layer|grid|compact|luxury|2"
+}

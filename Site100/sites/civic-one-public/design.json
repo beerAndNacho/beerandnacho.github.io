@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 85,
+  "name": "CIVIC ONE 공공서비스",
+  "slug": "civic-one-public",
+  "sector": "공공·커뮤니티",
+  "kind": "공공서비스",
+  "tagline": "업무 명령와 진행 단계을 중심으로 공공서비스의 실제 선택을 화면에서 경험합니다.",
+  "cta": "실행하기",
+  "interaction": "command",
+  "services": [
+    "공공서비스 안내",
+    "맞춤 공공서비스",
+    "공공서비스 상담·예약"
+  ],
+  "materials": [
+    "업무 명령",
+    "진행 단계",
+    "접근성 버튼",
+    "완료 영수증"
+  ],
+  "contentSignature": "공공서비스|command|업무 명령|진행 단계|접근성 버튼|완료 영수증",
+  "layout": "timeline",
+  "nav": "ticker",
+  "hero": "ticket",
+  "type": "technical",
+  "geometry": "circle",
+  "medium": "vector",
+  "density": "balanced",
+  "mood": "digital",
+  "variant": 4,
+  "palette": {
+    "bg": "hsl(87.7 26% 17%)",
+    "surface": "hsl(119.7 22% 82%)",
+    "ink": "hsl(277.7 28% 12%)",
+    "accent": "hsl(205.7 60% 54%)",
+    "accent2": "hsl(339.7 49% 57%)"
+  },
+  "fingerprint": "timeline|ticker|ticket|technical|circle|vector|balanced|digital|4"
+}

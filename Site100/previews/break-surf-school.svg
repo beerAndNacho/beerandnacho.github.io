@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">BREAK 서핑스쿨 디자인 미리보기</title>
+  <desc id="desc">masonry 레이아웃, window 히어로, 서핑스쿨 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(198.5 26% 15%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(230.5 22% 85%)" stroke="hsl(28.5 28% 11%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(28.5 28% 11%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(316.5 64% 53%)"/>
+  <text x="70" y="52" fill="hsl(230.5 22% 85%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 065 · 서핑스쿨</text>
+  <line x1="38" y1="122" x2="655" y2="122" stroke="hsl(28.5 28% 11%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="624" y2="164" stroke="hsl(28.5 28% 11%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="593" y2="206" stroke="hsl(28.5 28% 11%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="562" y2="248" stroke="hsl(28.5 28% 11%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="691" y2="290" stroke="hsl(28.5 28% 11%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="660" y2="332" stroke="hsl(28.5 28% 11%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="629" y2="374" stroke="hsl(28.5 28% 11%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="598" y2="416" stroke="hsl(28.5 28% 11%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="567" y2="458" stroke="hsl(28.5 28% 11%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="341" y="280" width="59" height="59" rx="0" fill="hsl(316.5 64% 53%)" opacity=".94"/><rect x="430" y="341" width="102" height="26" rx="0" fill="hsl(90.5 52% 58%)" opacity=".94"/><rect x="519" y="402" width="145" height="55" rx="0" fill="hsl(230.5 22% 85%)" opacity=".72"/><rect x="108" y="103" width="188" height="22" rx="0" fill="hsl(316.5 64% 53%)" opacity=".94"/><rect x="197" y="164" width="81" height="51" rx="0" fill="hsl(90.5 52% 58%)" opacity=".94"/><rect x="286" y="225" width="124" height="18" rx="0" fill="hsl(230.5 22% 85%)" opacity=".72"/><rect x="375" y="286" width="167" height="47" rx="0" fill="hsl(316.5 64% 53%)" opacity=".94"/><rect x="464" y="347" width="60" height="76" rx="0" fill="hsl(90.5 52% 58%)" opacity=".94"/>
+  <circle cx="565" cy="147" r="78" fill="none" stroke="hsl(316.5 64% 53%)" stroke-width="18" opacity=".82"/>
+  <circle cx="565" cy="147" r="43" fill="hsl(90.5 52% 58%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(28.5 28% 11%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">BREAK 서핑스쿨</text>
+  <text x="55" y="462" fill="hsl(28.5 28% 11%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">masonry / window / frame</text>
+</svg>

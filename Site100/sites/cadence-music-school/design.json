@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 34,
+  "name": "CADENCE 음악교습소",
+  "slug": "cadence-music-school",
+  "sector": "교육·지식",
+  "kind": "음악교습소",
+  "tagline": "오선지와 음표 커서을 중심으로 음악교습소의 실제 선택을 화면에서 경험합니다.",
+  "cta": "재생하기",
+  "interaction": "audio",
+  "services": [
+    "음악교습소 안내",
+    "맞춤 음악교습소",
+    "음악교습소 상담·예약"
+  ],
+  "materials": [
+    "오선지",
+    "음표 커서",
+    "오디오 파형",
+    "수업 박자"
+  ],
+  "contentSignature": "음악교습소|audio|오선지|음표 커서|오디오 파형|수업 박자",
+  "layout": "shelf",
+  "nav": "top",
+  "hero": "headline",
+  "type": "condensed",
+  "geometry": "sharp",
+  "medium": "paper",
+  "density": "dense",
+  "mood": "natural",
+  "variant": 2,
+  "palette": {
+    "bg": "hsl(236.8 26% 13%)",
+    "surface": "hsl(268.8 22% 88%)",
+    "ink": "hsl(66.8 28% 10%)",
+    "accent": "hsl(354.8 68% 52%)",
+    "accent2": "hsl(128.8 55% 59%)"
+  },
+  "fingerprint": "shelf|top|headline|condensed|sharp|paper|dense|natural|2"
+}

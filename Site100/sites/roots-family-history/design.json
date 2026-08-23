@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 96,
+  "name": "ROOTS 가족 역사 기록",
+  "slug": "roots-family-history",
+  "sector": "개인·실험",
+  "kind": "가족 역사 기록",
+  "tagline": "가계도 선와 연도 노드을 중심으로 가족 역사 기록의 실제 선택을 화면에서 경험합니다.",
+  "cta": "과정 보기",
+  "interaction": "timeline",
+  "services": [
+    "가족 역사 기록 안내",
+    "맞춤 가족 역사 기록",
+    "가족 역사 기록 상담·예약"
+  ],
+  "materials": [
+    "가계도 선",
+    "연도 노드",
+    "사진 액자",
+    "기억 메모"
+  ],
+  "contentSignature": "가족 역사 기록|timeline|가계도 선|연도 노드|사진 액자|기억 메모",
+  "layout": "kinetic",
+  "nav": "split",
+  "hero": "shelf",
+  "type": "soft",
+  "geometry": "ribbon",
+  "medium": "light",
+  "density": "compact",
+  "mood": "natural",
+  "variant": 4,
+  "palette": {
+    "bg": "hsl(160.3 26% 17%)",
+    "surface": "hsl(192.3 22% 82%)",
+    "ink": "hsl(350.3 28% 12%)",
+    "accent": "hsl(278.3 60% 54%)",
+    "accent2": "hsl(52.3 49% 57%)"
+  },
+  "fingerprint": "kinetic|split|shelf|soft|ribbon|light|compact|natural|4"
+}

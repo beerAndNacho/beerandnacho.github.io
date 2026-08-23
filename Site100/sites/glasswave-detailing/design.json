@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 10,
+  "name": "GLASSWAVE 자동차 디테일링",
+  "slug": "glasswave-detailing",
+  "sector": "지역 매장",
+  "kind": "자동차 디테일링",
+  "tagline": "리퀴드 크롬와 차체 반사을 중심으로 자동차 디테일링의 실제 선택을 화면에서 경험합니다.",
+  "cta": "비교하기",
+  "interaction": "compare",
+  "services": [
+    "자동차 디테일링 안내",
+    "맞춤 자동차 디테일링",
+    "자동차 디테일링 상담·예약"
+  ],
+  "materials": [
+    "리퀴드 크롬",
+    "차체 반사",
+    "광택 게이지",
+    "비교 손잡이"
+  ],
+  "contentSignature": "자동차 디테일링|compare|리퀴드 크롬|차체 반사|광택 게이지|비교 손잡이",
+  "layout": "timeline",
+  "nav": "minimal",
+  "hero": "map",
+  "type": "wide",
+  "geometry": "module",
+  "medium": "grid",
+  "density": "compact",
+  "mood": "precise",
+  "variant": 1,
+  "palette": {
+    "bg": "hsl(157.6 26% 11%)",
+    "surface": "hsl(189.6 22% 91%)",
+    "ink": "hsl(347.6 28% 9%)",
+    "accent": "hsl(275.6 72% 51%)",
+    "accent2": "hsl(49.6 58% 60%)"
+  },
+  "fingerprint": "timeline|minimal|map|wide|module|grid|compact|precise|1"
+}

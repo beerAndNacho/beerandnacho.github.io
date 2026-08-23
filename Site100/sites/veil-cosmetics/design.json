@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 76,
+  "name": "VEIL 화장품 브랜드",
+  "slug": "veil-cosmetics",
+  "sector": "음식·라이프스타일",
+  "kind": "화장품 브랜드",
+  "tagline": "반투명 레이어와 색조 원을 중심으로 화장품 브랜드의 실제 선택을 화면에서 경험합니다.",
+  "cta": "조합하기",
+  "interaction": "mixer",
+  "services": [
+    "화장품 브랜드 안내",
+    "맞춤 화장품 브랜드",
+    "화장품 브랜드 상담·예약"
+  ],
+  "materials": [
+    "반투명 레이어",
+    "색조 원",
+    "텍스처 필름",
+    "제품 실루엣"
+  ],
+  "contentSignature": "화장품 브랜드|mixer|반투명 레이어|색조 원|텍스처 필름|제품 실루엣",
+  "layout": "editorial",
+  "nav": "split",
+  "hero": "shelf",
+  "type": "soft",
+  "geometry": "ribbon",
+  "medium": "light",
+  "density": "compact",
+  "mood": "natural",
+  "variant": 4,
+  "palette": {
+    "bg": "hsl(290.1 26% 17%)",
+    "surface": "hsl(322.1 22% 82%)",
+    "ink": "hsl(120.1 28% 12%)",
+    "accent": "hsl(48.1 60% 54%)",
+    "accent2": "hsl(182.1 49% 57%)"
+  },
+  "fingerprint": "editorial|split|shelf|soft|ribbon|light|compact|natural|4"
+}

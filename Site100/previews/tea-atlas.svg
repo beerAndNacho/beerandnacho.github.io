@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">TEA ATLAS 찻집 디자인 미리보기</title>
+  <desc id="desc">data 레이아웃, terminal 히어로, 찻집 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(218.6 26% 15%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(250.6 22% 85%)" stroke="hsl(48.6 28% 11%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(48.6 28% 11%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(336.6 64% 53%)"/>
+  <text x="70" y="52" fill="hsl(250.6 22% 85%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 073 · 찻집</text>
+  <line x1="38" y1="122" x2="679" y2="122" stroke="hsl(48.6 28% 11%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="648" y2="164" stroke="hsl(48.6 28% 11%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="617" y2="206" stroke="hsl(48.6 28% 11%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="586" y2="248" stroke="hsl(48.6 28% 11%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="715" y2="290" stroke="hsl(48.6 28% 11%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="684" y2="332" stroke="hsl(48.6 28% 11%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="653" y2="374" stroke="hsl(48.6 28% 11%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="622" y2="416" stroke="hsl(48.6 28% 11%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="591" y2="458" stroke="hsl(48.6 28% 11%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="117" y="336" width="85" height="29" rx="0" fill="hsl(336.6 64% 53%)" opacity=".94"/><rect x="206" y="397" width="128" height="58" rx="0" fill="hsl(110.6 52% 58%)" opacity=".94"/><rect x="295" y="98" width="171" height="25" rx="0" fill="hsl(250.6 22% 85%)" opacity=".72"/><rect x="384" y="159" width="64" height="54" rx="0" fill="hsl(336.6 64% 53%)" opacity=".94"/><rect x="473" y="220" width="107" height="21" rx="0" fill="hsl(110.6 52% 58%)" opacity=".94"/><rect x="62" y="281" width="150" height="50" rx="0" fill="hsl(250.6 22% 85%)" opacity=".72"/><rect x="151" y="342" width="193" height="17" rx="0" fill="hsl(336.6 64% 53%)" opacity=".94"/><rect x="240" y="403" width="86" height="46" rx="0" fill="hsl(110.6 52% 58%)" opacity=".94"/>
+  <circle cx="621" cy="203" r="78" fill="none" stroke="hsl(336.6 64% 53%)" stroke-width="18" opacity=".82"/>
+  <circle cx="621" cy="203" r="43" fill="hsl(110.6 52% 58%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(48.6 28% 11%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">TEA ATLAS 찻집</text>
+  <text x="55" y="462" fill="hsl(48.6 28% 11%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">data / terminal / halftone</text>
+</svg>

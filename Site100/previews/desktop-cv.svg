@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">DESKTOP CV 개발자 이력서 디자인 미리보기</title>
+  <desc id="desc">monolith 레이아웃, mosaic 히어로, 개발자 포트폴리오 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(192.7 26% 17%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(224.7 22% 82%)" stroke="hsl(22.7 28% 12%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(22.7 28% 12%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(310.7 60% 54%)"/>
+  <text x="70" y="52" fill="hsl(224.7 22% 82%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 091 · 개발자 포트폴리오</text>
+  <line x1="38" y1="122" x2="693" y2="122" stroke="hsl(22.7 28% 12%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="662" y2="164" stroke="hsl(22.7 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="631" y2="206" stroke="hsl(22.7 28% 12%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="600" y2="248" stroke="hsl(22.7 28% 12%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="569" y2="290" stroke="hsl(22.7 28% 12%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="698" y2="332" stroke="hsl(22.7 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="667" y2="374" stroke="hsl(22.7 28% 12%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="636" y2="416" stroke="hsl(22.7 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="605" y2="458" stroke="hsl(22.7 28% 12%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="363" y="282" width="181" height="39" rx="4" fill="hsl(310.7 60% 54%)" opacity=".94"/><rect x="452" y="343" width="74" height="68" rx="4" fill="hsl(84.7 49% 57%)" opacity=".94"/><rect x="41" y="404" width="117" height="35" rx="4" fill="hsl(224.7 22% 82%)" opacity=".72"/><rect x="130" y="105" width="160" height="64" rx="4" fill="hsl(310.7 60% 54%)" opacity=".94"/><rect x="219" y="166" width="203" height="31" rx="4" fill="hsl(84.7 49% 57%)" opacity=".94"/><rect x="308" y="227" width="96" height="60" rx="4" fill="hsl(224.7 22% 82%)" opacity=".72"/><rect x="397" y="288" width="139" height="27" rx="4" fill="hsl(310.7 60% 54%)" opacity=".94"/><rect x="486" y="349" width="182" height="56" rx="4" fill="hsl(84.7 49% 57%)" opacity=".94"/>
+  <circle cx="567" cy="149" r="78" fill="none" stroke="hsl(310.7 60% 54%)" stroke-width="18" opacity=".82"/>
+  <circle cx="567" cy="149" r="43" fill="hsl(84.7 49% 57%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(22.7 28% 12%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">DESKTOP CV 개발자 이력서</text>
+  <text x="55" y="462" fill="hsl(22.7 28% 12%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">monolith / mosaic / grid</text>
+</svg>

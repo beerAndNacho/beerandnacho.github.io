@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 72,
+  "name": "TICKET 카페",
+  "slug": "ticket-cafe",
+  "sector": "음식·라이프스타일",
+  "kind": "카페",
+  "tagline": "영수증 롤와 주문 번호을 중심으로 카페의 실제 선택을 화면에서 경험합니다.",
+  "cta": "메뉴 고르기",
+  "interaction": "menu",
+  "services": [
+    "카페 안내",
+    "맞춤 카페",
+    "카페 상담·예약"
+  ],
+  "materials": [
+    "영수증 롤",
+    "주문 번호",
+    "가격 표",
+    "픽업 스탬프"
+  ],
+  "contentSignature": "카페|menu|영수증 롤|주문 번호|가격 표|픽업 스탬프",
+  "layout": "cinema",
+  "nav": "ticker",
+  "hero": "cinema",
+  "type": "humanist",
+  "geometry": "circle",
+  "medium": "documents",
+  "density": "immersive",
+  "mood": "precise",
+  "variant": 3,
+  "palette": {
+    "bg": "hsl(81.1 26% 15%)",
+    "surface": "hsl(113.1 22% 85%)",
+    "ink": "hsl(271.1 28% 11%)",
+    "accent": "hsl(199.1 64% 53%)",
+    "accent2": "hsl(333.1 52% 58%)"
+  },
+  "fingerprint": "cinema|ticker|cinema|humanist|circle|documents|immersive|precise|3"
+}

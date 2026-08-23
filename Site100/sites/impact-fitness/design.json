@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 47,
+  "name": "IMPACT 피트니스 센터",
+  "slug": "impact-fitness",
+  "sector": "웰니스·케어",
+  "kind": "피트니스 센터",
+  "tagline": "거대 타이포와 강도 다이얼을 중심으로 피트니스 센터의 실제 선택을 화면에서 경험합니다.",
+  "cta": "계산하기",
+  "interaction": "calculate",
+  "services": [
+    "피트니스 센터 안내",
+    "맞춤 피트니스 센터",
+    "피트니스 센터 상담·예약"
+  ],
+  "materials": [
+    "거대 타이포",
+    "강도 다이얼",
+    "수업 카드",
+    "기록 숫자"
+  ],
+  "contentSignature": "피트니스 센터|calculate|거대 타이포|강도 다이얼|수업 카드|기록 숫자",
+  "layout": "cinema",
+  "nav": "radial",
+  "hero": "map",
+  "type": "technical",
+  "geometry": "layer",
+  "medium": "grid",
+  "density": "compact",
+  "mood": "luxury",
+  "variant": 2,
+  "palette": {
+    "bg": "hsl(224.4 26% 13%)",
+    "surface": "hsl(256.4 22% 88%)",
+    "ink": "hsl(54.4 28% 10%)",
+    "accent": "hsl(342.4 68% 52%)",
+    "accent2": "hsl(116.4 55% 59%)"
+  },
+  "fingerprint": "cinema|radial|map|technical|layer|grid|compact|luxury|2"
+}

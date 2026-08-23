@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">MOVE LINE 이사 서비스 디자인 미리보기</title>
+  <desc id="desc">shelf 레이아웃, wave 히어로, 이사 서비스 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(20.1 26% 11%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(52.1 22% 91%)" stroke="hsl(210.1 28% 9%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(210.1 28% 9%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(138.1 72% 51%)"/>
+  <text x="70" y="52" fill="hsl(52.1 22% 91%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 009 · 이사 서비스</text>
+  <line x1="38" y1="122" x2="647" y2="122" stroke="hsl(210.1 28% 9%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="616" y2="164" stroke="hsl(210.1 28% 9%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="585" y2="206" stroke="hsl(210.1 28% 9%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="714" y2="248" stroke="hsl(210.1 28% 9%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="683" y2="290" stroke="hsl(210.1 28% 9%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="652" y2="332" stroke="hsl(210.1 28% 9%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="621" y2="374" stroke="hsl(210.1 28% 9%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="590" y2="416" stroke="hsl(210.1 28% 9%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="719" y2="458" stroke="hsl(210.1 28% 9%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="409" y="248" width="177" height="21" rx="0" fill="hsl(138.1 72% 51%)" opacity=".94"/><rect x="498" y="309" width="70" height="50" rx="0" fill="hsl(272.1 58% 60%)" opacity=".94"/><rect x="87" y="370" width="113" height="17" rx="0" fill="hsl(52.1 22% 91%)" opacity=".72"/><rect x="176" y="431" width="156" height="46" rx="0" fill="hsl(138.1 72% 51%)" opacity=".94"/><rect x="265" y="132" width="199" height="75" rx="0" fill="hsl(272.1 58% 60%)" opacity=".94"/><rect x="354" y="193" width="92" height="42" rx="0" fill="hsl(52.1 22% 91%)" opacity=".72"/><rect x="443" y="254" width="135" height="71" rx="0" fill="hsl(138.1 72% 51%)" opacity=".94"/><rect x="532" y="315" width="178" height="38" rx="0" fill="hsl(272.1 58% 60%)" opacity=".94"/>
+  <circle cx="623" cy="295" r="78" fill="none" stroke="hsl(138.1 72% 51%)" stroke-width="18" opacity=".82"/>
+  <circle cx="623" cy="295" r="43" fill="hsl(272.1 58% 60%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(210.1 28% 9%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">MOVE LINE 이사 서비스</text>
+  <text x="55" y="462" fill="hsl(210.1 28% 9%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">shelf / wave / halftone</text>
+</svg>

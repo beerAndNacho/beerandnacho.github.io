@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 9,
+  "name": "MOVE LINE 이사 서비스",
+  "slug": "move-line-moving",
+  "sector": "지역 매장",
+  "kind": "이사 서비스",
+  "tagline": "이동 경로와 박스 라벨을 중심으로 이사 서비스의 실제 선택을 화면에서 경험합니다.",
+  "cta": "과정 보기",
+  "interaction": "timeline",
+  "services": [
+    "이사 서비스 안내",
+    "맞춤 이사 서비스",
+    "이사 서비스 상담·예약"
+  ],
+  "materials": [
+    "이동 경로",
+    "박스 라벨",
+    "날짜 체크",
+    "차량 아이콘"
+  ],
+  "contentSignature": "이사 서비스|timeline|이동 경로|박스 라벨|날짜 체크|차량 아이콘",
+  "layout": "shelf",
+  "nav": "tabs",
+  "hero": "wave",
+  "type": "soft",
+  "geometry": "blueprint",
+  "medium": "halftone",
+  "density": "balanced",
+  "mood": "playful",
+  "variant": 1,
+  "palette": {
+    "bg": "hsl(20.1 26% 11%)",
+    "surface": "hsl(52.1 22% 91%)",
+    "ink": "hsl(210.1 28% 9%)",
+    "accent": "hsl(138.1 72% 51%)",
+    "accent2": "hsl(272.1 58% 60%)"
+  },
+  "fingerprint": "shelf|tabs|wave|soft|blueprint|halftone|balanced|playful|1"
+}

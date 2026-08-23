@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 33,
+  "name": "OPEN STUDIO 미술학교",
+  "slug": "open-studio-art-school",
+  "sector": "교육·지식",
+  "kind": "미술학교",
+  "tagline": "핀보드와 재료 조각을 중심으로 미술학교의 실제 선택을 화면에서 경험합니다.",
+  "cta": "배치하기",
+  "interaction": "drag",
+  "services": [
+    "미술학교 안내",
+    "맞춤 미술학교",
+    "미술학교 상담·예약"
+  ],
+  "materials": [
+    "핀보드",
+    "재료 조각",
+    "작품 카드",
+    "손글씨 메모"
+  ],
+  "contentSignature": "미술학교|drag|핀보드|재료 조각|작품 카드|손글씨 메모",
+  "layout": "radial",
+  "nav": "minimal",
+  "hero": "book",
+  "type": "humanist",
+  "geometry": "module",
+  "medium": "glass",
+  "density": "airy",
+  "mood": "digital",
+  "variant": 2,
+  "palette": {
+    "bg": "hsl(99.3 26% 13%)",
+    "surface": "hsl(131.3 22% 88%)",
+    "ink": "hsl(289.3 28% 10%)",
+    "accent": "hsl(217.3 68% 52%)",
+    "accent2": "hsl(351.3 55% 59%)"
+  },
+  "fingerprint": "radial|minimal|book|humanist|module|glass|airy|digital|2"
+}

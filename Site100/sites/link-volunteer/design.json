@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 88,
+  "name": "LINK 자원봉사 매칭",
+  "slug": "link-volunteer",
+  "sector": "공공·커뮤니티",
+  "kind": "자원봉사 매칭",
+  "tagline": "관계 지도와 기술 태그을 중심으로 자원봉사 매칭의 실제 선택을 화면에서 경험합니다.",
+  "cta": "필터 열기",
+  "interaction": "filter",
+  "services": [
+    "자원봉사 매칭 안내",
+    "맞춤 자원봉사 매칭",
+    "자원봉사 매칭 상담·예약"
+  ],
+  "materials": [
+    "관계 지도",
+    "기술 태그",
+    "지역 핀",
+    "매칭 선"
+  ],
+  "contentSignature": "자원봉사 매칭|filter|관계 지도|기술 태그|지역 핀|매칭 선",
+  "layout": "ticket",
+  "nav": "tabs",
+  "hero": "headline",
+  "type": "serif",
+  "geometry": "blueprint",
+  "medium": "paper",
+  "density": "dense",
+  "mood": "experimental",
+  "variant": 4,
+  "palette": {
+    "bg": "hsl(140.2 26% 17%)",
+    "surface": "hsl(172.2 22% 82%)",
+    "ink": "hsl(330.2 28% 12%)",
+    "accent": "hsl(258.2 60% 54%)",
+    "accent2": "hsl(32.2 49% 57%)"
+  },
+  "fingerprint": "ticket|tabs|headline|serif|blueprint|paper|dense|experimental|4"
+}

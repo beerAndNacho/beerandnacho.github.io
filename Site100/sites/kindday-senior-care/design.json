@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 49,
+  "name": "KINDDAY 시니어 케어",
+  "slug": "kindday-senior-care",
+  "sector": "웰니스·케어",
+  "kind": "시니어 케어",
+  "tagline": "큰 시간표와 높은 대비을 중심으로 시니어 케어의 실제 선택을 화면에서 경험합니다.",
+  "cta": "일정 보기",
+  "interaction": "schedule",
+  "services": [
+    "시니어 케어 안내",
+    "맞춤 시니어 케어",
+    "시니어 케어 상담·예약"
+  ],
+  "materials": [
+    "큰 시간표",
+    "높은 대비",
+    "돌봄 카드",
+    "연락 버튼"
+  ],
+  "contentSignature": "시니어 케어|schedule|큰 시간표|높은 대비|돌봄 카드|연락 버튼",
+  "layout": "glass",
+  "nav": "ticker",
+  "hero": "notebook",
+  "type": "wide",
+  "geometry": "circle",
+  "medium": "isometric",
+  "density": "dense",
+  "mood": "quiet",
+  "variant": 2,
+  "palette": {
+    "bg": "hsl(139.4 26% 13%)",
+    "surface": "hsl(171.4 22% 88%)",
+    "ink": "hsl(329.4 28% 10%)",
+    "accent": "hsl(257.4 68% 52%)",
+    "accent2": "hsl(31.4 55% 59%)"
+  },
+  "fingerprint": "glass|ticker|notebook|wide|circle|isometric|dense|quiet|2"
+}

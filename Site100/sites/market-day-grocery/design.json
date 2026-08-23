@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 75,
+  "name": "MARKET DAY 식료품점",
+  "slug": "market-day-grocery",
+  "sector": "음식·라이프스타일",
+  "kind": "식료품점",
+  "tagline": "농산물 색상와 계절 표을 중심으로 식료품점의 실제 선택을 화면에서 경험합니다.",
+  "cta": "필터 열기",
+  "interaction": "filter",
+  "services": [
+    "식료품점 안내",
+    "맞춤 식료품점",
+    "식료품점 상담·예약"
+  ],
+  "materials": [
+    "농산물 색상",
+    "계절 표",
+    "생산자 카드",
+    "장바구니 블록"
+  ],
+  "contentSignature": "식료품점|filter|농산물 색상|계절 표|생산자 카드|장바구니 블록",
+  "layout": "collage",
+  "nav": "tabs",
+  "hero": "manifesto",
+  "type": "contrast",
+  "geometry": "blueprint",
+  "medium": "frame",
+  "density": "airy",
+  "mood": "natural",
+  "variant": 3,
+  "palette": {
+    "bg": "hsl(133.6 26% 15%)",
+    "surface": "hsl(165.6 22% 85%)",
+    "ink": "hsl(323.6 28% 11%)",
+    "accent": "hsl(251.6 64% 53%)",
+    "accent2": "hsl(25.6 52% 58%)"
+  },
+  "fingerprint": "collage|tabs|manifesto|contrast|blueprint|frame|airy|natural|3"
+}

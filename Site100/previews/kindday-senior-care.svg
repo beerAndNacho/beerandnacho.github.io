@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">KINDDAY 시니어 케어 디자인 미리보기</title>
+  <desc id="desc">glass 레이아웃, notebook 히어로, 시니어 케어 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(139.4 26% 13%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(171.4 22% 88%)" stroke="hsl(329.4 28% 10%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(329.4 28% 10%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(257.4 68% 52%)"/>
+  <text x="70" y="52" fill="hsl(171.4 22% 88%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 049 · 시니어 케어</text>
+  <line x1="38" y1="122" x2="607" y2="122" stroke="hsl(329.4 28% 10%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="576" y2="164" stroke="hsl(329.4 28% 10%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="705" y2="206" stroke="hsl(329.4 28% 10%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="674" y2="248" stroke="hsl(329.4 28% 10%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="643" y2="290" stroke="hsl(329.4 28% 10%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="612" y2="332" stroke="hsl(329.4 28% 10%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="581" y2="374" stroke="hsl(329.4 28% 10%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="710" y2="416" stroke="hsl(329.4 28% 10%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="679" y2="458" stroke="hsl(329.4 28% 10%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="289" y="168" width="157" height="57" rx="28.5" fill="hsl(257.4 68% 52%)" opacity=".94"/><rect x="378" y="229" width="200" height="24" rx="12" fill="hsl(31.4 55% 59%)" opacity=".94"/><rect x="467" y="290" width="93" height="53" rx="26.5" fill="hsl(171.4 22% 88%)" opacity=".72"/><rect x="56" y="351" width="136" height="20" rx="10" fill="hsl(257.4 68% 52%)" opacity=".94"/><rect x="145" y="412" width="179" height="49" rx="24.5" fill="hsl(31.4 55% 59%)" opacity=".94"/><rect x="234" y="113" width="72" height="16" rx="8" fill="hsl(171.4 22% 88%)" opacity=".72"/><rect x="323" y="174" width="115" height="45" rx="22.5" fill="hsl(257.4 68% 52%)" opacity=".94"/><rect x="412" y="235" width="158" height="74" rx="37" fill="hsl(31.4 55% 59%)" opacity=".94"/>
+  <circle cx="633" cy="215" r="78" fill="none" stroke="hsl(257.4 68% 52%)" stroke-width="18" opacity=".82"/>
+  <circle cx="633" cy="215" r="43" fill="hsl(31.4 55% 59%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(329.4 28% 10%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">KINDDAY 시니어 케어</text>
+  <text x="55" y="462" fill="hsl(329.4 28% 10%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">glass / notebook / isometric</text>
+</svg>

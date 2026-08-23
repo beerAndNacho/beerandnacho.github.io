@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">KICK 스니커즈숍 디자인 미리보기</title>
+  <desc id="desc">horizontal 레이아웃, room 히어로, 스니커즈숍 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(67.6 26% 17%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(99.6 22% 82%)" stroke="hsl(257.6 28% 12%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(257.6 28% 12%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(185.6 60% 54%)"/>
+  <text x="70" y="52" fill="hsl(99.6 22% 82%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 077 · 스니커즈숍</text>
+  <line x1="38" y1="122" x2="611" y2="122" stroke="hsl(257.6 28% 12%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="580" y2="164" stroke="hsl(257.6 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="709" y2="206" stroke="hsl(257.6 28% 12%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="678" y2="248" stroke="hsl(257.6 28% 12%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="647" y2="290" stroke="hsl(257.6 28% 12%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="616" y2="332" stroke="hsl(257.6 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="585" y2="374" stroke="hsl(257.6 28% 12%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="714" y2="416" stroke="hsl(257.6 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="683" y2="458" stroke="hsl(257.6 28% 12%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="505" y="364" width="173" height="45" rx="22.5" fill="hsl(185.6 60% 54%)" opacity=".94"/><rect x="94" y="425" width="66" height="74" rx="33" fill="hsl(319.6 49% 57%)" opacity=".94"/><rect x="183" y="126" width="109" height="41" rx="20.5" fill="hsl(99.6 22% 82%)" opacity=".72"/><rect x="272" y="187" width="152" height="70" rx="35" fill="hsl(185.6 60% 54%)" opacity=".94"/><rect x="361" y="248" width="195" height="37" rx="18.5" fill="hsl(319.6 49% 57%)" opacity=".94"/><rect x="450" y="309" width="88" height="66" rx="33" fill="hsl(99.6 22% 82%)" opacity=".72"/><rect x="39" y="370" width="131" height="33" rx="16.5" fill="hsl(185.6 60% 54%)" opacity=".94"/><rect x="128" y="431" width="174" height="62" rx="31" fill="hsl(319.6 49% 57%)" opacity=".94"/>
+  <circle cx="649" cy="231" r="78" fill="none" stroke="hsl(185.6 60% 54%)" stroke-width="18" opacity=".82"/>
+  <circle cx="649" cy="231" r="43" fill="hsl(319.6 49% 57%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(257.6 28% 12%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">KICK 스니커즈숍</text>
+  <text x="55" y="462" fill="hsl(257.6 28% 12%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">horizontal / room / glass</text>
+</svg>

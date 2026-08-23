@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 55,
+  "name": "WAVE 팟캐스트 네트워크",
+  "slug": "wave-podcast",
+  "sector": "문화·창작",
+  "kind": "팟캐스트 네트워크",
+  "tagline": "음성 파형와 재생 헤드을 중심으로 팟캐스트 네트워크의 실제 선택을 화면에서 경험합니다.",
+  "cta": "재생하기",
+  "interaction": "audio",
+  "services": [
+    "팟캐스트 네트워크 안내",
+    "맞춤 팟캐스트 네트워크",
+    "팟캐스트 네트워크 상담·예약"
+  ],
+  "materials": [
+    "음성 파형",
+    "재생 헤드",
+    "에피소드 칩",
+    "시간 표시"
+  ],
+  "contentSignature": "팟캐스트 네트워크|audio|음성 파형|재생 헤드|에피소드 칩|시간 표시",
+  "layout": "poster",
+  "nav": "tabs",
+  "hero": "manifesto",
+  "type": "contrast",
+  "geometry": "blueprint",
+  "medium": "frame",
+  "density": "airy",
+  "mood": "natural",
+  "variant": 3,
+  "palette": {
+    "bg": "hsl(263.4 26% 15%)",
+    "surface": "hsl(295.4 22% 85%)",
+    "ink": "hsl(93.4 28% 11%)",
+    "accent": "hsl(21.4 64% 53%)",
+    "accent2": "hsl(155.4 52% 58%)"
+  },
+  "fingerprint": "poster|tabs|manifesto|contrast|blueprint|frame|airy|natural|3"
+}

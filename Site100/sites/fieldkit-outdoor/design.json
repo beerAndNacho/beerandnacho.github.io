@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 80,
+  "name": "FIELDKIT 아웃도어 브랜드",
+  "slug": "fieldkit-outdoor",
+  "sector": "음식·라이프스타일",
+  "kind": "아웃도어 브랜드",
+  "tagline": "필드 매뉴얼와 장비 체크을 중심으로 아웃도어 브랜드의 실제 선택을 화면에서 경험합니다.",
+  "cta": "조립하기",
+  "interaction": "build",
+  "services": [
+    "아웃도어 브랜드 안내",
+    "맞춤 아웃도어 브랜드",
+    "아웃도어 브랜드 상담·예약"
+  ],
+  "materials": [
+    "필드 매뉴얼",
+    "장비 체크",
+    "지도 좌표",
+    "내구성 표"
+  ],
+  "contentSignature": "아웃도어 브랜드|build|필드 매뉴얼|장비 체크|지도 좌표|내구성 표",
+  "layout": "poster",
+  "nav": "top",
+  "hero": "wave",
+  "type": "mono",
+  "geometry": "sharp",
+  "medium": "halftone",
+  "density": "balanced",
+  "mood": "industrial",
+  "variant": 4,
+  "palette": {
+    "bg": "hsl(120.1 26% 17%)",
+    "surface": "hsl(152.1 22% 82%)",
+    "ink": "hsl(310.1 28% 12%)",
+    "accent": "hsl(238.1 60% 54%)",
+    "accent2": "hsl(12.1 49% 57%)"
+  },
+  "fingerprint": "poster|top|wave|mono|sharp|halftone|balanced|industrial|4"
+}

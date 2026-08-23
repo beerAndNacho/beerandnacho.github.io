@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 58,
+  "name": "ROOM/FORM 가구 작업실",
+  "slug": "room-form-furniture",
+  "sector": "문화·창작",
+  "kind": "가구 작업실",
+  "tagline": "아이소메트릭 방와 가구 블록을 중심으로 가구 작업실의 실제 선택을 화면에서 경험합니다.",
+  "cta": "구성하기",
+  "interaction": "configure",
+  "services": [
+    "가구 작업실 안내",
+    "맞춤 가구 작업실",
+    "가구 작업실 상담·예약"
+  ],
+  "materials": [
+    "아이소메트릭 방",
+    "가구 블록",
+    "재료 팔레트",
+    "치수 태그"
+  ],
+  "contentSignature": "가구 작업실|configure|아이소메트릭 방|가구 블록|재료 팔레트|치수 태그",
+  "layout": "radial",
+  "nav": "corner",
+  "hero": "split",
+  "type": "wide",
+  "geometry": "paper",
+  "medium": "vector",
+  "density": "balanced",
+  "mood": "luxury",
+  "variant": 3,
+  "palette": {
+    "bg": "hsl(316.0 26% 15%)",
+    "surface": "hsl(348.0 22% 85%)",
+    "ink": "hsl(146.0 28% 11%)",
+    "accent": "hsl(74.0 64% 53%)",
+    "accent2": "hsl(208.0 52% 58%)"
+  },
+  "fingerprint": "radial|corner|split|wide|paper|vector|balanced|luxury|3"
+}

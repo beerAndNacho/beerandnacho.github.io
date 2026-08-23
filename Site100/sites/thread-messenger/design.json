@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 26,
+  "name": "THREAD 팀 메신저",
+  "slug": "thread-messenger",
+  "sector": "SaaS·기술",
+  "kind": "팀 메신저",
+  "tagline": "메시지 버블와 스레드 선을 중심으로 팀 메신저의 실제 선택을 화면에서 경험합니다.",
+  "cta": "보기 전환",
+  "interaction": "switcher",
+  "services": [
+    "팀 메신저 안내",
+    "맞춤 팀 메신저",
+    "팀 메신저 상담·예약"
+  ],
+  "materials": [
+    "메시지 버블",
+    "스레드 선",
+    "상태 점",
+    "검색 팔레트"
+  ],
+  "contentSignature": "팀 메신저|switcher|메시지 버블|스레드 선|상태 점|검색 팔레트",
+  "layout": "editorial",
+  "nav": "bottom",
+  "hero": "wave",
+  "type": "contrast",
+  "geometry": "stamp",
+  "medium": "halftone",
+  "density": "balanced",
+  "mood": "experimental",
+  "variant": 2,
+  "palette": {
+    "bg": "hsl(216.7 26% 13%)",
+    "surface": "hsl(248.7 22% 88%)",
+    "ink": "hsl(46.7 28% 10%)",
+    "accent": "hsl(334.7 68% 52%)",
+    "accent2": "hsl(108.7 55% 59%)"
+  },
+  "fingerprint": "editorial|bottom|wave|contrast|stamp|halftone|balanced|experimental|2"
+}

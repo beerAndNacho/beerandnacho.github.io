@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-labelledby="title desc">
+  <title id="title">SECTION 건축가 개인 사이트 디자인 미리보기</title>
+  <desc id="desc">archive 레이아웃, split 히어로, 건축가 포트폴리오 홈페이지 디자인.</desc>
+  <rect width="800" height="500" fill="hsl(22.8 26% 17%)"/>
+  <rect x="22" y="22" width="756" height="456" fill="hsl(54.8 22% 82%)" stroke="hsl(212.8 28% 12%)" stroke-width="3"/>
+  <rect x="22" y="22" width="756" height="48" fill="hsl(212.8 28% 12%)"/>
+  <circle cx="48" cy="46" r="7" fill="hsl(140.8 60% 54%)"/>
+  <text x="70" y="52" fill="hsl(54.8 22% 82%)" font-family="system-ui,sans-serif" font-size="14" font-weight="800">WORLD 095 · 건축가 포트폴리오</text>
+  <line x1="38" y1="122" x2="625" y2="122" stroke="hsl(212.8 28% 12%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="164" x2="594" y2="164" stroke="hsl(212.8 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="206" x2="563" y2="206" stroke="hsl(212.8 28% 12%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="248" x2="692" y2="248" stroke="hsl(212.8 28% 12%)" stroke-opacity=".18" stroke-width="3"/><line x1="38" y1="290" x2="661" y2="290" stroke="hsl(212.8 28% 12%)" stroke-opacity=".34" stroke-width="1"/><line x1="72" y1="332" x2="630" y2="332" stroke="hsl(212.8 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="374" x2="599" y2="374" stroke="hsl(212.8 28% 12%)" stroke-opacity=".34" stroke-width="3"/><line x1="72" y1="416" x2="568" y2="416" stroke="hsl(212.8 28% 12%)" stroke-opacity=".18" stroke-width="1"/><line x1="38" y1="458" x2="697" y2="458" stroke="hsl(212.8 28% 12%)" stroke-opacity=".34" stroke-width="1"/>
+  <rect x="251" y="310" width="119" height="55" rx="27.5" fill="hsl(140.8 60% 54%)" opacity=".94"/><rect x="340" y="371" width="162" height="22" rx="11" fill="hsl(274.8 49% 57%)" opacity=".94"/><rect x="429" y="432" width="55" height="51" rx="25.5" fill="hsl(54.8 22% 82%)" opacity=".72"/><rect x="518" y="133" width="98" height="18" rx="9" fill="hsl(140.8 60% 54%)" opacity=".94"/><rect x="107" y="194" width="141" height="47" rx="23.5" fill="hsl(274.8 49% 57%)" opacity=".94"/><rect x="196" y="255" width="184" height="76" rx="38" fill="hsl(54.8 22% 82%)" opacity=".72"/><rect x="285" y="316" width="77" height="43" rx="21.5" fill="hsl(140.8 60% 54%)" opacity=".94"/><rect x="374" y="377" width="120" height="72" rx="36" fill="hsl(274.8 49% 57%)" opacity=".94"/>
+  <circle cx="595" cy="177" r="78" fill="none" stroke="hsl(140.8 60% 54%)" stroke-width="18" opacity=".82"/>
+  <circle cx="595" cy="177" r="43" fill="hsl(274.8 49% 57%)" opacity=".84"/>
+  <text x="55" y="435" fill="hsl(212.8 28% 12%)" font-family="system-ui,sans-serif" font-size="38" font-weight="900">SECTION 건축가 개인 사이트</text>
+  <text x="55" y="462" fill="hsl(212.8 28% 12%)" fill-opacity=".62" font-family="ui-monospace,monospace" font-size="12">archive / split / vector</text>
+</svg>

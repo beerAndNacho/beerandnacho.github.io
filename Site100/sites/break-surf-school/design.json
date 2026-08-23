@@ -1,0 +1,40 @@
+{
+  "version": "2.0.0",
+  "id": 65,
+  "name": "BREAK 서핑스쿨",
+  "slug": "break-surf-school",
+  "sector": "여행·숙박",
+  "kind": "서핑스쿨",
+  "tagline": "파도 컷와 조수 시간을 중심으로 서핑스쿨의 실제 선택을 화면에서 경험합니다.",
+  "cta": "일정 보기",
+  "interaction": "schedule",
+  "services": [
+    "서핑스쿨 안내",
+    "맞춤 서핑스쿨",
+    "서핑스쿨 상담·예약"
+  ],
+  "materials": [
+    "파도 컷",
+    "조수 시간",
+    "보드 실루엣",
+    "강습 카드"
+  ],
+  "contentSignature": "서핑스쿨|schedule|파도 컷|조수 시간|보드 실루엣|강습 카드",
+  "layout": "masonry",
+  "nav": "tabs",
+  "hero": "window",
+  "type": "contrast",
+  "geometry": "blueprint",
+  "medium": "frame",
+  "density": "airy",
+  "mood": "natural",
+  "variant": 3,
+  "palette": {
+    "bg": "hsl(198.5 26% 15%)",
+    "surface": "hsl(230.5 22% 85%)",
+    "ink": "hsl(28.5 28% 11%)",
+    "accent": "hsl(316.5 64% 53%)",
+    "accent2": "hsl(90.5 52% 58%)"
+  },
+  "fingerprint": "masonry|tabs|window|contrast|blueprint|frame|airy|natural|3"
+}
