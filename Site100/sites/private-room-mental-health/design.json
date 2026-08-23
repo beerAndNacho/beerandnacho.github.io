@@ -113,7 +113,10 @@
       "collage",
       "archive",
       "isometric"
-    ]
+    ],
+    "canonicalStrategy": "origin-plus-route",
+    "breadcrumbStrategy": "visible-navigation-derived"
   },
-  "depthPatchVersion": "5.0.1"
+  "depthPatchVersion": "5.0.1",
+  "depthSeoPatchVersion": "5.0.2"
 }

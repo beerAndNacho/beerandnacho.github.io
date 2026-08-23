@@ -246,7 +246,16 @@
       "collage",
       "archive",
       "isometric"
+    ],
+    "canonicalStrategy": "origin-plus-route",
+    "breadcrumbStrategy": "visible-navigation-derived",
+    "seoFixes": [
+      "duplicate-base-path",
+      "breadcrumb-graph",
+      "brand-subject-particle",
+      "brand-topic-particle"
     ]
   },
-  "depthPatchVersion": "5.0.1"
+  "depthPatchVersion": "5.0.1",
+  "depthSeoPatchVersion": "5.0.2"
 }
