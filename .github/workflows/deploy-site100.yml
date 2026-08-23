@@ -5,6 +5,11 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/deploy-site100.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/deploy-site100.yml'
+      - '.github/site100-v2-trigger'
   workflow_dispatch:
 
 permissions:
@@ -16,15 +21,17 @@ concurrency:
 
 jobs:
   deploy:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Pages repository
+      - name: Checkout latest Pages main
         uses: actions/checkout@v4
         with:
+          ref: main
           path: site
           fetch-depth: 0
 
-      - name: Checkout Site100 source
+      - name: Checkout Site100 main
         uses: actions/checkout@v4
         with:
           repository: beerAndNacho/Site100
@@ -37,16 +44,18 @@ jobs:
         with:
           node-version: 22
 
-      - name: Validate, build and audit Site100 v2
+      - name: Validate, build and audit Site100 v2.1
         working-directory: source
         run: npm test
 
-      - name: Verify v2 build output
+      - name: Verify v2.1 build output
         run: |
           set -euo pipefail
-          echo 'Publishing Site100 verified build v2.1.'
+          echo 'Publishing Site100 verified build v2.1 from source main.'
           test -s source/dist/index.html
           test -s source/dist/assets/catalog.js
+          test -s source/dist/assets/copy.js
+          test -s source/dist/assets/copy-bootstrap.js
           test -s source/dist/assets/app.js
           test -s source/dist/assets/enhance.js
           test -s source/dist/assets/enhance-fix.js
@@ -65,10 +74,13 @@ jobs:
           test "$design_count" -eq 100
           test "$preview_count" -eq 100
           grep -q '"version": "2.0.0"' source/dist/manifest.json
+          grep -q '/Site100/assets/copy-bootstrap.js' source/dist/index.html
           grep -q '/Site100/assets/enhance.js' source/dist/index.html
           grep -q '/Site100/assets/enhance-fix.js' source/dist/index.html
           grep -q '/Site100/assets/v2.css' source/dist/index.html
           grep -q 'CollectionPage' source/dist/index.html
+          grep -q '오븐 선반과 발효 시계를' source/dist/sites/salt-bakery/index.html
+          grep -q '"copyVersion": "2.1.0"' source/dist/sites/salt-bakery/design.json
           test -s source/dist/previews/salt-bakery.svg
           test -s source/dist/previews/endpoint-api.svg
           test -s source/dist/previews/dal-hanok-stay.svg
@@ -91,7 +103,7 @@ jobs:
           cp -R source/dist/. site/Site100/
           touch site/Site100/.nojekyll
 
-      - name: Commit deployment
+      - name: Commit deployment to main
         working-directory: site
         run: |
           git config user.name 'github-actions[bot]'
@@ -101,5 +113,6 @@ jobs:
             echo 'No deployment changes.'
             exit 0
           fi
-          git commit -m 'deploy: publish Site100 100WORLDS v2'
-          git push
+          git commit -m 'deploy: publish Site100 100WORLDS v2.1'
+          git pull --rebase origin main
+          git push origin HEAD:main

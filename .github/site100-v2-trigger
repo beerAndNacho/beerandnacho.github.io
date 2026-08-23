@@ -1,0 +1,5 @@
+Site100 v2.1 deployment trigger
+Source: beerAndNacho/Site100@main
+Source merge: 97a846243a215ed5af0fe4da821889dc963ba6a8
+Date: 2026-08-23
+Purpose: re-run the full 100-route build, Korean copy audit, preview audit and publish job from merged source main.
