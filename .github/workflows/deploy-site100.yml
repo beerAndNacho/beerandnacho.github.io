@@ -5,7 +5,12 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/deploy-site100.yml'
-      - '.github/site100-v4-trigger'
+      - '.github/site100-v5-trigger'
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/deploy-site100.yml'
+      - '.github/site100-v5-pr-trigger'
   workflow_dispatch:
 
 permissions:
@@ -17,8 +22,9 @@ concurrency:
 
 jobs:
   deploy:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 50
     steps:
       - name: Checkout latest Pages main
         uses: actions/checkout@v4
@@ -40,20 +46,21 @@ jobs:
         with:
           node-version: 22
 
-      - name: Install responsive browser audit dependencies
+      - name: Install browser audit dependencies
         working-directory: source
         run: |
           npm install --no-audit --no-fund
           npx playwright install --with-deps chromium
 
-      - name: Validate, build and audit Site100 responsive v4
+      - name: Validate, build and audit Site100 v5
         working-directory: source
-        run: npm run test:responsive
+        run: npm run test:deep
 
-      - name: Verify responsive v4 build output
+      - name: Verify v5 deep build output
         run: |
           set -euo pipefail
-          echo 'Publishing Site100 responsive web-app v4.'
+          echo 'Publishing Site100 deep information architecture v5.'
+
           test -s source/dist/index.html
           test -s source/dist/assets/catalog.js
           test -s source/dist/assets/copy.js
@@ -64,44 +71,70 @@ jobs:
           test -s source/dist/assets/art-direction.js
           test -s source/dist/assets/responsive.js
           test -s source/dist/assets/responsive-fixes.js
+          test -s source/dist/assets/depth-content.js
+          test -s source/dist/assets/depth.js
           test -s source/dist/assets/styles.css
           test -s source/dist/assets/v2.css
           test -s source/dist/assets/v3.css
           test -s source/dist/assets/v4-responsive.css
           test -s source/dist/assets/v4-responsive-fixes.css
           test -s source/dist/assets/v4-fixes.css
+          test -s source/dist/assets/v5-depth.css
+          test -s source/dist/assets/v5-depth-fixes.css
           test -s source/dist/manifest.json
+          test -s source/dist/depth-manifest.json
+          test -s source/dist/depth-audit-report.json
           test -s source/dist/responsive-matrix.json
           test -s source/dist/responsive-static-report.json
           test -s source/dist/reports/responsive-browser-report.json
+          test -s source/dist/reports/depth-browser-report.json
           test -s source/dist/site.webmanifest
           test -s source/dist/icon.svg
           test -s source/dist/404.html
           test -s source/dist/offline.html
 
-          route_count="$(find source/dist/sites -mindepth 2 -maxdepth 2 -name index.html | wc -l | tr -d ' ')"
+          root_count="$(find source/dist/sites -mindepth 2 -maxdepth 2 -name index.html | wc -l | tr -d ' ')"
+          page_count="$(find source/dist/sites -name index.html | wc -l | tr -d ' ')"
           design_count="$(find source/dist/sites -mindepth 2 -maxdepth 2 -name design.json | wc -l | tr -d ' ')"
+          site_map_count="$(find source/dist/sites -mindepth 2 -maxdepth 2 -name site-map.json | wc -l | tr -d ' ')"
           preview_count="$(find source/dist/previews -maxdepth 1 -name '*.svg' | wc -l | tr -d ' ')"
           artwork_count="$(find source/dist/artworks -maxdepth 1 -name '*.svg' | wc -l | tr -d ' ')"
-          test "$route_count" -eq 100
+          test "$root_count" -eq 100
+          test "$page_count" -eq 1400
           test "$design_count" -eq 100
+          test "$site_map_count" -eq 100
           test "$preview_count" -eq 100
           test "$artwork_count" -eq 100
 
-          grep -q '"responsiveVersion": "4.0.0"' source/dist/manifest.json
-          grep -q '"responsivePatchVersion": "4.0.1"' source/dist/manifest.json
-          grep -q '"routeCoverage": 100' source/dist/manifest.json
-          grep -q '/Site100/assets/responsive.js' source/dist/index.html
-          grep -q '/Site100/assets/responsive-fixes.js' source/dist/index.html
-          grep -q '/Site100/assets/v4-responsive.css' source/dist/index.html
-          grep -q '/Site100/assets/v4-responsive-fixes.css' source/dist/index.html
-          grep -q '/Site100/assets/v4-fixes.css' source/dist/index.html
-          grep -q '"responsiveVersion": "4.0.0"' source/dist/sites/salt-bakery/design.json
-          grep -q '"responsivePatchVersion": "4.0.1"' source/dist/sites/salt-bakery/design.json
-          grep -q '"strategy": "viewport-and-container-queries"' source/dist/sites/salt-bakery/design.json
-          grep -q '"visualVersion": "3.0.0"' source/dist/sites/salt-bakery/design.json
+          grep -q '"depthVersion": "5.0.0"' source/dist/manifest.json
+          grep -q '"depthPatchVersion": "5.0.1"' source/dist/manifest.json
+          grep -q '"sitePageCount": 1400' source/dist/manifest.json
+          grep -q '"pagesPerSite": 14' source/dist/depth-manifest.json
+          grep -q '"maximumDepth": 3' source/dist/depth-manifest.json
+          grep -q '"sitePages": 1400' source/dist/depth-audit-report.json
+          grep -q '"brokenLinks": 0' source/dist/depth-audit-report.json
+          grep -q '/Site100/assets/depth.js' source/dist/index.html
+          grep -q '/Site100/assets/v5-depth.css' source/dist/index.html
+          grep -q '/Site100/assets/v5-depth-fixes.css' source/dist/index.html
 
-          node -e "const report=require('./source/dist/reports/responsive-browser-report.json'); if(report.failures.length) process.exit(1); if(report.checks!==262) throw new Error('Expected 262 responsive browser checks, got '+report.checks); console.log('Verified '+report.checks+' responsive browser checks.');"
+          test -s source/dist/sites/salt-bakery/about/index.html
+          test -s source/dist/sites/salt-bakery/services/index.html
+          test -s source/dist/sites/salt-bakery/services/service-01/index.html
+          test -s source/dist/sites/salt-bakery/work/index.html
+          test -s source/dist/sites/salt-bakery/work/case-01/index.html
+          test -s source/dist/sites/salt-bakery/journal/index.html
+          test -s source/dist/sites/salt-bakery/journal/insight-01/index.html
+          test -s source/dist/sites/salt-bakery/contact/index.html
+          test -s source/dist/sites/desktop-cv/services/service-01/index.html
+          test -s source/dist/sites/100worlds-gallery/journal/insight-02/index.html
+
+          grep -q 'data-v5-add-service' source/dist/sites/salt-bakery/services/service-01/index.html
+          grep -q 'data-v5-wizard' source/dist/sites/salt-bakery/contact/index.html
+          grep -q 'data-v5-article' source/dist/sites/salt-bakery/journal/insight-01/index.html
+          grep -q '"pageCount": 14' source/dist/sites/salt-bakery/design.json
+          grep -q '"depthPatchVersion": "5.0.1"' source/dist/sites/salt-bakery/design.json
+
+          node -e "const responsive=require('./source/dist/reports/responsive-browser-report.json'); if(responsive.failures.length) process.exit(1); if(responsive.checks!==262) throw new Error('Expected 262 responsive checks, got '+responsive.checks); const depth=require('./source/dist/reports/depth-browser-report.json'); if(depth.failures.length) process.exit(1); if(depth.checks!==520) throw new Error('Expected 520 deep checks, got '+depth.checks); console.log('Verified '+responsive.checks+' responsive and '+depth.checks+' deep browser checks.');"
 
       - name: Publish under /Site100
         run: |
@@ -120,6 +153,6 @@ jobs:
             echo 'No deployment changes.'
             exit 0
           fi
-          git commit -m 'deploy: publish Site100 responsive web-app v4'
+          git commit -m 'deploy: publish Site100 deep architecture v5'
           git pull --rebase origin main
           git push origin HEAD:main
