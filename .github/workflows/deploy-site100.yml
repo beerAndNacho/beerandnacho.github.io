@@ -37,26 +37,41 @@ jobs:
         with:
           node-version: 22
 
-      - name: Validate design diversity
+      - name: Validate, build and audit Site100 v2
         working-directory: source
-        run: npm run check
+        run: npm test
 
-      - name: Build gallery and 100 websites
-        working-directory: source
-        run: npm run build
-
-      - name: Verify build output
+      - name: Verify v2 build output
         run: |
           set -euo pipefail
-          echo 'Publishing Site100 verified build v1.'
+          echo 'Publishing Site100 verified build v2.'
           test -s source/dist/index.html
           test -s source/dist/assets/catalog.js
           test -s source/dist/assets/app.js
+          test -s source/dist/assets/enhance.js
+          test -s source/dist/assets/enhance-fix.js
           test -s source/dist/assets/styles.css
+          test -s source/dist/assets/v2.css
+          test -s source/dist/manifest.json
+          test -s source/dist/site.webmanifest
+          test -s source/dist/icon.svg
+          test -s source/dist/404.html
+          test -s source/dist/offline.html
+          test -s source/dist/preview-gallery.svg
           route_count="$(find source/dist/sites -mindepth 2 -maxdepth 2 -name index.html | wc -l | tr -d ' ')"
           design_count="$(find source/dist/sites -mindepth 2 -maxdepth 2 -name design.json | wc -l | tr -d ' ')"
+          preview_count="$(find source/dist/previews -maxdepth 1 -name '*.svg' | wc -l | tr -d ' ')"
           test "$route_count" -eq 100
           test "$design_count" -eq 100
+          test "$preview_count" -eq 100
+          grep -q '"version": "2.0.0"' source/dist/manifest.json
+          grep -q '/Site100/assets/enhance.js' source/dist/index.html
+          grep -q '/Site100/assets/enhance-fix.js' source/dist/index.html
+          grep -q '/Site100/assets/v2.css' source/dist/index.html
+          grep -q 'CollectionPage' source/dist/index.html
+          test -s source/dist/previews/salt-bakery.svg
+          test -s source/dist/previews/endpoint-api.svg
+          test -s source/dist/previews/dal-hanok-stay.svg
           test -s source/dist/sites/salt-bakery/index.html
           test -s source/dist/sites/harbor-law/index.html
           test -s source/dist/sites/endpoint-api/index.html
@@ -86,5 +101,5 @@ jobs:
             echo 'No deployment changes.'
             exit 0
           fi
-          git commit -m 'deploy: publish Site100 100 distinct websites'
+          git commit -m 'deploy: publish Site100 100WORLDS v2'
           git push
