@@ -1,0 +1,4 @@
+Site100 v2 deployment trigger
+Source: beerAndNacho/Site100@main
+Date: 2026-08-23
+Purpose: run the full 100-route build, audit and publish job from a same-repository pull request.
