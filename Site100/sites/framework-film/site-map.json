@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 51,
+  "slug": "framework-film",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "FRAMEWORK 영화제작사",
+      "path": "/Site100/sites/framework-film/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "FRAMEWORK 영화제작사 소개",
+      "path": "/Site100/sites/framework-film/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "FRAMEWORK 영화제작사 서비스",
+      "path": "/Site100/sites/framework-film/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "대표 사례 탐색",
+      "path": "/Site100/sites/framework-film/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "세부 장면 보기",
+      "path": "/Site100/sites/framework-film/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "프로젝트 문의",
+      "path": "/Site100/sites/framework-film/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "FRAMEWORK 영화제작사 사례",
+      "path": "/Site100/sites/framework-film/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "시네마스코프에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/framework-film/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "장면 카드 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/framework-film/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "프로젝트 문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/framework-film/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "FRAMEWORK 영화제작사 저널",
+      "path": "/Site100/sites/framework-film/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "시네마스코프를 중심으로 영화제작사 정보를 설계하는 법",
+      "path": "/Site100/sites/framework-film/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "세부 장면 보기 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/framework-film/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "FRAMEWORK 영화제작사 문의",
+      "path": "/Site100/sites/framework-film/contact/",
+      "depth": 2
+    }
+  ]
+}

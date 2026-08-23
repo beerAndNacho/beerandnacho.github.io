@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 5,
+  "slug": "blueprint-home-repair",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "BLUEPRINT 집수리",
+      "path": "/Site100/sites/blueprint-home-repair/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "BLUEPRINT 집수리 소개",
+      "path": "/Site100/sites/blueprint-home-repair/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "BLUEPRINT 집수리 서비스",
+      "path": "/Site100/sites/blueprint-home-repair/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "현황·범위 확인",
+      "path": "/Site100/sites/blueprint-home-repair/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "항목별 견적 구성",
+      "path": "/Site100/sites/blueprint-home-repair/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "진행 상담",
+      "path": "/Site100/sites/blueprint-home-repair/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "BLUEPRINT 집수리 사례",
+      "path": "/Site100/sites/blueprint-home-repair/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "청사진에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/blueprint-home-repair/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "공구 실루엣 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/blueprint-home-repair/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "진행 상담 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/blueprint-home-repair/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "BLUEPRINT 집수리 저널",
+      "path": "/Site100/sites/blueprint-home-repair/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "청사진을 중심으로 집수리 정보를 설계하는 법",
+      "path": "/Site100/sites/blueprint-home-repair/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "항목별 견적 구성 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/blueprint-home-repair/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "BLUEPRINT 집수리 문의",
+      "path": "/Site100/sites/blueprint-home-repair/contact/",
+      "depth": 2
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 26,
+  "slug": "thread-messenger",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "THREAD 팀 메신저",
+      "path": "/Site100/sites/thread-messenger/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "THREAD 팀 메신저 소개",
+      "path": "/Site100/sites/thread-messenger/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "THREAD 팀 메신저 서비스",
+      "path": "/Site100/sites/thread-messenger/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "관점·언어 전환",
+      "path": "/Site100/sites/thread-messenger/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "정보 비교",
+      "path": "/Site100/sites/thread-messenger/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "도입 문의",
+      "path": "/Site100/sites/thread-messenger/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "THREAD 팀 메신저 사례",
+      "path": "/Site100/sites/thread-messenger/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "메시지 버블에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/thread-messenger/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "상태 점 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/thread-messenger/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "도입 문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/thread-messenger/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "THREAD 팀 메신저 저널",
+      "path": "/Site100/sites/thread-messenger/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "메시지 버블을 중심으로 팀 메신저 정보를 설계하는 법",
+      "path": "/Site100/sites/thread-messenger/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "정보 비교 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/thread-messenger/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "THREAD 팀 메신저 문의",
+      "path": "/Site100/sites/thread-messenger/contact/",
+      "depth": 2
+    }
+  ]
+}

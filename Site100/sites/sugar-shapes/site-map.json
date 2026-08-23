@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 74,
+  "slug": "sugar-shapes",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "SUGAR SHAPES 디저트숍",
+      "path": "/Site100/sites/sugar-shapes/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "SUGAR SHAPES 디저트숍 소개",
+      "path": "/Site100/sites/sugar-shapes/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "SUGAR SHAPES 디저트숍 서비스",
+      "path": "/Site100/sites/sugar-shapes/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "취향·조건 조합",
+      "path": "/Site100/sites/sugar-shapes/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "추천 구성 확인",
+      "path": "/Site100/sites/sugar-shapes/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "맞춤 상담",
+      "path": "/Site100/sites/sugar-shapes/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "SUGAR SHAPES 디저트숍 사례",
+      "path": "/Site100/sites/sugar-shapes/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "사탕 기하학에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/sugar-shapes/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "맛 레이어 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/sugar-shapes/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "맞춤 상담 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/sugar-shapes/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "SUGAR SHAPES 디저트숍 저널",
+      "path": "/Site100/sites/sugar-shapes/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "사탕 기하학을 중심으로 디저트숍 정보를 설계하는 법",
+      "path": "/Site100/sites/sugar-shapes/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "추천 구성 확인 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/sugar-shapes/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "SUGAR SHAPES 디저트숍 문의",
+      "path": "/Site100/sites/sugar-shapes/contact/",
+      "depth": 2
+    }
+  ]
+}

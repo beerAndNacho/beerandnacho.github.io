@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 25,
+  "slug": "blockstage-nocode",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "BLOCKSTAGE 노코드 빌더",
+      "path": "/Site100/sites/blockstage-nocode/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "BLOCKSTAGE 노코드 빌더 소개",
+      "path": "/Site100/sites/blockstage-nocode/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "BLOCKSTAGE 노코드 빌더 서비스",
+      "path": "/Site100/sites/blockstage-nocode/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "구성 요소 선택",
+      "path": "/Site100/sites/blockstage-nocode/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "결과 미리보기",
+      "path": "/Site100/sites/blockstage-nocode/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "맞춤 제작 문의",
+      "path": "/Site100/sites/blockstage-nocode/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "BLOCKSTAGE 노코드 빌더 사례",
+      "path": "/Site100/sites/blockstage-nocode/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "콘텐츠 블록에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/blockstage-nocode/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "폼 모듈 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/blockstage-nocode/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "맞춤 제작 문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/blockstage-nocode/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "BLOCKSTAGE 노코드 빌더 저널",
+      "path": "/Site100/sites/blockstage-nocode/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "콘텐츠 블록을 중심으로 노코드 빌더 정보를 설계하는 법",
+      "path": "/Site100/sites/blockstage-nocode/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "결과 미리보기 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/blockstage-nocode/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "BLOCKSTAGE 노코드 빌더 문의",
+      "path": "/Site100/sites/blockstage-nocode/contact/",
+      "depth": 2
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 22,
+  "slug": "pulse-monitoring",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "PULSE 서버 모니터링",
+      "path": "/Site100/sites/pulse-monitoring/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "PULSE 서버 모니터링 소개",
+      "path": "/Site100/sites/pulse-monitoring/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "PULSE 서버 모니터링 서비스",
+      "path": "/Site100/sites/pulse-monitoring/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "실시간 현황 확인",
+      "path": "/Site100/sites/pulse-monitoring/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "이용 가능 시간",
+      "path": "/Site100/sites/pulse-monitoring/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "변경 알림 안내",
+      "path": "/Site100/sites/pulse-monitoring/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "PULSE 서버 모니터링 사례",
+      "path": "/Site100/sites/pulse-monitoring/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "오실로스코프에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/pulse-monitoring/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "지연 그래프 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/pulse-monitoring/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "변경 알림 안내 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/pulse-monitoring/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "PULSE 서버 모니터링 저널",
+      "path": "/Site100/sites/pulse-monitoring/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "오실로스코프를 중심으로 서버 모니터링 정보를 설계하는 법",
+      "path": "/Site100/sites/pulse-monitoring/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "이용 가능 시간 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/pulse-monitoring/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "PULSE 서버 모니터링 문의",
+      "path": "/Site100/sites/pulse-monitoring/contact/",
+      "depth": 2
+    }
+  ]
+}

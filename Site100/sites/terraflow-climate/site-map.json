@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 30,
+  "slug": "terraflow-climate",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "TERRAFLOW 기후 SaaS",
+      "path": "/Site100/sites/terraflow-climate/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "TERRAFLOW 기후 SaaS 소개",
+      "path": "/Site100/sites/terraflow-climate/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "TERRAFLOW 기후 SaaS 서비스",
+      "path": "/Site100/sites/terraflow-climate/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "조건별 비교",
+      "path": "/Site100/sites/terraflow-climate/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "추천 선택 확인",
+      "path": "/Site100/sites/terraflow-climate/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "상담·예약",
+      "path": "/Site100/sites/terraflow-climate/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "TERRAFLOW 기후 SaaS 사례",
+      "path": "/Site100/sites/terraflow-climate/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "지형도에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/terraflow-climate/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "온도 범례 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/terraflow-climate/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "상담·예약 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/terraflow-climate/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "TERRAFLOW 기후 SaaS 저널",
+      "path": "/Site100/sites/terraflow-climate/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "지형도를 중심으로 기후 SaaS 정보를 설계하는 법",
+      "path": "/Site100/sites/terraflow-climate/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "추천 선택 확인 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/terraflow-climate/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "TERRAFLOW 기후 SaaS 문의",
+      "path": "/Site100/sites/terraflow-climate/contact/",
+      "depth": 2
+    }
+  ]
+}

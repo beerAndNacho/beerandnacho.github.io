@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 80,
+  "slug": "fieldkit-outdoor",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "FIELDKIT 아웃도어 브랜드",
+      "path": "/Site100/sites/fieldkit-outdoor/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "FIELDKIT 아웃도어 브랜드 소개",
+      "path": "/Site100/sites/fieldkit-outdoor/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "FIELDKIT 아웃도어 브랜드 서비스",
+      "path": "/Site100/sites/fieldkit-outdoor/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "구성 요소 선택",
+      "path": "/Site100/sites/fieldkit-outdoor/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "결과 미리보기",
+      "path": "/Site100/sites/fieldkit-outdoor/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "맞춤 제작 문의",
+      "path": "/Site100/sites/fieldkit-outdoor/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "FIELDKIT 아웃도어 브랜드 사례",
+      "path": "/Site100/sites/fieldkit-outdoor/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "필드 매뉴얼에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/fieldkit-outdoor/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "지도 좌표 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/fieldkit-outdoor/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "맞춤 제작 문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/fieldkit-outdoor/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "FIELDKIT 아웃도어 브랜드 저널",
+      "path": "/Site100/sites/fieldkit-outdoor/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "필드 매뉴얼을 중심으로 아웃도어 브랜드 정보를 설계하는 법",
+      "path": "/Site100/sites/fieldkit-outdoor/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "결과 미리보기 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/fieldkit-outdoor/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "FIELDKIT 아웃도어 브랜드 문의",
+      "path": "/Site100/sites/fieldkit-outdoor/contact/",
+      "depth": 2
+    }
+  ]
+}

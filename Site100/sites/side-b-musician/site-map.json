@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 93,
+  "slug": "side-b-musician",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "SIDE B 뮤지션",
+      "path": "/Site100/sites/side-b-musician/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "SIDE B 뮤지션 소개",
+      "path": "/Site100/sites/side-b-musician/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "SIDE B 뮤지션 서비스",
+      "path": "/Site100/sites/side-b-musician/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "콘텐츠 재생",
+      "path": "/Site100/sites/side-b-musician/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "목록·구간 탐색",
+      "path": "/Site100/sites/side-b-musician/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "수업·제작 문의",
+      "path": "/Site100/sites/side-b-musician/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "SIDE B 뮤지션 사례",
+      "path": "/Site100/sites/side-b-musician/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "회전 음반에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/side-b-musician/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "재생 바 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/side-b-musician/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "수업·제작 문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/side-b-musician/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "SIDE B 뮤지션 저널",
+      "path": "/Site100/sites/side-b-musician/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "회전 음반을 중심으로 뮤지션 포트폴리오 정보를 설계하는 법",
+      "path": "/Site100/sites/side-b-musician/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "목록·구간 탐색 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/side-b-musician/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "SIDE B 뮤지션 문의",
+      "path": "/Site100/sites/side-b-musician/contact/",
+      "depth": 2
+    }
+  ]
+}

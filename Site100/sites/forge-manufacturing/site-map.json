@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 18,
+  "slug": "forge-manufacturing",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "FORGE 제조기업",
+      "path": "/Site100/sites/forge-manufacturing/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "FORGE 제조기업 소개",
+      "path": "/Site100/sites/forge-manufacturing/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "FORGE 제조기업 서비스",
+      "path": "/Site100/sites/forge-manufacturing/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "전체 과정 보기",
+      "path": "/Site100/sites/forge-manufacturing/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "단계별 준비사항",
+      "path": "/Site100/sites/forge-manufacturing/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "진행 상담",
+      "path": "/Site100/sites/forge-manufacturing/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "FORGE 제조기업 사례",
+      "path": "/Site100/sites/forge-manufacturing/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "공정 라인에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/forge-manufacturing/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "검사 게이지 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/forge-manufacturing/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "진행 상담 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/forge-manufacturing/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "FORGE 제조기업 저널",
+      "path": "/Site100/sites/forge-manufacturing/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "공정 라인을 중심으로 제조기업 정보를 설계하는 법",
+      "path": "/Site100/sites/forge-manufacturing/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "단계별 준비사항 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/forge-manufacturing/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "FORGE 제조기업 문의",
+      "path": "/Site100/sites/forge-manufacturing/contact/",
+      "depth": 2
+    }
+  ]
+}

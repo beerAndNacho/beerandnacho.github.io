@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 34,
+  "slug": "cadence-music-school",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "CADENCE 음악교습소",
+      "path": "/Site100/sites/cadence-music-school/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "CADENCE 음악교습소 소개",
+      "path": "/Site100/sites/cadence-music-school/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "CADENCE 음악교습소 서비스",
+      "path": "/Site100/sites/cadence-music-school/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "콘텐츠 재생",
+      "path": "/Site100/sites/cadence-music-school/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "목록·구간 탐색",
+      "path": "/Site100/sites/cadence-music-school/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "수업·제작 문의",
+      "path": "/Site100/sites/cadence-music-school/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "CADENCE 음악교습소 사례",
+      "path": "/Site100/sites/cadence-music-school/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "오선지에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/cadence-music-school/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "오디오 파형 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/cadence-music-school/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "수업·제작 문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/cadence-music-school/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "CADENCE 음악교습소 저널",
+      "path": "/Site100/sites/cadence-music-school/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "오선지를 중심으로 음악교습소 정보를 설계하는 법",
+      "path": "/Site100/sites/cadence-music-school/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "목록·구간 탐색 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/cadence-music-school/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "CADENCE 음악교습소 문의",
+      "path": "/Site100/sites/cadence-music-school/contact/",
+      "depth": 2
+    }
+  ]
+}

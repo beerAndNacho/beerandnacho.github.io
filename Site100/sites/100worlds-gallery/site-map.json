@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 100,
+  "slug": "100worlds-gallery",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "100WORLDS 디자인 갤러리",
+      "path": "/Site100/sites/100worlds-gallery/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "100WORLDS 디자인 갤러리 소개",
+      "path": "/Site100/sites/100worlds-gallery/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "100WORLDS 디자인 갤러리 서비스",
+      "path": "/Site100/sites/100worlds-gallery/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "조건 필터",
+      "path": "/Site100/sites/100worlds-gallery/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "추천 목록 확인",
+      "path": "/Site100/sites/100worlds-gallery/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "선택 상담",
+      "path": "/Site100/sites/100worlds-gallery/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "100WORLDS 디자인 갤러리 사례",
+      "path": "/Site100/sites/100worlds-gallery/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "100개 미니 프리뷰에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/100worlds-gallery/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "필터 매트릭스 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/100worlds-gallery/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "선택 상담 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/100worlds-gallery/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "100WORLDS 디자인 갤러리 저널",
+      "path": "/Site100/sites/100worlds-gallery/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "100개 미니 프리뷰를 중심으로 디자인 갤러리 정보를 설계하는 법",
+      "path": "/Site100/sites/100worlds-gallery/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "추천 목록 확인 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/100worlds-gallery/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "100WORLDS 디자인 갤러리 문의",
+      "path": "/Site100/sites/100worlds-gallery/contact/",
+      "depth": 2
+    }
+  ]
+}

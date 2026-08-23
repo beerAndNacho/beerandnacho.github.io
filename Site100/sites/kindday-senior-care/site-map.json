@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 49,
+  "slug": "kindday-senior-care",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "KINDDAY 시니어 케어",
+      "path": "/Site100/sites/kindday-senior-care/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "KINDDAY 시니어 케어 소개",
+      "path": "/Site100/sites/kindday-senior-care/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "KINDDAY 시니어 케어 서비스",
+      "path": "/Site100/sites/kindday-senior-care/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "일정 탐색",
+      "path": "/Site100/sites/kindday-senior-care/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "시간·프로그램 선택",
+      "path": "/Site100/sites/kindday-senior-care/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "예약·참여 문의",
+      "path": "/Site100/sites/kindday-senior-care/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "KINDDAY 시니어 케어 사례",
+      "path": "/Site100/sites/kindday-senior-care/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "큰 시간표에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/kindday-senior-care/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "돌봄 카드 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/kindday-senior-care/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "예약·참여 문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/kindday-senior-care/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "KINDDAY 시니어 케어 저널",
+      "path": "/Site100/sites/kindday-senior-care/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "큰 시간표를 중심으로 시니어 케어 정보를 설계하는 법",
+      "path": "/Site100/sites/kindday-senior-care/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "시간·프로그램 선택 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/kindday-senior-care/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "KINDDAY 시니어 케어 문의",
+      "path": "/Site100/sites/kindday-senior-care/contact/",
+      "depth": 2
+    }
+  ]
+}

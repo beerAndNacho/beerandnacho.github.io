@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 78,
+  "slug": "paperclip-stationery",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "PAPERCLIP 문구점",
+      "path": "/Site100/sites/paperclip-stationery/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "PAPERCLIP 문구점 소개",
+      "path": "/Site100/sites/paperclip-stationery/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "PAPERCLIP 문구점 서비스",
+      "path": "/Site100/sites/paperclip-stationery/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "구성 요소 선택",
+      "path": "/Site100/sites/paperclip-stationery/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "결과 미리보기",
+      "path": "/Site100/sites/paperclip-stationery/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "맞춤 제작 문의",
+      "path": "/Site100/sites/paperclip-stationery/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "PAPERCLIP 문구점 사례",
+      "path": "/Site100/sites/paperclip-stationery/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "메모 패드에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/paperclip-stationery/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "스티커 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/paperclip-stationery/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "맞춤 제작 문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/paperclip-stationery/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "PAPERCLIP 문구점 저널",
+      "path": "/Site100/sites/paperclip-stationery/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "메모 패드를 중심으로 문구점 정보를 설계하는 법",
+      "path": "/Site100/sites/paperclip-stationery/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "결과 미리보기 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/paperclip-stationery/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "PAPERCLIP 문구점 문의",
+      "path": "/Site100/sites/paperclip-stationery/contact/",
+      "depth": 2
+    }
+  ]
+}

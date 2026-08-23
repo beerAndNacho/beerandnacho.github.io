@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 33,
+  "slug": "open-studio-art-school",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "OPEN STUDIO 미술학교",
+      "path": "/Site100/sites/open-studio-art-school/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "OPEN STUDIO 미술학교 소개",
+      "path": "/Site100/sites/open-studio-art-school/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "OPEN STUDIO 미술학교 서비스",
+      "path": "/Site100/sites/open-studio-art-school/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "요소 직접 배치",
+      "path": "/Site100/sites/open-studio-art-school/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "구성 비교",
+      "path": "/Site100/sites/open-studio-art-school/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "프로젝트 상담",
+      "path": "/Site100/sites/open-studio-art-school/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "OPEN STUDIO 미술학교 사례",
+      "path": "/Site100/sites/open-studio-art-school/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "핀보드에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/open-studio-art-school/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "작품 카드 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/open-studio-art-school/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "프로젝트 상담 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/open-studio-art-school/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "OPEN STUDIO 미술학교 저널",
+      "path": "/Site100/sites/open-studio-art-school/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "핀보드를 중심으로 미술학교 정보를 설계하는 법",
+      "path": "/Site100/sites/open-studio-art-school/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "구성 비교 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/open-studio-art-school/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "OPEN STUDIO 미술학교 문의",
+      "path": "/Site100/sites/open-studio-art-school/contact/",
+      "depth": 2
+    }
+  ]
+}

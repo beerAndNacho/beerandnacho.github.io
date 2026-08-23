@@ -1,0 +1,44 @@
+{
+  "version": "5.0.0",
+  "checks": 520,
+  "startedAt": "2026-08-23T11:47:03.382Z",
+  "profiles": [
+    {
+      "name": "compact-360",
+      "width": 360,
+      "height": 800,
+      "routes": 200,
+      "failures": 0
+    },
+    {
+      "name": "desktop-1366",
+      "width": 1366,
+      "height": 900,
+      "routes": 200,
+      "failures": 0
+    },
+    {
+      "name": "mobile-390",
+      "width": 390,
+      "height": 844,
+      "routes": 40,
+      "failures": 0
+    },
+    {
+      "name": "tablet-768",
+      "width": 768,
+      "height": 1024,
+      "routes": 40,
+      "failures": 0
+    },
+    {
+      "name": "wide-1536",
+      "width": 1536,
+      "height": 960,
+      "routes": 40,
+      "failures": 0
+    }
+  ],
+  "failures": [],
+  "finishedAt": "2026-08-23T11:51:14.312Z"
+}

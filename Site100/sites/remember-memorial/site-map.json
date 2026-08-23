@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 98,
+  "slug": "remember-memorial",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "REMEMBER 추모 기록관",
+      "path": "/Site100/sites/remember-memorial/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "REMEMBER 추모 기록관 소개",
+      "path": "/Site100/sites/remember-memorial/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "REMEMBER 추모 기록관 서비스",
+      "path": "/Site100/sites/remember-memorial/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "핵심 정보 탐색",
+      "path": "/Site100/sites/remember-memorial/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "세부 레이어 확인",
+      "path": "/Site100/sites/remember-memorial/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "상담·문의",
+      "path": "/Site100/sites/remember-memorial/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "REMEMBER 추모 기록관 사례",
+      "path": "/Site100/sites/remember-memorial/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "빛 밝히기에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/remember-memorial/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "사진 여백 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/remember-memorial/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "상담·문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/remember-memorial/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "REMEMBER 추모 기록관 저널",
+      "path": "/Site100/sites/remember-memorial/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "빛 밝히기를 중심으로 추모 기록관 정보를 설계하는 법",
+      "path": "/Site100/sites/remember-memorial/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "세부 레이어 확인 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/remember-memorial/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "REMEMBER 추모 기록관 문의",
+      "path": "/Site100/sites/remember-memorial/contact/",
+      "depth": 2
+    }
+  ]
+}

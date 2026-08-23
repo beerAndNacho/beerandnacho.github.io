@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 4,
+  "slug": "spin24-laundromat",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "SPIN24 세탁방",
+      "path": "/Site100/sites/spin24-laundromat/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "SPIN24 세탁방 소개",
+      "path": "/Site100/sites/spin24-laundromat/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "SPIN24 세탁방 서비스",
+      "path": "/Site100/sites/spin24-laundromat/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "실시간 현황 확인",
+      "path": "/Site100/sites/spin24-laundromat/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "이용 가능 시간",
+      "path": "/Site100/sites/spin24-laundromat/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "변경 알림 안내",
+      "path": "/Site100/sites/spin24-laundromat/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "SPIN24 세탁방 사례",
+      "path": "/Site100/sites/spin24-laundromat/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "원형 드럼에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/spin24-laundromat/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "세제 자판기 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/spin24-laundromat/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "변경 알림 안내 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/spin24-laundromat/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "SPIN24 세탁방 저널",
+      "path": "/Site100/sites/spin24-laundromat/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "원형 드럼을 중심으로 셀프 세탁방 정보를 설계하는 법",
+      "path": "/Site100/sites/spin24-laundromat/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "이용 가능 시간 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/spin24-laundromat/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "SPIN24 세탁방 문의",
+      "path": "/Site100/sites/spin24-laundromat/contact/",
+      "depth": 2
+    }
+  ]
+}

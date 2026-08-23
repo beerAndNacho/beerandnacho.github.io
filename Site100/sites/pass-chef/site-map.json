@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 94,
+  "slug": "pass-chef",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "PASS 셰프 포트폴리오",
+      "path": "/Site100/sites/pass-chef/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "PASS 셰프 포트폴리오 소개",
+      "path": "/Site100/sites/pass-chef/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "PASS 셰프 포트폴리오 서비스",
+      "path": "/Site100/sites/pass-chef/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "대표 메뉴 둘러보기",
+      "path": "/Site100/sites/pass-chef/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "오늘의 추천 선택",
+      "path": "/Site100/sites/pass-chef/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "예약·단체 문의",
+      "path": "/Site100/sites/pass-chef/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "PASS 셰프 포트폴리오 사례",
+      "path": "/Site100/sites/pass-chef/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "레시피 노트에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/pass-chef/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "재료 표 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/pass-chef/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "예약·단체 문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/pass-chef/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "PASS 셰프 포트폴리오 저널",
+      "path": "/Site100/sites/pass-chef/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "레시피 노트를 중심으로 셰프 포트폴리오 정보를 설계하는 법",
+      "path": "/Site100/sites/pass-chef/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "오늘의 추천 선택 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/pass-chef/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "PASS 셰프 포트폴리오 문의",
+      "path": "/Site100/sites/pass-chef/contact/",
+      "depth": 2
+    }
+  ]
+}

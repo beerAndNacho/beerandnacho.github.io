@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 14,
+  "slug": "flowline-logistics",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "FLOWLINE 물류회사",
+      "path": "/Site100/sites/flowline-logistics/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "FLOWLINE 물류회사 소개",
+      "path": "/Site100/sites/flowline-logistics/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "FLOWLINE 물류회사 서비스",
+      "path": "/Site100/sites/flowline-logistics/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "위치·구역 탐색",
+      "path": "/Site100/sites/flowline-logistics/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "조건별 장소 확인",
+      "path": "/Site100/sites/flowline-logistics/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "방문·이용 문의",
+      "path": "/Site100/sites/flowline-logistics/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "FLOWLINE 물류회사 사례",
+      "path": "/Site100/sites/flowline-logistics/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "관제 지도에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/flowline-logistics/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "창고 랙 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/flowline-logistics/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "방문·이용 문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/flowline-logistics/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "FLOWLINE 물류회사 저널",
+      "path": "/Site100/sites/flowline-logistics/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "관제 지도를 중심으로 물류회사 정보를 설계하는 법",
+      "path": "/Site100/sites/flowline-logistics/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "조건별 장소 확인 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/flowline-logistics/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "FLOWLINE 물류회사 문의",
+      "path": "/Site100/sites/flowline-logistics/contact/",
+      "depth": 2
+    }
+  ]
+}

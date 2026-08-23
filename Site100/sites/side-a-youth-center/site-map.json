@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 90,
+  "slug": "side-a-youth-center",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "SIDE A 청년문화센터",
+      "path": "/Site100/sites/side-a-youth-center/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "SIDE A 청년문화센터 소개",
+      "path": "/Site100/sites/side-a-youth-center/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "SIDE A 청년문화센터 서비스",
+      "path": "/Site100/sites/side-a-youth-center/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "요소 직접 배치",
+      "path": "/Site100/sites/side-a-youth-center/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "구성 비교",
+      "path": "/Site100/sites/side-a-youth-center/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "프로젝트 상담",
+      "path": "/Site100/sites/side-a-youth-center/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "SIDE A 청년문화센터 사례",
+      "path": "/Site100/sites/side-a-youth-center/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "복사 질감에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/side-a-youth-center/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "찢긴 포스터 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/side-a-youth-center/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "프로젝트 상담 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/side-a-youth-center/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "SIDE A 청년문화센터 저널",
+      "path": "/Site100/sites/side-a-youth-center/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "복사 질감을 중심으로 청년문화센터 정보를 설계하는 법",
+      "path": "/Site100/sites/side-a-youth-center/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "구성 비교 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/side-a-youth-center/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "SIDE A 청년문화센터 문의",
+      "path": "/Site100/sites/side-a-youth-center/contact/",
+      "depth": 2
+    }
+  ]
+}

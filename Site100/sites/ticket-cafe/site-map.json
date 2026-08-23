@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 72,
+  "slug": "ticket-cafe",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "TICKET 카페",
+      "path": "/Site100/sites/ticket-cafe/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "TICKET 카페 소개",
+      "path": "/Site100/sites/ticket-cafe/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "TICKET 카페 서비스",
+      "path": "/Site100/sites/ticket-cafe/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "대표 메뉴 둘러보기",
+      "path": "/Site100/sites/ticket-cafe/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "오늘의 추천 선택",
+      "path": "/Site100/sites/ticket-cafe/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "예약·단체 문의",
+      "path": "/Site100/sites/ticket-cafe/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "TICKET 카페 사례",
+      "path": "/Site100/sites/ticket-cafe/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "영수증 롤에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/ticket-cafe/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "가격 표 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/ticket-cafe/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "예약·단체 문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/ticket-cafe/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "TICKET 카페 저널",
+      "path": "/Site100/sites/ticket-cafe/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "영수증 롤을 중심으로 카페 정보를 설계하는 법",
+      "path": "/Site100/sites/ticket-cafe/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "오늘의 추천 선택 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/ticket-cafe/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "TICKET 카페 문의",
+      "path": "/Site100/sites/ticket-cafe/contact/",
+      "depth": 2
+    }
+  ]
+}

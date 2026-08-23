@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 60,
+  "slug": "flash-tattoo-studio",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "FLASH 타투 스튜디오",
+      "path": "/Site100/sites/flash-tattoo-studio/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "FLASH 타투 스튜디오 소개",
+      "path": "/Site100/sites/flash-tattoo-studio/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "FLASH 타투 스튜디오 서비스",
+      "path": "/Site100/sites/flash-tattoo-studio/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "조건 필터",
+      "path": "/Site100/sites/flash-tattoo-studio/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "추천 목록 확인",
+      "path": "/Site100/sites/flash-tattoo-studio/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "선택 상담",
+      "path": "/Site100/sites/flash-tattoo-studio/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "FLASH 타투 스튜디오 사례",
+      "path": "/Site100/sites/flash-tattoo-studio/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "플래시 시트에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/flash-tattoo-studio/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "잉크 선 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/flash-tattoo-studio/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "선택 상담 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/flash-tattoo-studio/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "FLASH 타투 스튜디오 저널",
+      "path": "/Site100/sites/flash-tattoo-studio/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "플래시 시트를 중심으로 타투 스튜디오 정보를 설계하는 법",
+      "path": "/Site100/sites/flash-tattoo-studio/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "추천 목록 확인 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/flash-tattoo-studio/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "FLASH 타투 스튜디오 문의",
+      "path": "/Site100/sites/flash-tattoo-studio/contact/",
+      "depth": 2
+    }
+  ]
+}

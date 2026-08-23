@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 21,
+  "slug": "paperless-docs",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "PAPERLESS 문서 SaaS",
+      "path": "/Site100/sites/paperless-docs/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "PAPERLESS 문서 SaaS 소개",
+      "path": "/Site100/sites/paperless-docs/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "PAPERLESS 문서 SaaS 서비스",
+      "path": "/Site100/sites/paperless-docs/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "구성 요소 선택",
+      "path": "/Site100/sites/paperless-docs/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "결과 미리보기",
+      "path": "/Site100/sites/paperless-docs/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "맞춤 제작 문의",
+      "path": "/Site100/sites/paperless-docs/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "PAPERLESS 문서 SaaS 사례",
+      "path": "/Site100/sites/paperless-docs/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "빈 문서에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/paperless-docs/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "승인 도장 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/paperless-docs/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "맞춤 제작 문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/paperless-docs/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "PAPERLESS 문서 SaaS 저널",
+      "path": "/Site100/sites/paperless-docs/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "빈 문서를 중심으로 문서 SaaS 정보를 설계하는 법",
+      "path": "/Site100/sites/paperless-docs/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "결과 미리보기 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/paperless-docs/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "PAPERLESS 문서 SaaS 문의",
+      "path": "/Site100/sites/paperless-docs/contact/",
+      "depth": 2
+    }
+  ]
+}

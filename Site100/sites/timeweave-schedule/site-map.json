@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 23,
+  "slug": "timeweave-schedule",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "TIMEWEAVE 일정 관리",
+      "path": "/Site100/sites/timeweave-schedule/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "TIMEWEAVE 일정 관리 소개",
+      "path": "/Site100/sites/timeweave-schedule/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "TIMEWEAVE 일정 관리 서비스",
+      "path": "/Site100/sites/timeweave-schedule/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "요소 직접 배치",
+      "path": "/Site100/sites/timeweave-schedule/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "구성 비교",
+      "path": "/Site100/sites/timeweave-schedule/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "프로젝트 상담",
+      "path": "/Site100/sites/timeweave-schedule/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "TIMEWEAVE 일정 관리 사례",
+      "path": "/Site100/sites/timeweave-schedule/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "시간 모자이크에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/timeweave-schedule/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "요일 레일 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/timeweave-schedule/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "프로젝트 상담 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/timeweave-schedule/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "TIMEWEAVE 일정 관리 저널",
+      "path": "/Site100/sites/timeweave-schedule/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "시간 모자이크를 중심으로 일정 관리 정보를 설계하는 법",
+      "path": "/Site100/sites/timeweave-schedule/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "구성 비교 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/timeweave-schedule/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "TIMEWEAVE 일정 관리 문의",
+      "path": "/Site100/sites/timeweave-schedule/contact/",
+      "depth": 2
+    }
+  ]
+}

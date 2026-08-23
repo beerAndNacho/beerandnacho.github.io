@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 31,
+  "slug": "compile-bootcamp",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "COMPILE 코딩 부트캠프",
+      "path": "/Site100/sites/compile-bootcamp/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "COMPILE 코딩 부트캠프 소개",
+      "path": "/Site100/sites/compile-bootcamp/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "COMPILE 코딩 부트캠프 서비스",
+      "path": "/Site100/sites/compile-bootcamp/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "명령·기능 실행",
+      "path": "/Site100/sites/compile-bootcamp/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "결과·상태 확인",
+      "path": "/Site100/sites/compile-bootcamp/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "도입 상담",
+      "path": "/Site100/sites/compile-bootcamp/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "COMPILE 코딩 부트캠프 사례",
+      "path": "/Site100/sites/compile-bootcamp/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "컴파일 로그에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/compile-bootcamp/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "진행 바 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/compile-bootcamp/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "도입 상담 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/compile-bootcamp/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "COMPILE 코딩 부트캠프 저널",
+      "path": "/Site100/sites/compile-bootcamp/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "컴파일 로그를 중심으로 코딩 부트캠프 정보를 설계하는 법",
+      "path": "/Site100/sites/compile-bootcamp/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "결과·상태 확인 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/compile-bootcamp/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "COMPILE 코딩 부트캠프 문의",
+      "path": "/Site100/sites/compile-bootcamp/contact/",
+      "depth": 2
+    }
+  ]
+}

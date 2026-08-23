@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 39,
+  "slug": "cabinet-museum",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "CABINET 박물관 교육",
+      "path": "/Site100/sites/cabinet-museum/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "CABINET 박물관 교육 소개",
+      "path": "/Site100/sites/cabinet-museum/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "CABINET 박물관 교육 서비스",
+      "path": "/Site100/sites/cabinet-museum/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "자료 검색",
+      "path": "/Site100/sites/cabinet-museum/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "주제별 컬렉션",
+      "path": "/Site100/sites/cabinet-museum/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "열람·협업 문의",
+      "path": "/Site100/sites/cabinet-museum/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "CABINET 박물관 교육 사례",
+      "path": "/Site100/sites/cabinet-museum/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "보관 서랍에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/cabinet-museum/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "연도 카드 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/cabinet-museum/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "열람·협업 문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/cabinet-museum/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "CABINET 박물관 교육 저널",
+      "path": "/Site100/sites/cabinet-museum/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "보관 서랍을 중심으로 박물관 교육 정보를 설계하는 법",
+      "path": "/Site100/sites/cabinet-museum/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "주제별 컬렉션 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/cabinet-museum/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "CABINET 박물관 교육 문의",
+      "path": "/Site100/sites/cabinet-museum/contact/",
+      "depth": 2
+    }
+  ]
+}

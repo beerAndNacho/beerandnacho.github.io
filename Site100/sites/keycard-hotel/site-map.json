@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 61,
+  "slug": "keycard-hotel",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "KEYCARD 부티크 호텔",
+      "path": "/Site100/sites/keycard-hotel/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "KEYCARD 부티크 호텔 소개",
+      "path": "/Site100/sites/keycard-hotel/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "KEYCARD 부티크 호텔 서비스",
+      "path": "/Site100/sites/keycard-hotel/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "부티크 호텔 프로그램 보기",
+      "path": "/Site100/sites/keycard-hotel/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "날짜·시간 선택",
+      "path": "/Site100/sites/keycard-hotel/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "예약 전 안내",
+      "path": "/Site100/sites/keycard-hotel/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "KEYCARD 부티크 호텔 사례",
+      "path": "/Site100/sites/keycard-hotel/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "키카드 메뉴에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/keycard-hotel/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "체크인 시간 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/keycard-hotel/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "예약 전 안내 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/keycard-hotel/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "KEYCARD 부티크 호텔 저널",
+      "path": "/Site100/sites/keycard-hotel/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "키카드 메뉴를 중심으로 부티크 호텔 정보를 설계하는 법",
+      "path": "/Site100/sites/keycard-hotel/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "날짜·시간 선택 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/keycard-hotel/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "KEYCARD 부티크 호텔 문의",
+      "path": "/Site100/sites/keycard-hotel/contact/",
+      "depth": 2
+    }
+  ]
+}

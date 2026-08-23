@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 24,
+  "slug": "vault9-backup",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "VAULT9 클라우드 백업",
+      "path": "/Site100/sites/vault9-backup/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "VAULT9 클라우드 백업 소개",
+      "path": "/Site100/sites/vault9-backup/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "VAULT9 클라우드 백업 서비스",
+      "path": "/Site100/sites/vault9-backup/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "핵심 정보 탐색",
+      "path": "/Site100/sites/vault9-backup/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "세부 레이어 확인",
+      "path": "/Site100/sites/vault9-backup/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "상담·문의",
+      "path": "/Site100/sites/vault9-backup/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "VAULT9 클라우드 백업 사례",
+      "path": "/Site100/sites/vault9-backup/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "금고 큐브에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/vault9-backup/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "복구 키 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/vault9-backup/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "상담·문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/vault9-backup/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "VAULT9 클라우드 백업 저널",
+      "path": "/Site100/sites/vault9-backup/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "금고 큐브를 중심으로 클라우드 백업 정보를 설계하는 법",
+      "path": "/Site100/sites/vault9-backup/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "세부 레이어 확인 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/vault9-backup/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "VAULT9 클라우드 백업 문의",
+      "path": "/Site100/sites/vault9-backup/contact/",
+      "depth": 2
+    }
+  ]
+}

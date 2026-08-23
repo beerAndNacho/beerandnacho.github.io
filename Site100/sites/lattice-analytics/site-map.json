@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 28,
+  "slug": "lattice-analytics",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "LATTICE 데이터 분석",
+      "path": "/Site100/sites/lattice-analytics/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "LATTICE 데이터 분석 소개",
+      "path": "/Site100/sites/lattice-analytics/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "LATTICE 데이터 분석 서비스",
+      "path": "/Site100/sites/lattice-analytics/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "조건 필터",
+      "path": "/Site100/sites/lattice-analytics/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "추천 목록 확인",
+      "path": "/Site100/sites/lattice-analytics/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "선택 상담",
+      "path": "/Site100/sites/lattice-analytics/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "LATTICE 데이터 분석 사례",
+      "path": "/Site100/sites/lattice-analytics/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "데이터 조형에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/lattice-analytics/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "축 좌표 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/lattice-analytics/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "선택 상담 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/lattice-analytics/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "LATTICE 데이터 분석 저널",
+      "path": "/Site100/sites/lattice-analytics/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "데이터 조형을 중심으로 데이터 분석 정보를 설계하는 법",
+      "path": "/Site100/sites/lattice-analytics/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "추천 목록 확인 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/lattice-analytics/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "LATTICE 데이터 분석 문의",
+      "path": "/Site100/sites/lattice-analytics/contact/",
+      "depth": 2
+    }
+  ]
+}

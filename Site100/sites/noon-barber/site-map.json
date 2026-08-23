@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 2,
+  "slug": "noon-barber",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "NOON BARBER",
+      "path": "/Site100/sites/noon-barber/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "NOON BARBER 소개",
+      "path": "/Site100/sites/noon-barber/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "NOON BARBER 서비스",
+      "path": "/Site100/sites/noon-barber/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "바버숍 프로그램 보기",
+      "path": "/Site100/sites/noon-barber/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "날짜·시간 선택",
+      "path": "/Site100/sites/noon-barber/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "예약 전 안내",
+      "path": "/Site100/sites/noon-barber/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "NOON BARBER 사례",
+      "path": "/Site100/sites/noon-barber/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "이발 의자에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/noon-barber/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "도구 트레이 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/noon-barber/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "예약 전 안내 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/noon-barber/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "NOON BARBER 저널",
+      "path": "/Site100/sites/noon-barber/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "이발 의자를 중심으로 바버숍 정보를 설계하는 법",
+      "path": "/Site100/sites/noon-barber/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "날짜·시간 선택 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/noon-barber/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "NOON BARBER 문의",
+      "path": "/Site100/sites/noon-barber/contact/",
+      "depth": 2
+    }
+  ]
+}

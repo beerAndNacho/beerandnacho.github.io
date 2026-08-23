@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 32,
+  "slug": "phoneme-language",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "PHONEME 어학원",
+      "path": "/Site100/sites/phoneme-language/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "PHONEME 어학원 소개",
+      "path": "/Site100/sites/phoneme-language/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "PHONEME 어학원 서비스",
+      "path": "/Site100/sites/phoneme-language/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "콘텐츠 재생",
+      "path": "/Site100/sites/phoneme-language/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "목록·구간 탐색",
+      "path": "/Site100/sites/phoneme-language/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "수업·제작 문의",
+      "path": "/Site100/sites/phoneme-language/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "PHONEME 어학원 사례",
+      "path": "/Site100/sites/phoneme-language/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "발음기호에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/phoneme-language/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "언어 토글 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/phoneme-language/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "수업·제작 문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/phoneme-language/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "PHONEME 어학원 저널",
+      "path": "/Site100/sites/phoneme-language/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "발음기호를 중심으로 어학원 정보를 설계하는 법",
+      "path": "/Site100/sites/phoneme-language/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "목록·구간 탐색 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/phoneme-language/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "PHONEME 어학원 문의",
+      "path": "/Site100/sites/phoneme-language/contact/",
+      "depth": 2
+    }
+  ]
+}

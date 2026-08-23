@@ -1,0 +1,32 @@
+{
+  "version": "5.0.0",
+  "generatedAt": "2026-08-23T00:00:00+09:00",
+  "siteCount": 100,
+  "pagesPerSite": 14,
+  "sitePageCount": 1400,
+  "totalIndexedPages": 1401,
+  "maximumDepth": 3,
+  "routeTypes": {
+    "home": 100,
+    "about": 100,
+    "servicesIndex": 100,
+    "serviceDetail": 300,
+    "workIndex": 100,
+    "caseDetail": 300,
+    "journalIndex": 100,
+    "articleDetail": 200,
+    "contact": 100
+  },
+  "features": [
+    "mega-navigation",
+    "breadcrumbs",
+    "service-planner",
+    "persistent-plan",
+    "case-filters",
+    "article-toc",
+    "article-bookmarks",
+    "contact-wizard",
+    "local-drafts",
+    "deep-seo"
+  ]
+}

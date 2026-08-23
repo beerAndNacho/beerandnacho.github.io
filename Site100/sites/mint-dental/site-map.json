@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 43,
+  "slug": "mint-dental",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "MINT 치과",
+      "path": "/Site100/sites/mint-dental/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "MINT 치과 소개",
+      "path": "/Site100/sites/mint-dental/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "MINT 치과 서비스",
+      "path": "/Site100/sites/mint-dental/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "치과 프로그램 보기",
+      "path": "/Site100/sites/mint-dental/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "날짜·시간 선택",
+      "path": "/Site100/sites/mint-dental/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "예약 전 안내",
+      "path": "/Site100/sites/mint-dental/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "MINT 치과 사례",
+      "path": "/Site100/sites/mint-dental/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "스위스 그리드에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/mint-dental/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "예약 슬롯 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/mint-dental/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "예약 전 안내 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/mint-dental/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "MINT 치과 저널",
+      "path": "/Site100/sites/mint-dental/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "스위스 그리드를 중심으로 치과 정보를 설계하는 법",
+      "path": "/Site100/sites/mint-dental/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "날짜·시간 선택 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/mint-dental/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "MINT 치과 문의",
+      "path": "/Site100/sites/mint-dental/contact/",
+      "depth": 2
+    }
+  ]
+}

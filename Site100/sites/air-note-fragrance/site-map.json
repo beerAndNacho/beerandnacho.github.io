@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 79,
+  "slug": "air-note-fragrance",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "AIR NOTE 홈 프래그런스",
+      "path": "/Site100/sites/air-note-fragrance/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "AIR NOTE 홈 프래그런스 소개",
+      "path": "/Site100/sites/air-note-fragrance/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "AIR NOTE 홈 프래그런스 서비스",
+      "path": "/Site100/sites/air-note-fragrance/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "취향·조건 조합",
+      "path": "/Site100/sites/air-note-fragrance/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "추천 구성 확인",
+      "path": "/Site100/sites/air-note-fragrance/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "맞춤 상담",
+      "path": "/Site100/sites/air-note-fragrance/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "AIR NOTE 홈 프래그런스 사례",
+      "path": "/Site100/sites/air-note-fragrance/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "향 원형 차트에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/air-note-fragrance/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "노트 카드 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/air-note-fragrance/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "맞춤 상담 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/air-note-fragrance/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "AIR NOTE 홈 프래그런스 저널",
+      "path": "/Site100/sites/air-note-fragrance/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "향 원형 차트를 중심으로 홈 프래그런스 정보를 설계하는 법",
+      "path": "/Site100/sites/air-note-fragrance/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "추천 구성 확인 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/air-note-fragrance/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "AIR NOTE 홈 프래그런스 문의",
+      "path": "/Site100/sites/air-note-fragrance/contact/",
+      "depth": 2
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 54,
+  "slug": "spine-publishing",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "SPINE 출판사",
+      "path": "/Site100/sites/spine-publishing/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "SPINE 출판사 소개",
+      "path": "/Site100/sites/spine-publishing/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "SPINE 출판사 서비스",
+      "path": "/Site100/sites/spine-publishing/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "대표 사례 탐색",
+      "path": "/Site100/sites/spine-publishing/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "세부 장면 보기",
+      "path": "/Site100/sites/spine-publishing/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "프로젝트 문의",
+      "path": "/Site100/sites/spine-publishing/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "SPINE 출판사 사례",
+      "path": "/Site100/sites/spine-publishing/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "책등 메뉴에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/spine-publishing/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "서평 주석 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/spine-publishing/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "프로젝트 문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/spine-publishing/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "SPINE 출판사 저널",
+      "path": "/Site100/sites/spine-publishing/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "책등 메뉴를 중심으로 출판사 정보를 설계하는 법",
+      "path": "/Site100/sites/spine-publishing/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "세부 장면 보기 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/spine-publishing/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "SPINE 출판사 문의",
+      "path": "/Site100/sites/spine-publishing/contact/",
+      "depth": 2
+    }
+  ]
+}

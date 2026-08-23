@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 58,
+  "slug": "room-form-furniture",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "ROOM/FORM 가구 작업실",
+      "path": "/Site100/sites/room-form-furniture/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "ROOM/FORM 가구 작업실 소개",
+      "path": "/Site100/sites/room-form-furniture/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "ROOM/FORM 가구 작업실 서비스",
+      "path": "/Site100/sites/room-form-furniture/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "옵션 선택",
+      "path": "/Site100/sites/room-form-furniture/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "구성 결과 확인",
+      "path": "/Site100/sites/room-form-furniture/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "맞춤 주문 문의",
+      "path": "/Site100/sites/room-form-furniture/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "ROOM/FORM 가구 작업실 사례",
+      "path": "/Site100/sites/room-form-furniture/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "아이소메트릭 방에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/room-form-furniture/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "재료 팔레트 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/room-form-furniture/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "맞춤 주문 문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/room-form-furniture/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "ROOM/FORM 가구 작업실 저널",
+      "path": "/Site100/sites/room-form-furniture/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "아이소메트릭 방을 중심으로 가구 작업실 정보를 설계하는 법",
+      "path": "/Site100/sites/room-form-furniture/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "구성 결과 확인 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/room-form-furniture/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "ROOM/FORM 가구 작업실 문의",
+      "path": "/Site100/sites/room-form-furniture/contact/",
+      "depth": 2
+    }
+  ]
+}

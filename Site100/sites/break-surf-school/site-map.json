@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 65,
+  "slug": "break-surf-school",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "BREAK 서핑스쿨",
+      "path": "/Site100/sites/break-surf-school/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "BREAK 서핑스쿨 소개",
+      "path": "/Site100/sites/break-surf-school/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "BREAK 서핑스쿨 서비스",
+      "path": "/Site100/sites/break-surf-school/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "일정 탐색",
+      "path": "/Site100/sites/break-surf-school/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "시간·프로그램 선택",
+      "path": "/Site100/sites/break-surf-school/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "예약·참여 문의",
+      "path": "/Site100/sites/break-surf-school/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "BREAK 서핑스쿨 사례",
+      "path": "/Site100/sites/break-surf-school/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "파도 컷에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/break-surf-school/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "보드 실루엣 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/break-surf-school/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "예약·참여 문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/break-surf-school/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "BREAK 서핑스쿨 저널",
+      "path": "/Site100/sites/break-surf-school/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "파도 컷을 중심으로 서핑스쿨 정보를 설계하는 법",
+      "path": "/Site100/sites/break-surf-school/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "시간·프로그램 선택 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/break-surf-school/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "BREAK 서핑스쿨 문의",
+      "path": "/Site100/sites/break-surf-school/contact/",
+      "depth": 2
+    }
+  ]
+}

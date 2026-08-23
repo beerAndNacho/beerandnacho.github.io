@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 86,
+  "slug": "poster-city-festival",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "POSTER CITY 지역축제",
+      "path": "/Site100/sites/poster-city-festival/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "POSTER CITY 지역축제 소개",
+      "path": "/Site100/sites/poster-city-festival/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "POSTER CITY 지역축제 서비스",
+      "path": "/Site100/sites/poster-city-festival/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "일정 탐색",
+      "path": "/Site100/sites/poster-city-festival/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "시간·프로그램 선택",
+      "path": "/Site100/sites/poster-city-festival/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "예약·참여 문의",
+      "path": "/Site100/sites/poster-city-festival/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "POSTER CITY 지역축제 사례",
+      "path": "/Site100/sites/poster-city-festival/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "겹친 포스터에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/poster-city-festival/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "무대 색상 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/poster-city-festival/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "예약·참여 문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/poster-city-festival/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "POSTER CITY 지역축제 저널",
+      "path": "/Site100/sites/poster-city-festival/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "겹친 포스터를 중심으로 지역축제 정보를 설계하는 법",
+      "path": "/Site100/sites/poster-city-festival/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "시간·프로그램 선택 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/poster-city-festival/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "POSTER CITY 지역축제 문의",
+      "path": "/Site100/sites/poster-city-festival/contact/",
+      "depth": 2
+    }
+  ]
+}

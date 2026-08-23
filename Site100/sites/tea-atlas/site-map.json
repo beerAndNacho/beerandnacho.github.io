@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 73,
+  "slug": "tea-atlas",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "TEA ATLAS 찻집",
+      "path": "/Site100/sites/tea-atlas/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "TEA ATLAS 찻집 소개",
+      "path": "/Site100/sites/tea-atlas/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "TEA ATLAS 찻집 서비스",
+      "path": "/Site100/sites/tea-atlas/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "위치·구역 탐색",
+      "path": "/Site100/sites/tea-atlas/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "조건별 장소 확인",
+      "path": "/Site100/sites/tea-atlas/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "방문·이용 문의",
+      "path": "/Site100/sites/tea-atlas/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "TEA ATLAS 찻집 사례",
+      "path": "/Site100/sites/tea-atlas/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "산지 지도에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/tea-atlas/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "우림 온도 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/tea-atlas/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "방문·이용 문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/tea-atlas/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "TEA ATLAS 찻집 저널",
+      "path": "/Site100/sites/tea-atlas/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "산지 지도를 중심으로 찻집 정보를 설계하는 법",
+      "path": "/Site100/sites/tea-atlas/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "조건별 장소 확인 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/tea-atlas/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "TEA ATLAS 찻집 문의",
+      "path": "/Site100/sites/tea-atlas/contact/",
+      "depth": 2
+    }
+  ]
+}

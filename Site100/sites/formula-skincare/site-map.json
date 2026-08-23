@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 44,
+  "slug": "formula-skincare",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "FORMULA 스킨케어 클리닉",
+      "path": "/Site100/sites/formula-skincare/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "FORMULA 스킨케어 클리닉 소개",
+      "path": "/Site100/sites/formula-skincare/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "FORMULA 스킨케어 클리닉 서비스",
+      "path": "/Site100/sites/formula-skincare/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "취향·조건 조합",
+      "path": "/Site100/sites/formula-skincare/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "추천 구성 확인",
+      "path": "/Site100/sites/formula-skincare/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "맞춤 상담",
+      "path": "/Site100/sites/formula-skincare/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "FORMULA 스킨케어 클리닉 사례",
+      "path": "/Site100/sites/formula-skincare/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "성분표에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/formula-skincare/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "색조 드롭 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/formula-skincare/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "맞춤 상담 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/formula-skincare/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "FORMULA 스킨케어 클리닉 저널",
+      "path": "/Site100/sites/formula-skincare/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "성분표를 중심으로 스킨케어 클리닉 정보를 설계하는 법",
+      "path": "/Site100/sites/formula-skincare/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "추천 구성 확인 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/formula-skincare/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "FORMULA 스킨케어 클리닉 문의",
+      "path": "/Site100/sites/formula-skincare/contact/",
+      "depth": 2
+    }
+  ]
+}

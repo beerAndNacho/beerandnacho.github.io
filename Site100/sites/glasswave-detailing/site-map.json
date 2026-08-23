@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 10,
+  "slug": "glasswave-detailing",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "GLASSWAVE 자동차 디테일링",
+      "path": "/Site100/sites/glasswave-detailing/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "GLASSWAVE 자동차 디테일링 소개",
+      "path": "/Site100/sites/glasswave-detailing/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "GLASSWAVE 자동차 디테일링 서비스",
+      "path": "/Site100/sites/glasswave-detailing/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "조건별 비교",
+      "path": "/Site100/sites/glasswave-detailing/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "추천 선택 확인",
+      "path": "/Site100/sites/glasswave-detailing/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "상담·예약",
+      "path": "/Site100/sites/glasswave-detailing/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "GLASSWAVE 자동차 디테일링 사례",
+      "path": "/Site100/sites/glasswave-detailing/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "리퀴드 크롬에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/glasswave-detailing/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "광택 게이지 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/glasswave-detailing/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "상담·예약 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/glasswave-detailing/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "GLASSWAVE 자동차 디테일링 저널",
+      "path": "/Site100/sites/glasswave-detailing/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "리퀴드 크롬을 중심으로 자동차 디테일링 정보를 설계하는 법",
+      "path": "/Site100/sites/glasswave-detailing/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "추천 선택 확인 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/glasswave-detailing/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "GLASSWAVE 자동차 디테일링 문의",
+      "path": "/Site100/sites/glasswave-detailing/contact/",
+      "depth": 2
+    }
+  ]
+}

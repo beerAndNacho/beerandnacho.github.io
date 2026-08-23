@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 84,
+  "slug": "new-home-shelter",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "NEW HOME 동물보호소",
+      "path": "/Site100/sites/new-home-shelter/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "NEW HOME 동물보호소 소개",
+      "path": "/Site100/sites/new-home-shelter/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "NEW HOME 동물보호소 서비스",
+      "path": "/Site100/sites/new-home-shelter/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "조건 필터",
+      "path": "/Site100/sites/new-home-shelter/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "추천 목록 확인",
+      "path": "/Site100/sites/new-home-shelter/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "선택 상담",
+      "path": "/Site100/sites/new-home-shelter/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "NEW HOME 동물보호소 사례",
+      "path": "/Site100/sites/new-home-shelter/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "동물 프로필에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/new-home-shelter/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "입양 여정 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/new-home-shelter/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "선택 상담 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/new-home-shelter/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "NEW HOME 동물보호소 저널",
+      "path": "/Site100/sites/new-home-shelter/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "동물 프로필을 중심으로 동물보호소 정보를 설계하는 법",
+      "path": "/Site100/sites/new-home-shelter/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "추천 목록 확인 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/new-home-shelter/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "NEW HOME 동물보호소 문의",
+      "path": "/Site100/sites/new-home-shelter/contact/",
+      "depth": 2
+    }
+  ]
+}

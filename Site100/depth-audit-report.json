@@ -1,0 +1,24 @@
+{
+  "version": "5.0.0",
+  "sites": 100,
+  "pagesPerSite": 14,
+  "sitePages": 1400,
+  "indexedPages": 1401,
+  "maximumDepth": 3,
+  "uniqueTitles": 1400,
+  "uniqueCanonicals": 1400,
+  "uniqueDescriptions": 1400,
+  "pageTypes": {
+    "about": 100,
+    "article": 200,
+    "case": 300,
+    "contact": 100,
+    "home": 100,
+    "journal": 100,
+    "service": 300,
+    "services": 100,
+    "work": 100
+  },
+  "brokenLinks": 0,
+  "failures": []
+}

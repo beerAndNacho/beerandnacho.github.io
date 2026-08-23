@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 46,
+  "slug": "plate-nutrition",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "PLATE 영양 코칭",
+      "path": "/Site100/sites/plate-nutrition/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "PLATE 영양 코칭 소개",
+      "path": "/Site100/sites/plate-nutrition/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "PLATE 영양 코칭 서비스",
+      "path": "/Site100/sites/plate-nutrition/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "조건 입력",
+      "path": "/Site100/sites/plate-nutrition/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "결과 계산",
+      "path": "/Site100/sites/plate-nutrition/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "결과 기반 상담",
+      "path": "/Site100/sites/plate-nutrition/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "PLATE 영양 코칭 사례",
+      "path": "/Site100/sites/plate-nutrition/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "접시 비율에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/plate-nutrition/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "영양 게이지 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/plate-nutrition/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "결과 기반 상담 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/plate-nutrition/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "PLATE 영양 코칭 저널",
+      "path": "/Site100/sites/plate-nutrition/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "접시 비율을 중심으로 영양 코칭 정보를 설계하는 법",
+      "path": "/Site100/sites/plate-nutrition/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "결과 계산 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/plate-nutrition/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "PLATE 영양 코칭 문의",
+      "path": "/Site100/sites/plate-nutrition/contact/",
+      "depth": 2
+    }
+  ]
+}

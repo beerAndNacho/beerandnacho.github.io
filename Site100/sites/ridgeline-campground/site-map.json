@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 62,
+  "slug": "ridgeline-campground",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "RIDGELINE 캠핑장",
+      "path": "/Site100/sites/ridgeline-campground/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "RIDGELINE 캠핑장 소개",
+      "path": "/Site100/sites/ridgeline-campground/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "RIDGELINE 캠핑장 서비스",
+      "path": "/Site100/sites/ridgeline-campground/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "위치·구역 탐색",
+      "path": "/Site100/sites/ridgeline-campground/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "조건별 장소 확인",
+      "path": "/Site100/sites/ridgeline-campground/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "방문·이용 문의",
+      "path": "/Site100/sites/ridgeline-campground/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "RIDGELINE 캠핑장 사례",
+      "path": "/Site100/sites/ridgeline-campground/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "등고선에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/ridgeline-campground/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "고도 표식 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/ridgeline-campground/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "방문·이용 문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/ridgeline-campground/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "RIDGELINE 캠핑장 저널",
+      "path": "/Site100/sites/ridgeline-campground/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "등고선을 중심으로 캠핑장 정보를 설계하는 법",
+      "path": "/Site100/sites/ridgeline-campground/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "조건별 장소 확인 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/ridgeline-campground/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "RIDGELINE 캠핑장 문의",
+      "path": "/Site100/sites/ridgeline-campground/contact/",
+      "depth": 2
+    }
+  ]
+}

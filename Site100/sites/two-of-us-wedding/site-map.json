@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 97,
+  "slug": "two-of-us-wedding",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "TWO OF US 모바일 청첩장",
+      "path": "/Site100/sites/two-of-us-wedding/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "TWO OF US 모바일 청첩장 소개",
+      "path": "/Site100/sites/two-of-us-wedding/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "TWO OF US 모바일 청첩장 서비스",
+      "path": "/Site100/sites/two-of-us-wedding/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "행사 정보 확인",
+      "path": "/Site100/sites/two-of-us-wedding/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "참석 여부 입력",
+      "path": "/Site100/sites/two-of-us-wedding/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "일정·장소 안내",
+      "path": "/Site100/sites/two-of-us-wedding/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "TWO OF US 모바일 청첩장 사례",
+      "path": "/Site100/sites/two-of-us-wedding/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "긴 스크롤에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/two-of-us-wedding/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "사진 프레임 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/two-of-us-wedding/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "일정·장소 안내 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/two-of-us-wedding/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "TWO OF US 모바일 청첩장 저널",
+      "path": "/Site100/sites/two-of-us-wedding/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "긴 스크롤을 중심으로 모바일 청첩장 정보를 설계하는 법",
+      "path": "/Site100/sites/two-of-us-wedding/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "참석 여부 입력 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/two-of-us-wedding/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "TWO OF US 모바일 청첩장 문의",
+      "path": "/Site100/sites/two-of-us-wedding/contact/",
+      "depth": 2
+    }
+  ]
+}

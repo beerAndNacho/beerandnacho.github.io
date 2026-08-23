@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 82,
+  "slug": "town-room-community",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "TOWN ROOM 주민센터",
+      "path": "/Site100/sites/town-room-community/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "TOWN ROOM 주민센터 소개",
+      "path": "/Site100/sites/town-room-community/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "TOWN ROOM 주민센터 서비스",
+      "path": "/Site100/sites/town-room-community/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "일정 탐색",
+      "path": "/Site100/sites/town-room-community/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "시간·프로그램 선택",
+      "path": "/Site100/sites/town-room-community/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "예약·참여 문의",
+      "path": "/Site100/sites/town-room-community/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "TOWN ROOM 주민센터 사례",
+      "path": "/Site100/sites/town-room-community/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "코르크 게시판에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/town-room-community/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "공지 핀 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/town-room-community/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "예약·참여 문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/town-room-community/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "TOWN ROOM 주민센터 저널",
+      "path": "/Site100/sites/town-room-community/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "코르크 게시판을 중심으로 주민센터 정보를 설계하는 법",
+      "path": "/Site100/sites/town-room-community/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "시간·프로그램 선택 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/town-room-community/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "TOWN ROOM 주민센터 문의",
+      "path": "/Site100/sites/town-room-community/contact/",
+      "depth": 2
+    }
+  ]
+}

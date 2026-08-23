@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 88,
+  "slug": "link-volunteer",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "LINK 자원봉사 매칭",
+      "path": "/Site100/sites/link-volunteer/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "LINK 자원봉사 매칭 소개",
+      "path": "/Site100/sites/link-volunteer/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "LINK 자원봉사 매칭 서비스",
+      "path": "/Site100/sites/link-volunteer/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "조건 필터",
+      "path": "/Site100/sites/link-volunteer/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "추천 목록 확인",
+      "path": "/Site100/sites/link-volunteer/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "선택 상담",
+      "path": "/Site100/sites/link-volunteer/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "LINK 자원봉사 매칭 사례",
+      "path": "/Site100/sites/link-volunteer/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "관계 지도에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/link-volunteer/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "지역 핀 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/link-volunteer/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "선택 상담 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/link-volunteer/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "LINK 자원봉사 매칭 저널",
+      "path": "/Site100/sites/link-volunteer/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "관계 지도를 중심으로 자원봉사 매칭 정보를 설계하는 법",
+      "path": "/Site100/sites/link-volunteer/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "추천 목록 확인 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/link-volunteer/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "LINK 자원봉사 매칭 문의",
+      "path": "/Site100/sites/link-volunteer/contact/",
+      "depth": 2
+    }
+  ]
+}

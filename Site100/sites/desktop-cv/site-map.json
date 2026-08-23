@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 91,
+  "slug": "desktop-cv",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "DESKTOP CV 개발자 이력서",
+      "path": "/Site100/sites/desktop-cv/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "DESKTOP CV 개발자 이력서 소개",
+      "path": "/Site100/sites/desktop-cv/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "DESKTOP CV 개발자 이력서 서비스",
+      "path": "/Site100/sites/desktop-cv/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "명령·기능 실행",
+      "path": "/Site100/sites/desktop-cv/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "결과·상태 확인",
+      "path": "/Site100/sites/desktop-cv/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "도입 상담",
+      "path": "/Site100/sites/desktop-cv/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "DESKTOP CV 개발자 이력서 사례",
+      "path": "/Site100/sites/desktop-cv/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "데스크톱 창에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/desktop-cv/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "폴더 아이콘 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/desktop-cv/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "도입 상담 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/desktop-cv/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "DESKTOP CV 개발자 이력서 저널",
+      "path": "/Site100/sites/desktop-cv/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "데스크톱 창을 중심으로 개발자 포트폴리오 정보를 설계하는 법",
+      "path": "/Site100/sites/desktop-cv/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "결과·상태 확인 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/desktop-cv/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "DESKTOP CV 개발자 이력서 문의",
+      "path": "/Site100/sites/desktop-cv/contact/",
+      "depth": 2
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 3,
+  "slug": "folia-flower-studio",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "FOLIA 꽃 작업실",
+      "path": "/Site100/sites/folia-flower-studio/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "FOLIA 꽃 작업실 소개",
+      "path": "/Site100/sites/folia-flower-studio/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "FOLIA 꽃 작업실 서비스",
+      "path": "/Site100/sites/folia-flower-studio/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "취향·조건 조합",
+      "path": "/Site100/sites/folia-flower-studio/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "추천 구성 확인",
+      "path": "/Site100/sites/folia-flower-studio/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "맞춤 상담",
+      "path": "/Site100/sites/folia-flower-studio/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "FOLIA 꽃 작업실 사례",
+      "path": "/Site100/sites/folia-flower-studio/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "압화 표본에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/folia-flower-studio/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "꽃잎 콜라주 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/folia-flower-studio/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "맞춤 상담 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/folia-flower-studio/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "FOLIA 꽃 작업실 저널",
+      "path": "/Site100/sites/folia-flower-studio/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "압화 표본을 중심으로 플라워 스튜디오 정보를 설계하는 법",
+      "path": "/Site100/sites/folia-flower-studio/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "추천 구성 확인 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/folia-flower-studio/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "FOLIA 꽃 작업실 문의",
+      "path": "/Site100/sites/folia-flower-studio/contact/",
+      "depth": 2
+    }
+  ]
+}

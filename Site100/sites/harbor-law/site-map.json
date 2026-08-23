@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 11,
+  "slug": "harbor-law",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "HARBOR 법률사무소",
+      "path": "/Site100/sites/harbor-law/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "HARBOR 법률사무소 소개",
+      "path": "/Site100/sites/harbor-law/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "HARBOR 법률사무소 서비스",
+      "path": "/Site100/sites/harbor-law/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "상황 접수",
+      "path": "/Site100/sites/harbor-law/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "검토 범위 확인",
+      "path": "/Site100/sites/harbor-law/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "상담 일정",
+      "path": "/Site100/sites/harbor-law/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "HARBOR 법률사무소 사례",
+      "path": "/Site100/sites/harbor-law/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "사건 서류철에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/harbor-law/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "상담 질문 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/harbor-law/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "상담 일정 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/harbor-law/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "HARBOR 법률사무소 저널",
+      "path": "/Site100/sites/harbor-law/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "사건 서류철을 중심으로 법률사무소 정보를 설계하는 법",
+      "path": "/Site100/sites/harbor-law/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "검토 범위 확인 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/harbor-law/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "HARBOR 법률사무소 문의",
+      "path": "/Site100/sites/harbor-law/contact/",
+      "depth": 2
+    }
+  ]
+}

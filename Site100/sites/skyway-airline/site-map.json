@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 68,
+  "slug": "skyway-airline",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "SKYWAY 항공 콘셉트",
+      "path": "/Site100/sites/skyway-airline/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "SKYWAY 항공 콘셉트 소개",
+      "path": "/Site100/sites/skyway-airline/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "SKYWAY 항공 콘셉트 서비스",
+      "path": "/Site100/sites/skyway-airline/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "일정 탐색",
+      "path": "/Site100/sites/skyway-airline/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "시간·프로그램 선택",
+      "path": "/Site100/sites/skyway-airline/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "예약·참여 문의",
+      "path": "/Site100/sites/skyway-airline/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "SKYWAY 항공 콘셉트 사례",
+      "path": "/Site100/sites/skyway-airline/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "탑승권에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/skyway-airline/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "노선 곡선 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/skyway-airline/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "예약·참여 문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/skyway-airline/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "SKYWAY 항공 콘셉트 저널",
+      "path": "/Site100/sites/skyway-airline/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "탑승권을 중심으로 항공 서비스 정보를 설계하는 법",
+      "path": "/Site100/sites/skyway-airline/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "시간·프로그램 선택 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/skyway-airline/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "SKYWAY 항공 콘셉트 문의",
+      "path": "/Site100/sites/skyway-airline/contact/",
+      "depth": 2
+    }
+  ]
+}

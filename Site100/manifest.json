@@ -221,5 +221,32 @@
       "clipped-decoration-overflow-flag"
     ]
   },
-  "responsivePatchVersion": "4.0.1"
+  "responsivePatchVersion": "4.0.1",
+  "depthVersion": "5.0.0",
+  "deepArchitecture": {
+    "pagesPerSite": 14,
+    "sitePageCount": 1400,
+    "totalIndexedPages": 1401,
+    "maximumDepth": 3,
+    "detailPages": 800,
+    "features": [
+      "mega-navigation",
+      "breadcrumbs",
+      "service-planner",
+      "case-details",
+      "article-toc",
+      "bookmarks",
+      "contact-wizard",
+      "local-draft"
+    ],
+    "structuralPolicy": "vertical-reading-pages",
+    "fixedLayoutFamilies": [
+      "horizontal",
+      "poster",
+      "collage",
+      "archive",
+      "isometric"
+    ]
+  },
+  "depthPatchVersion": "5.0.1"
 }

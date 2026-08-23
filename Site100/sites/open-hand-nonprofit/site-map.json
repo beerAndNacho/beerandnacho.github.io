@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 81,
+  "slug": "open-hand-nonprofit",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "OPEN HAND 비영리단체",
+      "path": "/Site100/sites/open-hand-nonprofit/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "OPEN HAND 비영리단체 소개",
+      "path": "/Site100/sites/open-hand-nonprofit/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "OPEN HAND 비영리단체 서비스",
+      "path": "/Site100/sites/open-hand-nonprofit/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "후원 금액 선택",
+      "path": "/Site100/sites/open-hand-nonprofit/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "사용처·영향 확인",
+      "path": "/Site100/sites/open-hand-nonprofit/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "정기 후원 안내",
+      "path": "/Site100/sites/open-hand-nonprofit/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "OPEN HAND 비영리단체 사례",
+      "path": "/Site100/sites/open-hand-nonprofit/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "임팩트 장부에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/open-hand-nonprofit/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "변화 숫자 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/open-hand-nonprofit/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "정기 후원 안내 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/open-hand-nonprofit/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "OPEN HAND 비영리단체 저널",
+      "path": "/Site100/sites/open-hand-nonprofit/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "임팩트 장부를 중심으로 비영리단체 정보를 설계하는 법",
+      "path": "/Site100/sites/open-hand-nonprofit/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "사용처·영향 확인 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/open-hand-nonprofit/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "OPEN HAND 비영리단체 문의",
+      "path": "/Site100/sites/open-hand-nonprofit/contact/",
+      "depth": 2
+    }
+  ]
+}

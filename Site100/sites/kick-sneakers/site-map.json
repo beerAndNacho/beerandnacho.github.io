@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 77,
+  "slug": "kick-sneakers",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "KICK 스니커즈숍",
+      "path": "/Site100/sites/kick-sneakers/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "KICK 스니커즈숍 소개",
+      "path": "/Site100/sites/kick-sneakers/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "KICK 스니커즈숍 서비스",
+      "path": "/Site100/sites/kick-sneakers/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "옵션 선택",
+      "path": "/Site100/sites/kick-sneakers/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "구성 결과 확인",
+      "path": "/Site100/sites/kick-sneakers/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "맞춤 주문 문의",
+      "path": "/Site100/sites/kick-sneakers/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "KICK 스니커즈숍 사례",
+      "path": "/Site100/sites/kick-sneakers/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "운동화 분해도에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/kick-sneakers/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "밑창 패턴 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/kick-sneakers/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "맞춤 주문 문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/kick-sneakers/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "KICK 스니커즈숍 저널",
+      "path": "/Site100/sites/kick-sneakers/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "운동화 분해도를 중심으로 스니커즈숍 정보를 설계하는 법",
+      "path": "/Site100/sites/kick-sneakers/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "구성 결과 확인 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/kick-sneakers/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "KICK 스니커즈숍 문의",
+      "path": "/Site100/sites/kick-sneakers/contact/",
+      "depth": 2
+    }
+  ]
+}

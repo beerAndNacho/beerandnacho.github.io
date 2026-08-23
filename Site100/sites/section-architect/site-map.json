@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 95,
+  "slug": "section-architect",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "SECTION 건축가 개인 사이트",
+      "path": "/Site100/sites/section-architect/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "SECTION 건축가 개인 사이트 소개",
+      "path": "/Site100/sites/section-architect/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "SECTION 건축가 개인 사이트 서비스",
+      "path": "/Site100/sites/section-architect/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "핵심 정보 탐색",
+      "path": "/Site100/sites/section-architect/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "세부 레이어 확인",
+      "path": "/Site100/sites/section-architect/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "상담·문의",
+      "path": "/Site100/sites/section-architect/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "SECTION 건축가 개인 사이트 사례",
+      "path": "/Site100/sites/section-architect/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "도면 레이어에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/section-architect/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "주석 번호 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/section-architect/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "상담·문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/section-architect/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "SECTION 건축가 개인 사이트 저널",
+      "path": "/Site100/sites/section-architect/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "도면 레이어를 중심으로 건축가 포트폴리오 정보를 설계하는 법",
+      "path": "/Site100/sites/section-architect/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "세부 레이어 확인 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/section-architect/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "SECTION 건축가 개인 사이트 문의",
+      "path": "/Site100/sites/section-architect/contact/",
+      "depth": 2
+    }
+  ]
+}

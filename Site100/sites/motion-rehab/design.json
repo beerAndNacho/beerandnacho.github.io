@@ -79,5 +79,41 @@
     ],
     "patch": "browser-audit-fixes"
   },
-  "responsivePatchVersion": "4.0.1"
+  "responsivePatchVersion": "4.0.1",
+  "depthVersion": "5.0.0",
+  "informationArchitecture": {
+    "pageCount": 14,
+    "maxDepth": 3,
+    "sections": [
+      "about",
+      "services",
+      "work",
+      "journal",
+      "contact"
+    ],
+    "detailCounts": {
+      "services": 3,
+      "cases": 3,
+      "articles": 2
+    },
+    "capabilities": [
+      "breadcrumbs",
+      "mega-navigation",
+      "service-planner",
+      "case-details",
+      "article-toc",
+      "bookmarks",
+      "contact-wizard",
+      "local-draft"
+    ],
+    "structuralPolicy": "vertical-reading-pages",
+    "normalizedHomeOnlyLayouts": [
+      "horizontal",
+      "poster",
+      "collage",
+      "archive",
+      "isometric"
+    ]
+  },
+  "depthPatchVersion": "5.0.1"
 }

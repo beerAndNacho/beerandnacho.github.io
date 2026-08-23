@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 87,
+  "slug": "tracks-conference",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "TRACKS 콘퍼런스",
+      "path": "/Site100/sites/tracks-conference/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "TRACKS 콘퍼런스 소개",
+      "path": "/Site100/sites/tracks-conference/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "TRACKS 콘퍼런스 서비스",
+      "path": "/Site100/sites/tracks-conference/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "일정 탐색",
+      "path": "/Site100/sites/tracks-conference/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "시간·프로그램 선택",
+      "path": "/Site100/sites/tracks-conference/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "예약·참여 문의",
+      "path": "/Site100/sites/tracks-conference/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "TRACKS 콘퍼런스 사례",
+      "path": "/Site100/sites/tracks-conference/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "트랙 매트릭스에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/tracks-conference/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "발표자 카드 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/tracks-conference/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "예약·참여 문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/tracks-conference/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "TRACKS 콘퍼런스 저널",
+      "path": "/Site100/sites/tracks-conference/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "트랙 매트릭스를 중심으로 콘퍼런스 정보를 설계하는 법",
+      "path": "/Site100/sites/tracks-conference/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "시간·프로그램 선택 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/tracks-conference/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "TRACKS 콘퍼런스 문의",
+      "path": "/Site100/sites/tracks-conference/contact/",
+      "depth": 2
+    }
+  ]
+}

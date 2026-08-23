@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 6,
+  "slug": "puppy-parade-grooming",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "PUPPY PARADE 애견미용",
+      "path": "/Site100/sites/puppy-parade-grooming/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "PUPPY PARADE 애견미용 소개",
+      "path": "/Site100/sites/puppy-parade-grooming/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "PUPPY PARADE 애견미용 서비스",
+      "path": "/Site100/sites/puppy-parade-grooming/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "애견미용 프로그램 보기",
+      "path": "/Site100/sites/puppy-parade-grooming/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "날짜·시간 선택",
+      "path": "/Site100/sites/puppy-parade-grooming/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "예약 전 안내",
+      "path": "/Site100/sites/puppy-parade-grooming/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "PUPPY PARADE 애견미용 사례",
+      "path": "/Site100/sites/puppy-parade-grooming/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "반려견 프로필에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/puppy-parade-grooming/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "스티커 배지 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/puppy-parade-grooming/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "예약 전 안내 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/puppy-parade-grooming/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "PUPPY PARADE 애견미용 저널",
+      "path": "/Site100/sites/puppy-parade-grooming/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "반려견 프로필을 중심으로 애견미용 정보를 설계하는 법",
+      "path": "/Site100/sites/puppy-parade-grooming/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "날짜·시간 선택 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/puppy-parade-grooming/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "PUPPY PARADE 애견미용 문의",
+      "path": "/Site100/sites/puppy-parade-grooming/contact/",
+      "depth": 2
+    }
+  ]
+}

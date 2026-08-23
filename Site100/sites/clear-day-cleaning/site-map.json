@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 8,
+  "slug": "clear-day-cleaning",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "CLEAR DAY 청소 서비스",
+      "path": "/Site100/sites/clear-day-cleaning/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "CLEAR DAY 청소 서비스 소개",
+      "path": "/Site100/sites/clear-day-cleaning/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "CLEAR DAY 청소 서비스 서비스",
+      "path": "/Site100/sites/clear-day-cleaning/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "조건별 비교",
+      "path": "/Site100/sites/clear-day-cleaning/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "추천 선택 확인",
+      "path": "/Site100/sites/clear-day-cleaning/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "상담·예약",
+      "path": "/Site100/sites/clear-day-cleaning/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "CLEAR DAY 청소 서비스 사례",
+      "path": "/Site100/sites/clear-day-cleaning/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "전후 슬라이더에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/clear-day-cleaning/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "청소 도구 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/clear-day-cleaning/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "상담·예약 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/clear-day-cleaning/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "CLEAR DAY 청소 서비스 저널",
+      "path": "/Site100/sites/clear-day-cleaning/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "전후 슬라이더를 중심으로 청소 서비스 정보를 설계하는 법",
+      "path": "/Site100/sites/clear-day-cleaning/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "추천 선택 확인 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/clear-day-cleaning/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "CLEAR DAY 청소 서비스 문의",
+      "path": "/Site100/sites/clear-day-cleaning/contact/",
+      "depth": 2
+    }
+  ]
+}

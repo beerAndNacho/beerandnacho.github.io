@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 38,
+  "slug": "red-pen-tutoring",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "RED PEN 과외 서비스",
+      "path": "/Site100/sites/red-pen-tutoring/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "RED PEN 과외 서비스 소개",
+      "path": "/Site100/sites/red-pen-tutoring/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "RED PEN 과외 서비스 서비스",
+      "path": "/Site100/sites/red-pen-tutoring/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "핵심 정보 탐색",
+      "path": "/Site100/sites/red-pen-tutoring/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "세부 레이어 확인",
+      "path": "/Site100/sites/red-pen-tutoring/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "상담·문의",
+      "path": "/Site100/sites/red-pen-tutoring/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "RED PEN 과외 서비스 사례",
+      "path": "/Site100/sites/red-pen-tutoring/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "시험지에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/red-pen-tutoring/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "오답 표시 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/red-pen-tutoring/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "상담·문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/red-pen-tutoring/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "RED PEN 과외 서비스 저널",
+      "path": "/Site100/sites/red-pen-tutoring/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "시험지를 중심으로 과외 서비스 정보를 설계하는 법",
+      "path": "/Site100/sites/red-pen-tutoring/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "세부 레이어 확인 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/red-pen-tutoring/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "RED PEN 과외 서비스 문의",
+      "path": "/Site100/sites/red-pen-tutoring/contact/",
+      "depth": 2
+    }
+  ]
+}

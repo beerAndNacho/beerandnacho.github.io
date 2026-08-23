@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 29,
+  "slug": "receipt-expense",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "RECEIPT 경비 관리",
+      "path": "/Site100/sites/receipt-expense/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "RECEIPT 경비 관리 소개",
+      "path": "/Site100/sites/receipt-expense/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "RECEIPT 경비 관리 서비스",
+      "path": "/Site100/sites/receipt-expense/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "조건 입력",
+      "path": "/Site100/sites/receipt-expense/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "결과 계산",
+      "path": "/Site100/sites/receipt-expense/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "결과 기반 상담",
+      "path": "/Site100/sites/receipt-expense/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "RECEIPT 경비 관리 사례",
+      "path": "/Site100/sites/receipt-expense/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "영수증 롤에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/receipt-expense/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "합계 숫자 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/receipt-expense/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "결과 기반 상담 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/receipt-expense/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "RECEIPT 경비 관리 저널",
+      "path": "/Site100/sites/receipt-expense/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "영수증 롤을 중심으로 경비 관리 정보를 설계하는 법",
+      "path": "/Site100/sites/receipt-expense/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "결과 계산 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/receipt-expense/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "RECEIPT 경비 관리 문의",
+      "path": "/Site100/sites/receipt-expense/contact/",
+      "depth": 2
+    }
+  ]
+}

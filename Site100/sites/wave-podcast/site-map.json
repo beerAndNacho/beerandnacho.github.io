@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 55,
+  "slug": "wave-podcast",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "WAVE 팟캐스트 네트워크",
+      "path": "/Site100/sites/wave-podcast/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "WAVE 팟캐스트 네트워크 소개",
+      "path": "/Site100/sites/wave-podcast/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "WAVE 팟캐스트 네트워크 서비스",
+      "path": "/Site100/sites/wave-podcast/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "콘텐츠 재생",
+      "path": "/Site100/sites/wave-podcast/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "목록·구간 탐색",
+      "path": "/Site100/sites/wave-podcast/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "수업·제작 문의",
+      "path": "/Site100/sites/wave-podcast/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "WAVE 팟캐스트 네트워크 사례",
+      "path": "/Site100/sites/wave-podcast/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "음성 파형에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/wave-podcast/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "에피소드 칩 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/wave-podcast/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "수업·제작 문의 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/wave-podcast/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "WAVE 팟캐스트 네트워크 저널",
+      "path": "/Site100/sites/wave-podcast/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "음성 파형을 중심으로 팟캐스트 네트워크 정보를 설계하는 법",
+      "path": "/Site100/sites/wave-podcast/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "목록·구간 탐색 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/wave-podcast/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "WAVE 팟캐스트 네트워크 문의",
+      "path": "/Site100/sites/wave-podcast/contact/",
+      "depth": 2
+    }
+  ]
+}

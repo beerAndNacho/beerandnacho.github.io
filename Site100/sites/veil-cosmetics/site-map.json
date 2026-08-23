@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 76,
+  "slug": "veil-cosmetics",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "VEIL 화장품 브랜드",
+      "path": "/Site100/sites/veil-cosmetics/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "VEIL 화장품 브랜드 소개",
+      "path": "/Site100/sites/veil-cosmetics/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "VEIL 화장품 브랜드 서비스",
+      "path": "/Site100/sites/veil-cosmetics/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "취향·조건 조합",
+      "path": "/Site100/sites/veil-cosmetics/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "추천 구성 확인",
+      "path": "/Site100/sites/veil-cosmetics/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "맞춤 상담",
+      "path": "/Site100/sites/veil-cosmetics/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "VEIL 화장품 브랜드 사례",
+      "path": "/Site100/sites/veil-cosmetics/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "반투명 레이어에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/veil-cosmetics/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "텍스처 필름 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/veil-cosmetics/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "맞춤 상담 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/veil-cosmetics/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "VEIL 화장품 브랜드 저널",
+      "path": "/Site100/sites/veil-cosmetics/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "반투명 레이어를 중심으로 화장품 브랜드 정보를 설계하는 법",
+      "path": "/Site100/sites/veil-cosmetics/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "추천 구성 확인 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/veil-cosmetics/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "VEIL 화장품 브랜드 문의",
+      "path": "/Site100/sites/veil-cosmetics/contact/",
+      "depth": 2
+    }
+  ]
+}

@@ -1,0 +1,93 @@
+{
+  "version": "5.0.0",
+  "siteId": 27,
+  "slug": "endpoint-api",
+  "count": 14,
+  "maxDepth": 3,
+  "routes": [
+    {
+      "type": "home",
+      "title": "ENDPOINT API 서비스",
+      "path": "/Site100/sites/endpoint-api/",
+      "depth": 1
+    },
+    {
+      "type": "about",
+      "title": "ENDPOINT API 서비스 소개",
+      "path": "/Site100/sites/endpoint-api/about/",
+      "depth": 2
+    },
+    {
+      "type": "services",
+      "title": "ENDPOINT API 서비스 서비스",
+      "path": "/Site100/sites/endpoint-api/services/",
+      "depth": 2
+    },
+    {
+      "type": "service",
+      "title": "명령·기능 실행",
+      "path": "/Site100/sites/endpoint-api/services/service-01/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "결과·상태 확인",
+      "path": "/Site100/sites/endpoint-api/services/service-02/",
+      "depth": 3
+    },
+    {
+      "type": "service",
+      "title": "도입 상담",
+      "path": "/Site100/sites/endpoint-api/services/service-03/",
+      "depth": 3
+    },
+    {
+      "type": "work",
+      "title": "ENDPOINT API 서비스 사례",
+      "path": "/Site100/sites/endpoint-api/work/",
+      "depth": 2
+    },
+    {
+      "type": "case",
+      "title": "코드 콘솔에서 시작한 첫 화면 재설계",
+      "path": "/Site100/sites/endpoint-api/work/case-01/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "엔드포인트 선택 단계를 절반으로 줄인 운영 실험",
+      "path": "/Site100/sites/endpoint-api/work/case-02/",
+      "depth": 3
+    },
+    {
+      "type": "case",
+      "title": "도입 상담 전후 과정을 하나의 흐름으로 연결한 사례",
+      "path": "/Site100/sites/endpoint-api/work/case-03/",
+      "depth": 3
+    },
+    {
+      "type": "journal",
+      "title": "ENDPOINT API 서비스 저널",
+      "path": "/Site100/sites/endpoint-api/journal/",
+      "depth": 2
+    },
+    {
+      "type": "article",
+      "title": "코드 콘솔을 중심으로 API 서비스 정보를 설계하는 법",
+      "path": "/Site100/sites/endpoint-api/journal/insight-01/",
+      "depth": 3
+    },
+    {
+      "type": "article",
+      "title": "결과·상태 확인 선택을 망설이지 않게 만드는 세 가지 기준",
+      "path": "/Site100/sites/endpoint-api/journal/insight-02/",
+      "depth": 3
+    },
+    {
+      "type": "contact",
+      "title": "ENDPOINT API 서비스 문의",
+      "path": "/Site100/sites/endpoint-api/contact/",
+      "depth": 2
+    }
+  ]
+}
