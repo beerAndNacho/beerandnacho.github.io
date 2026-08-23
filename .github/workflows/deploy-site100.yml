@@ -9,7 +9,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/deploy-site100.yml'
-      - '.github/site100-v2-trigger'
+      - '.github/site100-v3-trigger'
   workflow_dispatch:
 
 permissions:
@@ -44,14 +44,14 @@ jobs:
         with:
           node-version: 22
 
-      - name: Validate, build and audit Site100 v2.1
+      - name: Validate, build and audit Site100 v3
         working-directory: source
         run: npm test
 
-      - name: Verify v2.1 build output
+      - name: Verify v3 build output
         run: |
           set -euo pipefail
-          echo 'Publishing Site100 verified build v2.1 from source main.'
+          echo 'Publishing Site100 verified visual build v3.'
           test -s source/dist/index.html
           test -s source/dist/assets/catalog.js
           test -s source/dist/assets/copy.js
@@ -59,42 +59,57 @@ jobs:
           test -s source/dist/assets/app.js
           test -s source/dist/assets/enhance.js
           test -s source/dist/assets/enhance-fix.js
+          test -s source/dist/assets/art-direction.js
           test -s source/dist/assets/styles.css
           test -s source/dist/assets/v2.css
+          test -s source/dist/assets/v3.css
           test -s source/dist/manifest.json
           test -s source/dist/site.webmanifest
           test -s source/dist/icon.svg
           test -s source/dist/404.html
           test -s source/dist/offline.html
           test -s source/dist/preview-gallery.svg
+
           route_count="$(find source/dist/sites -mindepth 2 -maxdepth 2 -name index.html | wc -l | tr -d ' ')"
           design_count="$(find source/dist/sites -mindepth 2 -maxdepth 2 -name design.json | wc -l | tr -d ' ')"
           preview_count="$(find source/dist/previews -maxdepth 1 -name '*.svg' | wc -l | tr -d ' ')"
+          artwork_count="$(find source/dist/artworks -maxdepth 1 -name '*.svg' | wc -l | tr -d ' ')"
           test "$route_count" -eq 100
           test "$design_count" -eq 100
           test "$preview_count" -eq 100
-          grep -q '"version": "2.0.0"' source/dist/manifest.json
+          test "$artwork_count" -eq 100
+
+          grep -q '"visualVersion": "3.0.0"' source/dist/manifest.json
+          grep -q '"artworkCount": 100' source/dist/manifest.json
           grep -q '/Site100/assets/copy-bootstrap.js' source/dist/index.html
           grep -q '/Site100/assets/enhance.js' source/dist/index.html
           grep -q '/Site100/assets/enhance-fix.js' source/dist/index.html
-          grep -q '/Site100/assets/v2.css' source/dist/index.html
+          grep -q '/Site100/assets/art-direction.js' source/dist/index.html
+          grep -q '/Site100/assets/v3.css' source/dist/index.html
           grep -q 'CollectionPage' source/dist/index.html
-          grep -q '오븐 선반과 발효 시계를' source/dist/sites/salt-bakery/index.html
-          grep -q '"copyVersion": "2.1.0"' source/dist/sites/salt-bakery/design.json
-          test -s source/dist/previews/salt-bakery.svg
-          test -s source/dist/previews/endpoint-api.svg
-          test -s source/dist/previews/dal-hanok-stay.svg
-          test -s source/dist/sites/salt-bakery/index.html
-          test -s source/dist/sites/harbor-law/index.html
-          test -s source/dist/sites/endpoint-api/index.html
-          test -s source/dist/sites/compile-bootcamp/index.html
-          test -s source/dist/sites/still-yoga/index.html
-          test -s source/dist/sites/framework-film/index.html
-          test -s source/dist/sites/dal-hanok-stay/index.html
-          test -s source/dist/sites/table7-restaurant/index.html
-          test -s source/dist/sites/open-hand-nonprofit/index.html
-          test -s source/dist/sites/desktop-cv/index.html
-          test -s source/dist/sites/100worlds-gallery/index.html
+
+          grep -q '"artDirection": "atelier"' source/dist/sites/salt-bakery/design.json
+          grep -q '"artDirection": "precision"' source/dist/sites/harbor-law/design.json
+          grep -q '"artDirection": "interface"' source/dist/sites/endpoint-api/design.json
+          grep -q '"artDirection": "notebook"' source/dist/sites/compile-bootcamp/design.json
+          grep -q '"artDirection": "organic"' source/dist/sites/still-yoga/design.json
+          grep -q '"artDirection": "studio"' source/dist/sites/framework-film/design.json
+          grep -q '"artDirection": "atlas"' source/dist/sites/dal-hanok-stay/design.json
+          grep -q '"artDirection": "catalog"' source/dist/sites/table7-restaurant/design.json
+          grep -q '"artDirection": "civic"' source/dist/sites/open-hand-nonprofit/design.json
+          grep -q '"artDirection": "experimental"' source/dist/sites/desktop-cv/design.json
+
+          test -s source/dist/artworks/salt-bakery.svg
+          test -s source/dist/artworks/harbor-law.svg
+          test -s source/dist/artworks/endpoint-api.svg
+          test -s source/dist/artworks/compile-bootcamp.svg
+          test -s source/dist/artworks/still-yoga.svg
+          test -s source/dist/artworks/framework-film.svg
+          test -s source/dist/artworks/dal-hanok-stay.svg
+          test -s source/dist/artworks/table7-restaurant.svg
+          test -s source/dist/artworks/open-hand-nonprofit.svg
+          test -s source/dist/artworks/desktop-cv.svg
+          test -s source/dist/artworks/100worlds-gallery.svg
 
       - name: Publish under /Site100
         run: |
@@ -113,6 +128,6 @@ jobs:
             echo 'No deployment changes.'
             exit 0
           fi
-          git commit -m 'deploy: publish Site100 100WORLDS v2.1'
+          git commit -m 'deploy: publish Site100 100WORLDS v3'
           git pull --rebase origin main
           git push origin HEAD:main
