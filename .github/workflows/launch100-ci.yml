@@ -1,0 +1,42 @@
+name: Launch100 CI
+
+on:
+  push:
+    branches: [main, launch100-mvp]
+    paths:
+      - 'Launch100/**'
+      - '.github/workflows/launch100-ci.yml'
+  pull_request:
+    paths:
+      - 'Launch100/**'
+      - '.github/workflows/launch100-ci.yml'
+  workflow_dispatch:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Validate Launch100 source
+        working-directory: Launch100
+        run: npm run check
+      - name: Verify browser audit summary and public paths
+        run: |
+          set -euo pipefail
+          test -s Launch100/index.html
+          test -s Launch100/assets/app.css
+          test -s Launch100/assets/templates.js
+          test -s Launch100/assets/app.js
+          test -s Launch100/browser-report.json
+          node - <<'NODE'
+          const report = require('./Launch100/browser-report.json');
+          if (report.desktop.templates !== 10) throw new Error('Expected 10 templates');
+          if (report.desktop.docWidth !== report.desktop.viewport || !report.desktop.order || !report.desktop.preview_ok) throw new Error('Desktop browser audit mismatch');
+          if (report.mobile.docWidth !== report.mobile.viewport || !report.mobile.share || !report.mobile.preview_ok) throw new Error('Mobile browser audit mismatch');
+          if (report.shared.docWidth !== report.shared.viewport || !report.shared.shared || !report.shared.preview_ok) throw new Error('Shared preview audit mismatch');
+          if (report.desktop.errors.length || report.mobile.errors.length || report.shared.errors.length) throw new Error('Browser errors recorded');
+          NODE
+          grep -q 'https://beerandnacho.github.io/Launch100/' Launch100/index.html
