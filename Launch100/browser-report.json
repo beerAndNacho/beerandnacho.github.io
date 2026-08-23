@@ -1,0 +1,5 @@
+{
+  "desktop": {"viewport":1440,"docWidth":1440,"templates":10,"order":true,"errors":[],"preview_ok":true},
+  "mobile": {"viewport":390,"docWidth":390,"templates":10,"dialog":true,"share":true,"errors":[],"preview_ok":true},
+  "shared": {"viewport":1280,"docWidth":1280,"templates":10,"shared":true,"errors":[],"preview_ok":true}
+}
