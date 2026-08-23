@@ -5,6 +5,11 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/deploy-site100.yml'
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/deploy-site100.yml'
+      - '.github/site100-v2-trigger'
   workflow_dispatch:
 
 permissions:
@@ -16,11 +21,13 @@ concurrency:
 
 jobs:
   deploy:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout Pages repository
+      - name: Checkout latest Pages main
         uses: actions/checkout@v4
         with:
+          ref: main
           path: site
           fetch-depth: 0
 
@@ -91,7 +98,7 @@ jobs:
           cp -R source/dist/. site/Site100/
           touch site/Site100/.nojekyll
 
-      - name: Commit deployment
+      - name: Commit deployment to main
         working-directory: site
         run: |
           git config user.name 'github-actions[bot]'
@@ -102,4 +109,5 @@ jobs:
             exit 0
           fi
           git commit -m 'deploy: publish Site100 100WORLDS v2'
-          git push
+          git pull --rebase origin main
+          git push origin HEAD:main
