@@ -1,1 +1,15 @@
-{"name":"launch100-mvp","version":"1.0.0","private":true,"type":"module","scripts":{"check":"node scripts/check.mjs"}}
+{
+  "name": "launch100-mvp",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Ten independently art-directed business website templates with a five-step live builder.",
+  "scripts": {
+    "check": "node scripts/check.mjs",
+    "audit:design": "node scripts/design-browser-audit.mjs",
+    "test": "npm run check && npm run audit:design"
+  },
+  "devDependencies": {
+    "playwright": "^1.55.0"
+  }
+}
