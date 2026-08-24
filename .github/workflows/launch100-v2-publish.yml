@@ -1,0 +1,75 @@
+name: Publish Launch100 v2 Design Packs
+
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'Launch100/**'
+      - '.github/workflows/launch100-ci.yml'
+      - '.github/workflows/launch100-v2-publish.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: launch100-v2-publish
+  cancel-in-progress: true
+
+jobs:
+  verify-and-publish:
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - name: Checkout Launch100 v2 source branch
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.ref || github.ref_name }}
+          fetch-depth: 0
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install Chromium audit dependencies
+        working-directory: Launch100
+        run: |
+          npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+
+      - name: Run source, design-pack and browser audits
+        working-directory: Launch100
+        run: npm test
+
+      - name: Verify publish gate
+        run: |
+          set -euo pipefail
+          node - <<'NODE'
+          const design = require('./Launch100/design-audit-report.json');
+          const browser = require('./Launch100/browser-report.json');
+          if (design.templateCount !== 10 || design.rendererCount !== 10 || design.uniqueStructures !== 10 || design.uniqueHtmlDocuments !== 10 || design.failures.length) {
+            throw new Error('Static design-pack gate failed');
+          }
+          if (browser.checks !== 31 || browser.uniqueStructures !== 10 || browser.failures.length) {
+            throw new Error('Browser design-pack gate failed');
+          }
+          if (Object.values(browser.functionalFlow).some(value => !value)) {
+            throw new Error('Editor/share/order flow gate failed');
+          }
+          console.log('Launch100 v2 publish gate passed.');
+          NODE
+
+      - name: Publish verified branch to Pages main
+        if: github.event_name == 'pull_request'
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add Launch100/design-audit-report.json Launch100/browser-report.json
+          if ! git diff --cached --quiet; then
+            git commit -m 'test: record Launch100 v2 browser audit'
+          fi
+          git fetch origin main
+          git merge-base --is-ancestor origin/main HEAD
+          git push origin HEAD:main
