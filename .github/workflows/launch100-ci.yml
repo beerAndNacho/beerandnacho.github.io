@@ -2,7 +2,7 @@ name: Launch100 CI
 
 on:
   push:
-    branches: [main, launch100-mvp]
+    branches: [main, launch100-mvp, launch100-v2-distinct-designs]
     paths:
       - 'Launch100/**'
       - '.github/workflows/launch100-ci.yml'
@@ -15,28 +15,62 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Validate Launch100 source
+      - name: Install Chromium audit dependencies
         working-directory: Launch100
-        run: npm run check
-      - name: Verify browser audit summary and public paths
+        run: |
+          npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+      - name: Validate source and ten independent design systems
+        working-directory: Launch100
+        run: npm test
+      - name: Verify Launch100 v2 output
         run: |
           set -euo pipefail
           test -s Launch100/index.html
           test -s Launch100/assets/app.css
+          test -s Launch100/assets/template-gallery-v2.css
           test -s Launch100/assets/templates.js
           test -s Launch100/assets/app.js
-          test -s Launch100/browser-report.json
+          test -s Launch100/assets/app-v2.js
+          test -s Launch100/assets/preview-renderers.js
+          test -s Launch100/design-browser-report.json
+          grep -q "import('./app-v2.js')" Launch100/assets/app.js
+          grep -q 'renderPreviewDocument' Launch100/assets/app-v2.js
+          grep -q 'function renderBakery' Launch100/assets/preview-renderers.js
+          grep -q 'function renderBarber' Launch100/assets/preview-renderers.js
+          grep -q 'function renderDining' Launch100/assets/preview-renderers.js
+          grep -q 'function renderHanok' Launch100/assets/preview-renderers.js
+          grep -q 'function renderAcademy' Launch100/assets/preview-renderers.js
+          grep -q 'function renderLaw' Launch100/assets/preview-renderers.js
+          grep -q 'function renderArchitecture' Launch100/assets/preview-renderers.js
+          grep -q 'function renderClinic' Launch100/assets/preview-renderers.js
+          grep -q 'function renderTech' Launch100/assets/preview-renderers.js
+          grep -q 'function renderPortfolio' Launch100/assets/preview-renderers.js
           node - <<'NODE'
-          const report = require('./Launch100/browser-report.json');
-          if (report.desktop.templates !== 10) throw new Error('Expected 10 templates');
-          if (report.desktop.docWidth !== report.desktop.viewport || !report.desktop.order || !report.desktop.preview_ok) throw new Error('Desktop browser audit mismatch');
-          if (report.mobile.docWidth !== report.mobile.viewport || !report.mobile.share || !report.mobile.preview_ok) throw new Error('Mobile browser audit mismatch');
-          if (report.shared.docWidth !== report.shared.viewport || !report.shared.shared || !report.shared.preview_ok) throw new Error('Shared preview audit mismatch');
-          if (report.desktop.errors.length || report.mobile.errors.length || report.shared.errors.length) throw new Error('Browser errors recorded');
+          const report = require('./Launch100/design-browser-report.json');
+          if (report.checks !== 20) throw new Error(`Expected 20 responsive preview checks, got ${report.checks}`);
+          if (report.desktop.length !== 10 || report.mobile.length !== 10) throw new Error('Expected all ten templates at desktop and mobile widths');
+          if (report.signatures.length !== 10) throw new Error(`Expected 10 unique signatures, got ${report.signatures.length}`);
+          if (report.families.length !== 10) throw new Error(`Expected 10 unique families, got ${report.families.length}`);
+          if (report.errors.length || report.failures.length) throw new Error('Design browser audit recorded failures');
+          for (const item of [...report.desktop, ...report.mobile]) {
+            if (item.sectionCount < 4) throw new Error(`${item.designId} is too shallow`);
+            if (item.overflow > 3) throw new Error(`${item.designId} overflows by ${item.overflow}px`);
+          }
+          console.log('Verified 10 distinct designs across desktop and mobile previews.');
           NODE
           grep -q 'https://beerandnacho.github.io/Launch100/' Launch100/index.html
+      - name: Upload Launch100 design report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: launch100-v2-design-audit
+          path: Launch100/design-browser-report.json
+          if-no-files-found: warn
+          retention-days: 14
