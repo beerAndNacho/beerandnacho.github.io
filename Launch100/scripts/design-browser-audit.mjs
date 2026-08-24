@@ -122,9 +122,18 @@ try {
   if (signatures.size !== 10) report.failures.push(`Expected 10 unique layout signatures, got ${signatures.size}.`);
   if (families.size !== 10) report.failures.push(`Expected 10 unique design families, got ${families.size}.`);
 
-  await page.locator('[data-device="mobile"]').click();
-  const iframeWidth = await page.locator('#preview-frame').evaluate((element) => Math.round(element.getBoundingClientRect().width));
-  if (iframeWidth > 392) report.failures.push(`Mobile preview iframe is ${iframeWidth}px wide.`);
+  await page.locator('.preview-toolbar [data-device="mobile"]').click();
+  await page.waitForFunction(() => {
+    const shell = document.querySelector('#preview-shell');
+    const frame = document.querySelector('#preview-frame');
+    return shell?.classList.contains('mobile') && frame?.getBoundingClientRect().width <= 392;
+  }, null, { timeout: 2500 });
+  const mobilePreviewState = await page.evaluate(() => ({
+    shellClass: document.querySelector('#preview-shell')?.className || '',
+    iframeWidth: Math.round(document.querySelector('#preview-frame')?.getBoundingClientRect().width || 0)
+  }));
+  if (!mobilePreviewState.shellClass.includes('mobile')) report.failures.push(`Mobile preview shell class is ${mobilePreviewState.shellClass}.`);
+  if (mobilePreviewState.iframeWidth > 392) report.failures.push(`Mobile preview iframe is ${mobilePreviewState.iframeWidth}px wide.`);
 
   await page.setViewportSize({ width: 390, height: 844 });
   await page.reload({ waitUntil: 'domcontentloaded' });
