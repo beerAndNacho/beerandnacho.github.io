@@ -1,28 +1,490 @@
-import {TEMPLATES,PLANS} from './templates.js';
-const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
-const esc=v=>String(v??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
-const deep=o=>JSON.parse(JSON.stringify(o));
-const tpl=id=>TEMPLATES.find(x=>x.id===id)||TEMPLATES[0];
-function defaults(t=TEMPLATES[0]){return{templateId:t.id,...deep(t.d),services:t.d.services.map(([name,description,price])=>({name,description,price})),primary:t.p[0],secondary:t.p[1],background:t.p[2],ink:t.p[3],font:'sans',imageMood:'공간과 분위기',plan:'business',customerName:'',customerEmail:'',gaId:'',clarityId:'',domain:''}}
-const STORAGE='launch100:mvp:v1';let state=defaults(),step=0,filter='all',search='';
-function announce(msg){$('#live').textContent='';requestAnimationFrame(()=>$('#live').textContent=msg)}
-function encode(data){return btoa(unescape(encodeURIComponent(JSON.stringify(data)))).replaceAll('+','-').replaceAll('/','_').replaceAll('=','')}
-function decode(value){try{const s=value.replaceAll('-','+').replaceAll('_','/');return JSON.parse(decodeURIComponent(escape(atob(s+'='.repeat((4-s.length%4)%4)))))}catch{return null}}
-function safeShareState(){const {customerName,customerEmail,gaId,clarityId,...safe}=state;return safe}
-function save(){try{localStorage.setItem(STORAGE,JSON.stringify(state))}catch{}$('#save-status').textContent='이 브라우저에 저장됨';setTimeout(()=>$('#save-status').textContent='자동 저장 중',1200)}
-function load(){const shared=decode(new URLSearchParams(location.search).get('preview')||'');if(shared){state={...defaults(tpl(shared.templateId)),...shared};document.body.classList.add('shared-mode');return}try{const saved=JSON.parse(localStorage.getItem(STORAGE)||'null');if(saved)state={...defaults(tpl(saved.templateId)),...saved}}catch{}}
-function renderGallery(){const list=TEMPLATES.filter(t=>(filter==='all'||t.cat===filter)&&(!search||`${t.name} ${t.industry} ${t.mood}`.toLowerCase().includes(search.toLowerCase())));$('#template-gallery').innerHTML=list.map(t=>`<article class="template-card" style="--card-bg:${t.p[2]};--card-ink:${t.p[3]};--card-accent:${t.p[0]};--card-secondary:${t.p[1]}"><div class="template-thumb"><span>WORLD ${t.n} · ${esc(t.industry)}</span><b>${esc(t.name)}</b></div><div class="template-meta"><span>${esc(t.mood)}</span><h3>${esc(t.name)}</h3><p>${esc(t.desc)}</p><button type="button" data-use-template="${t.id}">이 디자인으로 만들기</button></div></article>`).join('')||'<p>조건에 맞는 디자인이 없습니다.</p>'}
-function renderBuilderTemplates(){const list=TEMPLATES.filter(t=>!search||`${t.name} ${t.industry} ${t.mood}`.toLowerCase().includes(search.toLowerCase()));$('#builder-templates').innerHTML=list.map(t=>`<button type="button" class="builder-template" data-select-template="${t.id}" aria-pressed="${state.templateId===t.id}" style="--c1:${t.p[0]};--c2:${t.p[1]}"><i></i><span>WORLD ${t.n} · ${esc(t.industry)}</span><b>${esc(t.name)}</b><small>${esc(t.mood)}</small></button>`).join('')}
-function renderPlans(){$('#plan-grid').innerHTML=PLANS.map(p=>`<button type="button" class="plan-card" data-plan="${p.id}" aria-pressed="${state.plan===p.id}"><span>${p.name.toUpperCase()}</span><strong>${p.price.toLocaleString()}원</strong><p>${p.desc}</p><ul>${p.items.map(i=>`<li>${i}</li>`).join('')}</ul></button>`).join('')}
-function renderServices(){$('#service-editor').innerHTML=state.services.map((s,i)=>`<div class="service-row" data-service="${i}"><input data-service-field="name" value="${esc(s.name)}" placeholder="서비스 이름"><textarea data-service-field="description" rows="1" placeholder="짧은 설명">${esc(s.description)}</textarea><input data-service-field="price" value="${esc(s.price)}" placeholder="가격·기간"><button class="remove-service" type="button" data-remove-service="${i}" aria-label="서비스 삭제">×</button></div>`).join('')}
-function syncFields(){$$('[name]').forEach(el=>{if(state[el.name]!==undefined)el.value=state[el.name]});renderServices();renderPlans();renderBuilderTemplates()}
-function selectTemplate(id,reset=true){const t=tpl(id);const current={...state};state=reset?defaults(t):{...state,templateId:id,primary:t.p[0],secondary:t.p[1],background:t.p[2],ink:t.p[3]};if(!reset)Object.assign(state,{customerName:current.customerName,customerEmail:current.customerEmail,gaId:current.gaId,clarityId:current.clarityId,domain:current.domain,plan:current.plan});syncFields();updatePreview();save();announce(`${t.name} 디자인을 선택했습니다.`)}
-function showStep(next){step=Math.max(0,Math.min(4,next));$$('.step-panel').forEach((p,i)=>p.classList.toggle('active',i===step));$$('[data-step-go]').forEach((b,i)=>b.classList.toggle('active',i===step));const titles=['디자인 선택','사업 정보','서비스·상품','브랜드 스타일','요금제·주문'];$('#step-counter').textContent=`STEP ${step+1} / 5`;$('#step-title').textContent=titles[step];$('#prev-step').disabled=step===0;$('#next-step').textContent=step===4?'처음으로':'다음 단계';$('#builder').scrollIntoView({block:'start',behavior:'smooth'})}
-const fontMap={sans:'Inter,Pretendard,system-ui,sans-serif',serif:'Georgia,"Noto Serif KR",serif',mono:'ui-monospace,SFMono-Regular,Consolas,monospace',rounded:'"Arial Rounded MT Bold",Pretendard,system-ui,sans-serif'};
-function previewHTML(){const t=tpl(state.templateId),sv=state.services.filter(x=>x.name).slice(0,6);const cards=sv.map((s,i)=>`<article><span>0${i+1}</span><h3>${esc(s.name)}</h3><p>${esc(s.description)}</p><b>${esc(s.price)}</b></article>`).join('');const layout=t.layout;return`<!doctype html><html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><style>*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;color:${state.ink};background:${state.background};font-family:${fontMap[state.font]};overflow-x:hidden}a{text-decoration:none;color:inherit}header{display:flex;align-items:center;justify-content:space-between;gap:15px;min-height:64px;padding:13px clamp(18px,5vw,65px);border-bottom:1px solid color-mix(in srgb,${state.ink} 20%,transparent)}header b{font-size:13px}header nav{display:flex;gap:18px;font-size:9px;font-weight:800}header a.cta{padding:9px 12px;color:${state.background};background:${state.ink}}.hero{position:relative;display:grid;grid-template-columns:1fr .72fr;gap:35px;align-items:center;min-height:620px;padding:70px clamp(18px,7vw,90px);overflow:hidden}.hero small{font-size:8px;font-weight:900;letter-spacing:.13em}.hero h1{max-width:11ch;margin:20px 0;font-size:clamp(54px,9vw,110px);line-height:.82;letter-spacing:-.08em}.hero p{max-width:36ch;font-size:17px;line-height:1.6}.hero .actions{display:flex;gap:8px;margin-top:25px}.hero .actions a{padding:11px 14px;border:1px solid ${state.ink};font-size:9px;font-weight:900}.hero .actions a:first-child{color:${state.background};background:${state.ink}}.visual{position:relative;min-height:430px;background:linear-gradient(135deg,${state.primary},${state.secondary});border:2px solid ${state.ink};box-shadow:16px 18px 0 color-mix(in srgb,${state.primary} 45%,transparent);overflow:hidden}.visual:before{content:"${esc(state.imageMood)}";position:absolute;left:20px;top:20px;padding:6px 8px;color:${state.background};background:${state.ink};font-size:8px;font-weight:900}.visual:after{content:"";position:absolute;width:250px;height:250px;right:-50px;bottom:-30px;border:32px solid color-mix(in srgb,${state.background} 55%,transparent);border-radius:${layout==='architecture'?'0':'50%'}}.services{padding:70px clamp(18px,7vw,90px);color:${state.background};background:${state.ink}}.services>span{font-size:8px;letter-spacing:.1em}.services h2{max-width:10ch;margin:14px 0 35px;font-size:clamp(38px,6vw,78px);line-height:.88}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.grid article{min-height:250px;padding:20px;border:1px solid color-mix(in srgb,${state.background} 28%,transparent)}.grid span{font-size:8px;color:${state.primary}}.grid h3{margin:45px 0 12px;font-size:25px;line-height:1}.grid p{font-size:11px;line-height:1.55;opacity:.7}.grid b{display:block;margin-top:20px;font-size:12px}.info{display:grid;grid-template-columns:1fr 1fr;gap:40px;padding:70px clamp(18px,7vw,90px)}.info h2{font-size:45px;margin:0}.info dl{margin:0;border-top:2px solid ${state.ink}}.info div{display:grid;grid-template-columns:120px 1fr;padding:12px 0;border-bottom:1px solid color-mix(in srgb,${state.ink} 20%,transparent)}.info dt{font-size:8px;font-weight:900}.info dd{margin:0;font-size:11px}footer{display:flex;justify-content:space-between;gap:20px;padding:30px clamp(18px,7vw,90px);border-top:1px solid color-mix(in srgb,${state.ink} 20%,transparent);font-size:9px}.brutal .hero,.architecture .hero{border-bottom:6px solid ${state.ink}}.brutal .hero h1,.architecture .hero h1,.tech .hero h1,.portfolio .hero h1{text-transform:uppercase}.brutal .visual,.architecture .visual{border-width:6px;box-shadow:14px 14px 0 ${state.secondary}}.dining .hero{color:${state.background};background:${state.ink}}.dining .visual{border-radius:50% 50% 4px 4px}.hanok .hero{grid-template-columns:.8fr 1fr}.hanok .visual{border-radius:180px 180px 0 0}.academy .hero,.tech .hero,.portfolio .hero{background-image:linear-gradient(color-mix(in srgb,${state.ink} 8%,transparent) 1px,transparent 1px),linear-gradient(90deg,color-mix(in srgb,${state.ink} 8%,transparent) 1px,transparent 1px);background-size:32px 32px}.law .visual,.clinic .visual{box-shadow:none}.clinic .grid article{border-radius:24px}.tech .visual{border-radius:24px;box-shadow:0 0 70px color-mix(in srgb,${state.primary} 40%,transparent)}.portfolio .visual{clip-path:polygon(0 7%,94% 0,100% 92%,8% 100%)}@media(max-width:760px){header nav{display:none}.hero{grid-template-columns:1fr;min-height:auto;padding:55px 18px}.hero h1{font-size:52px}.visual{min-height:330px}.grid{grid-template-columns:1fr}.grid article{min-height:190px}.info{grid-template-columns:1fr;padding:55px 18px}.services{padding:55px 18px}footer{flex-direction:column;padding:25px 18px}}</style></head><body class="${layout}"><header><b>${esc(state.businessName)}</b><nav><a href="#services">서비스</a><a href="#info">정보</a></nav><a class="cta" href="#info">${esc(state.cta)}</a></header><main><section class="hero"><div><small>${esc(state.categoryLabel)}</small><h1>${esc(state.businessName)}</h1><p>${esc(state.tagline)}</p><div class="actions"><a href="#services">${esc(state.cta)}</a><a href="#info">운영 정보</a></div></div><div class="visual"></div></section><section id="services" class="services"><span>OUR SERVICES</span><h2>지금 선택할 수 있는 것</h2><div class="grid">${cards||'<p>서비스를 추가하세요.</p>'}</div></section><section id="info" class="info"><div><small>VISIT & CONTACT</small><h2>필요한 정보를 한 번에.</h2></div><dl><div><dt>주소</dt><dd>${esc(state.address)}</dd></div><div><dt>전화</dt><dd>${esc(state.phone)}</dd></div><div><dt>이메일</dt><dd>${esc(state.email)}</dd></div><div><dt>평일</dt><dd>${esc(state.weekdayHours)}</dd></div><div><dt>주말</dt><dd>${esc(state.weekendHours)}</dd></div></dl></section></main><footer><b>${esc(state.businessName)}</b><span>Launch100 Preview · ${esc(t.name)}</span></footer></body></html>`}
-function updatePreview(){const t=tpl(state.templateId);$('#preview-frame').srcdoc=previewHTML();$('#preview-name').textContent=state.businessName||'브랜드명';$('#preview-template').textContent=t.name;$('#preview-name').title=t.name}
-function orderText(){const p=PLANS.find(x=>x.id===state.plan)||PLANS[1],t=tpl(state.templateId),no=`L100-${new Date().toISOString().slice(0,10).replaceAll('-','')}-${Math.random().toString(36).slice(2,7).toUpperCase()}`;return{no,text:`Launch100 테스트 주문서\n주문번호: ${no}\n생성일: ${new Date().toLocaleString('ko-KR')}\n\n[선택 디자인]\n${t.name} · ${t.industry} · ${t.mood}\n\n[사업 정보]\n상호: ${state.businessName}\n소개: ${state.tagline}\n주소: ${state.address}\n전화: ${state.phone}\n이메일: ${state.email}\n운영: ${state.weekdayHours} / ${state.weekendHours}\n\n[서비스]\n${state.services.map((s,i)=>`${i+1}. ${s.name} · ${s.price}\n   ${s.description}`).join('\n')}\n\n[브랜드]\n강조색: ${state.primary}\n보조색: ${state.secondary}\n글꼴: ${state.font}\n이미지: ${state.imageMood}\n\n[요금제]\n${p.name} · ${p.price.toLocaleString()}원\n${p.items.map(i=>`- ${i}`).join('\n')}\n\n[담당자]\n${state.customerName||'-'}\n${state.customerEmail||'-'}\n희망 도메인: ${state.domain||'-'}\nGA4: ${state.gaId||'-'}\nClarity: ${state.clarityId||'-'}\n\n※ 결제가 발생하지 않은 MVP 테스트 주문입니다.`}}
-function download(name,text,type='text/plain'){const a=document.createElement('a'),url=URL.createObjectURL(new Blob([text],{type}));a.href=url;a.download=name;document.body.appendChild(a);a.click();a.remove();URL.revokeObjectURL(url)}
-function share(){const url=new URL(location.href);url.search='';url.searchParams.set('preview',encode(safeShareState()));$('#share-url').value=url.href;$('#share-dialog').showModal();return url.href}
-function boot(){load();renderGallery();syncFields();updatePreview();if(document.body.classList.contains('shared-mode')){$('#preview-shell').className='preview-shell desktop';return}$$('.template-filters button').forEach(b=>b.onclick=()=>{filter=b.dataset.filter;$$('.template-filters button').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));renderGallery()});document.addEventListener('click',e=>{const use=e.target.closest('[data-use-template]');if(use){selectTemplate(use.dataset.useTemplate);showStep(1)}const pick=e.target.closest('[data-select-template]');if(pick)selectTemplate(pick.dataset.selectTemplate);const plan=e.target.closest('[data-plan]');if(plan){state.plan=plan.dataset.plan;renderPlans();save()}const remove=e.target.closest('[data-remove-service]');if(remove&&state.services.length>1){state.services.splice(Number(remove.dataset.removeService),1);renderServices();updatePreview();save()}const go=e.target.closest('[data-step-go]');if(go)showStep(Number(go.dataset.stepGo));const open=e.target.closest('[data-open-builder]');if(open){showStep(0);$('#builder').scrollIntoView({behavior:'smooth'})}});$('#template-search').oninput=e=>{search=e.target.value.trim();renderBuilderTemplates()};document.addEventListener('input',e=>{const el=e.target;if(el.name&&state[el.name]!==undefined){state[el.name]=el.value;updatePreview();save()}const row=el.closest('[data-service]');if(row&&el.dataset.serviceField){state.services[Number(row.dataset.service)][el.dataset.serviceField]=el.value;updatePreview();save()}});$('#add-service').onclick=()=>{if(state.services.length>=6)return announce('서비스는 최대 6개까지 추가할 수 있습니다.');state.services.push({name:'새 서비스',description:'서비스 설명을 입력하세요.',price:'가격 문의'});renderServices();updatePreview();save()};$('#reset-theme').onclick=()=>{const t=tpl(state.templateId);[state.primary,state.secondary,state.background,state.ink]=t.p;syncFields();updatePreview();save()};$('#prev-step').onclick=()=>showStep(step-1);$('#next-step').onclick=()=>showStep(step===4?0:step+1);$$('[data-device]').forEach(b=>b.onclick=()=>{$$('[data-device]').forEach(x=>x.setAttribute('aria-pressed',String(x===b)));$('#preview-shell').className=`preview-shell ${b.dataset.device}`});$('#open-preview').onclick=()=>{const w=open();w.document.write(previewHTML());w.document.close()};$('#create-order').onclick=()=>{const o=orderText();$('#order-number').textContent=o.no;$('#order-summary').textContent=o.text;$('#order-result').hidden=false;$('#order-result').scrollIntoView({behavior:'smooth',block:'center'});state.lastOrder=o;save()};$('#copy-order').onclick=async()=>{await navigator.clipboard.writeText($('#order-summary').textContent);announce('주문 초안을 복사했습니다.')};$('#download-order').onclick=()=>download('launch100-order.txt',$('#order-summary').textContent);$('#download-config').onclick=()=>download('launch100-site-config.json',JSON.stringify(state,null,2),'application/json');$('#share-preview').onclick=share;$$('[data-share-preview]').forEach(b=>b.onclick=share);$('#copy-share').onclick=async()=>{await navigator.clipboard.writeText($('#share-url').value);announce('공유 주소를 복사했습니다.')};$('#share-dialog').addEventListener('click',e=>{if(e.target===$('#share-dialog'))$('#share-dialog').close()})}
+import { TEMPLATES, PLANS } from './templates.js';
+import { DESIGN_PACKS, designPackFor } from './design-packs.js';
+import { renderPreview } from './preview-renderers.js';
+
+const $ = (selector, root = document) => root?.querySelector?.(selector) || null;
+const $$ = (selector, root = document) => root?.querySelectorAll ? [...root.querySelectorAll(selector)] : [];
+const esc = (value) => String(value ?? '').replace(/[&<>"']/g, (character) => ({
+  '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
+})[character]);
+const deep = (value) => JSON.parse(JSON.stringify(value));
+const templateFor = (id) => TEMPLATES.find((template) => template.id === id) || TEMPLATES[0];
+const STORAGE = 'launch100:mvp:v2';
+const LEGACY_STORAGE = 'launch100:mvp:v1';
+
+let state = defaults();
+let step = 0;
+let filter = 'all';
+let search = '';
+let previewFrame = 0;
+let saveTimer = 0;
+
+function defaults(template = TEMPLATES[0]) {
+  const pack = designPackFor(template.id);
+  return {
+    templateId: template.id,
+    ...deep(template.d),
+    services: template.d.services.map(([name, description, price]) => ({ name, description, price })),
+    primary: template.p[0],
+    secondary: template.p[1],
+    background: template.p[2],
+    ink: template.p[3],
+    font: pack.defaultFont,
+    imageMood: pack.traits[0],
+    plan: 'business',
+    customerName: '',
+    customerEmail: '',
+    gaId: '',
+    clarityId: '',
+    domain: ''
+  };
+}
+
+function announce(message) {
+  const live = $('#live');
+  if (!live) return;
+  live.textContent = '';
+  requestAnimationFrame(() => { live.textContent = message; });
+}
+
+function encode(data) {
+  const bytes = new TextEncoder().encode(JSON.stringify(data));
+  let binary = '';
+  bytes.forEach((byte) => { binary += String.fromCharCode(byte); });
+  return btoa(binary).replaceAll('+', '-').replaceAll('/', '_').replaceAll('=', '');
+}
+
+function decode(value) {
+  try {
+    const base64 = value.replaceAll('-', '+').replaceAll('_', '/');
+    const binary = atob(base64 + '='.repeat((4 - base64.length % 4) % 4));
+    const bytes = Uint8Array.from(binary, (character) => character.charCodeAt(0));
+    return JSON.parse(new TextDecoder().decode(bytes));
+  } catch {
+    return null;
+  }
+}
+
+function safeShareState() {
+  const { customerName, customerEmail, gaId, clarityId, lastOrder, ...safe } = state;
+  return safe;
+}
+
+function normalizeState(candidate) {
+  const template = templateFor(candidate?.templateId);
+  const base = defaults(template);
+  const merged = { ...base, ...(candidate || {}) };
+  merged.services = Array.isArray(candidate?.services) && candidate.services.length
+    ? candidate.services.slice(0, 6).map((item) => ({
+        name: String(item?.name || ''),
+        description: String(item?.description || ''),
+        price: String(item?.price || '')
+      }))
+    : base.services;
+  if (!DESIGN_PACKS[merged.templateId]) merged.templateId = TEMPLATES[0].id;
+  return merged;
+}
+
+function load() {
+  const params = new URLSearchParams(location.search);
+  const shared = decode(params.get('preview') || '');
+  if (shared) {
+    state = normalizeState(shared);
+    document.body.classList.add('shared-mode');
+    return;
+  }
+
+  let saved = null;
+  try {
+    saved = JSON.parse(localStorage.getItem(STORAGE) || localStorage.getItem(LEGACY_STORAGE) || 'null');
+  } catch {
+    saved = null;
+  }
+  state = normalizeState(saved);
+
+  const requestedTemplate = params.get('template');
+  if (requestedTemplate && DESIGN_PACKS[requestedTemplate]) {
+    const preserved = {
+      plan: state.plan,
+      customerName: state.customerName,
+      customerEmail: state.customerEmail,
+      gaId: state.gaId,
+      clarityId: state.clarityId,
+      domain: state.domain
+    };
+    state = { ...defaults(templateFor(requestedTemplate)), ...preserved };
+  }
+}
+
+function save() {
+  try { localStorage.setItem(STORAGE, JSON.stringify(state)); } catch { /* storage is optional */ }
+  const status = $('#save-status');
+  if (!status) return;
+  status.textContent = '이 브라우저에 저장됨';
+  clearTimeout(saveTimer);
+  saveTimer = setTimeout(() => { status.textContent = '자동 저장 중'; }, 1200);
+}
+
+function ensureDesignPackStyles() {
+  if (document.querySelector('link[data-launch100-design-packs]')) return;
+  const link = document.createElement('link');
+  link.rel = 'stylesheet';
+  link.href = './assets/design-packs.css';
+  link.dataset.launch100DesignPacks = 'true';
+  document.head.appendChild(link);
+}
+
+function packBadges(pack) {
+  return pack.traits.slice(0, 2).map((trait) => `<i>${esc(trait)}</i>`).join('');
+}
+
+function galleryCard(template) {
+  const pack = designPackFor(template.id);
+  return `<article class="template-card" data-template-card="${template.id}" data-design-pack="${pack.id}" style="--card-bg:${template.p[2]};--card-ink:${template.p[3]};--card-accent:${template.p[0]};--card-secondary:${template.p[1]}">
+    <div class="template-thumb pack-${pack.thumb}">
+      <span>WORLD ${template.n} · ${esc(template.industry)}</span>
+      <b>${esc(template.name)}</b>
+      <i class="pack-art" aria-hidden="true"></i>
+      <em class="pack-label">${esc(pack.label)}</em>
+    </div>
+    <div class="template-meta">
+      <span>${esc(template.mood)}</span>
+      <h3>${esc(template.name)}</h3>
+      <p>${esc(template.desc)}</p>
+      <div class="pack-signature">${packBadges(pack)}</div>
+      <button type="button" data-use-template="${template.id}">이 디자인으로 만들기</button>
+    </div>
+  </article>`;
+}
+
+function renderGallery() {
+  const gallery = $('#template-gallery');
+  if (!gallery) return;
+  const query = search.toLowerCase();
+  const list = TEMPLATES.filter((template) => {
+    const pack = designPackFor(template.id);
+    const matchesFilter = filter === 'all' || template.cat === filter;
+    const haystack = `${template.name} ${template.industry} ${template.mood} ${pack.KoreanLabel} ${pack.traits.join(' ')}`.toLowerCase();
+    return matchesFilter && (!query || haystack.includes(query));
+  });
+  gallery.innerHTML = list.map(galleryCard).join('') || '<p>조건에 맞는 디자인이 없습니다.</p>';
+}
+
+function builderTemplateButton(template) {
+  const pack = designPackFor(template.id);
+  return `<button type="button" class="builder-template" data-select-template="${template.id}" data-pack="${pack.thumb}" aria-pressed="${state.templateId === template.id}" style="--c1:${template.p[0]};--c2:${template.p[1]}">
+    <i aria-hidden="true"></i>
+    <span>WORLD ${template.n} · ${esc(template.industry)}</span>
+    <b>${esc(template.name)}</b>
+    <small>${esc(template.mood)}</small>
+    <em class="builder-pack">${esc(pack.KoreanLabel)} · ${esc(pack.sections.slice(0, 2).join(' / '))}</em>
+  </button>`;
+}
+
+function renderBuilderTemplates() {
+  const container = $('#builder-templates');
+  if (!container) return;
+  const query = search.toLowerCase();
+  const list = TEMPLATES.filter((template) => {
+    const pack = designPackFor(template.id);
+    return !query || `${template.name} ${template.industry} ${template.mood} ${pack.KoreanLabel}`.toLowerCase().includes(query);
+  });
+  container.innerHTML = list.map(builderTemplateButton).join('');
+}
+
+function renderPlans() {
+  const grid = $('#plan-grid');
+  if (!grid) return;
+  grid.innerHTML = PLANS.map((plan) => `<button type="button" class="plan-card" data-plan="${plan.id}" aria-pressed="${state.plan === plan.id}">
+    <span>${plan.name.toUpperCase()}</span><strong>${plan.price.toLocaleString()}원</strong><p>${plan.desc}</p><ul>${plan.items.map((item) => `<li>${esc(item)}</li>`).join('')}</ul>
+  </button>`).join('');
+}
+
+function renderServices() {
+  const editor = $('#service-editor');
+  if (!editor) return;
+  editor.innerHTML = state.services.map((service, index) => `<div class="service-row" data-service="${index}">
+    <input data-service-field="name" value="${esc(service.name)}" placeholder="서비스 이름" aria-label="${index + 1}번째 서비스 이름">
+    <textarea data-service-field="description" rows="1" placeholder="짧은 설명" aria-label="${index + 1}번째 서비스 설명">${esc(service.description)}</textarea>
+    <input data-service-field="price" value="${esc(service.price)}" placeholder="가격·기간" aria-label="${index + 1}번째 서비스 가격">
+    <button class="remove-service" type="button" data-remove-service="${index}" aria-label="${index + 1}번째 서비스 삭제">×</button>
+  </div>`).join('');
+}
+
+function syncFields() {
+  $$('[name]').forEach((element) => {
+    if (state[element.name] !== undefined) element.value = state[element.name];
+  });
+  renderServices();
+  renderPlans();
+  renderBuilderTemplates();
+}
+
+function updateTemplateQuery(id) {
+  if (document.body.classList.contains('shared-mode')) return;
+  const url = new URL(location.href);
+  url.searchParams.delete('preview');
+  url.searchParams.set('template', id);
+  history.replaceState(null, '', `${url.pathname}${url.search}${location.hash || ''}`);
+}
+
+function selectTemplate(id, reset = true) {
+  const template = templateFor(id);
+  const preserved = {
+    plan: state.plan,
+    customerName: state.customerName,
+    customerEmail: state.customerEmail,
+    gaId: state.gaId,
+    clarityId: state.clarityId,
+    domain: state.domain
+  };
+  state = reset
+    ? { ...defaults(template), ...preserved }
+    : { ...state, templateId: id, primary: template.p[0], secondary: template.p[1], background: template.p[2], ink: template.p[3], font: designPackFor(id).defaultFont };
+  syncFields();
+  renderGallery();
+  schedulePreview();
+  updateTemplateQuery(id);
+  save();
+  announce(`${template.name}의 ${designPackFor(id).KoreanLabel} 디자인을 선택했습니다.`);
+}
+
+function showStep(next, shouldScroll = true) {
+  step = Math.max(0, Math.min(4, next));
+  $$('.step-panel').forEach((panel, index) => panel.classList.toggle('active', index === step));
+  $$('[data-step-go]').forEach((button, index) => {
+    button.classList.toggle('active', index === step);
+    button.setAttribute('aria-current', index === step ? 'step' : 'false');
+  });
+  const titles = ['디자인 선택', '사업 정보', '서비스·상품', '브랜드 스타일', '요금제·주문'];
+  $('#step-counter').textContent = `STEP ${step + 1} / 5`;
+  $('#step-title').textContent = titles[step];
+  $('#prev-step').disabled = step === 0;
+  $('#next-step').textContent = step === 4 ? '처음으로' : '다음 단계';
+  if (shouldScroll) $('#builder')?.scrollIntoView({ block: 'start', behavior: 'smooth' });
+}
+
+function previewHTML() {
+  return renderPreview(state, templateFor(state.templateId));
+}
+
+function updatePreview() {
+  const frame = $('#preview-frame');
+  if (!frame) return;
+  const template = templateFor(state.templateId);
+  const pack = designPackFor(template.id);
+  frame.srcdoc = previewHTML();
+  $('#preview-name').textContent = state.businessName || '브랜드명';
+  $('#preview-template').textContent = `${template.name} · ${pack.KoreanLabel}`;
+  $('#preview-name').title = `${template.name} / ${pack.signature}`;
+  document.body.dataset.activeDesignPack = pack.id;
+}
+
+function schedulePreview() {
+  cancelAnimationFrame(previewFrame);
+  previewFrame = requestAnimationFrame(updatePreview);
+}
+
+function orderText() {
+  const plan = PLANS.find((item) => item.id === state.plan) || PLANS[1];
+  const template = templateFor(state.templateId);
+  const pack = designPackFor(template.id);
+  const number = `L100-${new Date().toISOString().slice(0, 10).replaceAll('-', '')}-${Math.random().toString(36).slice(2, 7).toUpperCase()}`;
+  return {
+    no: number,
+    text: `Launch100 테스트 주문서\n주문번호: ${number}\n생성일: ${new Date().toLocaleString('ko-KR')}\n\n[선택 디자인]\n${template.name} · ${template.industry}\n디자인 팩: ${pack.KoreanLabel}\n구조: ${pack.sections.join(' → ')}\n특징: ${pack.traits.join(', ')}\n\n[사업 정보]\n상호: ${state.businessName}\n소개: ${state.tagline}\n주소: ${state.address}\n전화: ${state.phone}\n이메일: ${state.email}\n운영: ${state.weekdayHours} / ${state.weekendHours}\n\n[서비스]\n${state.services.map((service, index) => `${index + 1}. ${service.name} · ${service.price}\n   ${service.description}`).join('\n')}\n\n[브랜드]\n강조색: ${state.primary}\n보조색: ${state.secondary}\n글꼴: ${state.font}\n이미지: ${state.imageMood}\n\n[요금제]\n${plan.name} · ${plan.price.toLocaleString()}원\n${plan.items.map((item) => `- ${item}`).join('\n')}\n\n[담당자]\n${state.customerName || '-'}\n${state.customerEmail || '-'}\n희망 도메인: ${state.domain || '-'}\nGA4: ${state.gaId || '-'}\nClarity: ${state.clarityId || '-'}\n\n※ 결제가 발생하지 않은 MVP 테스트 주문입니다.`
+  };
+}
+
+function download(name, text, type = 'text/plain') {
+  const anchor = document.createElement('a');
+  const url = URL.createObjectURL(new Blob([text], { type }));
+  anchor.href = url;
+  anchor.download = name;
+  document.body.appendChild(anchor);
+  anchor.click();
+  anchor.remove();
+  URL.revokeObjectURL(url);
+}
+
+async function copyText(text) {
+  if (navigator.clipboard?.writeText) return navigator.clipboard.writeText(text);
+  const textarea = document.createElement('textarea');
+  textarea.value = text;
+  textarea.style.position = 'fixed';
+  textarea.style.opacity = '0';
+  document.body.appendChild(textarea);
+  textarea.select();
+  document.execCommand('copy');
+  textarea.remove();
+}
+
+function share() {
+  const url = new URL(location.href);
+  url.search = '';
+  url.searchParams.set('preview', encode(safeShareState()));
+  url.hash = 'builder';
+  $('#share-url').value = url.href;
+  $('#share-dialog').showModal();
+  return url.href;
+}
+
+function bindFilters() {
+  $$('.template-filters button').forEach((button) => {
+    button.addEventListener('click', () => {
+      filter = button.dataset.filter;
+      $$('.template-filters button').forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+      renderGallery();
+    });
+  });
+}
+
+function bindDocumentClicks() {
+  document.addEventListener('click', (event) => {
+    const use = event.target.closest('[data-use-template]');
+    if (use) {
+      selectTemplate(use.dataset.useTemplate);
+      showStep(1);
+      return;
+    }
+    const pick = event.target.closest('[data-select-template]');
+    if (pick) {
+      selectTemplate(pick.dataset.selectTemplate);
+      return;
+    }
+    const plan = event.target.closest('[data-plan]');
+    if (plan) {
+      state.plan = plan.dataset.plan;
+      renderPlans();
+      save();
+      return;
+    }
+    const remove = event.target.closest('[data-remove-service]');
+    if (remove && state.services.length > 1) {
+      state.services.splice(Number(remove.dataset.removeService), 1);
+      renderServices();
+      schedulePreview();
+      save();
+      return;
+    }
+    const go = event.target.closest('[data-step-go]');
+    if (go) {
+      showStep(Number(go.dataset.stepGo));
+      return;
+    }
+    const openBuilder = event.target.closest('[data-open-builder]');
+    if (openBuilder) {
+      showStep(0);
+      return;
+    }
+  });
+}
+
+function bindInputs() {
+  $('#template-search').addEventListener('input', (event) => {
+    search = event.target.value.trim();
+    renderBuilderTemplates();
+    renderGallery();
+  });
+  document.addEventListener('input', (event) => {
+    const element = event.target;
+    if (element.name && state[element.name] !== undefined) {
+      state[element.name] = element.value;
+      schedulePreview();
+      save();
+    }
+    const row = element.closest?.('[data-service]');
+    if (row && element.dataset.serviceField) {
+      state.services[Number(row.dataset.service)][element.dataset.serviceField] = element.value;
+      schedulePreview();
+      save();
+    }
+  });
+}
+
+function bindActions() {
+  $('#add-service').addEventListener('click', () => {
+    if (state.services.length >= 6) return announce('서비스는 최대 6개까지 추가할 수 있습니다.');
+    state.services.push({ name: '새 서비스', description: '서비스 설명을 입력하세요.', price: '가격 문의' });
+    renderServices();
+    schedulePreview();
+    save();
+  });
+
+  $('#reset-theme').addEventListener('click', () => {
+    const template = templateFor(state.templateId);
+    const pack = designPackFor(template.id);
+    [state.primary, state.secondary, state.background, state.ink] = template.p;
+    state.font = pack.defaultFont;
+    state.imageMood = pack.traits[0];
+    syncFields();
+    schedulePreview();
+    save();
+  });
+
+  $('#prev-step').addEventListener('click', () => showStep(step - 1));
+  $('#next-step').addEventListener('click', () => showStep(step === 4 ? 0 : step + 1));
+
+  $$('[data-device]').forEach((button) => {
+    button.addEventListener('click', () => {
+      $$('[data-device]').forEach((item) => item.setAttribute('aria-pressed', String(item === button)));
+      $('#preview-shell').className = `preview-shell ${button.dataset.device}`;
+    });
+  });
+
+  $('#open-preview').addEventListener('click', () => {
+    const popup = window.open('', '_blank');
+    if (!popup) return announce('팝업 차단을 해제한 뒤 다시 시도하세요.');
+    popup.document.open();
+    popup.document.write(previewHTML());
+    popup.document.close();
+  });
+
+  $('#create-order').addEventListener('click', () => {
+    const order = orderText();
+    $('#order-number').textContent = order.no;
+    $('#order-summary').textContent = order.text;
+    $('#order-result').hidden = false;
+    $('#order-result').scrollIntoView({ behavior: 'smooth', block: 'center' });
+    state.lastOrder = order;
+    save();
+  });
+
+  $('#copy-order').addEventListener('click', async () => {
+    await copyText($('#order-summary').textContent);
+    announce('주문 초안을 복사했습니다.');
+  });
+  $('#download-order').addEventListener('click', () => download('launch100-order.txt', $('#order-summary').textContent));
+  $('#download-config').addEventListener('click', () => download('launch100-site-config.json', JSON.stringify(state, null, 2), 'application/json'));
+  $('#share-preview').addEventListener('click', share);
+  $$('[data-share-preview]').forEach((button) => button.addEventListener('click', share));
+  $('#copy-share').addEventListener('click', async () => {
+    await copyText($('#share-url').value);
+    announce('공유 주소를 복사했습니다.');
+  });
+  $('#share-dialog').addEventListener('click', (event) => {
+    if (event.target === $('#share-dialog')) $('#share-dialog').close();
+  });
+}
+
+function boot() {
+  ensureDesignPackStyles();
+  load();
+  renderGallery();
+  syncFields();
+  updatePreview();
+  showStep(0, false);
+
+  if (document.body.classList.contains('shared-mode')) {
+    $('#preview-shell').className = 'preview-shell desktop';
+    return;
+  }
+
+  bindFilters();
+  bindDocumentClicks();
+  bindInputs();
+  bindActions();
+  save();
+}
+
 boot();
