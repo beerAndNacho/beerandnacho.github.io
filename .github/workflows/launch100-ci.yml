@@ -2,7 +2,7 @@ name: Launch100 CI
 
 on:
   push:
-    branches: [main, launch100-mvp]
+    branches: [main, launch100-mvp, launch100-v2-design-packs]
     paths:
       - 'Launch100/**'
       - '.github/workflows/launch100-ci.yml'
@@ -15,28 +15,59 @@ on:
 jobs:
   validate:
     runs-on: ubuntu-latest
+    timeout-minutes: 25
     steps:
       - uses: actions/checkout@v4
       - uses: actions/setup-node@v4
         with:
           node-version: 22
-      - name: Validate Launch100 source
+      - name: Install browser audit dependencies
         working-directory: Launch100
-        run: npm run check
-      - name: Verify browser audit summary and public paths
+        run: |
+          npm install --no-audit --no-fund
+          npx playwright install --with-deps chromium
+      - name: Validate source, design packs and browser flows
+        working-directory: Launch100
+        run: npm test
+      - name: Verify Launch100 v2 output
         run: |
           set -euo pipefail
           test -s Launch100/index.html
           test -s Launch100/assets/app.css
+          test -s Launch100/assets/design-packs.css
           test -s Launch100/assets/templates.js
+          test -s Launch100/assets/design-packs.js
+          test -s Launch100/assets/preview-renderers.js
           test -s Launch100/assets/app.js
+          test -s Launch100/design-audit-report.json
           test -s Launch100/browser-report.json
+          grep -q "renderPreview" Launch100/assets/app.js
+          grep -q "const RENDERERS" Launch100/assets/preview-renderers.js
+          grep -q "'salt-bakery': renderBakery" Launch100/assets/preview-renderers.js
+          grep -q "'desktop-cv': renderPortfolio" Launch100/assets/preview-renderers.js
           node - <<'NODE'
-          const report = require('./Launch100/browser-report.json');
-          if (report.desktop.templates !== 10) throw new Error('Expected 10 templates');
-          if (report.desktop.docWidth !== report.desktop.viewport || !report.desktop.order || !report.desktop.preview_ok) throw new Error('Desktop browser audit mismatch');
-          if (report.mobile.docWidth !== report.mobile.viewport || !report.mobile.share || !report.mobile.preview_ok) throw new Error('Mobile browser audit mismatch');
-          if (report.shared.docWidth !== report.shared.viewport || !report.shared.shared || !report.shared.preview_ok) throw new Error('Shared preview audit mismatch');
-          if (report.desktop.errors.length || report.mobile.errors.length || report.shared.errors.length) throw new Error('Browser errors recorded');
+          const design = require('./Launch100/design-audit-report.json');
+          const browser = require('./Launch100/browser-report.json');
+          if (design.templateCount !== 10 || design.rendererCount !== 10) throw new Error('Expected 10 templates and renderers');
+          if (design.uniqueStructures !== 10 || design.uniqueHtmlDocuments !== 10) throw new Error('Design structure uniqueness failed');
+          if (design.failures.length) throw new Error('Static design audit failures recorded');
+          if (browser.checks !== 31) throw new Error(`Expected 31 browser checks, got ${browser.checks}`);
+          if (browser.uniqueStructures !== 10) throw new Error(`Expected 10 browser structures, got ${browser.uniqueStructures}`);
+          if (browser.failures.length) throw new Error('Browser failures recorded');
+          if (Object.values(browser.functionalFlow).some(value => !value)) throw new Error('Functional flow incomplete');
+          for (const profile of browser.profiles) {
+            if (profile.templates !== 10 || profile.overflowFailures || profile.errors) throw new Error(`Profile failed: ${profile.name}`);
+          }
+          console.log('Verified 10 unique packs, 31 browser checks and complete edit/share/order flows.');
           NODE
           grep -q 'https://beerandnacho.github.io/Launch100/' Launch100/index.html
+      - name: Upload Launch100 audit reports
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: launch100-v2-audits
+          path: |
+            Launch100/design-audit-report.json
+            Launch100/browser-report.json
+          if-no-files-found: warn
+          retention-days: 14
