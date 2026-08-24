@@ -1,1 +1,15 @@
-{"name":"launch100-mvp","version":"1.0.0","private":true,"type":"module","scripts":{"check":"node scripts/check.mjs"}}
+{
+  "name": "launch100-mvp",
+  "version": "2.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Ten structurally distinct industry website design packs with live editing, responsive previews, private sharing and test orders.",
+  "scripts": {
+    "check": "node scripts/check.mjs && node scripts/design-audit.mjs",
+    "audit:browser": "node scripts/browser-audit.mjs",
+    "test": "npm run check && npm run audit:browser"
+  },
+  "devDependencies": {
+    "playwright": "^1.55.0"
+  }
+}
